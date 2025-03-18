@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Restaurant_Reservation_System_.DataAccess.DAL;
+
 namespace Restaurant_Reservation_System_FinalProject
 {
     public class Program
@@ -5,9 +8,15 @@ namespace Restaurant_Reservation_System_FinalProject
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            var config = builder.Configuration;
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<AppDbContext>(option =>
+            {
+                option.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+            });
 
             var app = builder.Build();
 
