@@ -8,9 +8,11 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL
         public AppDbContext(DbContextOptions options) : base(options)
         {
         }
+
         public DbSet<Slider> Sliders { get; set; }
     }
 }
 
 
-//dotnet ef --startup project  ..\Restaurant-Reservation-System_FinalProject migrations add -o DAL/Migrations
+//dotnet ef migrations add InitialMigration --startup-project ..\Restaurant-Reservation-System_FinalProject -o .\DAL\Migrations
+//dotnet ef database update --startup-project ..\Restaurant-Reservation-System_FinalProject

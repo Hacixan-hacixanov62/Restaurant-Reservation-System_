@@ -1,0 +1,56 @@
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+
+namespace Restaurant_Reservation_System_.DataAccess.Helpers
+{
+    public static class FileManager
+    {
+        public static string SaveImage(this IFormFile file, string path, string folder)
+        {
+            string fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+            string fullPath = Path.Combine(path, folder, fileName);
+            using FileStream fileStream = new FileStream(fullPath, FileMode.Create);
+            file.CopyTo(fileStream);
+            return fileName;
+
+        }
+        public static bool CheckSize(this IFormFile file, int maxSize)
+        {
+            return file.Length >= maxSize;
+
+        }
+        public static bool CheckType(this IFormFile file, string[] types)
+        {
+            return types.Contains(file.ContentType);
+        }
+
+        public static bool DeleteFile(string path)
+        {
+            if (System.IO.File.Exists(path))
+            {
+                System.IO.File.Delete(path);
+                return true;
+            }
+            return false;
+
+        }
+
+        public static string GenerateFilePath(this IWebHostEnvironment env, string folder, string fileName)
+        {
+            return Path.Combine(env.WebRootPath, folder, fileName);
+        }
+
+        public static async Task SaveFileToLocalAsync(this IFormFile file, string path)
+        {
+            using FileStream stream = new(path, FileMode.Create);
+            await file.CopyToAsync(stream);
+        }
+
+        public static void DeleteFileFromLocal(this string path)
+        {
+            if (File.Exists(path))
+                File.Delete(path);
+        }
+
+    }
+}

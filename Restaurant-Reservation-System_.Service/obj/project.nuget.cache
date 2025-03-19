@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "zulcHwvQljVIZCNZ9/7ZwGUXdx6BwT0ONnalmCsiC1MdugGR49cd8f698PO6KPrFhg312SBlW1SB9r81Y076Xw==",
+  "dgSpecHash": "CTIwTuoROUNf4HSwUsiUivYMi/8hmGZYljOJsgNWuT3DuW8U2phfhN6lwA/fDVOHTM9uOe4il0JJfia3PcVz9Q==",
   "success": true,
   "projectFilePath": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_.Service\\Restaurant-Reservation-System_.Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hacixanov\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Hacixanov\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
+    "C:\\Users\\Hacixanov\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\8.0.11\\microsoft.aspnetcore.diagnostics.entityframeworkcore.8.0.11.nupkg.sha512",
     "C:\\Users\\Hacixanov\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Hacixanov\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Hacixanov\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.6\\microsoft.data.sqlclient.5.1.6.nupkg.sha512",

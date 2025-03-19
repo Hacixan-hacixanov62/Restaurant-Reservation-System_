@@ -10,3 +10,6 @@ C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Res
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_.Core\obj\Debug\net8.0\refint\Restaurant-Reservation-System_.Core.dll
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_.Core\obj\Debug\net8.0\Restaurant-Reservation-System_.Core.pdb
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_.Core\obj\Debug\net8.0\ref\Restaurant-Reservation-System_.Core.dll
+C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_.Core\bin\Debug\net8.0\Restaurant-Reservation-System_.Core.runtimeconfig.json
+C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_.Core\obj\Debug\net8.0\Restaurant-Reservation-System_.Core.csproj.AssemblyReference.cache
+C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_.Core\obj\Debug\net8.0\Restaurant-Reservation-System_.Core.genruntimeconfig.cache
