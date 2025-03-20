@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Restaurant_Reservation_System_.Core.Entittes;
 using Restaurant_Reservation_System_.DataAccess.DAL;
 
 namespace Restaurant_Reservation_System_FinalProject
@@ -10,12 +12,44 @@ namespace Restaurant_Reservation_System_FinalProject
             var builder = WebApplication.CreateBuilder(args);
             var config = builder.Configuration;
 
+
+            builder.Services.AddControllersWithViews()
+                  .AddNewtonsoftJson(options =>
+            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
+
+
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddDbContext<AppDbContext>(option =>
             {
                 option.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+            });
+
+            builder.Services.AddHttpContextAccessor();
+
+            builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
+            {
+                opt.Password.RequireDigit = true;
+                opt.Password.RequireLowercase = true;
+                opt.Password.RequireUppercase = true;
+                opt.Password.RequireNonAlphanumeric = true;
+                opt.Password.RequiredLength = 6;
+                opt.User.RequireUniqueEmail = true;
+
+                // opt.SignIn.RequireConfirmedEmail = true;
+
+                opt.Lockout.MaxFailedAccessAttempts = 3; // cehd sohbeti Remmember !!!
+                opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
+                opt.Lockout.AllowedForNewUsers = true;
+
+
+            }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+
+            builder.Services.AddSession(opt =>
+            {
+                //opt.IdleTimeout = TimeSpan.FromSeconds(20);
             });
 
             var app = builder.Build();
@@ -34,6 +68,8 @@ namespace Restaurant_Reservation_System_FinalProject
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseAuthorization();
+
             app.MapControllerRoute(
                  name: "areas",
                  pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");

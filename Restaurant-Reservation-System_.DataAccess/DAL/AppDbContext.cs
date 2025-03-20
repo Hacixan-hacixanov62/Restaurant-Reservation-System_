@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Restaurant_Reservation_System_.Core.Entittes;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Restaurant_Reservation_System_.DataAccess.DAL
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<AppUser>
     {
         public AppDbContext(DbContextOptions options) : base(options)
         {

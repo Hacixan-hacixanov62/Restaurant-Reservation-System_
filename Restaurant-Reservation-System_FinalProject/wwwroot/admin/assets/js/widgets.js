@@ -1,69 +1,32 @@
-( function ( $ ) {
-    "use strict";
-
-
-    
- $.plot("#flotBar1", [{
-  data: [[0, 3], [2, 8], [4, 5], [6, 13],[8,5], [10,7],[12,4], [14,6]],
-  bars: {
-    show: true,
-    lineWidth: 0,
-    fillColor: '#85c988'          
+(function($) {
+  'use strict';
+  $.fn.andSelf = function() {
+    return this.addBack.apply(this, arguments);
   }
-}], {
-  grid: {
-    show: false,
-    hoverable: true
-  }
-});
-
-
-
- var plot = $.plot($('#flotLine1'),[{
-  data: [[0, 1], [1, 3], [2,6], [3, 5], [4, 7], [5, 8], [6, 10]],
-  color: '#fff'
-}],
-{
-  series: {
-    lines: {
-      show: false
-    },
-    splines: {
-      show: true,
-      tension: 0.4,
-      lineWidth: 2
-        //fill: 0.4
-      },
-      shadowSize: 0
-    },
-    points: {
-      show: false,
-    },
-    legend: {
-      noColumns: 1,
-      position: 'nw'
-    },
-    grid: {
-      hoverable: true,
-      clickable: true,
-      show: false
-    },
-    yaxis: {
-      min: 0,
-      max: 10,
-      color: '#eee',
-      font: {
-        size: 10,
-        color: '#6a7074'
-      }
-    },
-    xaxis: {
-      color: '#eee',
-      font: {
-        size: 10,
-        color: '#6a7074'
-      }
+  $(function() {
+    var isrtl = $("body").hasClass("rtl");
+    if ($('.owl-carousel').length) {
+      $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        dots: false,
+        nav: true,
+        rtl: isrtl,
+        autoplay: true,
+        autoplayTimeout: 4500,
+        navText: ["<i class='mdi mdi-chevron-left'></i>", "<i class='mdi mdi-chevron-right'></i>"],
+        responsive: {
+          0: {
+            items: 1
+          },
+          600: {
+            items: 1
+          },
+          1000: {
+            items: 1
+          }
+        }
+      });
     }
-  });
-
-} )( jQuery );
+    });
+})(jQuery);
