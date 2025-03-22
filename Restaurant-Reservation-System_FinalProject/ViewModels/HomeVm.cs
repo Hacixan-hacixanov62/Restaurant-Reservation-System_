@@ -5,5 +5,6 @@ namespace Restaurant_Reservation_System_FinalProject.ViewModels
     public class HomeVm
     {
         public List<Slider> Sliders { get; set; }
+        public List<About> Abouts { get; set; }
     }
 }

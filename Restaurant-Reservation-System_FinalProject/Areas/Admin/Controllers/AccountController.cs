@@ -30,7 +30,7 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
                 FullName ="UserAdmin"
             };
             IdentityResult identityResult = await _userManager.CreateAsync(appUser, "_Admin123");
-            //await _userManager.AddToRoleAsync(appUser, "Admin");
+            await _userManager.AddToRoleAsync(appUser, "Admin");
             return Json(identityResult);
             
 
@@ -49,7 +49,7 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
         {
             return View();
         }
-
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(AdminLoginVM adminLoginVm, string? returnUrl)

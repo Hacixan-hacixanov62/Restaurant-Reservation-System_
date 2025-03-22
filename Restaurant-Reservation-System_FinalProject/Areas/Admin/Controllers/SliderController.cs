@@ -1,131 +1,134 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Restaurant_Reservation_System_.Core.Entittes;
 using Restaurant_Reservation_System_.DataAccess.DAL;
 using Restaurant_Reservation_System_.DataAccess.Helpers;
+using Restaurant_Reservation_System_.Service.Services;
+using Restaurant_Reservation_System_.Service.Services.IService;
+using Restaurant_Reservation_System_.Service.ViewModels.SliderVM;
 
 namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin,Superadmin")]
     public class SliderController : Controller
     {
-        private readonly AppDbContext _context;
-        private readonly IWebHostEnvironment _env;
-        public SliderController(AppDbContext context, IWebHostEnvironment env)
+        private readonly ISliderService _sliderService;
+        public SliderController(ISliderService sliderService)
         {
-            _context = context;
-            _env = env;
+            _sliderService = sliderService;
         }
-        public IActionResult Index()
+
+        public async Task<IActionResult> Index()
         {
-            return View(_context.Sliders.ToList());
+            try
+            {
+                var sliders = await _sliderService.GetAllAsync(); 
+                return View(sliders); 
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
+
         public IActionResult Create()
         {
             return View();
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create(Slider slider)
-        {
-            //if (!ModelState.IsValid)
-            //{
-            //    return View();
-            //}
-
-            if (slider.Photo == null)
-            {
-                ModelState.AddModelError("Photo", " Photo is required");
-            }
-
-            var file = slider.Photo;
-
-
-            slider.Image = file.SaveImage(_env.WebRootPath, "assets/images/home");
-            _context.Sliders.Add(slider);
-            _context.SaveChanges();
-            return RedirectToAction("Index");
-        }
-        public IActionResult Edit(int? id)
-        {
-            if (id is null)
-            {
-                return NotFound();
-            }
-            var slider = _context.Sliders.Find(id);
-            if (slider is null)
-            {
-                return NotFound();
-            }
-            return View(slider);
-        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Slider slider)
+        public async Task<IActionResult> Create([FromForm] SliderCreateVM model)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return View(slider);
-            //}
-            var existSlider = _context.Sliders.Find(slider.Id);
-            if (existSlider is null)
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                await _sliderService.CreateAsync(model);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message); 
+            }
+        }
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var file = slider.Photo;
-            string oldImage = existSlider.Image;
-            if (file != null)
+            var slider = await _sliderService.DetailAsync(id.Value);
+            if (slider == null)
             {
-
-                existSlider.Image = file.SaveImage(_env.WebRootPath, "assets/images/home");
-                var deleteImagePath = Path.Combine(_env.WebRootPath, "assets/images/home", oldImage);
-
-                FileManager.DeleteFile(deleteImagePath);
+                return NotFound();
             }
 
-            existSlider.Title = slider.Title;
-            existSlider.Description = slider.Description;
-            _context.SaveChanges();
-            return RedirectToAction("Index");
-
+            return View(new SliderEditVM
+            {
+                Title = slider.Title,
+                Description = slider.Description,
+                Image = null 
+            });
         }
 
-        public IActionResult Delete(int? id)
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, SliderEditVM sliderEditVM)
         {
-            var existSlider = _context.Sliders.Find(id);
-            if (existSlider is null)
+            if (!ModelState.IsValid)
             {
-                return NotFound();
+                return View(sliderEditVM);
             }
-            _context.Sliders.Remove(existSlider);
-            _context.SaveChanges();
 
+            try
+            {
+                await _sliderService.UpdateAsync(id, sliderEditVM); 
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return View(sliderEditVM);
+            }
 
-            var deleteImagePath = Path.Combine(_env.WebRootPath, "assets/images/home", existSlider.Image);
-            FileManager.DeleteFile(deleteImagePath);
+        }
+        
 
-
-            return RedirectToAction("Index");
+        public async Task<IActionResult> Delete(int id)
+        {
+            try
+            {
+                await _sliderService.DeleteAsync(id);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message); // Slider tapılmadıqda
+            }
         }
 
 
         [HttpGet("admin/slider/detail")]
-        public IActionResult Detail(int? id)
+        public async Task<IActionResult> Detail(int id)
         {
-            if (id is null)
+            try
             {
-                return NotFound();
+                var slider = await _sliderService.DetailAsync(id);
+                return View(slider);
             }
-
-            var slider = _context.Sliders
-                         .Where(s => s.Id == id)
-                        .FirstOrDefault();
-            if (slider is null)
+            catch (Exception ex)
             {
-                return NotFound();
+                return NotFound(ex.Message); // Slider tapılmadıqda
             }
-            return View(slider);
         }
+
     }
 }

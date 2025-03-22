@@ -1,0 +1,251 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+body,
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+#Account {
+    height: max-content;
+    padding-block: 150px;
+
+    .opening-title {
+        border-bottom: 2px solid rgb(255, 185, 54);
+        font-weight: 400;
+        display: inline;
+    }
+
+    nav {
+        margin-block: 15px;
+
+        a {
+            color: black;
+        }
+    }
+
+    .container {
+        .row {
+            .col-md-4 {
+                .left-list-group {
+
+                    ul {
+                        border: 1px solid rgb(211, 211, 211);
+                        padding: 10px;
+                        margin: 0 !important;
+                        border-radius: 6px !important;
+
+                        li {
+                            list-style-type: none;
+                            padding: 10px;
+                            border-radius: inherit;
+                        }
+
+                        .active {
+                            background: rgb(255, 185, 54);
+                            color: white;
+                            transition: 0.3s;
+                        }
+                    }
+                }
+            }
+
+            h2 {
+                border-bottom: 2px solid rgb(255, 185, 54);
+                font-weight: 300;
+                border-left: 2px solid rgb(255, 185, 54);
+                padding-left: 5px;
+                border-radius: 0px 0px 0px 6px;
+                padding-bottom: 5px;
+            }
+
+            .col-md-8 {
+                section {
+                    display: none;
+                }
+
+                .DashboardSection {
+                    border: 1px solid rgb(211, 211, 211);
+                    border-radius: 6px !important;
+                    padding: 20px;
+                    display: block;
+                }
+
+                .OrderSection {
+                    border: 1px solid rgb(211, 211, 211);
+                    border-radius: 6px !important;
+                    padding: 20px;
+
+                    .content {
+
+                        .order-table {
+                            overflow: auto !important;
+
+                            table {
+                                border: 1px solid rgb(211, 211, 211);
+                                border-top: none;
+                                width: 100%;
+                                text-align: center;
+
+                                thead {
+                                    border: 1px solid rgb(211, 211, 211);
+                                    background: rgb(255, 185, 54);
+                                    color: white;
+
+                                    th {
+                                        font-weight: 400;
+                                        border: 1px solid rgb(211, 211, 211);
+                                        font-size: 17px;
+                                    }
+                                }
+
+                                tbody {
+                                    td {
+                                        padding-block: 10px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .AccountSection {
+                    border: 1px solid rgb(211, 211, 211);
+                    border-radius: 6px !important;
+                    padding: 20px;
+
+                    form {
+                        input {
+                            width: 100% !important;
+                            padding: 5px 10px;
+                            border-radius: 6px;
+                            border: 1px solid rgb(166, 166, 166);
+                        }
+
+                        input:focus {
+                            border: 1px solid rgb(255, 185, 54);
+                            outline: none !important;
+                        }
+
+                        .first-inputs {
+                            display: flex;
+                            gap: 20px;
+                        }
+
+                        .second-inputs {
+                            display: flex;
+                            gap: 20px;
+                        }
+
+                        .thrid-inputs {
+                            h3 {
+                                border-bottom: 1px solid rgb(211, 211, 211);
+                            }
+
+                            .inputs {
+                                display: flex;
+                                gap: 20px;
+                            }
+                        }
+
+                        button {
+                            background: rgb(255, 185, 54);
+                            border: none;
+                            padding: 8px;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .row {
+        .col-md-4 {
+            margin-bottom: 15px;
+            transition: 0.6s !important;
+
+            .left-list-group {
+                ul {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 5px !important;
+
+                    li {
+                        padding: 6px !important;
+                        white-space: nowrap !important;
+
+                        button {
+                            font-size: 0.6em;
+                        }
+                    }
+                }
+            }
+        }
+
+        .col-md-8 {
+
+            h2 {
+                border-bottom: 1px solid rgb(211, 211, 211);
+                font-weight: 300;
+                font-size: 18px !important;
+            }
+
+            .DashboardSection {
+                padding: 10px !important;
+
+                .content {
+                    p {
+                        font-size: 11px !important;
+                    }
+                }
+            }
+
+            .OrderSection {
+                padding: 10px !important;
+
+                .content {
+                    .order-table {
+                        overflow: auto;
+                        width: 100% !important;
+
+                        table {
+                            width: 100% !important;
+                            overflow: auto !important;
+
+                            thead {
+
+                                th {
+                                    font-size: 13px !important;
+                                    padding: 0px 10px !important;
+                                }
+                            }
+
+                            tbody {
+                                td {
+                                    font-size: 13px !important;
+                                    padding: 10px 10px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .AccountSection {
+                padding: 10px !important;
+
+                form {
+                    label {
+                        font-size: 12px !important;
+                    }
+                }
+            }
+        }
+    }
+}

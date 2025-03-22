@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
 using Restaurant_Reservation_System_.Core.Entittes;
 using Restaurant_Reservation_System_.DataAccess.DAL;
+using Restaurant_Reservation_System_FinalProject.Services;
 using Restaurant_Reservation_System_FinalProject.ViewModels;
 
 namespace Restaurant_Reservation_System_FinalProject.Controllers
@@ -13,12 +15,14 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
         private readonly  SignInManager<AppUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly AppDbContext _context;
-        public AccountController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager,AppDbContext context,RoleManager<IdentityRole> roleManager)
+        private readonly EmailService _emailService;
+        public AccountController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager,AppDbContext context,RoleManager<IdentityRole> roleManager,EmailService emailService)
         {
             _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+            _emailService = emailService;
         }
         public IActionResult Register()
         {
@@ -82,7 +86,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             }
 
             AppUser appUser = await _userManager.FindByNameAsync(userLoginVm.UserNameOrEmail);
-            if (appUser == null) //|| !await _userManager.IsInRoleAsync(appUser,"Member")
+            if (appUser == null || !await _userManager.IsInRoleAsync(appUser, "Member")) //|| 
             {
 
                 appUser = await _userManager.FindByEmailAsync(userLoginVm.UserNameOrEmail);
@@ -205,6 +209,111 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
 
         }
 
+
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordVm forgotPasswordVm)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            var user = await _userManager.FindByEmailAsync(forgotPasswordVm.Email);
+            if (user == null)//|| !await _userManager.IsInRoleAsync(user, "Member")
+            {
+                return RedirectToAction("notfound", "error");
+            }
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var url = Url.Action("VerifyPassword", "Account", new { email = user.Email, token = token }, Request.Scheme);
+
+
+            //create email
+            using StreamReader reader = new StreamReader("wwwroot/templete/resetpassword.html");
+            var body = reader.ReadToEnd();
+            body = body.Replace("{{url}}", url);
+            body = body.Replace("{{username}}", user.UserName);
+          //  _emailService.SendEmail(user.Email, "ResetPassword", body);
+           await _emailService.SendEmailAsync(new() { Body = body, Subject = "ResetPassword", ToEmail = user.Email });//yoxla
+            TempData["Success"] = "Email sended to" + user.Email;
+            return View();
+        }
+
+        public async Task<IActionResult> VerifyEmail(string email, string token)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null || !await _userManager.IsInRoleAsync(user, "Member"))
+            {
+                return RedirectToAction("notfound", "error");
+            }
+            await _userManager.ConfirmEmailAsync(user, token);
+
+            return RedirectToAction("Login");
+        }
+
+
+        public async Task<IActionResult> VerifyPassword(string token, string email)
+        {
+            TempData["token"] = token;
+            TempData["email"] = email;
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                return RedirectToAction("notfound", "error");
+            }
+            if (!(await _userManager.VerifyUserTokenAsync(user, _userManager.Options.Tokens.PasswordResetTokenProvider, "ResetPassword", token)))
+            {
+                return RedirectToAction("notfound", "error");
+            }
+
+            return RedirectToAction("ResetPassword");
+        }
+
+        public IActionResult ResetPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword(ResetPasswordVM resetPasswordVM)
+        {
+
+            TempData["token"] = resetPasswordVM.Token;
+            TempData["email"] = resetPasswordVM.Email;
+
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            var user = await _userManager.FindByEmailAsync(resetPasswordVM.Email);
+            if (user == null || !await _userManager.IsInRoleAsync(user, "Member"))
+            {
+                return View();
+            }
+            if (!await _userManager.VerifyUserTokenAsync(user, _userManager.Options.Tokens.PasswordResetTokenProvider, "ResetPassword", resetPasswordVM.Token))
+            {
+                return RedirectToAction("notfound", "error");
+            }
+
+            var result = await _userManager.ResetPasswordAsync(user, resetPasswordVM.Token, resetPasswordVM.Password);
+            if (!result.Succeeded)
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+                return View();
+            }
+
+
+            return RedirectToAction("Login");
+        }
 
     }
 }

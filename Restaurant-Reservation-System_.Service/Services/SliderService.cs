@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Restaurant_Reservation_System_.Core.Entittes;
 using Restaurant_Reservation_System_.DataAccess.DAL;
 using Restaurant_Reservation_System_.DataAccess.Helpers;
+using Restaurant_Reservation_System_.DataAccess.Repositories.IRepositories;
 using Restaurant_Reservation_System_.Service.Services.IService;
 using Restaurant_Reservation_System_.Service.ViewModels.SliderVM;
 
@@ -10,60 +11,126 @@ namespace Restaurant_Reservation_System_.Service.Services
 {
     public class SliderService : ISliderService
     {
-        private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _env;
-        public SliderService(AppDbContext context,
-                          IWebHostEnvironment env)
+        private readonly AppDbContext _context;
+        private readonly ISliderRepository _sliderRepository;
+        private readonly CloudinaryService _cloudinaryService;
+        public SliderService(IWebHostEnvironment env, AppDbContext context, ISliderRepository sliderRepository, CloudinaryService cloudinaryService)
         {
-            _context = context;
             _env = env;
+            _context = context;
+            _sliderRepository = sliderRepository;
+            _cloudinaryService = cloudinaryService;
         }
         public async Task CreateAsync(SliderCreateVM request)
         {
-            string fileName = Guid.NewGuid().ToString() + "-" + request.Image.FileName;
+            if (!request.Image.CheckType(new string[] { "image/jpeg", "image/png" }))
+            {
+                throw new Exception("Şəklin formatı yalnız JPEG və ya PNG ola bilər.");
+            }
+            if (request.Image.CheckSize(500000)) 
+            {
+                throw new Exception("Şəklin ölçüsü 500 KB-dan çox ola bilməz.");
+            }
 
-            string path = _env.GenerateFilePath("images", fileName);
+            string folderPath = Path.Combine(_env.WebRootPath, "assets/images/home");
+            string imageName = request.Image.SaveImage(_env.WebRootPath, "assets/images/home");
 
-            await request.Image.SaveFileToLocalAsync(path);
-
-            await _context.Sliders.AddAsync(new Slider
+            var slider = new Slider
             {
                 Title = request.Title,
                 Description = request.Description,
-                Image = fileName
-            });
+                Image = imageName, 
+            };
 
-            await _context.SaveChangesAsync();
+            _sliderRepository.Add(slider);
+        }
+
+        public async Task UpdateAsync(int id, SliderEditVM request)
+        {
+            var slider = _sliderRepository.GetAll().FirstOrDefault(s => s.Id == id);
+            if (slider == null)
+            {
+                throw new Exception("Slider tapılmadı");
+            }
+
+            if (request.Image != null)
+            {
+                if (!request.NewImage.CheckType(new string[] { "image/jpeg", "image/png" }))
+                {
+                    throw new Exception("Şəklin formatı yalnız JPEG və ya PNG ola bilər.");
+                }
+                if (request.NewImage.CheckSize(500000))
+                {
+                    throw new Exception("Şəklin ölçüsü 500 KB-dan çox ola bilməz.");
+                }
+
+
+                string oldImagePath = Path.Combine(_env.WebRootPath, "assets/images/home", slider.Image);
+                FileManager.DeleteFile(oldImagePath);
+
+                string newImageName = request.NewImage.SaveImage(_env.WebRootPath, "assets/images/home");
+                slider.Image = newImageName;
+            }
+
+
+            slider.Title = request.Title;
+            slider.Description = request.Description;
+
+            _sliderRepository.Update(slider);
         }
 
         public async Task DeleteAsync(int id)
         {
-            var slider = await _context.Sliders.FirstOrDefaultAsync(m => m.Id == id);
-
-            string imgPath = _env.GenerateFilePath("images", slider.Image);
-            imgPath.DeleteFileFromLocal();
-
-            _context.Sliders.Remove(slider);
-
-            await _context.SaveChangesAsync();
-        }
-
-
-
-        public async Task<SliderVM> DetailAsync(int id)
-        {
-
-            Slider slider = await _context.Sliders.FirstOrDefaultAsync(m => m.Id == id);
-
-            return new SliderVM
+            var slider = _sliderRepository.GetAll().FirstOrDefault(s => s.Id == id);
+            if (slider == null)
             {
-                Id = slider.Id,
-                Title = slider.Title,
-                Description = slider.Description,
-                Image = slider.Image,
+                throw new Exception("Slider tapılmadı");
+            }
 
-            };
+
+            string imagePath = Path.Combine(_env.WebRootPath, "assets/images/home", slider.Image);
+            FileManager.DeleteFile(imagePath);
+
+            _sliderRepository.Delete(slider);
         }
 
+
+
+        public async Task<Slider> DetailAsync(int id)
+        {
+            var slider = _sliderRepository.GetAll()
+                .Where(s => s.Id == id)
+                .Select(s => new Slider
+                {
+                    Id = s.Id,
+                    Title = s.Title,
+                    Description = s.Description,
+                    Image = s.Image,
+                   // CreatedDate = s.CreatedDate.ToString("dd-MM-yyyy")
+                })
+                .FirstOrDefault();
+
+            if (slider == null)
+            {
+                throw new Exception("Slider tapılmadı");
+            }
+
+            return slider;
+        }
+
+        public async Task<List<Slider>> GetAllAsync()
+        {
+            var sliders = await _sliderRepository.GetAll().ToListAsync();
+            return sliders.Select(s => new Slider
+            {
+                Id = s.Id,
+                Title = s.Title,
+                Description = s.Description,
+                Image = s.Image,
+               // CreatedDate = s.CreatedDate.ToString("yyyy-MM-dd")
+            }).ToList();
+        }
     }
+
 }

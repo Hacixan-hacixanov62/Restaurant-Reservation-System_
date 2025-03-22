@@ -1,5 +1,66 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using Restaurant_Reservation_System_FinalProject.ViewModels;
+@model HomeVm
 @{
+    ViewData["Title"] = "Home Page";
 }
+
+@* Slider Start Part *@
+
+<section id="Home-banner" style="background-image: url(/assets/images/home/slide_02.jpg)">
+    @foreach (var slider in Model.Sliders)
+    {
+        <div class="home-slider">
+            <div class="slider-item">
+                <img src="/assets/images/home/@slider.Image" alt="" />
+                <span>@slider.Title</span>
+            </div>
+
+        </div>
+    }
+</section>
+
+@* Slider End Part *@
+
+
+@* About Start Part *@
+
+<section id="Restaurant">
+    <div class="container">
+        <div class="row">
+            @foreach (var about in Model.Abouts)
+            {
+                <div class="part col-sm-12 col-md-6">
+                    <div class="left-part">
+                        <div style="margin-top: 80px;z-index: 99;position:relative"
+                             class="multilayers-item margin-top-80 position-relative">
+                            <div class="img-item">
+                                <img src="/assets/images/home/@about.Image" alt="">
+                            </div>
+                        </div>
+                        <div style="padding-left: 250px;" class="multilayers-item padding-left-250">
+                            <div class="img-item">
+                               @*  <img src="/assets/images/home/@about.Image" alt=""> *@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="part col-sm-12 col-md-6">
+                    <div class="right-part">
+                        <div class="section-title">
+                            <h2 data-language="restaurant.welcome"></h2>
+                            <h3 data-language="restaurant.name"></h3>
+                        </div>
+                        <h6 class="small-headline">
+                          @about.Name
+                        </h6>
+                        <p>
+                           @about.Desc
+                        </p>
+                        <a href="#dannys" class="btn btn-primary" data-language="restaurant.aboutUs"></a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+@* Slider End Part *@

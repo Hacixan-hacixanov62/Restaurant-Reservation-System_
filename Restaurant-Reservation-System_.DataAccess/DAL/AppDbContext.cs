@@ -11,6 +11,7 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL
         }
 
         public DbSet<Slider> Sliders { get; set; }
+        public DbSet<About> Abouts { get; set; }
     }
 }
 

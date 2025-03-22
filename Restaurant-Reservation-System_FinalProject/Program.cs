@@ -2,6 +2,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Restaurant_Reservation_System_.Core.Entittes;
 using Restaurant_Reservation_System_.DataAccess.DAL;
+using Restaurant_Reservation_System_.DataAccess.Repositories;
+using Restaurant_Reservation_System_.DataAccess.Repositories.IRepositories;
+using Restaurant_Reservation_System_.Service.Services;
+using Restaurant_Reservation_System_.Service.Services.IService;
+using Restaurant_Reservation_System_FinalProject.Services;
 
 namespace Restaurant_Reservation_System_FinalProject
 {
@@ -51,6 +56,14 @@ namespace Restaurant_Reservation_System_FinalProject
             {
                 //opt.IdleTimeout = TimeSpan.FromSeconds(20);
             });
+
+            builder.Services.AddScoped<CloudinaryService>();
+            builder.Services.AddScoped<EmailService>();
+            //  builder.Services.AddScoped<LayoutService>();
+            builder.Services.AddScoped<ISliderService, SliderService>();
+            builder.Services.AddScoped<ISliderRepository, SliderRepository>();
+
+
 
             var app = builder.Build();
 
