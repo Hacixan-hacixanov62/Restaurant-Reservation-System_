@@ -10,6 +10,7 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Models\" />
+    <Folder Include="wwwroot\account\" />
   </ItemGroup>
 
   <ItemGroup>

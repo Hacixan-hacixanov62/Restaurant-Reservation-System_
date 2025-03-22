@@ -31,14 +31,16 @@
                     <div class="card col-lg-4 mx-auto">
                         <div class="card-body px-5 py-5">
                             <h3 class="card-title text-left mb-3">Login</h3>
-                            <form>
+                            <form method="post">
                                 <div class="form-group">
                                     <label>Username or email *</label>
-                                    <input type="text" class="form-control p_input">
+                                    <input asp-for="UsreName" class="form-control" placeholder="Enter UserName .." required>
+                                    <span class="text-danger" asp-validation-for="UsreName"></span>
                                 </div>
                                 <div class="form-group">
                                     <label>Password *</label>
-                                    <input type="text" class="form-control p_input">
+                                    <input asp-for="Password" class="form-control" placeholder="Enter Password .." required>
+                                    <span class="text-danger" asp-validation-for="Password"></span>
                                 </div>
                                 <div class="form-group d-flex align-items-center justify-content-between">
                                     <div class="form-check">
@@ -60,6 +62,7 @@
                                     </button>
                                 </div>
                                 <p class="sign-up">Don't have an Account?<a href="#"> Sign Up</a></p>
+                                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                             </form>
                         </div>
                     </div>

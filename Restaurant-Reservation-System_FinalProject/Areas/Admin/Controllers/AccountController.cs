@@ -20,18 +20,19 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
             _signInManager = signInManager;
             _roleManager = roleManager;
         }
-
+        
         public async Task<IActionResult> CreateAdminUser()
         {
             AppUser appUser = new AppUser
             {
                 UserName = "_admin",
-                Email = "admin@gmail.com"
+                Email = "admin@gmail.com",
+                FullName ="UserAdmin"
             };
             IdentityResult identityResult = await _userManager.CreateAsync(appUser, "_Admin123");
-            await _userManager.AddToRoleAsync(appUser, "Admin");
+            //await _userManager.AddToRoleAsync(appUser, "Admin");
             return Json(identityResult);
-
+            
 
         }
 

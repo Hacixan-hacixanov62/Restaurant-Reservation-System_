@@ -67,7 +67,7 @@ namespace Restaurant_Reservation_System_FinalProject
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(
