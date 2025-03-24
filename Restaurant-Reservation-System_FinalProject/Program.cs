@@ -62,6 +62,12 @@ namespace Restaurant_Reservation_System_FinalProject
             //  builder.Services.AddScoped<LayoutService>();
             builder.Services.AddScoped<ISliderService, SliderService>();
             builder.Services.AddScoped<ISliderRepository, SliderRepository>();
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddScoped<ICategoryService, CategoryService>();
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
+            builder.Services.AddScoped<IProductService, ProductService>();
+            builder.Services.AddScoped<IIngridentRepository, IngridientRepository>();
+            builder.Services.AddScoped<IIngridentService, IngridentService>();
 
 
 

@@ -15,10 +15,13 @@ namespace Restaurant_Reservation_System_.Core.Entittes
         [MaxLength(100)]
         public string Description { get; set; }
         public string Image { get; set; }
+        public string Logo { get; set; }
+
         [NotMapped]
         [MaxSizeAttribute(2 * 1024 * 1024)]
         [AllowedTypes("image/jpeg", "image/png")]
         public IFormFile Photo { get; set; }
+
 
     }
 }

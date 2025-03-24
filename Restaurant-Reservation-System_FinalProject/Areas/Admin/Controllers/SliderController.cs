@@ -90,7 +90,7 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
 
             try
             {
-                await _sliderService.UpdateAsync(id, sliderEditVM); 
+                await _sliderService.EditAsync(id, sliderEditVM); 
                 return RedirectToAction("Index");
             }
             catch (Exception ex)

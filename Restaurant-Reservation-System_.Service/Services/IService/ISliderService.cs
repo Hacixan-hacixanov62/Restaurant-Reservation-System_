@@ -9,6 +9,6 @@ namespace Restaurant_Reservation_System_.Service.Services.IService
         Task DeleteAsync(int id);
         Task<Slider> DetailAsync(int id);
         Task<List<Slider>> GetAllAsync();
-        Task UpdateAsync(int id, SliderEditVM request);
+        Task EditAsync(int id, SliderEditVM request);
     }
 }

@@ -9,6 +9,7 @@ C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Res
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\Azure.Core.dll
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\Azure.Identity.dll
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\CloudinaryDotNet.dll
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\Humanizer.dll
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\MailKit.dll
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll

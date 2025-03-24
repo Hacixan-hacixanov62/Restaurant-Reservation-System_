@@ -16,6 +16,9 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             HomeVm homeVm = new();
             homeVm.Sliders = _context.Sliders.ToList();
             homeVm.Abouts = _context.Abouts.ToList();
+            homeVm.Categories = _context.Categories.ToList();
+            homeVm.Products = _context.Products.ToList();   
+            
 
             return View(homeVm);
         }

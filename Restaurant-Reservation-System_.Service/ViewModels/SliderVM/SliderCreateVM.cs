@@ -12,5 +12,7 @@ namespace Restaurant_Reservation_System_.Service.ViewModels.SliderVM
         public string Description { get; set; }
         [Required]
         public IFormFile Image { get; set; }
+        [Required]
+        public IFormFile Logo { get; set; }
     }
 }
