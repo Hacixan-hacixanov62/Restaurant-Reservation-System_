@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Restaurant-Reservation-System_.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fdd5dc92289e94650b12065f41fc9eb48d88397e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f9a0d1fc85047e42318684ed99d28412c58e5e91")]
 [assembly: System.Reflection.AssemblyProductAttribute("Restaurant-Reservation-System_.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Restaurant-Reservation-System_.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

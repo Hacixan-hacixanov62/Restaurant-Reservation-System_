@@ -26,6 +26,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/API (Pb-202) _ Task/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject/Areas/Admin/Views/About/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWJvdXRcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/API (Pb-202) _ Task/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject/Areas/Admin/Views/About/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWJvdXRcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/API (Pb-202) _ Task/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject/Areas/Admin/Views/About/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWJvdXRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/API (Pb-202) _ Task/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject/Areas/Admin/Views/Account/login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudFxsb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

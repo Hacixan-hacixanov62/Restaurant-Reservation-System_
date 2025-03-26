@@ -15,6 +15,7 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
+        public DbSet<ProductDetail> ProductDetails { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<ProductIngredient> ProductIngredients { get; set; }
 

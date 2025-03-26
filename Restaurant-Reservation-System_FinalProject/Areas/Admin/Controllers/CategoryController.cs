@@ -40,7 +40,7 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
             }
 
         }
-
+         
         public IActionResult Create()
         {
             return View();

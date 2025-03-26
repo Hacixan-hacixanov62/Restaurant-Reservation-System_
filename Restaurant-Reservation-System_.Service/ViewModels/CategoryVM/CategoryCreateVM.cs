@@ -7,5 +7,6 @@ namespace Restaurant_Reservation_System_.Service.ViewModels.CategoryVM
         [Required(ErrorMessage = "This input can't be empty")]
         [StringLength(50)]
         public string Name { get; set; }
+
     }
 }

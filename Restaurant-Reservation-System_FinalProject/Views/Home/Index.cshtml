@@ -4,135 +4,137 @@
     ViewData["Title"] = "Home Page";
 }
 
-@* Slider Start Part *@
-@foreach (var slider in Model.Sliders)
-{
-    <section id="Home-banner" style="background-image: url(/assets/images/home/@slider.Image)">
 
+
+<main class="home">
+    @* Slider Start Part *@
+    <section id="Home-banner" style="background-image: url( /assets/images/home/slide_02.jpg)">
         <div class="home-slider">
             <div class="slider-item">
-                <img src="/assets/images/home/@slider.Logo" alt="" />
-                <span>@slider.Title</span>
+                <img src="~/assets/images/home/slide_logo.png" alt="" />
+                <span>Apple pie a la creme </span>
             </div>
 
         </div>
-
     </section>
-}
+    @* Slider End Part *@
 
 
-@* Slider End Part *@
 
+    @* About Start Part *@
 
-@* About Start Part *@
-
-<section id="Restaurant">
-    <div class="container">
-        <div class="row">
-            @foreach (var about in Model.Abouts)
-            {
-                <div class="part col-sm-12 col-md-6">
-                    <div class="left-part">
-                        <div style="margin-top: 80px;z-index: 99;position:relative"
-                             class="multilayers-item margin-top-80 position-relative">
-                            <div class="img-item">
-                                <img src="/assets/images/home/@about.Image" alt="">
+    <section id="Restaurant">
+        <div class="container">
+            <div class="row">
+                @foreach (var about in Model.Abouts)
+                {
+                    <div class="part col-sm-12 col-md-6">
+                        <div class="left-part">
+                            <div style="margin-top: 80px;z-index: 99;position:relative"
+                                 class="multilayers-item margin-top-80 position-relative">
+                                <div class="img-item">
+                                    <img src="/assets/images/home/@about.Image" alt="">
+                                </div>
                             </div>
-                        </div>
-                        <div style="padding-left: 250px;" class="multilayers-item padding-left-250">
-                            <div class="img-item">
-                                <img src="/assets/images/home/@about.Image" alt="">
+                            <div style="padding-left: 250px;" class="multilayers-item padding-left-250">
+                                <div class="img-item">
+                                    <img src="/assets/images/home/@about.Image" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="part col-sm-12 col-md-6">
-                    <div class="right-part">
-                        <div class="section-title">
-                            <h2 data-language="restaurant.welcome"></h2>
-                            <h3 data-language="restaurant.name"></h3>
+                    <div class="part col-sm-12 col-md-6">
+                        <div class="right-part">
+                            <div class="section-title">
+                                <h2 data-language="restaurant.welcome"></h2>
+                                <h3 data-language="restaurant.name"></h3>
+                            </div>
+                            <h6 class="small-headline">
+                                @about.Title
+                            </h6>
+                            <p>
+                                @about.Desc
+                            </p>
+                            <a href="#dannys" class="btn btn-primary" data-language="restaurant.aboutUs"></a>
                         </div>
-                        <h6 class="small-headline">
-                          @about.Name
-                        </h6>
-                        <p>
-                           @about.Desc
-                        </p>
-                        <a href="#dannys" class="btn btn-primary" data-language="restaurant.aboutUs"></a>
                     </div>
-                </div>
-            }
+                }
+            </div>
         </div>
-    </div>
-</section>
-@* Slider End Part *@
+    </section>
+    @* Slider End Part *@
 
 
-@* Product Start Part*@
-<!-- Banner Start -->
-@* <section id="Menu-banner">
+    @* Product Start Part*@
+    <!-- Banner Start -->
+    @* <section id="Menu-banner">
     <div class="banner-part">
-        <div class="banner-content">
-            <h3 data-language="menu.banner.restaurant">Restaurant</h3>
-            <h1 data-language="menu.banner.menu">Menu</h1>
-            <p data-language="menu.banner.juicy">Juicy Flavours</p>
-        </div>
+    <div class="banner-content">
+    <h3 data-language="menu.banner.restaurant">Restaurant</h3>
+    <h1 data-language="menu.banner.menu">Menu</h1>
+    <p data-language="menu.banner.juicy">Juicy Flavours</p>
     </div>
-</section> *@
-<!-- Banner End -->
-<!-- MenuPart Start -->
-@* <section id="Menu">
+    </div>
+    </section> *@
+    <!-- Banner End -->
+    <!-- MenuPart Start -->
+    @* <section id="Menu">
     <div class="container">
-        <div class="row">
-            @foreach (var product in Model.Products)
-            {
-                <div class="menu1">
-                    <div class="menu-left col-lg-4 col-12">
-                        <div class="wrapper-img">
-                            <img src="/assets/images/menu/@product.Icon" alt="" />
-                            <div class="overlay"></div>
-                            <div class="wrapper-content">
-                                <h3 data-language="menu.asparagus">@product.Desc</h3>
-                                <div class="empty" data-language="menu.weight">(@product.Weight G)</div>
-                                <p data-language="menu.ingredients">
-                                  @product.Ingredient
-                                </p>
-                                <div class="price">@product.Price</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-right col-lg-8 col-12">
-                        <div class="inner-content">
-                            <h5 data-language="menu.tasty">@product.Delicious</h5>
-                            <h2>@product.Category.Name</h2>
-                        </div>
-                        <div class="menu-starter col-12">
-                            <ul>
-                                <li>
-                                    <a href="/shop-detail.html">
-                                        <div class="item-main">
-                                            <h4>
-                                                @product.Name
-                                                <small>(@product.Weight G)</small>
-                                            </h4>
-                                            <div class="zn-priceList-dottedSeparator"></div>
-                                            <div class="itemPrice">$@product.Price</div>
-                                        </div>
-                                        <div class="item-desc">
-                                            @product.Ingredient
-                                        </div>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-            }
-            
-        </div>
+    <div class="row">
+    @foreach (var product in Model.Products)
+    {
+    <div class="menu1">
+    <div class="menu-left col-lg-4 col-12">
+    <div class="wrapper-img">
+    <img src="/assets/images/menu/@product.Icon" alt="" />
+    <div class="overlay"></div>
+    <div class="wrapper-content">
+    <h3 data-language="menu.asparagus">@product.Desc</h3>
+    <div class="empty" data-language="menu.weight">(@product.Weight G)</div>
+    <p data-language="menu.ingredients">
+    @product.Ingredient
+    </p>
+    <div class="price">@product.Price</div>
     </div>
-</section> *@
-<!-- MenuPart End -->
-@*Product End Part*@
+    </div>
+    </div>
+    <div class="menu-right col-lg-8 col-12">
+    <div class="inner-content">
+    <h5 data-language="menu.tasty">@product.Delicious</h5>
+    <h2>@product.Category.Name</h2>
+    </div>
+    <div class="menu-starter col-12">
+    <ul>
+    <li>
+    <a href="/shop-detail.html">
+    <div class="item-main">
+    <h4>
+    @product.Name
+    <small>(@product.Weight G)</small>
+    </h4>
+    <div class="zn-priceList-dottedSeparator"></div>
+    <div class="itemPrice">$@product.Price</div>
+    </div>
+    <div class="item-desc">
+    @product.Ingredient
+    </div>
+    </a>
+    </li>
+
+    </ul>
+    </div>
+    </div>
+    </div>
+
+    }
+
+    </div>
+    </div>
+    </section> *@
+    <!-- MenuPart End -->
+    @*Product End Part*@
+
+</main>
+
+
+
