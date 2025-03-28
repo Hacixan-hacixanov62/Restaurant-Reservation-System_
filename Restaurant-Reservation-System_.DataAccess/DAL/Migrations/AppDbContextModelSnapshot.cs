@@ -274,6 +274,34 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                     b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.CategoryDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -283,7 +311,9 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("CategoryDetails");
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Ingredient", b =>
@@ -294,10 +324,19 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -395,9 +434,6 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
 
                     b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsMain")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -537,6 +573,17 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.CategoryDetail", b =>
+                {
+                    b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Category", "Category")
+                        .WithMany("CategoryDetails")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Product", b =>
                 {
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Category", "Category")
@@ -591,6 +638,8 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Category", b =>
                 {
+                    b.Navigation("CategoryDetails");
+
                     b.Navigation("Products");
                 });
 

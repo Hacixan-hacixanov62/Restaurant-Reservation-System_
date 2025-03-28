@@ -1,12 +1,19 @@
+using FluentValidation.AspNetCore;
+using FluentValidation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Restaurant_Reservation_System_.Core.Entittes;
 using Restaurant_Reservation_System_.DataAccess.DAL;
 using Restaurant_Reservation_System_.DataAccess.Repositories;
 using Restaurant_Reservation_System_.DataAccess.Repositories.IRepositories;
+using Restaurant_Reservation_System_.Service.Profiles;
 using Restaurant_Reservation_System_.Service.Services;
 using Restaurant_Reservation_System_.Service.Services.IService;
+using Restaurant_Reservation_System_.Service.Validators.ProductValidators;
 using Restaurant_Reservation_System_FinalProject.Services;
+using System.Reflection;
+using Restaurant_Reservation_System_.DataAccess.Localizers;
+using Restaurant_Reservation_System_.DataAccess;
 
 namespace Restaurant_Reservation_System_FinalProject
 {
@@ -24,6 +31,8 @@ namespace Restaurant_Reservation_System_FinalProject
             );
 
 
+            builder.Services.AddDalServices(builder.Configuration);
+
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
@@ -31,6 +40,9 @@ namespace Restaurant_Reservation_System_FinalProject
             {
                 option.UseSqlServer(config.GetConnectionString("DefaultConnection"));
             });
+
+          
+
 
             builder.Services.AddHttpContextAccessor();
 
@@ -52,6 +64,8 @@ namespace Restaurant_Reservation_System_FinalProject
 
             }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
+
+        
             builder.Services.AddSession(opt =>
             {
                 //opt.IdleTimeout = TimeSpan.FromSeconds(20);
@@ -75,10 +89,24 @@ namespace Restaurant_Reservation_System_FinalProject
             builder.Services.AddScoped<IAboutRepository, AboutRepository>();
             builder.Services.AddScoped<IAboutService, AboutService>();
 
+            builder.Services.AddFluentValidationAutoValidation();
+            builder.Services.AddFluentValidationClientsideAdapters();
+            builder.Services.AddValidatorsFromAssemblyContaining<ProductCreateDtoValidator>();
 
+
+            //builder.Services.AddFluentValidationRulesToSwagger();
+
+            builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+            builder.Services.AddAutoMapper(opt =>
+            {
+                opt.AddProfile(new MapperProfiles()); // bu usul bize eger bos constructor yoxdursa onda lazim olacaq
+            });
 
 
             var app = builder.Build();
+
+            app.UseRequestLocalization();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -106,6 +134,6 @@ namespace Restaurant_Reservation_System_FinalProject
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
-        }
+        }  
     }
 }

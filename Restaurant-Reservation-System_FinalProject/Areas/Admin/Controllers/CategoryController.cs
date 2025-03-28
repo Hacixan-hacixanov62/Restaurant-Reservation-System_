@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 using Restaurant_Reservation_System_.Core.Entittes;
 using Restaurant_Reservation_System_.DataAccess.DAL;
 using Restaurant_Reservation_System_.DataAccess.Helpers;
+using Restaurant_Reservation_System_.Service.Dtos.CategoryDtos;
 using Restaurant_Reservation_System_.Service.Services;
 using Restaurant_Reservation_System_.Service.Services.IService;
 using Restaurant_Reservation_System_.Service.ViewModels.CategoryVM;
 using Restaurant_Reservation_System_.Service.ViewModels.SliderVM;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
 {
@@ -40,24 +40,26 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
             }
 
         }
-         
-        public IActionResult Create()
+
+        public async Task<IActionResult> Create()
         {
-            return View();
+            var result = await _categoryService.GetCreateDtoAsync();
+
+            return View(result);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([FromForm] CategoryCreateVM model)
+        public async Task<IActionResult> Create(CategoryCreateDto dto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
+          
             try
             {
-                await _categoryService.CreateAsync(model);
+                await _categoryService.GetCreateDtoAsync(dto);
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
@@ -66,43 +68,36 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
             }
         }
 
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
 
-            var category = await _categoryService.DetailAsync(id.Value);
+            var category = await _categoryService.GetUpdatedDtoAsync(id);
             if (category == null)
             {
                 return NotFound();
             }
 
-            return View(new CategoryEditVM
-            {
-               Name = category.Name
-            });
+            return View(category);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, CategoryEditVM categoryEditVM)
+        public async Task<IActionResult> Edit(int id, CategoryUpdateDto categoryUpdateDto)
         {
             if (!ModelState.IsValid)
             {
-                return View(categoryEditVM);
+                return View(categoryUpdateDto);
             }
 
             try
             {
-                await _categoryService.EditAsync(id, categoryEditVM);
+                await _categoryService.GetUpdatedDtoAsync(categoryUpdateDto);
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError(string.Empty, ex.Message);
-                return View(categoryEditVM);
+                return View(categoryUpdateDto);
             }
 
         }
@@ -117,23 +112,10 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-                return NotFound(ex.Message); 
+                return NotFound(ex.Message);
             }
         }
 
 
-        [HttpGet("admin/category/detail")]
-        public async Task<IActionResult> Detail(int id)
-        {
-            try
-            {
-                var slider = await _categoryService.DetailAsync(id);
-                return View(slider);
-            }
-            catch (Exception ex)
-            {
-                return NotFound(ex.Message); // Slider tapılmadıqda
-            }
-        }
     }
 }

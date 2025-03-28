@@ -13,6 +13,7 @@
           "Microsoft.EntityFrameworkCore.Design": "8.0.12",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.12",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.12",
+          "Microsoft.Extensions.Localization": "8.0.12",
           "Restaurant-Reservation-System_.Core": "1.0.0"
         },
         "runtime": {
@@ -549,6 +550,28 @@
         },
         "runtime": {
           "lib/net8.0/Microsoft.Extensions.Identity.Stores.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1224.60312"
+          }
+        }
+      },
+      "Microsoft.Extensions.Localization/8.0.12": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Localization.Abstractions": "8.0.12",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Options": "8.0.2"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Localization.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1224.60312"
+          }
+        }
+      },
+      "Microsoft.Extensions.Localization.Abstractions/8.0.12": {
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Localization.Abstractions.dll": {
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.1224.60312"
           }
@@ -1594,6 +1617,20 @@
       "sha512": "sha512-K82a2YXAR1npilfd3uGHhiBNTYFrabqQNSH4aX11ZGfx/GlGCk9zqJx9Ek0IwSmQ40q8G7Xk8Fv6VftJDDiCRQ==",
       "path": "microsoft.extensions.identity.stores/8.0.12",
       "hashPath": "microsoft.extensions.identity.stores.8.0.12.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Localization/8.0.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Ef7P8kpJzX/khXB8oYxt3vFHXw48uWY+NirCrh8u8gokCHxr/Noc3OxME+Ji1ugqoMvUVSPu73mYctmUMDlOCA==",
+      "path": "microsoft.extensions.localization/8.0.12",
+      "hashPath": "microsoft.extensions.localization.8.0.12.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Localization.Abstractions/8.0.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bgwe0gy9v12hr6gLAXIeEWaTYm295Nfmp7B/DLmS75GBJXvs4JHn7pi8gn3jXMNNkNIkx9iWG+pXKmLAmjdGZg==",
+      "path": "microsoft.extensions.localization.abstractions/8.0.12",
+      "hashPath": "microsoft.extensions.localization.abstractions.8.0.12.nupkg.sha512"
     },
     "Microsoft.Extensions.Logging/8.0.1": {
       "type": "package",

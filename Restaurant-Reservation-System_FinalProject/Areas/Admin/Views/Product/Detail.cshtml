@@ -1,0 +1,29 @@
+﻿@model Product
+<div class="container px-4 text-center">
+    <div class="row gx-5">
+        <div class="col">
+            <div class="p-3">Name:@Model.Name</div>
+            <div class="p-3">Description:@Model.Desc</div>          
+@*             <div class="p-3">Category:@Model.Category.Name</div>  
+ *@            <div class="p-3">Price:@Model.Price</div>
+            @*   <div class="p-3">Author:@Model.Author.Name</div>
+            <div class="p-3">Tags:@(String.Join(",", Model.BookTags.Select(b => b.Tag.Name)))</div> *@
+            @foreach (var image in Model.ProductImages)
+            {
+                <div class="row align-items-center">
+                    <img src="~/assets/img/product/@image.Name" width="200" height="200" alt="" />
+                    @if (image.Status != true)
+                    {
+                        <a class="btn btn-primary" asp-action="DeleteProductImage" asp-route-id="@image.Id"><i class="fa-solid fa-trash"></i></a>
+                        <a class="btn btn-primary" asp-action="SetMainImage" asp-route-id="@image.Id"><i class="fa-solid fa-house"></i></a>
+
+                    }
+                </div>
+
+            }
+        </div>
+        <div class="col">
+            <a class="btn btn-gradient-primary" asp-action="index">Cancel</a>
+        </div>
+    </div>
+</div>

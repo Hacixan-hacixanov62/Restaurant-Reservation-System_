@@ -45,7 +45,7 @@ namespace Restaurant_Reservation_System_.Service.Services
                 Image = imageName
             };
 
-            _aboutRepository.Add(about);
+           await  _aboutRepository.CreateAsync(about);
         }
 
         public async Task DeleteAsync(int id)

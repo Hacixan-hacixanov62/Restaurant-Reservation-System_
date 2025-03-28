@@ -1,4 +1,4 @@
-﻿@using Restaurant_Reservation_System_FinalProject.ViewModels;
+﻿@using Restaurant_Reservation_System_.Service.UI.VM
 @model HomeVm
 @{
     ViewData["Title"] = "Home Page";
@@ -63,76 +63,104 @@
         </div>
     </section>
     @* Slider End Part *@
+    <section id="Menu">
+        <div class="container">
+            <div class="row">
+                <div class="menu-left   col-sm-12 col-md-6">
+                    <div class="menu-inner-left padding-right-90">
+                        <div class="section-title">
+                            <h2>Restaurant</h2>
+                            <h3 style="color:white" class="white">menu</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <p class="gray">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                </p>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <p class="gray">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                </p>
+                            </div>
+                        </div>
+                        <a href="menu–stretched.html" class="btn btn-secondary">what’s on the menu</a>
+                    </div>
+                </div>
 
+                <div class="menu-right  col-sm-12 col-md-6">
+                </div>
 
-    @* Product Start Part*@
-    <!-- Banner Start -->
-    @* <section id="Menu-banner">
-    <div class="banner-part">
-    <div class="banner-content">
-    <h3 data-language="menu.banner.restaurant">Restaurant</h3>
-    <h1 data-language="menu.banner.menu">Menu</h1>
-    <p data-language="menu.banner.juicy">Juicy Flavours</p>
-    </div>
-    </div>
-    </section> *@
-    <!-- Banner End -->
-    <!-- MenuPart Start -->
-    @* <section id="Menu">
-    <div class="container">
-    <div class="row">
-    @foreach (var product in Model.Products)
-    {
-    <div class="menu1">
-    <div class="menu-left col-lg-4 col-12">
-    <div class="wrapper-img">
-    <img src="/assets/images/menu/@product.Icon" alt="" />
-    <div class="overlay"></div>
-    <div class="wrapper-content">
-    <h3 data-language="menu.asparagus">@product.Desc</h3>
-    <div class="empty" data-language="menu.weight">(@product.Weight G)</div>
-    <p data-language="menu.ingredients">
-    @product.Ingredient
-    </p>
-    <div class="price">@product.Price</div>
-    </div>
-    </div>
-    </div>
-    <div class="menu-right col-lg-8 col-12">
-    <div class="inner-content">
-    <h5 data-language="menu.tasty">@product.Delicious</h5>
-    <h2>@product.Category.Name</h2>
-    </div>
-    <div class="menu-starter col-12">
-    <ul>
-    <li>
-    <a href="/shop-detail.html">
-    <div class="item-main">
-    <h4>
-    @product.Name
-    <small>(@product.Weight G)</small>
-    </h4>
-    <div class="zn-priceList-dottedSeparator"></div>
-    <div class="itemPrice">$@product.Price</div>
-    </div>
-    <div class="item-desc">
-    @product.Ingredient
-    </div>
-    </a>
-    </li>
-
-    </ul>
-    </div>
-    </div>
-    </div>
-
-    }
-
-    </div>
-    </div>
-    </section> *@
-    <!-- MenuPart End -->
-    @*Product End Part*@
+            </div>
+        </div>
+    </section>
+    <section id="Specialties">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div class="left-part">
+                        <div style="margin-left:-120px;position:relative" class="multilayers-item">
+                            <div class="image-item">
+                                <img class="img-responsive" src="~/assets/images/home/specialties-img1.jpg" alt="">
+                            </div>
+                        </div>
+                        <div style="padding-top: 275px;padding-left:80px; z-index:100" class="multilayers-item ">
+                            <div class="image-item">
+                                <img class="img-responsive" src="~/assets/images/home/specialties-img2.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="right-part">
+                        <div class="section-title">
+                            <h2>Chinese</h2>
+                            <h3>specialties</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                                    nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                                </p>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                                    nisi ut aliquip ex ea commodo consequat.
+                                </p>
+                            </div>
+                        </div>
+                        <a href="" class="btn btn-primary">view all</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Special-banner">
+        <div class="overlay"></div>
+        <div class="specialties-detail">
+            <div class="main-part">
+                <div class="writings">
+                    <div class="section-title">
+                        <h2>La creme de la creme</h2>
+                        <h3 class="white">today’s specialty</h3>
+                    </div>
+                    <div class="specialties-over-detail">
+                        <p>Oven Roasted duck with special sousage</p>
+                        <span class="price">$25.00</span>
+                        <a href="menu–stretched.html" class="btn read-more">read more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </main>
 

@@ -10,3 +10,4 @@ namespace Restaurant_Reservation_System_.Service.ViewModels.CategoryVM
 
     }
 }
+    

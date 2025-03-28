@@ -45,7 +45,7 @@ namespace Restaurant_Reservation_System_.Service.Services
                 Logo =logoName
             };
 
-            _sliderRepository.Add(slider);
+          await  _sliderRepository.CreateAsync(slider);
         }
         
         public async Task EditAsync(int id, SliderEditVM request)
@@ -62,9 +62,9 @@ namespace Restaurant_Reservation_System_.Service.Services
                 {
                     throw new Exception("Şəklin formatı yalnız JPEG və ya PNG ola bilər.");
                 }
-                if (request.NewImage.CheckSize(500000))
+                if (request.NewImage.CheckSize(2*1024*1024))
                 {
-                    throw new Exception("Şəklin ölçüsü 500 KB-dan çox ola bilməz.");
+                    throw new Exception("Şəklin ölçüsü 2 MB-dan çox ola bilməz.");
                 }
 
 

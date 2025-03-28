@@ -1,6 +1,6 @@
 ﻿using Restaurant_Reservation_System_.Core.Entittes;
 
-namespace Restaurant_Reservation_System_FinalProject.ViewModels
+namespace Restaurant_Reservation_System_.Service.UI.VM
 {
     public class HomeVm
     {
@@ -12,3 +12,4 @@ namespace Restaurant_Reservation_System_FinalProject.ViewModels
 
     }
 }
+    

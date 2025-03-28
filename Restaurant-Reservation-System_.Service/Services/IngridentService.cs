@@ -26,7 +26,7 @@ namespace Restaurant_Reservation_System_.Service.Services
                 Name = ıngredientCreateVM.Name
             };
 
-            _ıngridentRepository.Add(ingredient);
+          await _ıngridentRepository.CreateAsync(ingredient);
         }
 
         public async Task DeleteAsync(int id)

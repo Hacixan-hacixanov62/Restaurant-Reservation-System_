@@ -8,11 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Validators\" />
+    <ProjectReference Include="..\Restaurant-Reservation-System_.DataAccess\Restaurant-Reservation-System_.DataAccess.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Restaurant-Reservation-System_.DataAccess\Restaurant-Reservation-System_.DataAccess.csproj" />
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
   </ItemGroup>
 
 </Project>

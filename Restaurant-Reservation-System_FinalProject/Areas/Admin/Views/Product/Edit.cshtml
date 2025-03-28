@@ -1,0 +1,75 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Create";
+}
+<br />
+<br />
+<br />
+<div class="container">
+    <div class="row mx-auto ">
+        <form method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" aria-describedby="emailHelp">
+                <span class="text-danger" asp-validation-for="Name"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Desc"></label>
+                <input asp-for="Desc" class="form-control" aria-describedby="emailHelp">
+                <span class="text-danger" asp-validation-for="Desc"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Photos"></label>
+                <input asp-for="Photos" class="form-control" aria-describedby="emailHelp">
+                @if (Model.ProductImages != null && Model.ProductImages.Any())
+                {
+                    @foreach (var image in Model.ProductImages)
+                    {
+                        <img height="100" width="300" src="~/assets/images/home/@image.Name" alt="" />
+                        @if (image.Status != true)
+                        {
+                            <a class="btn btn-primary" asp-action="DeleteProductImage" asp-route-id="@image.Id"><i class="fa-solid fa-trash"></i></a>
+                            <a class="btn btn-primary" asp-action="SetMainImage" asp-route-id="@image.Id"><i class="fa-solid fa-house"></i></a>
+                        }
+                    }
+                }
+
+                <div class="bookImagePreview">
+                </div>
+
+                <span class="text-danger" asp-validation-for="Photos"></span>
+            </div>
+
+
+            <div class="form-group">
+                <select class="form-select" asp-for="CategoryId">
+                    @if (ViewBag.Categories != null && ViewBag.Categories.Any())
+                    {
+                        @foreach (var category in ViewBag.Categories)
+                        {
+                            <option value="@category.Id">@category.Name</option>
+                        }
+                    }
+
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Price"></label>
+                <input asp-for="Price" class="form-control" aria-describedby="emailHelp">
+                <span class="text-danger" asp-validation-for="Price"></span>
+            </div>
+
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a class="btn btn-light" asp-action="Index">Cancel</a>
+        </form>
+    </div>
+</div>
+@section scripts {
+    @await Html.PartialAsync("_ValidationPartial")
+
+}
+
