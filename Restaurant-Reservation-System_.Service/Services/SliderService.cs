@@ -14,13 +14,12 @@ namespace Restaurant_Reservation_System_.Service.Services
         private readonly IWebHostEnvironment _env;
         private readonly AppDbContext _context;
         private readonly ISliderRepository _sliderRepository;
-        private readonly CloudinaryService _cloudinaryService;
-        public SliderService(IWebHostEnvironment env, AppDbContext context, ISliderRepository sliderRepository, CloudinaryService cloudinaryService)
+        public SliderService(IWebHostEnvironment env, AppDbContext context, ISliderRepository sliderRepository )
         {
             _env = env;
             _context = context;
             _sliderRepository = sliderRepository;
-            _cloudinaryService = cloudinaryService;
+
         }
         public async Task CreateAsync(SliderCreateVM request)
         {

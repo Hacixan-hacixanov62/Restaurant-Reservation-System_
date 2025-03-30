@@ -1,7 +1,6 @@
-﻿@using Restaurant_Reservation_System_.DataAccess.Helpers
-@using Restaurant_Reservation_System_.Service.Dtos.CategoryDtos
+﻿@using Restaurant_Reservation_System_.DataAccess.Helpers;
 
-@model PaginatedList<CategoryGetDto>
+ @model PaginatedList<Category>
 @{
     int count = (Model.CurrentPage - 1) * 2;
 }
@@ -22,6 +21,7 @@
                         <th scope="col">Count</th>
                         <th scope="col">Name</th>
                         <th scope="col">ProductCount</th>
+                        <th scope="col">CreatedDate</th>
                         <th scope="col">Operations</th>
                     </tr>
                 </thead>
@@ -31,7 +31,8 @@
                         <tr>
                             <th>@(++count)</th>
                             <td>@category.Name</td>
-                            <td>@category.Products.Count</td>                          
+                            <td>@category.Products.Count</td>
+                            <td>@category.CreatedDate</td>  @* .ToString("dd,MMMM yyyy") *@
                             <td>
                                 <a class="btn btn-warning btn-sm" asp-action="detail" asp-route-id="@category.Id">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-info-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M12 9h.01" /><path d="M11 12h1v4h1" /></svg>
@@ -53,7 +54,7 @@
                 </tbody>
             </table>
         </div>
-    </div>  
+    </div>
 
     <div class="row justify-content-center">
         <nav aria-label="...">

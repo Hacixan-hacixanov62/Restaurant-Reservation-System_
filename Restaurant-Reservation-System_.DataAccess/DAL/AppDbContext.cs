@@ -19,6 +19,8 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL
         public DbSet<ProductDetail> ProductDetails { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<ProductIngredient> ProductIngredients { get; set; }
+        public DbSet<Language> Languages { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

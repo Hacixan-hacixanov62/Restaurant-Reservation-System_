@@ -1,11 +1,21 @@
-﻿using Azure.Core;
+﻿using AutoMapper;
+using Azure.Core;
+using CloudinaryDotNet;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
+using Microsoft.Extensions.Configuration;
 using Restaurant_Reservation_System_.Core.Entittes;
+using Restaurant_Reservation_System_.Core.Enums;
 using Restaurant_Reservation_System_.DataAccess.DAL;
 using Restaurant_Reservation_System_.DataAccess.Helpers;
+using Restaurant_Reservation_System_.DataAccess.Localizers;
 using Restaurant_Reservation_System_.DataAccess.Repositories;
 using Restaurant_Reservation_System_.DataAccess.Repositories.IRepositories;
+using Restaurant_Reservation_System_.Service.Dtos.ProductDtos;
+using Restaurant_Reservation_System_.Service.Exceptions;
+using Restaurant_Reservation_System_.Service.Extensions;
 using Restaurant_Reservation_System_.Service.Services.IService;
 using Restaurant_Reservation_System_.Service.ViewModels.ProductVM;
 
@@ -15,20 +25,27 @@ namespace Restaurant_Reservation_System_.Service.Services
     {
         private readonly IProductRepository _productRepository;
         private readonly AppDbContext _context;
+        private readonly ICategoryService _categoryService;
         private readonly IWebHostEnvironment _env;
-        public ProductService(IWebHostEnvironment env, IProductRepository productRepository,AppDbContext context)
+        private readonly IConfiguration _configuration;
+        private readonly ICloudinaryService _cloudinaryService;
+        public ProductService(IWebHostEnvironment env, IProductRepository productRepository,AppDbContext context, ICategoryService categoryService, IConfiguration configuration ,ICloudinaryService cloudinaryService)
         {
             _productRepository = productRepository;
             _context = context;
             _env = env;
+            _configuration = configuration;
+            _categoryService = categoryService;
+            _cloudinaryService = cloudinaryService;
         }
 
-        public async Task CreateAsync(Product  product)
+
+        public async Task CreateAsync(Product product)
         {
 
             var files = product.Photos;
 
-                
+
             product.ProductImages = new();
 
             foreach (var file in files)
@@ -49,7 +66,7 @@ namespace Restaurant_Reservation_System_.Service.Services
 
             }
 
-          await   _productRepository.CreateAsync(product);
+            await _productRepository.CreateAsync(product);
         }
 
         public async Task DeleteAsync(int id)
@@ -65,11 +82,11 @@ namespace Restaurant_Reservation_System_.Service.Services
 
         public async Task<Product> DetailAsync(int id)
         {
-           var product = _productRepository.GetAll()
-                .Include(m=>m.Category)
-                .Include(m=>m.ProductImages)
-                .Include(m=>m.ProductDetails)
-                .FirstOrDefault(m=> m.Id == id);
+            var product = _productRepository.GetAll()
+                 .Include(m => m.Category)
+                 .Include(m => m.ProductImages)
+                 .Include(m => m.ProductDetails)
+                 .FirstOrDefault(m => m.Id == id);
             if (product == null)
             {
                 throw new Exception("Product tapılmadı");
@@ -87,7 +104,7 @@ namespace Restaurant_Reservation_System_.Service.Services
                 throw new Exception("Product tapılmadı");
             }
 
-            var existProduct = _productRepository.GetAll()            
+            var existProduct = _productRepository.GetAll()
                 .Include(m => m.ProductImages)
                 .Include(m => m.ProductDetails)
                 .FirstOrDefault(m => m.Id == product.Id);
@@ -105,8 +122,8 @@ namespace Restaurant_Reservation_System_.Service.Services
                     throw new Exception("Category not found");
                 }
             }
-              
-                
+
+
             var files = product.Photos;
             if (files != null)
             {
@@ -142,9 +159,11 @@ namespace Restaurant_Reservation_System_.Service.Services
                 Price = s.Price,
                 Desc = s.Desc,
                 Delicious = s.Delicious,
-                
+
                 // CreatedDate = s.CreatedDate.ToString("yyyy-MM-dd")
             }).ToList();
         }
+
+
     }
 }

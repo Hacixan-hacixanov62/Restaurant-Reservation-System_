@@ -7,7 +7,7 @@ using System.Net;
 
 namespace Restaurant_Reservation_System_.Service.Services
 {
-    public class CloudinaryService
+    public class CloudinaryService:ICloudinaryService
     {
         private readonly IConfiguration _configuration;
         private readonly CloudinaryOptionsDto _optionsDto;

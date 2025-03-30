@@ -1,10 +1,11 @@
 ﻿
 
+using Restaurant_Reservation_System_.Service.Abstractions.Dtos;
 using Restaurant_Reservation_System_.Service.Dtos.ProductDtos;
 
 namespace Restaurant_Reservation_System_.Service.Dtos.CategoryDtos
 {
-    public class CategoryGetDto
+    public class CategoryGetDto:IDto
     {
         public int Id { get; set; }
        

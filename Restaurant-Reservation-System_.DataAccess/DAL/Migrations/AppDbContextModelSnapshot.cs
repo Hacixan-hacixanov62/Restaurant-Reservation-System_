@@ -274,8 +274,9 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                     b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
@@ -302,6 +303,9 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                     b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -312,6 +316,8 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("LanguageId");
 
                     b.ToTable("CategoryDetails");
                 });
@@ -343,6 +349,40 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                     b.ToTable("Ingredients");
                 });
 
+            modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Language", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Languages");
+                });
+
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -368,6 +408,10 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(150)
@@ -378,6 +422,9 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
 
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("Weight")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -404,6 +451,9 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -415,6 +465,8 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("LanguageId");
 
                     b.HasIndex("ProductId");
 
@@ -436,6 +488,10 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Path")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -576,12 +632,20 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.CategoryDetail", b =>
                 {
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Category", "Category")
-                        .WithMany("CategoryDetails")
+                        .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Language", "Language")
+                        .WithMany("CategoryDetails")
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Category");
+
+                    b.Navigation("Language");
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Product", b =>
@@ -597,11 +661,19 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.ProductDetail", b =>
                 {
+                    b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Language", "Language")
+                        .WithMany()
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Product", "Product")
                         .WithMany("ProductDetails")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Language");
 
                     b.Navigation("Product");
                 });
@@ -638,14 +710,17 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Category", b =>
                 {
-                    b.Navigation("CategoryDetails");
-
                     b.Navigation("Products");
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Ingredient", b =>
                 {
                     b.Navigation("ProductIngredients");
+                });
+
+            modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Language", b =>
+                {
+                    b.Navigation("CategoryDetails");
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Product", b =>

@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Restaurant_Reservation_System_.Core.Entittes;
 using Restaurant_Reservation_System_.DataAccess.DAL;
 using Restaurant_Reservation_System_.DataAccess.Helpers;
+using Restaurant_Reservation_System_.Service.Dtos.ProductDtos;
 using Restaurant_Reservation_System_.Service.Services;
 using Restaurant_Reservation_System_.Service.Services.IService;
 using Restaurant_Reservation_System_.Service.ViewModels.ProductVM;
@@ -23,15 +24,17 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
             _context = context;
         }
 
+
+
         public async Task<IActionResult> Index(int page = 1, int take = 2)
         {
-
+            
             try
             {
                 var categories = _context.Products
                     .Include(c => c.ProductDetails)
-                    .Include(c=>c.ProductImages)
-                    .Include(c=>c.Category)
+                    .Include(c => c.ProductImages)
+                    .Include(c => c.Category)
                     .AsQueryable();
                 PaginatedList<Product> paginatedList = PaginatedList<Product>.Create(categories, take, page);
                 return View(paginatedList);
@@ -57,9 +60,9 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
             if (!_context.Categories.Any(g => g.Id == model.CategoryId))
             {
                 ModelState.AddModelError("CategoryId", "Category not found");
-                return View(); 
+                return View();
             }
-            
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -91,10 +94,10 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
 
             return View(new Product
             {
-               Name = product.Name,
-               Desc = product.Desc,
-               Price = product.Price,
-               ProductImages = product.ProductImages
+                Name = product.Name,
+                Desc = product.Desc,
+                Price = product.Price,
+                ProductImages = product.ProductImages
             });
         }
 

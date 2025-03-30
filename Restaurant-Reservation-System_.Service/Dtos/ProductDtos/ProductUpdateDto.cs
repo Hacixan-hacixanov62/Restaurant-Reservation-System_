@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Restaurant_Reservation_System_.Service.Abstractions.Dtos;
 using Restaurant_Reservation_System_.Service.Dtos.CategoryDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ProductDetailDtos;
 
 
 namespace Restaurant_Reservation_System_.Service.Dtos.ProductDtos
 {
-    public class ProductUpdateDto
+    public class ProductUpdateDto:IDto
     {
         public int Id { get; set; }
         public List<CategoryGetDto>? Categories { get; set; } = [];

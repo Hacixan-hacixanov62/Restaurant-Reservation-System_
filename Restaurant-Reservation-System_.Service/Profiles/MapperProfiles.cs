@@ -1,6 +1,9 @@
 ﻿using AutoMapper;
 using Restaurant_Reservation_System_.Core.Entittes;
+using Restaurant_Reservation_System_.Service.Dtos.CategoryDetailDtos;
 using Restaurant_Reservation_System_.Service.Dtos.CategoryDtos;
+using Restaurant_Reservation_System_.Service.Dtos.ProductDetailDtos;
+using Restaurant_Reservation_System_.Service.Dtos.ProductDtos;
 
 namespace Restaurant_Reservation_System_.Service.Profiles
 {
@@ -8,13 +11,40 @@ namespace Restaurant_Reservation_System_.Service.Profiles
     {
         public MapperProfiles()
         {
-            // Category Prosfiles 
+            //// Category Prosfiles 
 
             //CreateMap<Category, CategoryCreateDto>().ReverseMap();
             //CreateMap<Category, CategoryGetDto>()
             //                        .ForMember(x => x.Name, x => x.MapFrom(x => x.CategoryDetails.FirstOrDefault() != null ? x.CategoryDetails.FirstOrDefault()!.Name : string.Empty));
 
             //CreateMap<Category, CategoryUpdateDto>().ReverseMap();
+
+            //// CategoryDetails Profiles
+
+            //CreateMap<CategoryDetail, CategoryDetailCreateDto>().ReverseMap();
+            //CreateMap<CategoryDetail, CategoryDetailUpdateDto>().ReverseMap();
+
+            ////Product Profiles 
+            //CreateMap<Product, ProductCreateDto>().ReverseMap();
+            //CreateMap<Product, ProductUpdateDto>()
+            //    .ForMember(x => x.MainImagePath, x => x.MapFrom(x => x.ProductImages.FirstOrDefault(x => x.Status) != null ? x.ProductImages.FirstOrDefault(x => x.Status)!.Path : string.Empty))
+            //    .ForMember(x => x.ImagePaths, x => x.MapFrom(x => x.ProductImages.Where(x => !x.Status).Select(x => x.Path)))
+            //    .ForMember(x => x.ImageIds, x => x.MapFrom(x => x.ProductImages.Where(x => !x.Status).Select(x => x.Id)))
+            //    .ReverseMap();
+
+            //CreateMap<Product, ProductGetDto>()
+            //               .ForMember(x => x.Name, x => x.MapFrom(src => src.ProductDetails.FirstOrDefault() != null ? src.ProductDetails.FirstOrDefault()!.Name : string.Empty))
+            //               .ForMember(x => x.Description, x => x.MapFrom(src => src.ProductDetails.FirstOrDefault() != null ? src.ProductDetails.FirstOrDefault()!.Description : string.Empty))
+            //               .ForMember(x => x.MainImagePath, x => x.MapFrom(src => src.ProductImages.FirstOrDefault(img => img.Status) != null ? src.ProductImages.FirstOrDefault(img => img.Status)!.Path : string.Empty))
+            //               .ForMember(x => x.ImagePaths, x => x.MapFrom(src => src.ProductImages.Where(x => !x.Status).Select(x => x.Path)));
+            
+            
+            ////ProductDetail Profiles
+
+            //CreateMap<ProductDetail, ProductDetailCreateDto>().ReverseMap();
+            //CreateMap<ProductDetail, ProductDetailUpdateDto>().ReverseMap();
+
+
         }
 
 

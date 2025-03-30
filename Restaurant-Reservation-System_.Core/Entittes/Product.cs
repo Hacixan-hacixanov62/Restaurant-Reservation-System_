@@ -18,8 +18,11 @@ namespace Restaurant_Reservation_System_.Core.Entittes
         [Required]
         [StringLength(maximumLength: 500)]
         public string Desc { get; set; }
+        public string Image { get; set; } = null!;
         public int CategoryId { get; set; }
         public DeliciousStatus Delicious { get; set; }
+        public int Weight { get; set; }
+
         public List<ProductImage> ProductImages { get; set; }
         public List<ProductDetail> ProductDetails { get; set; }
 

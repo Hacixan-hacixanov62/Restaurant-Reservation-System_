@@ -57,6 +57,8 @@ C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Res
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\Microsoft.Extensions.Localization.dll
+C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\Microsoft.Extensions.Localization.Abstractions.dll
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
@@ -293,5 +295,3 @@ C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Res
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\obj\Debug\net8.0\Restaurant-Reservation-System_FinalProject.pdb
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\obj\Debug\net8.0\Restaurant-Reservation-System_FinalProject.genruntimeconfig.cache
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\obj\Debug\net8.0\ref\Restaurant-Reservation-System_FinalProject.dll
-C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\Microsoft.Extensions.Localization.dll
-C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\Microsoft.Extensions.Localization.Abstractions.dll

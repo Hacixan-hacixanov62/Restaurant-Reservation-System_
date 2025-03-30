@@ -1,5 +1,5 @@
-﻿@using Restaurant_Reservation_System_.Service.Dtos.CategoryDtos;
-@model CategoryCreateDto
+﻿@using Restaurant_Reservation_System_.Service.ViewModels.CategoryVM;
+ @model CategoryCreateVM
 @{
     ViewData["Title"] = "Create";
 }
@@ -11,8 +11,8 @@
             <label for="inputBlogTitle">Category</label>
             <form method="post" asp-action="create" class="d-flex flex-wrap">
                 <div class="form-group col-lg-12">
-                    <input asp-for="@Model.CategoryDetails[0].Name" class="form-control" placeholder="Category Name .. ">
-                    <span class="text-danger" asp-validation-for="@Model.CategoryDetails[0].Name"></span>
+                    <input asp-for="Name" class="form-control" placeholder="Category Name .. ">
+                    <span class="text-danger" asp-validation-for="Name"></span>
 
                 </div>
                 <div class="col-lg-12" asp-validation-summary="ModelOnly"></div>

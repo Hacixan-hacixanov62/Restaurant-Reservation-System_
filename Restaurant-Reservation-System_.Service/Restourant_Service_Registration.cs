@@ -6,14 +6,18 @@ using Restaurant_Reservation_System_.Service.Validators.CategoryValidators;
 using System.Reflection;
 using Restaurant_Reservation_System_.Service.Profiles;
 using Restaurant_Reservation_System_.Service.Validators.ProductValidators;
+using Restaurant_Reservation_System_.Service.Services;
+using Restaurant_Reservation_System_.DataAccess.Repositories.IRepositories;
+using Restaurant_Reservation_System_.DataAccess.Repositories;
+using Restaurant_Reservation_System_.Service.Services.IService;
 
 namespace Restaurant_Reservation_System_.Service
 {
-    public class Restourant_Service_Registration
+    public static class Restourant_Service_Registration
     {
-        public static void AddBusinessServices(string[] args)
+        public static void AddBusinessServices(this IServiceCollection services)
         {
-            var builder = WebApplication.CreateBuilder(args);
+            var builder = WebApplication.CreateBuilder();
             var config = builder.Configuration;
 
 
@@ -22,6 +26,8 @@ namespace Restaurant_Reservation_System_.Service
             builder.Services.AddValidatorsFromAssemblyContaining<ProductCreateDtoValidator>();
 
             //builder.Services.AddFluentValidationRulesToSwagger();
+
+            AddServices(services);
 
             builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
@@ -32,7 +38,32 @@ namespace Restaurant_Reservation_System_.Service
 
 
 
-
         }
+
+        private static void AddServices(IServiceCollection services)
+        {
+
+            services.AddScoped<ICloudinaryService, CloudinaryService>();
+         
+            //  builder.Services.AddScoped<LayoutService>();
+            services.AddScoped<ISliderService, SliderService>();
+            services.AddScoped<ISliderRepository, SliderRepository>();
+
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<ICategoryService, CategoryService>();
+
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductService, ProductService>();
+
+            services.AddScoped<IIngridentRepository, IngridientRepository>();
+            services.AddScoped<IIngridentService, IngridentService>();
+
+            services.AddScoped<IAboutRepository, AboutRepository>();
+            services.AddScoped<IAboutService, AboutService>();
+
+         
+        }
+
+
     }
 }

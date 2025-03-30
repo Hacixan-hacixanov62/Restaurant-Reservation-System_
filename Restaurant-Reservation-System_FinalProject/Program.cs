@@ -14,6 +14,7 @@ using Restaurant_Reservation_System_FinalProject.Services;
 using System.Reflection;
 using Restaurant_Reservation_System_.DataAccess.Localizers;
 using Restaurant_Reservation_System_.DataAccess;
+using Restaurant_Reservation_System_.Service;
 
 namespace Restaurant_Reservation_System_FinalProject
 {
@@ -32,6 +33,9 @@ namespace Restaurant_Reservation_System_FinalProject
 
 
             builder.Services.AddDalServices(builder.Configuration);
+            builder.Services.AddBusinessServices();
+
+
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
@@ -71,29 +75,9 @@ namespace Restaurant_Reservation_System_FinalProject
                 //opt.IdleTimeout = TimeSpan.FromSeconds(20);
             });
 
-            builder.Services.AddScoped<CloudinaryService>();
+
+
             builder.Services.AddScoped<EmailService>();
-            //  builder.Services.AddScoped<LayoutService>();
-            builder.Services.AddScoped<ISliderService, SliderService>();
-            builder.Services.AddScoped<ISliderRepository, SliderRepository>();
-            
-            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-            builder.Services.AddScoped<ICategoryService, CategoryService>();
-
-            builder.Services.AddScoped<IProductRepository, ProductRepository>();
-            builder.Services.AddScoped<IProductService, ProductService>();
-
-            builder.Services.AddScoped<IIngridentRepository, IngridientRepository>();
-            builder.Services.AddScoped<IIngridentService, IngridentService>();
-
-            builder.Services.AddScoped<IAboutRepository, AboutRepository>();
-            builder.Services.AddScoped<IAboutService, AboutService>();
-
-            builder.Services.AddFluentValidationAutoValidation();
-            builder.Services.AddFluentValidationClientsideAdapters();
-            builder.Services.AddValidatorsFromAssemblyContaining<ProductCreateDtoValidator>();
-
-
             //builder.Services.AddFluentValidationRulesToSwagger();
 
             builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
