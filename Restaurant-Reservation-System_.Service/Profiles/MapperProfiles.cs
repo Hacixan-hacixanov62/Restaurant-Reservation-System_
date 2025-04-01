@@ -2,6 +2,7 @@
 using Restaurant_Reservation_System_.Core.Entittes;
 using Restaurant_Reservation_System_.Service.Dtos.CategoryDetailDtos;
 using Restaurant_Reservation_System_.Service.Dtos.CategoryDtos;
+using Restaurant_Reservation_System_.Service.Dtos.ChefDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ProductDetailDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ProductDtos;
 
@@ -37,18 +38,32 @@ namespace Restaurant_Reservation_System_.Service.Profiles
             //               .ForMember(x => x.Description, x => x.MapFrom(src => src.ProductDetails.FirstOrDefault() != null ? src.ProductDetails.FirstOrDefault()!.Description : string.Empty))
             //               .ForMember(x => x.MainImagePath, x => x.MapFrom(src => src.ProductImages.FirstOrDefault(img => img.Status) != null ? src.ProductImages.FirstOrDefault(img => img.Status)!.Path : string.Empty))
             //               .ForMember(x => x.ImagePaths, x => x.MapFrom(src => src.ProductImages.Where(x => !x.Status).Select(x => x.Path)));
-            
-            
+
+
             ////ProductDetail Profiles
 
             //CreateMap<ProductDetail, ProductDetailCreateDto>().ReverseMap();
             //CreateMap<ProductDetail, ProductDetailUpdateDto>().ReverseMap();
 
 
+
+
+
+
+            //// Category Prosfiles 
+            
+            CreateMap<Category, CategoryCreateDto>().ReverseMap();
+            CreateMap<Category, CategoryUpdateDto>().ReverseMap();
+
+            ////Product Profiles 
+            CreateMap<Product, ProductCreateDto>().ReverseMap();
+            CreateMap<Product, ProductUpdateDto>().ReverseMap();
+
+            ////Chef Profiles 
+            CreateMap<Chef, ChefCreateDto>().ReverseMap();
+            CreateMap<Chef, ChefUpdateDto>().ReverseMap();
         }
 
-
-
-
     }
+
 }

@@ -10,20 +10,24 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL
         {
         }
 
-        public DbSet<Slider> Sliders { get; set; }
-        public DbSet<About> Abouts { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<CategoryDetail> CategoryDetails { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<ProductImage> ProductImages { get; set; }
-        public DbSet<ProductDetail> ProductDetails { get; set; }
-        public DbSet<Ingredient> Ingredients { get; set; }
-        public DbSet<ProductIngredient> ProductIngredients { get; set; }
-        public DbSet<Language> Languages { get; set; }
-
+        public DbSet<Slider> Sliders { get; set; } = null!;
+        public DbSet<About> Abouts { get; set; } = null!;
+        public DbSet<Category> Categories { get; set; } = null!;
+        public DbSet<CategoryDetail> CategoryDetails { get; set; } = null!;
+        public DbSet<Product> Products { get; set; } = null!;
+        public DbSet<ProductImage> ProductImages { get; set; } = null!;
+        public DbSet<ProductDetail> ProductDetails { get; set; } = null!;
+        public DbSet<Ingredient> Ingredients { get; set; } = null!;
+        public DbSet<ProductIngredient> ProductIngredients { get; set; } = null!;
+        public DbSet<Language> Languages { get; set; } = null!;
+        public DbSet<Chef> Chefs { get; set; } = null!;
+        public DbSet<Blog> Blogs { get; set; } = null!;
+        public DbSet<Topic> Topics { get; set; } = null!;
+        public DbSet<BlogTopic> BlogTopics { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<BlogTopic>().HasKey(x => new { x.BlogId, x.TopicId });
             modelBuilder.Entity<ProductIngredient>().HasKey(x => new { x.ProductId, x.IngredientId });
             base.OnModelCreating(modelBuilder);
 

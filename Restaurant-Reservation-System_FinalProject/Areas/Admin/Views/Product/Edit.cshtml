@@ -1,4 +1,5 @@
-﻿@model Product
+﻿@using Restaurant_Reservation_System_.Service.Dtos.ProductDtos;
+@model ProductUpdateDto
 @{
     ViewData["Title"] = "Create";
 }
@@ -19,49 +20,69 @@
                 <input asp-for="Desc" class="form-control" aria-describedby="emailHelp">
                 <span class="text-danger" asp-validation-for="Desc"></span>
             </div>
-            <div class="mb-3">
-                <label asp-for="Photos"></label>
-                <input asp-for="Photos" class="form-control" aria-describedby="emailHelp">
-                @if (Model.ProductImages != null && Model.ProductImages.Any())
-                {
-                    @foreach (var image in Model.ProductImages)
-                    {
-                        <img height="100" width="300" src="~/assets/images/home/@image.Name" alt="" />
-                        @if (image.Status != true)
-                        {
-                            <a class="btn btn-primary" asp-action="DeleteProductImage" asp-route-id="@image.Id"><i class="fa-solid fa-trash"></i></a>
-                            <a class="btn btn-primary" asp-action="SetMainImage" asp-route-id="@image.Id"><i class="fa-solid fa-house"></i></a>
-                        }
-                    }
-                }
-
-                <div class="bookImagePreview">
-                </div>
-
-                <span class="text-danger" asp-validation-for="Photos"></span>
+            <div class="form-group">
+                <label asp-for="Price" for="exampleInputUsername1">Price</label>
+                <input type="number" class="form-control" id="exampleInputName" asp-for="Price" placeholder="Price">
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Discount" for="exampleInputUsername1">Discount</label>
+                <input type="number" class="form-control" id="exampleInputName" asp-for="Discount" placeholder="Discount">
+                <span asp-validation-for="Discount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ingredients" for="exampleInputUsername1">Ingredients</label>
+                <input type="text" class="form-control" id="exampleInputName" asp-for="Ingredients" placeholder="Ingredients">
+                <span asp-validation-for="Ingredients" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Porsion" for="exampleInputUsername1">Porsion</label>
+                <input type="number" class="form-control" id="exampleInputName" asp-for="Porsion" placeholder="Porsion">
+                <span asp-validation-for="Porsion" class="text-danger"></span>
             </div>
 
+            <img style="width: 100px; height: 100px;" class="primary-img"
+                 src="@Model.MainFileUrl"
+                 alt="Product Images" />
+            <input asp-for="MainFileUrl" type="hidden" value="@Model.MainFileUrl " />
 
             <div class="form-group">
-                <select class="form-select" asp-for="CategoryId">
-                    @if (ViewBag.Categories != null && ViewBag.Categories.Any())
-                    {
-                        @foreach (var category in ViewBag.Categories)
-                        {
-                            <option value="@category.Id">@category.Name</option>
-                        }
-                    }
+                <label asp-for="MainFile" for="exampleInputUsername1"></label>
+                <input class="form-control" id="exampleInputName" asp-for="MainFile" placeholder="Enter Main File">
+                <span asp-validation-for="MainFile" class="text-danger"></span>
+            </div>
 
+            @for (int i = 0; i < Model.ImagePaths?.Count; i++)
+            {
+                var imagePath = Model.ImagePaths[i];
+
+                <div style="position: relative; display: inline-block; margin-right: 10px;">
+                    <div style="position: relative;">
+                        <img style="width: 100px; height: 100px;" class="primary-img"
+                             src="@imagePath"
+                             alt="Product Images" />
+                        <button type="button" class="buttonRemove btn btn-danger" style="position: absolute; top: 0; right: 0; z-index: 1;">
+                            x
+                        </button>
+                        <input asp-for="ImagePaths" type="hidden" value="@imagePath" />
+                        <input asp-for="ImageIds" type="hidden" value="@Model.ImageIds[i]" />
+                    </div>
+
+                </div>
+            }
+            <div class="form-group">
+                <label asp-for="AdditionalFiles" for="exampleInputUsername1"></label>
+                <input class="form-control" id="exampleInputName" asp-for="AdditionalFiles" placeholder="Enter Additional Files">
+                <span asp-validation-for="AdditionalFiles" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1" class="form-label"> Category</label>
+                <select asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Categories,nameof(Category.Id),nameof(Category.Title)))" class="form-control">
+                    <option disabled selected>Select Category</option>
                 </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
             </div>
-
-            <div class="mb-3">
-                <label asp-for="Price"></label>
-                <input asp-for="Price" class="form-control" aria-describedby="emailHelp">
-                <span class="text-danger" asp-validation-for="Price"></span>
-            </div>
-
-
+            <div asp-validation-summary="ModelOnly" class="text-danger">  </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
             <a class="btn btn-light" asp-action="Index">Cancel</a>
@@ -73,3 +94,12 @@
 
 }
 
+@*  @foreach (var image in Model.ProductImages)
+                    {
+                        <img height="100" width="300" src="~/assets/images/home/@image.Name" alt="" />
+                        @if (image.Status != true)
+                        {
+                            <a class="btn btn-primary" asp-action="DeleteProductImage" asp-route-id="@image.Id"><i class="fa-solid fa-trash"></i></a>
+                            <a class="btn btn-primary" asp-action="SetMainImage" asp-route-id="@image.Id"><i class="fa-solid fa-house"></i></a>
+                        }
+                    } *@

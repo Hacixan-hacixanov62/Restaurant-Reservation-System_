@@ -9,11 +9,11 @@ namespace Restaurant_Reservation_System_.Service.Services.IService
 {
     public interface ICategoryService
     {
-        Task CreateAsync(CategoryCreateVM categoryCreateVM);
+        Task CreateAsync(CategoryCreateDto categoryCreateDto);
         Task DeleteAsync(int id);
         Task<Category> DetailAsync(int id);
         Task<List<Category>> GetAllAsync();
-        Task EditAsync(int id, CategoryEditVM categoryEditVM);
+        Task EditAsync(int id, CategoryUpdateDto categoryUpdateDto);
         //Task<List<CategoryGetDto>> GetCategoriesAsync(Languages language = Languages.Azerbaijan);
 
         //Task<bool> IsExistAsync(int id);

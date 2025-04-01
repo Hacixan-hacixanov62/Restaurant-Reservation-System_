@@ -4,11 +4,9 @@ using Restaurant_Reservation_System_.Service.Dtos.CategoryDetailDtos;
 
 namespace Restaurant_Reservation_System_.Service.Dtos.CategoryDtos
 {
-    public class CategoryUpdateDto:IDto
+    public class CategoryUpdateDto
     {
-        public int Id { get; set; }
-       
-        public List<CategoryGetDto> Categories { get; set; } = [];
-        public List<CategoryDetailUpdateDto> CategoryDetails { get; set; } = [];
+        public string Title { get; set; } = null!;
+        public string SubTitle { get; set; } = null!;
     }
 }

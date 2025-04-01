@@ -1,4 +1,5 @@
-﻿using CloudinaryDotNet.Actions;
+﻿using AutoMapper;
+using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -19,10 +20,12 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
     {
         private readonly ICategoryService _categoryService;
         private readonly AppDbContext _context;
-        public CategoryController(ICategoryService categoryService,AppDbContext context)
+        private readonly IMapper _mapper;
+        public CategoryController(ICategoryService categoryService,AppDbContext context,IMapper mapper)
         {
             _categoryService = categoryService;
             _context = context;
+            _mapper = mapper;
         }
         public async Task<IActionResult> Index(int page = 1, int take = 2)
         {
@@ -47,16 +50,26 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([FromForm] CategoryCreateVM model)
+        public async Task<IActionResult> Create([FromForm] CategoryCreateDto categoryCreateDto)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             try
             {
-                await _categoryService.CreateAsync(model);
+
+                var isExistTitle = await _context.Categories.AnyAsync(x => x.Title.ToLower() == categoryCreateDto.Title.ToLower());
+                var isExistSubTitle = await _context.Categories.AnyAsync(x => x.SubTitle.ToLower() == categoryCreateDto.SubTitle.ToLower());
+
+                if (isExistTitle)
+                {
+                    ModelState.AddModelError("Title", "Title alredy exist");
+                    return View(categoryCreateDto);
+                }
+                if (isExistSubTitle)
+                {
+                    ModelState.AddModelError("SubTitle", "Subtitle alredy exist");
+                    return View(categoryCreateDto);
+                }
+
+                await _categoryService.CreateAsync(categoryCreateDto);
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
@@ -78,30 +91,51 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            return View(new CategoryEditVM
+            return View(new CategoryUpdateDto
             {
-                Name = category.Name
+                Title = category.Title,
+                SubTitle = category.SubTitle
             });
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, CategoryEditVM categoryEditVM)
+        public async Task<IActionResult> Edit(int id, CategoryUpdateDto categoryUpdateDto)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(categoryEditVM);
-            }
-
+         
             try
             {
-                await _categoryService.EditAsync(id, categoryEditVM);
+                var existCategory = await _context.Categories.FirstOrDefaultAsync(x => x.Id == id);
+                if (existCategory is null)
+                    return BadRequest();
+
+                if (!ModelState.IsValid)
+                    return View(categoryUpdateDto);
+
+                var isExistTitle = await _context.Categories.AnyAsync(x => x.Title.ToLower() == categoryUpdateDto.Title.ToLower() && x.Id != id);
+                var isExistSubTitle = await _context.Categories.AnyAsync(x => x.SubTitle.ToLower() == categoryUpdateDto.SubTitle.ToLower() && x.Id != id);
+
+                if (isExistTitle)
+                {
+                    ModelState.AddModelError("Title", "Title alredy exist");
+                    return View(categoryUpdateDto);
+                }
+                if (isExistSubTitle)
+                {
+                    ModelState.AddModelError("SubTitle", "Subtitle alredy exist");
+                    return View(categoryUpdateDto);
+                }
+
+                existCategory = _mapper.Map(categoryUpdateDto, existCategory);
+
+
+                await _categoryService.EditAsync(id, categoryUpdateDto);
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError(string.Empty, ex.Message);
-                return View(categoryEditVM);
+                return View(categoryUpdateDto);
             }
 
         }

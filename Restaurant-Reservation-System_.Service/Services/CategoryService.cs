@@ -9,6 +9,7 @@ using Restaurant_Reservation_System_.DataAccess.DAL;
 using Restaurant_Reservation_System_.DataAccess.Localizers;
 using Restaurant_Reservation_System_.DataAccess.Repositories;
 using Restaurant_Reservation_System_.DataAccess.Repositories.IRepositories;
+using Restaurant_Reservation_System_.Service.Abstractions.Dtos;
 using Restaurant_Reservation_System_.Service.Dtos.CategoryDtos;
 using Restaurant_Reservation_System_.Service.Exceptions;
 using Restaurant_Reservation_System_.Service.Extensions;
@@ -30,12 +31,10 @@ namespace Restaurant_Reservation_System_.Service.Services
 
         }
 
-        public async Task CreateAsync(CategoryCreateVM categoryCreateVM)
+        public async Task CreateAsync(CategoryCreateDto categoryCreateDto)
         {
-            var category = new Category
-            {
-                Name = categoryCreateVM.Name
-            };
+
+            Category category = _mapper.Map<Category>(categoryCreateDto);
 
             await  _categoryRepository.CreateAsync(category);
            await  _categoryRepository.SaveChangesAsync();
@@ -60,7 +59,8 @@ namespace Restaurant_Reservation_System_.Service.Services
                  .Select(s => new Category
                  {
                      Id = s.Id,
-                     Name = s.Name
+                     Title = s.Title,
+                     SubTitle = s.SubTitle,
                  })
                  .FirstOrDefaultAsync();
 
@@ -72,7 +72,7 @@ namespace Restaurant_Reservation_System_.Service.Services
             return category;
         }
 
-        public async Task EditAsync(int id, CategoryEditVM categoryEditVM)
+        public async Task EditAsync(int id, CategoryUpdateDto categoryUpdateDto)
         {
             var category = await _categoryRepository.GetAll().FirstOrDefaultAsync(s => s.Id == id);
 
@@ -81,7 +81,7 @@ namespace Restaurant_Reservation_System_.Service.Services
                 throw new Exception("Category tapılmadı");
             }
 
-            category.Name = categoryEditVM.Name;
+            CategoryUpdateDto dto = _mapper.Map<CategoryUpdateDto>(category);
 
             _categoryRepository.Update(category);
         }
@@ -92,7 +92,8 @@ namespace Restaurant_Reservation_System_.Service.Services
             return categories.Select(s => new Category
             {
                 Id = s.Id,
-                Name = s.Name
+                Title = s.Title,
+                SubTitle = s.SubTitle
             }).ToList();
         }
 

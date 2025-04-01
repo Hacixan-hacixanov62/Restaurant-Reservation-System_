@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Restaurant_Reservation_System_.Core.Entittes;
@@ -18,10 +19,12 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
     {
         private readonly IProductService _productService;
         private readonly AppDbContext _context;
-        public ProductController(IProductService productService,AppDbContext context)
+        private readonly IMapper _mapper;
+        public ProductController(IProductService productService,AppDbContext context,IMapper mapper)
         {
             _productService = productService;
             _context = context;
+            _mapper = mapper;
         }
 
 
@@ -43,34 +46,45 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
             {
                 return BadRequest(ex.Message);
             }
-
+            
         }
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            ViewBag.Categories = await _context.Categories.ToListAsync();
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([FromForm] Product model)
+        public async Task<IActionResult> Create([FromForm] ProductCreateDto productCreateDto)
         {
-            ViewBag.Categories = _context.Categories.ToList();
-
-            if (!_context.Categories.Any(g => g.Id == model.CategoryId))
-            {
-                ModelState.AddModelError("CategoryId", "Category not found");
-                return View();
-            }
-
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
+           
+        
             try
             {
-                await _productService.CreateAsync(model);
+                ViewBag.Categories = _context.Categories.ToList();
+
+                if (!ModelState.IsValid)
+                {
+                    return View();
+                }
+
+                var isExistCategory = await _context.Categories.AnyAsync(x => x.Id == productCreateDto.CategoryId);
+                if (!isExistCategory)
+                {
+                    ModelState.AddModelError("CategoryId", "Category is not found");
+                    return View(productCreateDto);
+                }
+
+
+                if (_context.Products.Any(x => x.Name == productCreateDto.Name))
+                {
+                    ModelState.AddModelError("", "Product already exists");
+                    return View(productCreateDto);
+                }
+
+                await _productService.CreateAsync(productCreateDto);
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
@@ -81,10 +95,9 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
 
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id < 1) return NotFound();
+            ViewBag.Categories = await _context.Categories.ToListAsync();
+
 
             var product = await _productService.DetailAsync(id.Value);
             if (product == null)
@@ -92,34 +105,57 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            return View(new Product
-            {
-                Name = product.Name,
-                Desc = product.Desc,
-                Price = product.Price,
-                ProductImages = product.ProductImages
-            });
+            ProductUpdateDto dto = _mapper.Map<ProductUpdateDto>(product);
+
+
+            dto.ImagePaths = product.ProductImages.Where(x => !x.IsMain).Select(x => x.Url).ToList();
+            dto.ImageIds = product.ProductImages.Where(x => !x.IsMain).Select(x => x.Id).ToList();
+            dto.MainFileUrl = product.ProductImages.FirstOrDefault(x => x.IsMain)?.Url ?? "null";
+            return View(dto);
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Product sliderEditVM)
+        public async Task<IActionResult> Edit(int id, ProductUpdateDto productUpdateDto)
         {
             if (!ModelState.IsValid)
             {
-                return View(sliderEditVM);
+                return View();
             }
 
+            ViewBag.Categories = await _context.Categories.ToListAsync();
             try
             {
-                await _productService.EditAsync(id, sliderEditVM);
+
+                var existProduct = await _context.Products.Include(x => x.ProductImages).FirstOrDefaultAsync(x => x.Id == id);
+
+                if (existProduct is null)
+                {
+                    return NotFound();
+                }
+
+                var isExist = await _context.Products.AnyAsync(x => x.Name == productUpdateDto.Name && x.Id != id);
+                if (isExist)
+                {
+                    ModelState.AddModelError("Name", "Product already exists");
+                    return View(productUpdateDto);
+                }
+
+                var isExistCategory = await _context.Categories.AnyAsync(x => x.Id == productUpdateDto.CategoryId);
+                if (!isExistCategory)
+                {
+                    ModelState.AddModelError("CategoryId", "Category is not found");
+                    return View(productUpdateDto);
+                }
+
+                await _productService.EditAsync(id, productUpdateDto);
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError(string.Empty, ex.Message);
-                return View(sliderEditVM);
+                return View(productUpdateDto);
             }
 
         }
@@ -136,7 +172,7 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            if (productImage.Status == true)
+            if (productImage.IsMain == true)
             {
                 return BadRequest("");
             }
@@ -156,9 +192,9 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            var mainImage = _context.ProductImages.FirstOrDefault(b => b.Status == true && b.ProductId == productImage.ProductId);
-            mainImage.Status = null;
-            productImage.Status = true;
+            var mainImage = _context.ProductImages.FirstOrDefault(b => b.IsMain == true && b.ProductId == productImage.ProductId);
+            //mainImage.IsMain = null;
+            productImage.IsMain = true;
 
             _context.SaveChanges();
             return RedirectToAction("edit", new { id = productImage.ProductId });

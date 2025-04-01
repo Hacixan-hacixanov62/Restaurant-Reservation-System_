@@ -2,10 +2,8 @@
 using FluentValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Restaurant_Reservation_System_.Service.Validators.CategoryValidators;
 using System.Reflection;
 using Restaurant_Reservation_System_.Service.Profiles;
-using Restaurant_Reservation_System_.Service.Validators.ProductValidators;
 using Restaurant_Reservation_System_.Service.Services;
 using Restaurant_Reservation_System_.DataAccess.Repositories.IRepositories;
 using Restaurant_Reservation_System_.DataAccess.Repositories;
@@ -21,9 +19,9 @@ namespace Restaurant_Reservation_System_.Service
             var config = builder.Configuration;
 
 
-            builder.Services.AddFluentValidationAutoValidation();
-            builder.Services.AddFluentValidationClientsideAdapters();
-            builder.Services.AddValidatorsFromAssemblyContaining<ProductCreateDtoValidator>();
+            ////builder.Services.AddFluentValidationAutoValidation();
+            ////builder.Services.AddFluentValidationClientsideAdapters();
+            ////builder.Services.AddValidatorsFromAssemblyContaining<ProductCreateDtoValidator>();
 
             //builder.Services.AddFluentValidationRulesToSwagger();
 
@@ -61,7 +59,11 @@ namespace Restaurant_Reservation_System_.Service
             services.AddScoped<IAboutRepository, AboutRepository>();
             services.AddScoped<IAboutService, AboutService>();
 
-         
+            services.AddScoped<IChefRepository, ChefRepository>();
+            services.AddScoped<IChefService, ChefService>();
+
+
+
         }
 
 

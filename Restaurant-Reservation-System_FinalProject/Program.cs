@@ -9,7 +9,6 @@ using Restaurant_Reservation_System_.DataAccess.Repositories.IRepositories;
 using Restaurant_Reservation_System_.Service.Profiles;
 using Restaurant_Reservation_System_.Service.Services;
 using Restaurant_Reservation_System_.Service.Services.IService;
-using Restaurant_Reservation_System_.Service.Validators.ProductValidators;
 using Restaurant_Reservation_System_FinalProject.Services;
 using System.Reflection;
 using Restaurant_Reservation_System_.DataAccess.Localizers;

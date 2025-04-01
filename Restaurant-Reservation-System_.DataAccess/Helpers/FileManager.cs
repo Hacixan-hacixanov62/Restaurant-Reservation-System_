@@ -34,6 +34,22 @@ namespace Restaurant_Reservation_System_.DataAccess.Helpers
             return false;
 
         }
+        public static void DeleteFile(this string fileName, params string[] roots)
+        {
+            string path = "";
+
+            foreach (var root in roots)
+            {
+                path = Path.Combine(path, root);
+            }
+
+            path = Path.Combine(path, fileName);
+
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+        }
 
         //=========================================================
 
