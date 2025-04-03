@@ -25,22 +25,38 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
 
         }
 
-        public async Task<IActionResult> Index(int page = 1, int take = 2)
+        public async Task<IActionResult> Index(int page = 1)
         {
+            int pageCount = (int)Math.Ceiling((decimal)_context.Chefs.Count() / 10);
 
-            try
-            {
-                ////    var categories = _context.Chefs.OrderByDescending(m=>m.Id).ToListAsync();
-                ////    PaginatedList<Chef> paginatedList = PaginatedList<Chef>.Create(categories, take, page);
-                ////    return View(paginatedList);
-                var chefs = _chefService.GetAllAsync();
-                return View(chefs);
-            }
+            if (pageCount == 0)
+                pageCount = 1;
 
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            ViewBag.PageCount = pageCount;
+
+            if (page > pageCount)
+                page = pageCount;
+
+            if (page <= 0)
+                page = 1;
+
+            ViewBag.CurrentPage = page;
+
+            var authors = await _context.Chefs.OrderByDescending(x => x.Id).Skip((page - 1) * 10).Take(10).ToListAsync();
+            return View(authors);
+            ////try
+            ////{
+            ////    var categories = _context.Chefs.Include(m => m.).ToListAsync();
+            ////    PaginatedList<Chef> paginatedList = PaginatedList<Chef>.Create(categories, take, page);
+            ////    return View(paginatedList);
+            ////    //var chefs = _chefService.GetAllAsync();
+            ////    //return View(chefs);
+            ////}
+
+            ////catch (Exception ex)
+            ////{
+            ////    return BadRequest(ex.Message);
+            ////}
 
         }
 
@@ -53,34 +69,35 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([FromForm] ChefCreateDto chefCreateDto)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                if (!ModelState.IsValid)
-                {
-                    return View(chefCreateDto);
-                }
-                var isExistDescription = await _context.Chefs.AnyAsync(x => x.Description.ToLower() == chefCreateDto.Description.ToLower());
-                var isExistBiographia = await _context.Chefs.AnyAsync(x => x.Biographia.ToLower() == chefCreateDto.Biographia.ToLower());
-
-
-                if (isExistDescription)
-                {
-                    ModelState.AddModelError("Description", "Description already exist");
-                    return View(chefCreateDto);
-                }
-                if (isExistBiographia)
-                {
-                    ModelState.AddModelError("Biographia", "Biographia already exist");
-                    return View(chefCreateDto);
-                }
-
-                await _chefService.CreateAsync(chefCreateDto);
-                return RedirectToAction(nameof(Index));
+                return View(chefCreateDto);
             }
-            catch (Exception ex)
+            var isExistDescription = await _context.Chefs.AnyAsync(x => x.Description.ToLower() == chefCreateDto.Description.ToLower());
+            var isExistBiographia = await _context.Chefs.AnyAsync(x => x.Biographia.ToLower() == chefCreateDto.Biographia.ToLower());
+
+
+            if (isExistDescription)
             {
-                return BadRequest(ex.Message);
+                ModelState.AddModelError("Description", "Description already exist");
+                return View(chefCreateDto);
             }
+            if (isExistBiographia)
+            {
+                ModelState.AddModelError("Biographia", "Biographia already exist");
+                return View(chefCreateDto);
+            }
+
+            await _chefService.CreateAsync(chefCreateDto);
+            return RedirectToAction(nameof(Index));
+            //try
+            //{   
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    return BadRequest(ex.Message);
+            //}
         }
 
         public async Task<IActionResult> Edit(int? id)

@@ -59,7 +59,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Repositories
             return entity;
         }
 
-        public async Task<TEntity?> GetAsync(int id, Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null)
+        public async Task<TEntity?>   GetAsync(int id, Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null)
         {
             var query = _getQueryWithIncludes(include);
 

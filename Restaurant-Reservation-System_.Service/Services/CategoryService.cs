@@ -1,5 +1,6 @@
 ﻿
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
@@ -11,23 +12,25 @@ using Restaurant_Reservation_System_.DataAccess.Repositories;
 using Restaurant_Reservation_System_.DataAccess.Repositories.IRepositories;
 using Restaurant_Reservation_System_.Service.Abstractions.Dtos;
 using Restaurant_Reservation_System_.Service.Dtos.CategoryDtos;
+using Restaurant_Reservation_System_.Service.Dtos.ChefDtos;
 using Restaurant_Reservation_System_.Service.Exceptions;
 using Restaurant_Reservation_System_.Service.Extensions;
 using Restaurant_Reservation_System_.Service.Services.IService;
 using Restaurant_Reservation_System_.Service.ViewModels.CategoryVM;
+using System.Security.Claims;
 
 namespace Restaurant_Reservation_System_.Service.Services
 {
     public class CategoryService : ICategoryService
     {
-        private readonly AppDbContext _context;
         private readonly ICategoryRepository _categoryRepository;
         private readonly IMapper _mapper;
-        public CategoryService(AppDbContext context,ICategoryRepository categoryRepository, IMapper mapper)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public CategoryService(ICategoryRepository categoryRepository, IMapper mapper,IHttpContextAccessor httpContextAccessor)
         {
-            _context = context;
             _categoryRepository = categoryRepository;
             _mapper = mapper;
+            _httpContextAccessor = httpContextAccessor;
 
         }
 
@@ -35,7 +38,11 @@ namespace Restaurant_Reservation_System_.Service.Services
         {
 
             Category category = _mapper.Map<Category>(categoryCreateDto);
-
+            var usernsme = _httpContextAccessor.HttpContext?.User?.FindFirst(ClaimTypes.Name)?.Value;
+            category.CreatedBy = usernsme;
+            category.UpdatedBy = usernsme;
+            category.CreatedAt = DateTime.UtcNow;
+            category.UpdatedAt = DateTime.UtcNow;
             await  _categoryRepository.CreateAsync(category);
            await  _categoryRepository.SaveChangesAsync();
 

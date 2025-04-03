@@ -52,30 +52,32 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([FromForm] CategoryCreateDto categoryCreateDto)
         {
-            try
+            var isExistTitle = await _context.Categories.AnyAsync(x => x.Title.ToLower() == categoryCreateDto.Title.ToLower());
+            var isExistSubTitle = await _context.Categories.AnyAsync(x => x.SubTitle.ToLower() == categoryCreateDto.SubTitle.ToLower());
+
+            if (isExistTitle)
             {
-
-                var isExistTitle = await _context.Categories.AnyAsync(x => x.Title.ToLower() == categoryCreateDto.Title.ToLower());
-                var isExistSubTitle = await _context.Categories.AnyAsync(x => x.SubTitle.ToLower() == categoryCreateDto.SubTitle.ToLower());
-
-                if (isExistTitle)
-                {
-                    ModelState.AddModelError("Title", "Title alredy exist");
-                    return View(categoryCreateDto);
-                }
-                if (isExistSubTitle)
-                {
-                    ModelState.AddModelError("SubTitle", "Subtitle alredy exist");
-                    return View(categoryCreateDto);
-                }
-
-                await _categoryService.CreateAsync(categoryCreateDto);
-                return RedirectToAction("Index");
+                ModelState.AddModelError("Title", "Title alredy exist");
+                return View(categoryCreateDto);
             }
-            catch (Exception ex)
+            if (isExistSubTitle)
             {
-                return BadRequest(ex.Message);
+                ModelState.AddModelError("SubTitle", "Subtitle alredy exist");
+                return View(categoryCreateDto);
             }
+
+            await _categoryService.CreateAsync(categoryCreateDto);
+            return RedirectToAction("Index");
+
+
+            //try
+            //{
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    return BadRequest(ex.Message);
+            //}
         }
 
         public async Task<IActionResult> Edit(int? id)

@@ -22,7 +22,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
                                        .Include(x => x.BlogTopics).ThenInclude(x => x.Topic);
 
             List<Blog> blogs = new();
-
+            
             if (chefId is not null)
             {
                 blogs = await result.Where(x => x.BlogTopics.Any(y => y.TopicId == chefId)).ToListAsync();
@@ -45,7 +45,30 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
 
         public async Task<IActionResult> Detail(int id)
         {
-            return View();
+            var topics = await _context.Topics.ToListAsync();
+            var blog = await _context.Blogs.Include(x => x.Chef).Include(x => x.BlogTopics).ThenInclude(x => x.Topic).FirstOrDefaultAsync(x => x.Id == id);
+
+
+            if (blog is null)
+                return NotFound();
+
+            BlogDetailVM blogVm = new()
+            {
+                Blog = blog,
+                Topics = topics
+
+            };
+
+            blogVm.NextBlog = await _context.Blogs.FirstOrDefaultAsync(x => x.Id > id);
+            blogVm.PrevBlog = await _context.Blogs.OrderByDescending(x => x.Id).FirstOrDefaultAsync(x => x.Id < id);
+
+            if (blogVm.NextBlog is null)
+                blogVm.NextBlog = await _context.Blogs.FirstOrDefaultAsync(x => x.Id < id);
+
+            if (blogVm.PrevBlog is null)
+                blogVm.PrevBlog = await _context.Blogs.OrderByDescending(x => x.Id).FirstOrDefaultAsync(x => x.Id > id);
+
+            return View(blogVm);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Azure.Core;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Restaurant_Reservation_System_.Core.Entittes;
 using Restaurant_Reservation_System_.DataAccess.DAL;
@@ -10,32 +11,38 @@ using Restaurant_Reservation_System_.Service.Abstractions.Dtos;
 using Restaurant_Reservation_System_.Service.Dtos.CategoryDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ChefDtos;
 using Restaurant_Reservation_System_.Service.Services.IService;
+using System.Security.Claims;
 
 namespace Restaurant_Reservation_System_.Service.Services
 {
     public class ChefService : IChefService
     {
-        private readonly AppDbContext _context;
         private readonly IChefRepository _chefRepository;
         private readonly IWebHostEnvironment _env;
         private readonly ICloudinaryService _cloudinaryService;
         private readonly IMapper _mapper;
-        public ChefService(AppDbContext context, IChefRepository chefRepository,IWebHostEnvironment env, ICloudinaryService cloudinaryService,IMapper mapper)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public ChefService(IChefRepository chefRepository, IWebHostEnvironment env, ICloudinaryService cloudinaryService, IMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
-            _context = context;
-            _chefRepository = chefRepository;  
+            _chefRepository = chefRepository;
             _env = env;
             _cloudinaryService = cloudinaryService;
             _mapper = mapper;
+            _httpContextAccessor = httpContextAccessor;
         }
         public async Task CreateAsync(ChefCreateDto chefCreateDto)
         {
           
             Chef chef = _mapper.Map<Chef>(chefCreateDto);
-            chef.ImageUrl = await _cloudinaryService.FileCreateAsync(chefCreateDto.Image);
 
-            await _context.Chefs.AddAsync(chef);
-            await _context.SaveChangesAsync();
+            var usernsme = _httpContextAccessor.HttpContext?.User?.FindFirst(ClaimTypes.Name)?.Value;
+            chef.ImageUrl = await _cloudinaryService.FileCreateAsync(chefCreateDto.Image);
+            chef.CreatedBy = usernsme;
+            chef.UpdatedBy = usernsme;
+            chef.CreatedAt = DateTime.UtcNow;
+            chef.UpdatedAt = DateTime.UtcNow;
+            await _chefRepository.CreateAsync(chef);
+            await _chefRepository.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(int id)
@@ -90,7 +97,7 @@ namespace Restaurant_Reservation_System_.Service.Services
             }
 
             _chefRepository.Update(chef);
-            await _context.SaveChangesAsync();
+            await _chefRepository.SaveChangesAsync();
         }
 
         public async Task<List<Chef>> GetAllAsync()

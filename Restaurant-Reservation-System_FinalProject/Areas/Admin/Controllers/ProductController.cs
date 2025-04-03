@@ -144,6 +144,7 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
 
                 await _productService.EditAsync(id, productUpdateDto);
                 return RedirectToAction("Index");
+
             }
             catch (Exception ex)
             {

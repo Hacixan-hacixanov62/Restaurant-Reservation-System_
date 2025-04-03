@@ -295,6 +295,7 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UpdatedBy")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -381,6 +382,7 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UpdatedBy")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -461,6 +463,7 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UpdatedBy")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -664,6 +667,25 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                     b.ToTable("Sliders");
                 });
 
+            modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Table", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("PersonCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TableNo")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tables");
+                });
+
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Topic", b =>
                 {
                     b.Property<int>("Id")
@@ -691,6 +713,7 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UpdatedBy")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

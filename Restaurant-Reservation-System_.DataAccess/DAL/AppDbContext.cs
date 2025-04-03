@@ -24,6 +24,8 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL
         public DbSet<Blog> Blogs { get; set; } = null!;
         public DbSet<Topic> Topics { get; set; } = null!;
         public DbSet<BlogTopic> BlogTopics { get; set; } = null!;
+        public DbSet<Table> Tables { get; set; } = null!;
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

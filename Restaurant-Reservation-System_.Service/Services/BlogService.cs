@@ -32,7 +32,7 @@ namespace Restaurant_Reservation_System_.Service.Services
         }
         public async Task CreateAsync(BlogCreateDto blogCreateDto)
         {
-           Blog blog = _mapper.Map<Blog>(blogCreateDto);
+            Blog blog = _mapper.Map<Blog>(blogCreateDto);
             blog.ImageUrl = await _cloudinaryService.FileCreateAsync(blogCreateDto.Image);
 
             blog.BlogTopics = new List<BlogTopic>();
@@ -48,13 +48,13 @@ namespace Restaurant_Reservation_System_.Service.Services
                 blog.BlogTopics.Add(blogTopic);
             }
 
-            await _context.Blogs.AddAsync(blog);
-            await _context.SaveChangesAsync();
+            await _blogRepository.CreateAsync(blog);
+            await _blogRepository.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(int id)
         {
-            var product =  _blogRepository.GetAll().FirstOrDefault(s => s.Id == id);
+            var product = await _blogRepository.GetAsync(id, include: x => x.Include(c => c.Chef).Include(v => v.BlogTopics).ThenInclude(a => a.Topic));
             if (product == null)
             {
                 throw new Exception("Blog tapılmadı");
@@ -66,24 +66,19 @@ namespace Restaurant_Reservation_System_.Service.Services
 
         public async Task<Blog> DetailAsync(int id)
         {
-            var product = _blogRepository.GetAll()
-                 .Include(m => m.Chef)
-                 .Include(m => m.BlogTopics)              
-                 .FirstOrDefault(m => m.Id == id);
+            var blog = await _blogRepository.GetAsync(id, include: x => x.Include(c => c.Chef).Include(v => v.BlogTopics).ThenInclude(a => a.Topic));
 
             await _blogRepository.SaveChangesAsync();
-            if (product == null)
+            if (blog == null)
             {
                 throw new Exception("Blog tapılmadı");
             }
-            return product;
+            return blog;
         }
 
         public async Task EditAsync(int id, BlogUpdateDto blogUpdateDto)
         {
-            var blog = await _context.Blogs.Include(x => x.BlogTopics)
-                                           .Include(x => x.Chef)
-                                           .FirstOrDefaultAsync(x => x.Id == id);
+            var blog = await _blogRepository.GetAsync(id ,include : x=>x.Include(c=>c.Chef).Include(v=>v.BlogTopics).ThenInclude(a=>a.Topic));
 
             if (blog == null)
                 throw new Exception("Blog tapılmadı");
@@ -93,10 +88,8 @@ namespace Restaurant_Reservation_System_.Service.Services
 
             dto.TopicIds = blog.BlogTopics.Select(x => x.TopicId).ToList();
 
-            var existBlog = await _context.Blogs
-                                          .Include(x => x.BlogTopics)
-                                          .Include(x => x.Chef)
-                                          .FirstOrDefaultAsync(x => x.Id == id);
+            var existBlog =  await _blogRepository.GetAsync(blog.Id);
+
 
 
             if (existBlog is null)
@@ -131,14 +124,21 @@ namespace Restaurant_Reservation_System_.Service.Services
 
         }
 
-        public Task<List<Blog>> GetAllAsync()
+        public async Task<List<Blog>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _blogRepository.GetAll()
+                                        .Include(c => c.Chef)
+                                        .Include(c => c.BlogTopics)
+                                        .ToListAsync(); 
         }
 
         public Task<bool> IsExistAsync(int id)
         {
             throw new NotImplementedException();
         }
+
+
+
+
     }
 }
