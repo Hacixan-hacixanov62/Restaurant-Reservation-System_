@@ -28,7 +28,7 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
             _mapper = mapper;
         }
         public async Task<IActionResult> Index(int page = 1, int take = 2)
-        {
+        {   
 
             try
             {

@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Restaurant-Reservation-System_FinalProject.bundle.scp.css",
-      "PackagePath": "staticwebassets\\Restaurant-Reservation-System_FinalProject.bundle.scp.css"
+      "PackagePath": "staticwebassets\\Restaurant-Reservation-System_FinalProject.b3y10uq2hw.bundle.scp.css"
     },
     {
       "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\account\\assets\\images\\AccountImage\\photo_2025-03-20_16-09-13.jpg",
@@ -4379,6 +4379,10 @@
     {
       "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\templete\\resetpassword.html",
       "PackagePath": "staticwebassets\\templete\\resetpassword.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Restaurant-Reservation-System_FinalProject.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Restaurant-Reservation-System_FinalProject.Microsoft.AspNetCore.StaticWebAssets.props",

@@ -47,9 +47,12 @@ namespace Restaurant_Reservation_System_.Service.Services
         {
             Product product = _mapper.Map<Product>(productCreateDto);
 
+            product.ProductImages = [];
+            
             var mainFileName = await _cloudinaryService.FileCreateAsync(productCreateDto.MainFile);
             var mainProductImageCreate = CreateProductImage(mainFileName, true, product);
             product.ProductImages.Add(mainProductImageCreate);
+
 
             foreach (var file in productCreateDto.AdditionalFiles)
             {

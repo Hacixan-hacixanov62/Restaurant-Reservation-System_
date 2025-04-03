@@ -19,154 +19,622 @@
 <section id="Menu">
     <div class="container">
         <div class="row">
-
-            @for (int i = 0; i < Model.Categories.Count; i++)
-            {
-                @if (i % 2 == 0)
-                {
-                    <div class="menu1">
-                        <div class="menu-left col-lg-4 col-12">
-                            <div class="wrapper-img">
-                                @for (int j = 0; i < Model.Products.Count; j++)
-                                {
-                                    @if (Model.Categories[i].Id == Model.Products[j].CategoryId)
-                                    {
-                                        <img src="@Model.Products[j].Image" alt="" />
-                                        <div class="overlay"></div>
-                                        <div class="wrapper-content">
-                                            <h3>@Model.Products[j].Name</h3>
-                                            <div class="empty">(250 G)</div>
-                                            <p>
-                                                Beans / Halloumi cheese / Asparagus / Courgettes / Cherry
-                                                tomatoes
-                                            </p>
-                                            <div class="price">@Model.Products[j].Price</div>
-                                        </div>
-                                        break;
-                                    }
-                                }
-
-
-                            </div>
-                        </div>
-                        <div class="menu-right col-lg-8 col-12">
-                            <div class="inner-content">
-                                <h2>@Model.Categories[i].Title</h2>
-                                @{
-                                    //Starters yerine kateqoriya adi yazilacag, ve o kateqoriyada olan productlar gelecek asagida
-                                }
-                            </div>
-                            <div class="menu-starter col-12">
-                                <ul>
-
-                                    @foreach (var product in Model.Products)
-                                    {
-                                        @if (Model.Categories[i].Id == product.CategoryId)
-                                        {
-                                            <li>
-                                                <a asp-action="Details" asp-controller="Shop" asp-route-id="@product.Id">
-                                                    <div class="item-main">
-                                                        <h4>
-                                                            @product.Name
-                                                            <small>(250 G)</small>
-                                                        </h4>
-                                                        <div class="zn-priceList-dottedSeparator"></div>
-                                                        <div class="itemPrice">$@product.Price</div>
-                                                    </div>
-                                                    <div class="item-desc">
-                                                        @* @foreach (var ingredient in product.Ingredients)
-                                        {
-                                        @ingredient.Name
-                                        } *@
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        }
-
-
-                                    }
-
-                                </ul>
-                            </div>
+            <div class="menu1">
+                <div class="menu-left col-lg-4 col-12">
+                    <div class="wrapper-img">
+                        <img src="/assets/images/menu/img_10.jpg" alt="" />
+                        <div class="overlay"></div>
+                        <div class="wrapper-content">
+                            <h3 data-language="menu.asparagus">Asparagus &amp; Halloumi Salad</h3>
+                            <div class="empty" data-language="menu.weight">(250 G)</div>
+                            <p data-language="menu.ingredients">
+                                Beans / Halloumi cheese / Asparagus / Courgettes / Cherry tomatoes
+                            </p>
+                            <div class="price">18.90</div>
                         </div>
                     </div>
-                }
-                else
-                {
-                    <div class="menu2">
-                        <div class="menu-left col-lg-4 col-12">
-                            <div class="wrapper-img">
-                                @for (int j = 0; i < Model.Products.Count; j++)
-                                {
-                                    @if (Model.Categories[i].Id == Model.Products[j].CategoryId)
-                                    {
-                                        <img src="@Model.Products[j].Image" alt="" />
-                                        <div class="overlay"></div>
-                                        <div class="wrapper-content">
-                                            <h3>@Model.Products[j].Name</h3>
-                                            <div class="empty">(250 G)</div>
-                                            <p>
-                                                Beans / Halloumi cheese / Asparagus / Courgettes / Cherry
-                                                tomatoes
-                                            </p>
-                                            <div class="price">@Model.Products[j].Price</div>
-                                        </div>
-                                        break;
-                                    }
-                                }
-
-
-                            </div>
-                        </div>
-                        <div class="menu-right col-lg-8 col-12">
-                            <div class="inner-content">
-                                <h2>@Model.Categories[i].Title</h2>
-                                @{
-                                    //Starters yerine kateqoriya adi yazilacag, ve o kateqoriyada olan productlar gelecek asagida
-                                }
-                            </div>
-                            <div class="menu-starter col-12">
-                                <ul>
-
-                                    @foreach (var product in Model.Products)
-                                    {
-                                        @if (Model.Categories[i].Id == product.CategoryId)
-                                        {
-                                            <li>
-                                                <a asp-action="Details" asp-controller="Shop" asp-route-id="@product.Id">
-                                                    <div class="item-main">
-                                                        <h4>
-                                                            @product.Name
-                                                            <small>(250 G)</small>
-                                                        </h4>
-                                                        <div class="zn-priceList-dottedSeparator"></div>
-                                                        <div class="itemPrice">$@product.Price</div>
-                                                    </div>
-                                                    <div class="item-desc">
-                                                        @* @foreach (var ingredient in product.Ingredients)
-                                        {
-                                        @ingredient.Name
-                                        } *@
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        }
-
-
-                                    }
-
-
-                                </ul>
-                            </div>
+                </div>
+                <div class="menu-right col-lg-8 col-12">
+                    <div class="inner-content">
+                        <h5 data-language="menu.tasty">Tasty</h5>
+                        <h2>Starters</h2>
+                    </div>
+                    <div class="menu-starter col-12">
+                        <ul>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="menu2">
+                <div class="menu-left col-lg-4 col-12">
+                    <div class="wrapper-img">
+                        <img src="/assets/images/menu/img_10.jpg" alt="" />
+                        <div class="overlay"></div>
+                        <div class="wrapper-content">
+                            <h3 data-language="menu.asparagus">Asparagus &amp; Halloumi Salad</h3>
+                            <div class="empty" data-language="menu.weight">(250 G)</div>
+                            <p data-language="menu.ingredients">
+                                Beans / Halloumi cheese / Asparagus / Courgettes / Cherry tomatoes
+                            </p>
+                            <div class="price">18.90</div>
                         </div>
                     </div>
-                }
-
-
-            }
-
-
-
+                </div>
+                <div class="menu-right col-lg-8 col-12">
+                    <div class="inner-content">
+                        <h5 data-language="menu.tasty">Tasty</h5>
+                        <h2>Starters</h2>
+                    </div>
+                    <div class="menu-starter col-12">
+                        <ul>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="menu1">
+                <div class="menu-left col-lg-4 col-12">
+                    <div class="wrapper-img">
+                        <img src="/assets/images/menu/img_10.jpg" alt="" />
+                        <div class="overlay"></div>
+                        <div class="wrapper-content">
+                            <h3 data-language="menu.asparagus">Asparagus &amp; Halloumi Salad</h3>
+                            <div class="empty" data-language="menu.weight">(250 G)</div>
+                            <p data-language="menu.ingredients">
+                                Beans / Halloumi cheese / Asparagus / Courgettes / Cherry tomatoes
+                            </p>
+                            <div class="price">18.90</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-right col-lg-8 col-12">
+                    <div class="inner-content">
+                        <h5 data-language="menu.tasty">Tasty</h5>
+                        <h2>Starters</h2>
+                    </div>
+                    <div class="menu-starter col-12">
+                        <ul>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="menu2">
+                <div class="menu-left col-lg-4 col-12">
+                    <div class="wrapper-img">
+                        <img src="/assets/images/menu/img_10.jpg" alt="" />
+                        <div class="overlay"></div>
+                        <div class="wrapper-content">
+                            <h3 data-language="menu.asparagus">Asparagus &amp; Halloumi Salad</h3>
+                            <div class="empty" data-language="menu.weight">(250 G)</div>
+                            <p data-language="menu.ingredients">
+                                Beans / Halloumi cheese / Asparagus / Courgettes / Cherry tomatoes
+                            </p>
+                            <div class="price">18.90</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-right col-lg-8 col-12">
+                    <div class="inner-content">
+                        <h5 data-language="menu.tasty">Tasty</h5>
+                        <h2>Starters</h2>
+                    </div>
+                    <div class="menu-starter col-12">
+                        <ul>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/shop-detail.html">
+                                    <div class="item-main">
+                                        <h4>
+                                            CHILLED PEA &amp; CHERVIL SOUP WITH CRÈME FRAÎCHE
+                                            <small>(250 G)</small>
+                                        </h4>
+                                        <div class="zn-priceList-dottedSeparator"></div>
+                                        <div class="itemPrice">$10.00</div>
+                                    </div>
+                                    <div class="item-desc">
+                                        Onions / Fresh flat-leaf parsley / Mashed potatoes /
+                                        Pepper / Eggs / Tartare sauce
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

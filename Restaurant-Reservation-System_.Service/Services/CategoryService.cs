@@ -50,6 +50,7 @@ namespace Restaurant_Reservation_System_.Service.Services
             }
 
             _categoryRepository.Delete(category);
+            await _categoryRepository.SaveChangesAsync();
         }
 
         public async Task<Category> DetailAsync(int id)
@@ -84,6 +85,7 @@ namespace Restaurant_Reservation_System_.Service.Services
             CategoryUpdateDto dto = _mapper.Map<CategoryUpdateDto>(category);
 
             _categoryRepository.Update(category);
+          await   _categoryRepository.SaveChangesAsync();
         }
 
         public async Task<List<Category>> GetAllAsync()

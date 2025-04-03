@@ -34,6 +34,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Restaurant-Reservation-System_.Core\Restaurant-Reservation-System_.Core.csproj" />
+    <ProjectReference Include="..\Restaurant-Reservation-System_.DataAccess\Restaurant-Reservation-System_.DataAccess.csproj" />
     <ProjectReference Include="..\Restaurant-Reservation-System_.Service\Restaurant-Reservation-System_.Service.csproj" />
   </ItemGroup>
 

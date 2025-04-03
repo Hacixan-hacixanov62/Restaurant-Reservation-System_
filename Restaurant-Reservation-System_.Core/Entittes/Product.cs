@@ -25,7 +25,6 @@ namespace Restaurant_Reservation_System_.Core.Entittes
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal Discount { get; set; }
-        public string Image { get; set; } = null!;
         public int CategoryId { get; set; }
         public DeliciousStatus Delicious { get; set; }
         public int Weight { get; set; }

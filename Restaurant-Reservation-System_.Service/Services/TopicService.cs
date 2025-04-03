@@ -1,33 +1,88 @@
-﻿using Restaurant_Reservation_System_.Core.Entittes;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using Restaurant_Reservation_System_.Core.Entittes;
+using Restaurant_Reservation_System_.DataAccess.DAL;
+using Restaurant_Reservation_System_.DataAccess.Repositories;
+using Restaurant_Reservation_System_.DataAccess.Repositories.IRepositories;
+using Restaurant_Reservation_System_.Service.Dtos.CategoryDtos;
+using Restaurant_Reservation_System_.Service.Dtos.TopicDtos;
 using Restaurant_Reservation_System_.Service.Services.IService;
 
 namespace Restaurant_Reservation_System_.Service.Services
 {
     public class TopicService : ITopicService
     {
-        public Task CreateAsync(Topic topic)
+        private readonly AppDbContext _context;
+        private readonly ITopicRepository _topicRepository;
+        private readonly IMapper _mapper;
+        public TopicService(AppDbContext context, IMapper mapper,ITopicRepository topicRepository)
         {
-            throw new NotImplementedException();
+            _context = context;
+            _mapper = mapper;
+            _topicRepository = topicRepository;
+        }
+        public async Task CreateAsync(TopicCreateDto topicCreateDto)
+        {
+            Topic topic  = _mapper.Map<Topic>(topicCreateDto);  
+
+            await _topicRepository.CreateAsync(topic);
+            await _topicRepository.SaveChangesAsync();
+        }
+        public async Task DeleteAsync(int id)
+        {
+
+            var category = await _topicRepository.GetAll().FirstOrDefaultAsync(s => s.Id == id);
+            if (category == null)
+            {
+                throw new Exception("Topic tapılmadı");
+            }
+
+            _topicRepository.Delete(category);
+            await _topicRepository.SaveChangesAsync();
         }
 
-        public Task DeleteAsync(int id)
+        public async Task<Topic> DetailAsync(int id)
         {
-            throw new NotImplementedException();
+            var topic = await _topicRepository.GetAll()
+                .Where(s => s.Id == id)
+                .Select(s => new Topic
+                {
+                    Id = s.Id,
+                    Name = s.Name,
+                })
+                .FirstOrDefaultAsync();
+
+            if (topic == null)
+            {
+                throw new Exception("Topic tapılmadı");
+            }
+
+            return topic;
         }
 
-        public Task<Topic> DetailAsync(int id)
+        public async Task EditAsync(int id, TopicUpdateDto topicUpdateDto)
         {
-            throw new NotImplementedException();
+            var topic = await _topicRepository.GetAll().FirstOrDefaultAsync(s => s.Id == id);
+
+            if (topic == null)
+            {
+                throw new Exception("Topic tapılmadı");
+            }
+
+            TopicUpdateDto dto = _mapper.Map<TopicUpdateDto>(topic);
+
+            _topicRepository.Update(topic);
+            await _topicRepository.SaveChangesAsync();
         }
 
-        public Task EditAsync(int id, Topic topic)
+        public async Task<List<Topic>> GetAllAsync()
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Topic>> GetAllAsync()
-        {
-            throw new NotImplementedException();
+            var categories = await _topicRepository.GetAll().ToListAsync();
+            return categories.Select(s => new Topic
+            {
+                Id = s.Id,
+                Name = s.Name
+            }).ToList();
         }
     }
 }

@@ -59,38 +59,31 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([FromForm] ProductCreateDto productCreateDto)
         {
-           
-        
-            try
+            ViewBag.Categories = _context.Categories.ToList();
+
+            if (!ModelState.IsValid)
             {
-                ViewBag.Categories = _context.Categories.ToList();
-
-                if (!ModelState.IsValid)
-                {
-                    return View();
-                }
-
-                var isExistCategory = await _context.Categories.AnyAsync(x => x.Id == productCreateDto.CategoryId);
-                if (!isExistCategory)
-                {
-                    ModelState.AddModelError("CategoryId", "Category is not found");
-                    return View(productCreateDto);
-                }
-
-
-                if (_context.Products.Any(x => x.Name == productCreateDto.Name))
-                {
-                    ModelState.AddModelError("", "Product already exists");
-                    return View(productCreateDto);
-                }
-
-                await _productService.CreateAsync(productCreateDto);
-                return RedirectToAction(nameof(Index));
+                return View();
             }
-            catch (Exception ex)
+
+            var isExistCategory = await _context.Categories.AnyAsync(x => x.Id == productCreateDto.CategoryId);
+            if (!isExistCategory)
             {
-                return BadRequest(ex.Message);
+                ModelState.AddModelError("CategoryId", "Category is not found");
+                return View(productCreateDto);
             }
+
+
+            if (_context.Products.Any(x => x.Name == productCreateDto.Name))
+            {
+                ModelState.AddModelError("", "Product already exists");
+                return View(productCreateDto);
+            }
+
+            await _productService.CreateAsync(productCreateDto);
+            return RedirectToAction(nameof(Index));
+
+
         }
 
         public async Task<IActionResult> Edit(int? id)

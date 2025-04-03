@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using Restaurant_Reservation_System_.Core.Entittes;
+using Restaurant_Reservation_System_.Service.Dtos.BlogDtos;
 using Restaurant_Reservation_System_.Service.Dtos.CategoryDetailDtos;
 using Restaurant_Reservation_System_.Service.Dtos.CategoryDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ChefDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ProductDetailDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ProductDtos;
+using Restaurant_Reservation_System_.Service.Dtos.TopicDtos;
 
 namespace Restaurant_Reservation_System_.Service.Profiles
 {
@@ -62,6 +64,14 @@ namespace Restaurant_Reservation_System_.Service.Profiles
             ////Chef Profiles 
             CreateMap<Chef, ChefCreateDto>().ReverseMap();
             CreateMap<Chef, ChefUpdateDto>().ReverseMap();
+
+            /// Topic Profiles
+            CreateMap<Topic, TopicCreateDto>().ReverseMap();
+            CreateMap<Topic, TopicUpdateDto>().ReverseMap();
+
+            /// Blog Profiles
+            CreateMap<Blog, BlogCreateDto>().ReverseMap();
+            CreateMap<Blog, BlogUpdateDto>().ReverseMap();
         }
 
     }

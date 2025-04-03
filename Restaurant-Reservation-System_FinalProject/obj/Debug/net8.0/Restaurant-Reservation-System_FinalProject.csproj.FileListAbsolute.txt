@@ -103,7 +103,6 @@ C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Res
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\System.Composition.TypedParts.dll
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\System.Drawing.Common.dll
-C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\System.Formats.Asn1.dll
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\System.Memory.Data.dll
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\System.Reflection.MetadataLoadContext.dll
@@ -289,9 +288,13 @@ C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Res
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\obj\Debug\net8.0\scopedcss\bundle\Restaurant-Reservation-System_FinalProject.styles.css
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\obj\Debug\net8.0\scopedcss\projectbundle\Restaurant-Reservation-System_FinalProject.bundle.scp.css
-C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\obj\Debug\net8.0\Restaurant-Reservation-System_FinalProject.csproj.CopyComplete
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\obj\Debug\net8.0\Restaurant-Reservation-System_FinalProject.dll
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\obj\Debug\net8.0\refint\Restaurant-Reservation-System_FinalProject.dll
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\obj\Debug\net8.0\Restaurant-Reservation-System_FinalProject.pdb
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\obj\Debug\net8.0\Restaurant-Reservation-System_FinalProject.genruntimeconfig.cache
 C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\obj\Debug\net8.0\ref\Restaurant-Reservation-System_FinalProject.dll
+C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\bin\Debug\net8.0\Restaurant-Reservation-System_FinalProject.staticwebassets.endpoints.json
+C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\obj\Debug\net8.0\staticwebassets\msbuild.Restaurant-Reservation-System_FinalProject.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\API (Pb-202) _ Task\Restaurant-Reservation-System_FinalProject\Restaurant-Reservation-System_FinalProject\obj\Debug\net8.0\Restaura.E007D4AB.Up2Date
