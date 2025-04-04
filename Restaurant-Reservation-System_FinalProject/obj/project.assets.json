@@ -3927,6 +3927,7 @@
           "AutoMapper": "13.0.1",
           "FluentValidation": "11.11.0",
           "FluentValidation.AspNetCore": "11.3.0",
+          "MailKit": "4.10.0",
           "Restaurant-Reservation-System_.DataAccess": "1.0.0"
         },
         "compile": {

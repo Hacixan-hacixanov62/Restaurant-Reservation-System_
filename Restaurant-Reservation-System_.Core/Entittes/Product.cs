@@ -39,6 +39,7 @@ namespace Restaurant_Reservation_System_.Core.Entittes
 
         // Many To Many olanlar
         public List<ProductIngredient> ProductIngredients { get; set; }
+        public ICollection<Comment> Comments { get; set; } = new List<Comment>();
 
         public Category Category { get; set; }
     }

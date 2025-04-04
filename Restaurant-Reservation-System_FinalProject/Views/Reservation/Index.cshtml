@@ -61,17 +61,6 @@
                             <div class="form-group">
                                 <label asp-for="Time" style=" color: #bebebe;"></label>
                                 <div class="select-list" style="margin:0;">
-                                    @*<select asp-for="Time" required>
-                                            <option disabled selected value="">Time</option>
-                                         @{
-                                             for (int i = 10; i < 20; i++)
-                                             {
-
-                                            <option value="@i">@i:00 </option>
-
-                                             }
-                                         }
-                                        </select>*@
                                     <input type="datetime-local"
                                            id="meeting-time"
                                            asp-for="Time" class="dateTimeInput" style=" color-scheme: dark;" />
@@ -80,15 +69,6 @@
 
                                 </div>
                             </div>
-                            @*<div class="form-group">
-                                    <div class="select-list">
-                                        <select name="food" id="food" required>
-                                            <option value="">Food</option>
-                                            <option value="seasonalfish">Seasonal steamed fish</option>
-                                            <option value="assortedmushrooms">Assorted mushrooms</option>
-                                        </select>
-                                    </div>
-                                </div>*@
                             <div class="form-radio">
                                 <label class="label-radio" style="color: #bebebe;"> Select Your Dining Space</label>
                                 <div class="radio-item-list">

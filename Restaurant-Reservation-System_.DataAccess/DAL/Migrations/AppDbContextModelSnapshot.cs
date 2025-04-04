@@ -471,6 +471,59 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                     b.ToTable("Chefs");
                 });
 
+            modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Comment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("ParentId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("ParentId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Comments");
+                });
+
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Ingredient", b =>
                 {
                     b.Property<int>("Id")
@@ -909,6 +962,29 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                     b.Navigation("Language");
                 });
 
+            modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Comment", b =>
+                {
+                    b.HasOne("Restaurant_Reservation_System_.Core.Entittes.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Comment", "Parent")
+                        .WithMany("Children")
+                        .HasForeignKey("ParentId");
+
+                    b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId");
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Parent");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Product", b =>
                 {
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Category", "Category")
@@ -998,6 +1074,11 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Chef", b =>
                 {
                     b.Navigation("Blogs");
+                });
+
+            modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Comment", b =>
+                {
+                    b.Navigation("Children");
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Ingredient", b =>

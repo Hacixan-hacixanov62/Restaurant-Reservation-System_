@@ -40,6 +40,7 @@ namespace Restaurant_Reservation_System_.Service
 
         private static void AddServices(IServiceCollection services)
         {
+            services.AddScoped<IEmailService, EmailService>();
 
             services.AddScoped<ICloudinaryService, CloudinaryService>();
          
@@ -74,7 +75,8 @@ namespace Restaurant_Reservation_System_.Service
             services.AddScoped<IReservationRepository, ReservationRepository>();
             services.AddScoped<IReservationService, ReservationService>();
 
-
+            services.AddScoped<ISubscribeRepository, SubscribeRepository>();
+            services.AddScoped<ISubscribeService, SubscribeService>();
 
 
         }

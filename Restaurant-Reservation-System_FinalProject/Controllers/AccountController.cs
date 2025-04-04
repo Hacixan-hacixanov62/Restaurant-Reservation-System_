@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
 using Restaurant_Reservation_System_.Core.Entittes;
 using Restaurant_Reservation_System_.DataAccess.DAL;
-using Restaurant_Reservation_System_FinalProject.Services;
+using Restaurant_Reservation_System_.Service.Services.IService;
 using Restaurant_Reservation_System_FinalProject.ViewModels;
 
 namespace Restaurant_Reservation_System_FinalProject.Controllers
@@ -15,8 +15,8 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
         private readonly  SignInManager<AppUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly AppDbContext _context;
-        private readonly EmailService _emailService;
-        public AccountController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager,AppDbContext context,RoleManager<IdentityRole> roleManager,EmailService emailService)
+        private readonly IEmailService _emailService;
+        public AccountController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager,AppDbContext context,RoleManager<IdentityRole> roleManager, IEmailService emailService)
         {
             _context = context;
             _userManager = userManager;

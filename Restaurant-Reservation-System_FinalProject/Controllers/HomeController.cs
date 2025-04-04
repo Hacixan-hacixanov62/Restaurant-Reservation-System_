@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Restaurant_Reservation_System_.DataAccess.DAL;
+using Restaurant_Reservation_System_.Service.Dtos.SubscribeDtos;
+using Restaurant_Reservation_System_.Service.Extensions;
+using Restaurant_Reservation_System_.Service.Services.IService;
 using Restaurant_Reservation_System_.Service.UI.VM;
 
 namespace Restaurant_Reservation_System_FinalProject.Controllers
@@ -7,9 +10,11 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
     public class HomeController : Controller
     {
         private readonly AppDbContext _context;
-        public HomeController(AppDbContext context)
+        private readonly ISubscribeService _subscribeService;
+        public HomeController(AppDbContext context,ISubscribeService subscribeService)
         {
             _context = context;
+            _subscribeService = subscribeService;
         }
         public IActionResult Index()
         {
@@ -21,6 +26,15 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             
 
             return View(homeVm);
+        }
+
+        public async Task<IActionResult> AddSubscriber(SubscribeCreateDto dto)
+        {
+            var result = await _subscribeService.CreateAsync(dto, ModelState);
+
+            string returnUrl = Request.GetReturnUrl();
+
+            return Redirect(returnUrl);
         }
     }
 }

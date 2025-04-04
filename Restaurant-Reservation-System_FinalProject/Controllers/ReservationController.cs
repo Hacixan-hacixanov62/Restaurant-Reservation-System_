@@ -5,7 +5,8 @@ using Restaurant_Reservation_System_.Core.Entittes;
 using Restaurant_Reservation_System_.DataAccess.DAL;
 using Restaurant_Reservation_System_.Service.Dtos.ReservationDtos;
 using Restaurant_Reservation_System_.Service.Dtos.TableDtos;
-using Restaurant_Reservation_System_FinalProject.Services;
+using Restaurant_Reservation_System_.Service.Services.IService;
+
 
 namespace Restaurant_Reservation_System_FinalProject.Controllers
 {
@@ -13,10 +14,10 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IMapper _mapper;
-        private readonly EmailService _emailService;
+        private readonly IEmailService _emailService;
 
 
-        public ReservationController(AppDbContext context, IMapper mapper, EmailService emailService)
+        public ReservationController(AppDbContext context, IMapper mapper, IEmailService emailService)
         {
             _context = context;
             _mapper = mapper;
@@ -215,7 +216,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
 
             // Send the email
             _emailService.SendEmail(dto.Email, "Reservation detail", body);
-
+            
             TempData["message"] = "Reservation is successfully done.";
 
             return RedirectToAction("Index");

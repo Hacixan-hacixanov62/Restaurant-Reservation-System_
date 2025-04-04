@@ -4,9 +4,11 @@ using Restaurant_Reservation_System_.Service.Dtos.BlogDtos;
 using Restaurant_Reservation_System_.Service.Dtos.CategoryDetailDtos;
 using Restaurant_Reservation_System_.Service.Dtos.CategoryDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ChefDtos;
+using Restaurant_Reservation_System_.Service.Dtos.CommentDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ProductDetailDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ProductDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ReservationDtos;
+using Restaurant_Reservation_System_.Service.Dtos.SubscribeDtos;
 using Restaurant_Reservation_System_.Service.Dtos.TableDtos;
 using Restaurant_Reservation_System_.Service.Dtos.TopicDtos;
 
@@ -82,6 +84,18 @@ namespace Restaurant_Reservation_System_.Service.Profiles
             ///Reservation Profiless
             CreateMap<Reservation,ReservationCreateDto>().ReverseMap();
             CreateMap<Reservation,ReservationDto>().ReverseMap();
+
+            ///Subscribe Profiles
+            CreateMap<Subscribe, SubscribeCreateDto>().ReverseMap();
+            CreateMap<Subscribe, SubscribeUpdateDto>().ReverseMap();
+            CreateMap<Subscribe, SubscribeGetDto>().ReverseMap();
+
+            ///Comment Profiles
+            CreateMap<Comment, CommentCreateDto>().ReverseMap();
+            CreateMap<Comment, CommentUpdateDto>().ReverseMap();
+            CreateMap<Comment, CommentGetDto>().ReverseMap();
+            CreateMap<Comment, CommentReplyDto>().ReverseMap();
+
 
         }
 

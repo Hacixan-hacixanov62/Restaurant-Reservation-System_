@@ -7,11 +7,7 @@ using Restaurant_Reservation_System_.DataAccess.DAL;
 using Restaurant_Reservation_System_.DataAccess.Repositories;
 using Restaurant_Reservation_System_.DataAccess.Repositories.IRepositories;
 using Restaurant_Reservation_System_.Service.Profiles;
-using Restaurant_Reservation_System_.Service.Services;
-using Restaurant_Reservation_System_.Service.Services.IService;
-using Restaurant_Reservation_System_FinalProject.Services;
 using System.Reflection;
-using Restaurant_Reservation_System_.DataAccess.Localizers;
 using Restaurant_Reservation_System_.DataAccess;
 using Restaurant_Reservation_System_.Service;
 
@@ -22,7 +18,7 @@ namespace Restaurant_Reservation_System_FinalProject
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            var config = builder.Configuration;
+            var config = builder.Configuration; 
 
 
             builder.Services.AddControllersWithViews()
@@ -75,8 +71,6 @@ namespace Restaurant_Reservation_System_FinalProject
             });
 
 
-
-            builder.Services.AddScoped<EmailService>();
             //builder.Services.AddFluentValidationRulesToSwagger();
 
             builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());

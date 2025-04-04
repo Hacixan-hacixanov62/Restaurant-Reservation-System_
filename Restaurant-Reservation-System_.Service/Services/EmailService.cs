@@ -1,12 +1,15 @@
 ﻿using MailKit.Net.Smtp;
 using MailKit.Security;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using MimeKit;
 using MimeKit.Text;
+using Restaurant_Reservation_System_.Service.Services.IService;
 using System.ComponentModel.DataAnnotations;
 
-namespace Restaurant_Reservation_System_FinalProject.Services
+namespace Restaurant_Reservation_System_.Service.Services
 {
-    public class EmailService
+    public class EmailService:IEmailService
     {
 
         private readonly IConfiguration _configuration;
