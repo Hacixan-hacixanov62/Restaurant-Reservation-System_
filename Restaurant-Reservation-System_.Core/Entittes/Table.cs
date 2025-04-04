@@ -11,5 +11,7 @@ namespace Restaurant_Reservation_System_.Core.Entittes
     {
         public int TableNo { get; set; }
         public int PersonCount { get; set; }
+        public ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
+
     }
 }

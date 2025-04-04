@@ -47,7 +47,7 @@ namespace Restaurant_Reservation_System_.Service.Services
             var table = await _tableRepository.GetAll().FirstOrDefaultAsync(m => m.Id == id);
             if (table == null)
             {
-                throw new Exception("Topic tapılmadı");
+                throw new Exception("Table tapılmadı");
             }
 
             _tableRepository.Delete(table);
@@ -68,13 +68,13 @@ namespace Restaurant_Reservation_System_.Service.Services
 
             if (topic == null)
             {
-                throw new Exception("Topic tapılmadı");
+                throw new Exception("Table tapılmadı");
             }
 
             return topic;
         }
 
-        public async Task EditAsync(int id, TableUpdateDto tableUpdateDto)
+        public async Task EditAsync(int id, TableGetDto tableUpdateDto)
         {
             var table = await _tableRepository.GetAll().FirstOrDefaultAsync(m=>m.Id == id);
             if (table == null)
@@ -82,7 +82,7 @@ namespace Restaurant_Reservation_System_.Service.Services
                 throw new Exception("Table tapılmadı");
             }
 
-            TableUpdateDto dto = _mapper.Map<TableUpdateDto>(table);
+            TableGetDto dto = _mapper.Map<TableGetDto>(table);
 
             table = _mapper.Map(tableUpdateDto,table);
 

@@ -9,6 +9,6 @@ namespace Restaurant_Reservation_System_.Service.Services.IService
         Task DeleteAsync(int id);
         Task<Table> DetailAsync(int id);
         Task<List<Table>> GetAllAsync();
-        Task EditAsync(int id, TableUpdateDto tableUpdateDto);
+        Task EditAsync(int id, TableGetDto tableUpdateDto);
     }
 }

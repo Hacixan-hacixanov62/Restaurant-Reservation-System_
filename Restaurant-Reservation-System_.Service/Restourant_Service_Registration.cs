@@ -68,6 +68,13 @@ namespace Restaurant_Reservation_System_.Service
             services.AddScoped<IBlogRepository, BlogRepository>();
             services.AddScoped<IBlogService, BlogService>();
 
+            services.AddScoped<ITableRepository, TableRepository>();
+            services.AddScoped<ITableService, TableService>();
+
+            services.AddScoped<IReservationRepository, ReservationRepository>();
+            services.AddScoped<IReservationService, ReservationService>();
+
+
 
 
         }

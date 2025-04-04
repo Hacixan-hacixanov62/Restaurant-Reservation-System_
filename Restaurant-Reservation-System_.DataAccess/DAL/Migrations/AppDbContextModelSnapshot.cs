@@ -636,6 +636,55 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                     b.ToTable("ProductIngredients");
                 });
 
+            modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Reservation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDone")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TableId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TableId");
+
+                    b.ToTable("Reservations");
+                });
+
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Slider", b =>
                 {
                     b.Property<int>("Id")
@@ -665,6 +714,26 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Sliders");
+                });
+
+            modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Subscribe", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsSubscribed")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Subscribes");
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Table", b =>
@@ -900,6 +969,17 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Reservation", b =>
+                {
+                    b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Table", "Table")
+                        .WithMany("Reservations")
+                        .HasForeignKey("TableId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Table");
+                });
+
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.AppUser", b =>
                 {
                     b.Navigation("CartItems");
@@ -937,6 +1017,11 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                     b.Navigation("ProductImages");
 
                     b.Navigation("ProductIngredients");
+                });
+
+            modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Table", b =>
+                {
+                    b.Navigation("Reservations");
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Topic", b =>

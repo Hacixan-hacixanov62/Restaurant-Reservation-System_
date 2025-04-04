@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 
 namespace Restaurant_Reservation_System_.Service.Dtos.TableDtos
 {
-    public class TableUpdateDto
+    public class TableGetDto
     {
+        public int Id { get; set; }
         public int TableNo { get; set; }
         [Range(0, 10)]
         public int PersonCount { get; set; }
+        public string? ReservInfo { get; set; }
+
     }
 }

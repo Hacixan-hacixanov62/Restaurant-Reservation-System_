@@ -1,0 +1,24 @@
+﻿@model Table
+
+<div class="main-panel" style="padding:0px; height:100vh;overflow:scroll">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h3 class="page-title"> Table Detail</h3>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="d-flex justify-content-center align-items-center flex-column">
+                        <h2>Table No: @Model.TableNo</h2>
+                        <p> PersonCount: @Model.PersonCount</p>                      
+                    </div>
+               
+                    <div class="row3"> <a class="btn btn-secondary" asp-action="Index">Cancel</a></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

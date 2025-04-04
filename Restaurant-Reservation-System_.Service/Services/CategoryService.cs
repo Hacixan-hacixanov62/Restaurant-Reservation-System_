@@ -90,7 +90,7 @@ namespace Restaurant_Reservation_System_.Service.Services
             }
 
             CategoryUpdateDto dto = _mapper.Map<CategoryUpdateDto>(category);
-
+            
             _categoryRepository.Update(category);
           await   _categoryRepository.SaveChangesAsync();
         }

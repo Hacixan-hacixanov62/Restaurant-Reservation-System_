@@ -6,6 +6,7 @@ using Restaurant_Reservation_System_.Service.Dtos.CategoryDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ChefDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ProductDetailDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ProductDtos;
+using Restaurant_Reservation_System_.Service.Dtos.ReservationDtos;
 using Restaurant_Reservation_System_.Service.Dtos.TableDtos;
 using Restaurant_Reservation_System_.Service.Dtos.TopicDtos;
 
@@ -76,7 +77,11 @@ namespace Restaurant_Reservation_System_.Service.Profiles
 
             ///Table Profiless
             CreateMap<Table, TableCreateDto>().ReverseMap();
-            CreateMap<Table, TableUpdateDto>().ReverseMap();
+            CreateMap<Table, TableGetDto>().ReverseMap();
+
+            ///Reservation Profiless
+            CreateMap<Reservation,ReservationCreateDto>().ReverseMap();
+            CreateMap<Reservation,ReservationDto>().ReverseMap();
 
         }
 
