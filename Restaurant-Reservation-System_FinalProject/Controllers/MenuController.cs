@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Restaurant_Reservation_System_.Core.Entittes;
 using Restaurant_Reservation_System_.DataAccess.DAL;
 using Restaurant_Reservation_System_.Service.UI.VM;
 
@@ -12,11 +15,23 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index(int? categoryId)
         {
-            MenuVm menuVm = new();
-            menuVm.Products =_context.Products.ToList();
-            return View(menuVm);
+            //MenuVm menuVm = new();  
+            //menuVm.Products =_context.Products.ToList();
+            //return View(menuVm);
+            if (categoryId is not null)
+            {
+                var category = await _context.Categories.Include(x => x.Products).ThenInclude(x => x.ProductImages).FirstOrDefaultAsync(x => x.Id == categoryId);
+
+                if (category is null || category.Products.Count() == 0)
+                    return NotFound();
+
+                return View(new List<Category>() { category });
+
+            }
+            var categories = await _context.Categories.Include(x => x.Products).ThenInclude(x => x.ProductImages).Where(x => x.Products.Count > 0).ToListAsync();
+            return View(categories);
         }
     }
 }

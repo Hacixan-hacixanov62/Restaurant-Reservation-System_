@@ -305,6 +305,59 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                     b.ToTable("Blogs");
                 });
 
+            modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.BlogComment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("BlogId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("ParentId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("BlogId");
+
+                    b.HasIndex("ParentId");
+
+                    b.ToTable("BlogComments");
+                });
+
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.BlogTopic", b =>
                 {
                     b.Property<int>("BlogId")
@@ -604,6 +657,9 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("SalesCount")
+                        .HasColumnType("int");
 
                     b.Property<int>("Weight")
                         .HasColumnType("int");
@@ -905,6 +961,29 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                     b.Navigation("Chef");
                 });
 
+            modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.BlogComment", b =>
+                {
+                    b.HasOne("Restaurant_Reservation_System_.Core.Entittes.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Blog", "Blog")
+                        .WithMany()
+                        .HasForeignKey("BlogId");
+
+                    b.HasOne("Restaurant_Reservation_System_.Core.Entittes.BlogComment", "Parent")
+                        .WithMany("Children")
+                        .HasForeignKey("ParentId");
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Blog");
+
+                    b.Navigation("Parent");
+                });
+
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.BlogTopic", b =>
                 {
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Blog", "Blog")
@@ -975,7 +1054,7 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                         .HasForeignKey("ParentId");
 
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Product", "Product")
-                        .WithMany()
+                        .WithMany("Comments")
                         .HasForeignKey("ProductId");
 
                     b.Navigation("AppUser");
@@ -1066,6 +1145,11 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                     b.Navigation("BlogTopics");
                 });
 
+            modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.BlogComment", b =>
+                {
+                    b.Navigation("Children");
+                });
+
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Category", b =>
                 {
                     b.Navigation("Products");
@@ -1093,6 +1177,8 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Product", b =>
                 {
+                    b.Navigation("Comments");
+
                     b.Navigation("ProductDetails");
 
                     b.Navigation("ProductImages");

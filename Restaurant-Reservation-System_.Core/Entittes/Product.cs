@@ -28,6 +28,7 @@ namespace Restaurant_Reservation_System_.Core.Entittes
         public int CategoryId { get; set; }
         public DeliciousStatus Delicious { get; set; }
         public int Weight { get; set; }
+        public int SalesCount { get; set; }
 
         public List<ProductImage> ProductImages { get; set; }
         public List<ProductDetail> ProductDetails { get; set; }

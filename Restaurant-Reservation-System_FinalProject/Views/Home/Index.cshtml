@@ -155,10 +155,112 @@
                     <div class="specialties-over-detail">
                         <p>Oven Roasted duck with special sousage</p>
                         <span class="price">$25.00</span>
-                        <a href="menu–stretched.html" class="btn read-more">read more</a>
+                        <a asp-controller="Menu" asp-action="index" class="btn read-more">read more</a>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+    <section id="Menu-list">
+        <div class="container">
+            <div class="row">
+                <div style="z-index: 200;" class="col-sm-12 col-md-3">
+                    <div class="menu-list-left">
+                        <div class="menu-list-title">
+                            <h4>restaurant</h4>
+                            <h2>menu</h2>
+                        </div>
+                        <ul>
+                            <li><a style=" color: #999966 !important;" asp-action="index" asp-route-categoryId="@null" class="scroll">all</a></li>
+                            @foreach (var category in Model.Categories)
+                            {
+                                <li><a asp-action="index" asp-controller="Menu" asp-route-categoryId="@category.Id" class="scroll">@category.Title</a></li>
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-9">
+                    <div class="menu-list-right">
+                        <ul class="products-list">
+                            @foreach (var product in Model.Products)
+                            {
+                                <li class="products-block">
+                                    <a asp-controller="Shop" asp-action="Detail" asp-route-id="@product.Id" class="product-link">
+                                        <img class="img-responsive" src="@product.ProductImages.FirstOrDefault(x=>x.IsMain)?.Url" alt="">
+                                        <div class="info-wrapper">
+                                            <div class="btn-add-to-cart">
+                                                <a asp-action="AddToBasket" asp-route-id="@product.Id" asp-route-returnUrl="@Context.Request.Path.Value" class="btn cart-btn"> Add to cart</a>
+                                            </div>
+                                            <h2 class="product-title">@product.Name</h2>
+                                            <span class="price">$@(product.Price - (product.Price * product.Discount / 100))</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            }
+
+
+                            <li class="products-block fancy-pag visible-lg visible-md">
+                                <div class="fancy-inner-block">
+                                    <div class="pag-arrows">
+                                        <a asp-controller="Shop" asp-action="index">
+                                            <h2>NEXT</h2>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Testimonial">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-8 col-centered">
+                    @* <div class="testimonial-slider">
+                        @foreach (var comment in Model)
+                        {
+                            <div class="slider-item">
+                                <div class="section-title">
+                                    <h2>Clients</h2>
+                                    <h3>testimonials</h3>
+                                </div>
+                                <p>
+                                    @comment.Text
+                                </p>
+                                <div class="text-center testi-icon">“</div>
+                                <h4>@comment.AppUser.Fullname</h4>
+                            </div>
+
+                        }
+
+                    </div> *@
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Reservation">
+        <div class="row">
+            <!-- <div class="col-sm-12 col-md-12 col-lg-12"> -->
+            <div class="reservation-block">
+                <div class="reserv-overlay"></div>
+                <div class="image-block">
+                    <div class="reserv-img">
+                    </div>
+                </div>
+                <div class="detail-block">
+                    <h3 class="white">reservations</h3>
+                    <p class="white">
+                        49 Featherstone Street LONDON EC1Y 8SY UNITED KINGDOM <br>+4 1800 555 1234 <br><a class="white" href="#">bookatable@restaurant.com</a>
+                    </p>
+                    <a asp-controller="reservation " asp-action="index" class="btn btn-secondary">ONLINE</a>
+                </div>
+            </div>
+            <!-- </div> -->
+
         </div>
     </section>
 

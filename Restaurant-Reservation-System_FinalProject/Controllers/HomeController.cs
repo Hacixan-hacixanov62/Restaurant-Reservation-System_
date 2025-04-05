@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Restaurant_Reservation_System_.DataAccess.DAL;
 using Restaurant_Reservation_System_.Service.Dtos.SubscribeDtos;
 using Restaurant_Reservation_System_.Service.Extensions;
@@ -16,8 +17,14 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             _context = context;
             _subscribeService = subscribeService;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var products = await _context.Products.Include(x => x.ProductImages).Include(x => x.Category).Take(12).ToListAsync();
+            var categories = await _context.Categories.Where(x => x.Products.Count > 0).Take(10).ToListAsync();
+            var sliders = await _context.Sliders.ToListAsync();
+            //var topComments = await _context.Comments.OrderByDescending(x => x.Rating).Include(x => x.AppUser).Take(3).ToListAsync();
+
+
             HomeVm homeVm = new();
             homeVm.Sliders = _context.Sliders.ToList();
             homeVm.Abouts = _context.Abouts.ToList();

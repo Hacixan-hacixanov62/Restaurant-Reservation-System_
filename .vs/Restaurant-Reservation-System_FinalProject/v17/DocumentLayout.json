@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{45D62A9B-9C59-4313-B0A9-96CB9489AD2A}|Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject.csproj|c:\\api (pb-202) _ task\\restaurant-reservation-system_finalproject\\restaurant-reservation-system_finalproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45D62A9B-9C59-4313-B0A9-96CB9489AD2A}|Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject.csproj|solutionrelative:restaurant-reservation-system_finalproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{45D62A9B-9C59-4313-B0A9-96CB9489AD2A}|Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject.csproj|c:\\api (pb-202) _ task\\restaurant-reservation-system_finalproject\\restaurant-reservation-system_finalproject\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45D62A9B-9C59-4313-B0A9-96CB9489AD2A}|Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject.csproj|solutionrelative:restaurant-reservation-system_finalproject\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45D62A9B-9C59-4313-B0A9-96CB9489AD2A}|Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject.csproj|c:\\api (pb-202) _ task\\restaurant-reservation-system_finalproject\\restaurant-reservation-system_finalproject\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45D62A9B-9C59-4313-B0A9-96CB9489AD2A}|Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject.csproj|solutionrelative:restaurant-reservation-system_finalproject\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B7F0FD7-98C4-445E-A017-50C48A64EB9E}|Restaurant-Reservation-System_.Core\\Restaurant-Reservation-System_.Core.csproj|c:\\api (pb-202) _ task\\restaurant-reservation-system_finalproject\\restaurant-reservation-system_.core\\entittes\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B7F0FD7-98C4-445E-A017-50C48A64EB9E}|Restaurant-Reservation-System_.Core\\Restaurant-Reservation-System_.Core.csproj|solutionrelative:restaurant-reservation-system_.core\\entittes\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3872677-AF9B-400D-86B3-118C98EFD4FF}|Restaurant-Reservation-System_.DataAccess\\Restaurant-Reservation-System_.DataAccess.csproj|c:\\api (pb-202) _ task\\restaurant-reservation-system_finalproject\\restaurant-reservation-system_.dataaccess\\dal\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3872677-AF9B-400D-86B3-118C98EFD4FF}|Restaurant-Reservation-System_.DataAccess\\Restaurant-Reservation-System_.DataAccess.csproj|solutionrelative:restaurant-reservation-system_.dataaccess\\dal\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FE9A3E1-C421-46C1-BAB1-5C1AD57FDE46}|Restaurant-Reservation-System_.Service\\Restaurant-Reservation-System_.Service.csproj|c:\\api (pb-202) _ task\\restaurant-reservation-system_finalproject\\restaurant-reservation-system_.service\\dtos\\blogcommentdtos\\blogcommentupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FE9A3E1-C421-46C1-BAB1-5C1AD57FDE46}|Restaurant-Reservation-System_.Service\\Restaurant-Reservation-System_.Service.csproj|solutionrelative:restaurant-reservation-system_.service\\dtos\\blogcommentdtos\\blogcommentupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,15 +46,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\Program.cs",
-              "RelativeDocumentMoniker": "Restaurant-Reservation-System_FinalProject\\Program.cs",
-              "ToolTip": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\Program.cs",
-              "RelativeToolTip": "Restaurant-Reservation-System_FinalProject\\Program.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAQwAoAAAAwAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "BlogCommentUpdateDto.cs",
+              "DocumentMoniker": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_.Service\\Dtos\\BlogCommentDtos\\BlogCommentUpdateDto.cs",
+              "RelativeDocumentMoniker": "Restaurant-Reservation-System_.Service\\Dtos\\BlogCommentDtos\\BlogCommentUpdateDto.cs",
+              "ToolTip": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_.Service\\Dtos\\BlogCommentDtos\\BlogCommentUpdateDto.cs",
+              "RelativeToolTip": "Restaurant-Reservation-System_.Service\\Dtos\\BlogCommentDtos\\BlogCommentUpdateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T20:44:59.04Z",
+              "WhenOpened": "2025-04-05T13:24:58.972Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_.Core\\Entittes\\Product.cs",
+              "RelativeDocumentMoniker": "Restaurant-Reservation-System_.Core\\Entittes\\Product.cs",
+              "ToolTip": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_.Core\\Entittes\\Product.cs",
+              "RelativeToolTip": "Restaurant-Reservation-System_.Core\\Entittes\\Product.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwBYAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T13:10:09.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MenuController.cs",
+              "DocumentMoniker": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\Controllers\\MenuController.cs",
+              "RelativeDocumentMoniker": "Restaurant-Reservation-System_FinalProject\\Controllers\\MenuController.cs",
+              "ToolTip": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\Controllers\\MenuController.cs",
+              "RelativeToolTip": "Restaurant-Reservation-System_FinalProject\\Controllers\\MenuController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA5wCIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T13:04:42.047Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Restaurant-Reservation-System_FinalProject\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Restaurant-Reservation-System_FinalProject\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAwBkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T13:00:17.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_.DataAccess\\DAL\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Restaurant-Reservation-System_.DataAccess\\DAL\\AppDbContext.cs",
+              "ToolTip": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_.DataAccess\\DAL\\AppDbContext.cs",
+              "RelativeToolTip": "Restaurant-Reservation-System_.DataAccess\\DAL\\AppDbContext.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAswDcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T12:09:24.142Z",
               "EditorCaption": ""
             }
           ]
