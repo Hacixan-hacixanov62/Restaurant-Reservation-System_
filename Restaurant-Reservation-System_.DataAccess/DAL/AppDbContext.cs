@@ -1,14 +1,26 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Restaurant_Reservation_System_.Core.Entittes;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Dannys.Interceptors;
 
 namespace Restaurant_Reservation_System_.DataAccess.DAL
 {
     public class AppDbContext : IdentityDbContext<AppUser>
     {
-        public AppDbContext(DbContextOptions options) : base(options)
+        private readonly BaseEntityInterceptor _interceptor;
+
+
+        public AppDbContext(DbContextOptions<AppDbContext> options, BaseEntityInterceptor interceptor) : base(options)
         {
+            _interceptor = interceptor;
         }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.AddInterceptors(_interceptor);
+        }
+
 
         public DbSet<Slider> Sliders { get; set; } = null!;
         public DbSet<About> Abouts { get; set; } = null!;

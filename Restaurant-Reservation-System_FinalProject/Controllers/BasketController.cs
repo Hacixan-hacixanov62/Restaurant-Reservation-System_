@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Cors.Infrastructure;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Restaurant_Reservation_System_.Service.Extensions;
 using Restaurant_Reservation_System_.Service.Services.IService;
 
@@ -32,7 +31,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             return Redirect(returnUrl);
         }
 
-        public IActionResult RedirectForCart()
+        public IActionResult RedirectForCart()  
         {
            
             return PartialView("_BasketPartial");

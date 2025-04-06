@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Restaurant_Reservation_System_.Core.Entittes;
 using Restaurant_Reservation_System_.DataAccess.DAL;
 using Restaurant_Reservation_System_.DataAccess.Helpers;
 using Restaurant_Reservation_System_.DataAccess.Repositories.IRepositories;
+using Restaurant_Reservation_System_.Service.Dtos.ProductDtos;
+using Restaurant_Reservation_System_.Service.Dtos.SliderDtos;
 using Restaurant_Reservation_System_.Service.Services.IService;
 using Restaurant_Reservation_System_.Service.ViewModels.SliderVM;
 
@@ -14,40 +17,27 @@ namespace Restaurant_Reservation_System_.Service.Services
         private readonly IWebHostEnvironment _env;
         private readonly AppDbContext _context;
         private readonly ISliderRepository _sliderRepository;
-        public SliderService(IWebHostEnvironment env, AppDbContext context, ISliderRepository sliderRepository )
+        private readonly IMapper _mapper;
+        private readonly ICloudinaryService _cloudinaryService;
+        public SliderService(IWebHostEnvironment env, AppDbContext context, ISliderRepository sliderRepository,IMapper mapper,ICloudinaryService cloudinaryService )
         {
             _env = env;
             _context = context;
             _sliderRepository = sliderRepository;
+            _mapper = mapper;
+            _cloudinaryService = cloudinaryService;
 
         }
-        public async Task CreateAsync(SliderCreateVM request)
+        public async Task CreateAsync(SliderCreateDto sliderCreateDto)
         {
-            if (!request.Image.CheckType(new string[] { "image/jpeg", "image/png" }) && !request.Logo.CheckType(new string[] { "image/jpeg", "image/png" }))
-            {
-                throw new Exception("Şəklin formatı yalnız JPEG və ya PNG ola bilər.");
-            }
-            if (request.Image.CheckSize(2 * 1024 * 1024) && request.Logo.CheckSize(2 * 1024 * 1024)) 
-            {
-                throw new Exception("Şəklin ölçüsü 2 MB-dan çox ola bilməz.");
-            }
-
-            string folderPath = Path.Combine(_env.WebRootPath, "assets/images/home");
-            string imageName = request.Image.SaveImage(_env.WebRootPath, "assets/images/home");
-            string logoName = request.Logo.SaveImage(_env.WebRootPath, "assets/images/home");
-
-            var slider = new Slider
-            {
-                Title = request.Title,
-                Description = request.Description,
-                Image = imageName, 
-                Logo =logoName
-            };
+            Slider slider = _mapper.Map<Slider>(sliderCreateDto);
+            slider.Image = await _cloudinaryService.FileCreateAsync(sliderCreateDto.File);
 
           await  _sliderRepository.CreateAsync(slider);
+            await _sliderRepository.SaveChangesAsync();
         }
         
-        public async Task EditAsync(int id, SliderEditVM request)
+        public async Task EditAsync(int id, SliderUpdateDto sliderUpdateDto)
         {
             var slider = _sliderRepository.GetAll().FirstOrDefault(s => s.Id == id);
             if (slider == null)
@@ -55,13 +45,13 @@ namespace Restaurant_Reservation_System_.Service.Services
                 throw new Exception("Slider tapılmadı");
             }
             
-            if (request.Image != null)
+            if (sliderUpdateDto.File != null)
             {
-                if (!request.NewImage.CheckType(new string[] { "image/jpeg", "image/png" }))
+                if (!sliderUpdateDto.File.CheckType(new string[] { "image/jpeg", "image/png" }))
                 {
                     throw new Exception("Şəklin formatı yalnız JPEG və ya PNG ola bilər.");
                 }
-                if (request.NewImage.CheckSize(2*1024*1024))
+                if (sliderUpdateDto.File.CheckSize(2*1024*1024))
                 {
                     throw new Exception("Şəklin ölçüsü 2 MB-dan çox ola bilməz.");
                 }
@@ -70,14 +60,12 @@ namespace Restaurant_Reservation_System_.Service.Services
                 string oldImagePath = Path.Combine(_env.WebRootPath, "assets/images/home", slider.Image);
                 FileManager.DeleteFile(oldImagePath);
 
-                string newImageName = request.NewImage.SaveImage(_env.WebRootPath, "assets/images/home");
+                string newImageName = sliderUpdateDto.File.SaveImage(_env.WebRootPath, "assets/images/home");
                 slider.Image = newImageName;
             }
 
 
-            slider.Title = request.Title;
-            slider.Description = request.Description;
-
+          
             _sliderRepository.Update(slider);
         }
 

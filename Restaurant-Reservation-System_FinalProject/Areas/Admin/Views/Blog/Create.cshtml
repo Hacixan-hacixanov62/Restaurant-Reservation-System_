@@ -29,14 +29,14 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1" class="form-label"> Topic</label>
-                <select asp-for="TopicIds" asp-items="@(new SelectList(ViewBag.Topics,nameof(Topic.Id),nameof(Topic.Name)))" class="form-control">
+                <select asp-for="TopicIds" asp-items="@ViewBag.Topics" class="form-control">
                     <option disabled selected>Select Topics</option>
                 </select>
                 <span asp-validation-for="TopicIds" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1" class="form-label"> Author</label>
-                <select asp-for="ChefId" asp-items="@(new SelectList(ViewBag.Author,nameof(Chef.Id),nameof(Chef.Name)))" class="form-control">
+                <select asp-for="ChefId" asp-items="@ViewBag.Chefs" class="form-control">
                     <option disabled selected>Select Author</option>
                 </select>
                 <span asp-validation-for="ChefId" class="text-danger"></span>

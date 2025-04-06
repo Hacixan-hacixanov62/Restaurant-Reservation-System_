@@ -1,8 +1,9 @@
-﻿namespace Restaurant_Reservation_System_.Core.Entittes
+﻿using Restaurant_Reservation_System_.Core.Entittes.Comman;
+
+namespace Restaurant_Reservation_System_.Core.Entittes
 {
-    public class Contact
+    public class Contact:BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; } = null!;
         public string Email { get; set; } = null!;
         public string Phone { get; set; } = null!;

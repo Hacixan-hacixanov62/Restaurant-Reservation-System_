@@ -6,7 +6,6 @@
     <div class="content-wrapper" style=" height:100vh ;overflow:scroll">
         <div class="page-header">
             <h3 class="page-title">Blog Update</h3>
-
         </div>
         <div class="row">
             <div class="col-md-6 grid-margin stretch-card" style=" width:100%">
@@ -30,13 +29,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1" class="form-label">Select Topics</label>
-                                <select asp-for="TopicIds" asp-items="@(new SelectList(ViewBag.Topics,nameof(Topic.Id),nameof(Topic.Name)))" class="form-control">
+                                <select asp-for="TopicIds" asp-items="@ViewBag.Topics" class="form-control">
                                 </select>
                                 <span asp-validation-for="TopicIds" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1" class="form-label"> Chef</label>
-                                <select asp-for="ChefId" asp-items="@(new SelectList(ViewBag.Chef,nameof(Chef.Id),nameof(Chef.Name)))" class="form-control">
+                                <select asp-for="ChefId" asp-items="@ViewBag.Chefs" class="form-control">
                                     <option disabled selected>Select Chef</option>
                                 </select>
                                 <span asp-validation-for="ChefId" class="text-danger"></span>
@@ -53,7 +52,7 @@
                             </div>
                             <div asp-validation-summary="ModelOnly" class="text-danger">  </div>
                             <button type="submit" class="btn btn-primary me-2">Submit</button>
-                            <button class="btn btn-dark">Cancel</button>
+                            <button class="btn btn-dark" asp-action="Index">Cancel</button>
                         </form>
                     </div>
                 </div>

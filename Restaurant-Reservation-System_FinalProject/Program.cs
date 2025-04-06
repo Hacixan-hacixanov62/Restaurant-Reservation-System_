@@ -4,12 +4,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Restaurant_Reservation_System_.Core.Entittes;
 using Restaurant_Reservation_System_.DataAccess.DAL;
-using Restaurant_Reservation_System_.DataAccess.Repositories;
-using Restaurant_Reservation_System_.DataAccess.Repositories.IRepositories;
 using Restaurant_Reservation_System_.Service.Profiles;
 using System.Reflection;
 using Restaurant_Reservation_System_.DataAccess;
 using Restaurant_Reservation_System_.Service;
+using Dannys.Interceptors;
 
 namespace Restaurant_Reservation_System_FinalProject
 {
@@ -40,7 +39,7 @@ namespace Restaurant_Reservation_System_FinalProject
                 option.UseSqlServer(config.GetConnectionString("DefaultConnection"));
             });
 
-          
+           // builder.Services.AddScoped<IEmailService, EmailService>();
 
 
             builder.Services.AddHttpContextAccessor();
@@ -70,10 +69,9 @@ namespace Restaurant_Reservation_System_FinalProject
                 //opt.IdleTimeout = TimeSpan.FromSeconds(20);
             });
 
-
-            //builder.Services.AddFluentValidationRulesToSwagger();
-
             builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+            builder.Services.AddScoped<BaseEntityInterceptor>();
 
             builder.Services.AddAutoMapper(opt =>
             {

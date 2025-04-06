@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Restaurant_Reservation_System_.Core.Entittes;
 using Restaurant_Reservation_System_.DataAccess.DAL;
@@ -46,8 +47,11 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
 
         public async Task<IActionResult> Create()
         {
-            ViewBag.Topics = await _topicService.GetAllAsync();
-            ViewBag.Chef = await _blogService.GetAllAsync();
+            var topic = await _topicService.GetAllAsync();
+            var chef = await _chefService.GetAllAsync();
+
+            ViewBag.Topics = new SelectList(topic, nameof(Topic.Id), nameof(Topic.Name));
+            ViewBag.Chefs = new SelectList(chef, nameof(Chef.Id), nameof(Chef.Name));
 
             return View();
         }
@@ -106,8 +110,11 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewBag.Topics = await _context.Topics.ToListAsync();
-            ViewBag.Chef = await _context.Chefs.ToListAsync();
+            var topic = await _topicService.GetAllAsync();
+            var chef = await _chefService.GetAllAsync();
+
+            ViewBag.Topics = new SelectList(topic, nameof(Topic.Id), nameof(Topic.Name));
+            ViewBag.Chefs = new SelectList(chef, nameof(Chef.Id), nameof(Chef.Name));
 
             var blog = await _context.Blogs.Include(x => x.BlogTopics)
                                            .Include(x => x.Chef)
@@ -125,10 +132,16 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, BlogUpdateDto blogUpdateDto)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
 
             ViewBag.Topics = await _context.Topics.ToListAsync();
             ViewBag.Chef = await _context.Chefs.ToListAsync();
 
+            
             try
             {
                 var isExist = await _context.Blogs.AnyAsync(x => x.Title == blogUpdateDto.Title && x.Id != id);

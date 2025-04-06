@@ -78,6 +78,15 @@ namespace Restaurant_Reservation_System_.Service
             services.AddScoped<ISubscribeRepository, SubscribeRepository>();
             services.AddScoped<ISubscribeService, SubscribeService>();
 
+            services.AddScoped<IContactRepository, ContactRepository>();
+            services.AddScoped<IContactService, ContactService>();
+
+            services.AddScoped<IBasketRepository, BasketRepository>();
+            services.AddScoped<IBasketService, BasketService>();
+
+
+
+
 
         }
 

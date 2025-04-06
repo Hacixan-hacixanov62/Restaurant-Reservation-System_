@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Restaurant_Reservation_System_.Core.Entittes;
 using Restaurant_Reservation_System_.DataAccess.DAL;
 using Restaurant_Reservation_System_.DataAccess.Helpers;
+using Restaurant_Reservation_System_.Service.Dtos.SliderDtos;
 using Restaurant_Reservation_System_.Service.Services;
 using Restaurant_Reservation_System_.Service.Services.IService;
 using Restaurant_Reservation_System_.Service.ViewModels.SliderVM;
@@ -40,7 +41,7 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([FromForm] SliderCreateVM model)
+        public async Task<IActionResult> Create([FromForm] SliderCreateDto sliderCreateDto)
         {
             if (!ModelState.IsValid)
             {
@@ -49,7 +50,7 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
 
             try
             {
-                await _sliderService.CreateAsync(model);
+                await _sliderService.CreateAsync(sliderCreateDto);
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
@@ -81,22 +82,22 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, SliderEditVM sliderEditVM)
+        public async Task<IActionResult> Edit(int id, SliderUpdateDto SliderUpdateDto )
         {
             if (!ModelState.IsValid)
             {
-                return View(sliderEditVM);
+                return View(SliderUpdateDto );
             }
 
             try
             {
-                await _sliderService.EditAsync(id, sliderEditVM); 
+                await _sliderService.EditAsync(id, SliderUpdateDto ); 
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError(string.Empty, ex.Message);
-                return View(sliderEditVM);
+                return View(SliderUpdateDto);
             }
 
         }

@@ -8,6 +8,7 @@ using Restaurant_Reservation_System_.Service.Dtos.CommentDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ProductDetailDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ProductDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ReservationDtos;
+using Restaurant_Reservation_System_.Service.Dtos.SliderDtos;
 using Restaurant_Reservation_System_.Service.Dtos.SubscribeDtos;
 using Restaurant_Reservation_System_.Service.Dtos.TableDtos;
 using Restaurant_Reservation_System_.Service.Dtos.TopicDtos;
@@ -53,11 +54,12 @@ namespace Restaurant_Reservation_System_.Service.Profiles
 
 
 
-
-
+            ///Slider Profiless
+            CreateMap<Slider, SliderCreateDto>().ReverseMap();
+            CreateMap<Slider, SliderUpdateDto>().ReverseMap();
 
             //// Category Prosfiles 
-            
+
             CreateMap<Category, CategoryCreateDto>().ReverseMap();
             CreateMap<Category, CategoryUpdateDto>().ReverseMap();
 
@@ -95,6 +97,7 @@ namespace Restaurant_Reservation_System_.Service.Profiles
             CreateMap<Comment, CommentUpdateDto>().ReverseMap();
             CreateMap<Comment, CommentGetDto>().ReverseMap();
             CreateMap<Comment, CommentReplyDto>().ReverseMap();
+
 
 
         }
