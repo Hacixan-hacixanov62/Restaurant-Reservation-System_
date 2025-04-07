@@ -12159,14 +12159,14 @@
     <StaticWebAssetEndpoint Include="_content/Restaurant-Reservation-System_FinalProject/assets/js/mode.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\js\mode.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-gaBNlsXUcKWwllx8UVuwe0StCg5NpmmI6fyrKGSNIfY="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1105"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022gaBNlsXUcKWwllx8UVuwe0StCg5NpmmI6fyrKGSNIfY=\u0022"},{"Name":"Last-Modified","Value":"Mon, 17 Mar 2025 19:11:48 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-MVWWEaI4ONQrdZFabVQ77swkhOvfeUemJKpztjpW\u002BVM="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1481"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022MVWWEaI4ONQrdZFabVQ77swkhOvfeUemJKpztjpW\u002BVM=\u0022"},{"Name":"Last-Modified","Value":"Sun, 06 Apr 2025 21:47:29 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Restaurant-Reservation-System_FinalProject/assets/js/mode.rdp4mkylrk.js">
+    <StaticWebAssetEndpoint Include="_content/Restaurant-Reservation-System_FinalProject/assets/js/mode.thr84xv6qa.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\js\mode.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"rdp4mkylrk"},{"Name":"integrity","Value":"sha256-gaBNlsXUcKWwllx8UVuwe0StCg5NpmmI6fyrKGSNIfY="},{"Name":"label","Value":"_content/Restaurant-Reservation-System_FinalProject/assets/js/mode.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1105"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022gaBNlsXUcKWwllx8UVuwe0StCg5NpmmI6fyrKGSNIfY=\u0022"},{"Name":"Last-Modified","Value":"Mon, 17 Mar 2025 19:11:48 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"thr84xv6qa"},{"Name":"integrity","Value":"sha256-MVWWEaI4ONQrdZFabVQ77swkhOvfeUemJKpztjpW\u002BVM="},{"Name":"label","Value":"_content/Restaurant-Reservation-System_FinalProject/assets/js/mode.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1481"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022MVWWEaI4ONQrdZFabVQ77swkhOvfeUemJKpztjpW\u002BVM=\u0022"},{"Name":"Last-Modified","Value":"Sun, 06 Apr 2025 21:47:29 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Restaurant-Reservation-System_FinalProject/assets/js/product-detail.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\js\product-detail.js'))</AssetFile>
@@ -13120,13 +13120,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Restaurant-Reservation-System_FinalProject.b3y10uq2hw.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"b3y10uq2hw"},{"Name":"integrity","Value":"sha256-KUXqL8w3kUTM/uZfcfpC7Z4xE31HJzakjBiIroz6KoU="},{"Name":"label","Value":"_content/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1160"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022KUXqL8w3kUTM/uZfcfpC7Z4xE31HJzakjBiIroz6KoU=\u0022"},{"Name":"Last-Modified","Value":"Sat, 05 Apr 2025 22:07:59 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1160"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022KUXqL8w3kUTM/uZfcfpC7Z4xE31HJzakjBiIroz6KoU=\u0022"},{"Name":"Last-Modified","Value":"Mon, 07 Apr 2025 16:00:28 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Restaurant-Reservation-System_FinalProject.b3y10uq2hw.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-KUXqL8w3kUTM/uZfcfpC7Z4xE31HJzakjBiIroz6KoU="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1160"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022KUXqL8w3kUTM/uZfcfpC7Z4xE31HJzakjBiIroz6KoU=\u0022"},{"Name":"Last-Modified","Value":"Sat, 05 Apr 2025 22:07:59 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1160"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022KUXqL8w3kUTM/uZfcfpC7Z4xE31HJzakjBiIroz6KoU=\u0022"},{"Name":"Last-Modified","Value":"Mon, 07 Apr 2025 16:00:28 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Restaurant-Reservation-System_FinalProject/templete/emailConfirm.26fz0u6xxz.html">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\templete\emailConfirm.html'))</AssetFile>

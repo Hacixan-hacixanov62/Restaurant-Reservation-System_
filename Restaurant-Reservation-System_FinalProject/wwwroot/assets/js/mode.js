@@ -34,4 +34,21 @@ function mode() {
     });
 }
 
+function sendModeToBackend(mode) {
+    fetch('/Theme/SetTheme', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ theme: mode })
+    });
+}
+
 mode();
+
+localStorage.setItem("mode", "dark");
+sendModeToBackend("dark");
+
+localStorage.setItem("mode", "light");
+sendModeToBackend("light");
+

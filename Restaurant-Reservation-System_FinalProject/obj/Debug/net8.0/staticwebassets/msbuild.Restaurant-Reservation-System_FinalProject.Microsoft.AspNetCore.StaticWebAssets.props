@@ -18246,8 +18246,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>rdp4mkylrk</Fingerprint>
-      <Integrity>gaBNlsXUcKWwllx8UVuwe0StCg5NpmmI6fyrKGSNIfY=</Integrity>
+      <Fingerprint>thr84xv6qa</Fingerprint>
+      <Integrity>MVWWEaI4ONQrdZFabVQ77swkhOvfeUemJKpztjpW+VM=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\js\mode.js'))</OriginalItemSpec>

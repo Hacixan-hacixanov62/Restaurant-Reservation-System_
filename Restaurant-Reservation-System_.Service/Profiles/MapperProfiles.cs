@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using Restaurant_Reservation_System_.Core.Entittes;
+using Restaurant_Reservation_System_.Service.Dtos.BasketDtos;
 using Restaurant_Reservation_System_.Service.Dtos.BlogDtos;
 using Restaurant_Reservation_System_.Service.Dtos.CategoryDetailDtos;
 using Restaurant_Reservation_System_.Service.Dtos.CategoryDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ChefDtos;
 using Restaurant_Reservation_System_.Service.Dtos.CommentDtos;
+using Restaurant_Reservation_System_.Service.Dtos.OrderDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ProductDetailDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ProductDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ReservationDtos;
@@ -62,10 +64,14 @@ namespace Restaurant_Reservation_System_.Service.Profiles
 
             CreateMap<Category, CategoryCreateDto>().ReverseMap();
             CreateMap<Category, CategoryUpdateDto>().ReverseMap();
+            CreateMap<Category, CategoryGetDto>().ReverseMap();
+
 
             ////Product Profiles 
             CreateMap<Product, ProductCreateDto>().ReverseMap();
             CreateMap<Product, ProductUpdateDto>().ReverseMap();
+            CreateMap<Product, ProductGetDto>().ReverseMap();
+
 
             ////Chef Profiles 
             CreateMap<Chef, ChefCreateDto>().ReverseMap();
@@ -98,6 +104,14 @@ namespace Restaurant_Reservation_System_.Service.Profiles
             CreateMap<Comment, CommentGetDto>().ReverseMap();
             CreateMap<Comment, CommentReplyDto>().ReverseMap();
 
+            ///Basket Profiles
+            CreateMap<CartItem, CartItemCreateDto>().ReverseMap();
+            CreateMap<CartItem, CartItemDto>().ReverseMap();
+
+            ///Order Profiles
+            CreateMap<Order, OrderCreateDto>().ReverseMap();
+            CreateMap<Order, OrderUpdateDto>().ReverseMap();
+            CreateMap<Order, OrderGetDto>().ReverseMap();
 
 
         }

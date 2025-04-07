@@ -42,6 +42,9 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL
         public DbSet<Subscribe> Subscribes { get; set; } = null!;
         public DbSet<Comment> Comments { get; set; } = null!;
         public DbSet<BlogComment> BlogComments { get; set; } = null!;
+        public DbSet<CartItem> CartItems { get; set; } = null!;
+        public DbSet<Order> Orders { get; set; } = null!;
+        public DbSet<OrderItem> OrderItems { get; set; } = null!;
 
 
 

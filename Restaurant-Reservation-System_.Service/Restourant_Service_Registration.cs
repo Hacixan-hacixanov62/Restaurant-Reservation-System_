@@ -8,6 +8,8 @@ using Restaurant_Reservation_System_.Service.Services;
 using Restaurant_Reservation_System_.DataAccess.Repositories.IRepositories;
 using Restaurant_Reservation_System_.DataAccess.Repositories;
 using Restaurant_Reservation_System_.Service.Services.IService;
+using Restaurant_Reservation_System_.Service.UI.Services.IService;
+using Restaurant_Reservation_System_FinalProject.Services;
 
 namespace Restaurant_Reservation_System_.Service
 {
@@ -41,6 +43,9 @@ namespace Restaurant_Reservation_System_.Service
         private static void AddServices(IServiceCollection services)
         {
             services.AddScoped<IEmailService, EmailService>();
+
+           // services.AddScoped<ILayoutService, LayoutService>();
+
 
             services.AddScoped<ICloudinaryService, CloudinaryService>();
          

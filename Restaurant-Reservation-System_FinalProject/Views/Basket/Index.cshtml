@@ -70,33 +70,27 @@
                                         </td>
                                         <td class="product-quantity" data-title="Quantity">
                                             <div class="quantity">
-                                                <!-- Azaltmaq üçün düymə -->
-                                                <a class="plus-btn decrement-btn"
-                                                   asp-action="DecreaseToCart"
-                                                   asp-controller="Cart"
-                                                   asp-route-id="@item.ProductId">
-                                                    <i class="fa-solid fa-minus"></i>
-                                                </a>
+                                                <div class="quantity">
+                                                    <!-- Azaltmaq üçün düymə -->
+                                                    <a class="plus-btn decrement-btn"
+                                                       asp-action="DecreaseToCart"
+                                                       asp-controller="Basket"
+                                                       asp-route-id="@item.ProductId">
+                                                        <i class="fa-solid fa-minus"></i>
+                                                    </a>
 
-                                                <!-- Məhsul sayı -->
-                                                <span class="count" id="value-@item.ProductId">@item.Count</span>
+                                                    <!-- Məhsul sayı -->
+                                                    <span class="count" id="value-@item.ProductId">@item.Count</span>
 
-                                                <!-- Artırmaq üçün düymə -->
-                                                <a class="plus-btn increment-btn"
-                                                   asp-action="AddToCart"
-                                                   asp-controller="Cart"
-                                                   asp-route-id="@item.ProductId">
-                                                    <i class="fa-solid fa-plus"></i>
-                                                </a>
+                                                    <!-- Artırmaq üçün düymə -->
+                                                    <a class="plus-btn increment-btn"
+                                                       asp-action="AddToCart"
+                                                       asp-controller="Basket"
+                                                       asp-route-id="@item.ProductId">
+                                                        <i class="fa-solid fa-plus"></i>
+                                                    </a>
+                                                </div>
                                             </div>
-                                            <!--<div class="quantity">
-                                                <input type="number"
-                                                       data-id="@item.Id"
-                                                       data-count="@item.Count"
-                                                       data-price="@(item.Product.Price - (item.Product.Price * item.Product.Discount / 100))"
-                                                       class="input-text countInput qty text"
-                                                       value="@item.Count" />
-                                            </div>-->
                                         </td>
                                         <td class="product-subtotal" data-title="Total">
                                             <span class="BasketItemTotalPrice">$@(item.Count * (item.Product.Price - (item.Product.Price * item.Product.Discount / 100)))</span>
@@ -107,7 +101,28 @@
 
 
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6" class="act">
+                                        <div class="coupon">
+                                            <input type="text"
+                                                   name="coupon_code"
+                                                   class="input-text"
+                                                   id="coupon_code"
+                                                   value=""
+                                                   placeholder="Coupon code" />
+                                            <input type="submit"
+                                                   class="btn"
+                                                   name="apply_coupon"
+                                                   value="Apply coupon" />
+                                        </div>
 
+                                        <div class="update-cart">
+                                            <a href="#" class="btn btn-default">Update Cart</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </form>
@@ -133,7 +148,8 @@
                                         <td data-title="Total">
                                             <strong>
                                                 <span class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol">$</span>15.90
+                                                    <span class="woocommerce-Price-amount amount">$@totalPrice</span>
+
                                                 </span>
                                             </strong>
                                         </td>
@@ -159,9 +175,7 @@
 
 </main>
 
-
 @section Scripts{
-
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
                 const countInputs = document.querySelectorAll('.countInput');
@@ -310,4 +324,3 @@
 
     </script>
 }
-

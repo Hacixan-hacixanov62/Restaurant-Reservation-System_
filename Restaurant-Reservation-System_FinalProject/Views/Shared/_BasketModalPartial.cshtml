@@ -1,0 +1,266 @@
+﻿@using Restaurant_Reservation_System_.Service.Dtos.BasketDtos
+@model CartGetDto
+@{
+    Layout = "_Layout";
+}
+<style>
+    .quantity {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .plus-btn {
+        background: #f0f0f0;
+        border: 1px solid #ccc;
+        padding: 5px 10px;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 3px;
+    }
+
+        .plus-btn:hover {
+            background: #ddd;
+        }
+</style>
+<main class="cart">
+    <section id="News-banner">
+        <div class="banner-part">
+            <div class="banner-content">
+                <h3>Restaurant</h3>
+                <h1>Cart</h1>
+                <p class="yellow">Danny's</p>
+            </div>
+            <div class="overlay"></div>
+        </div>
+    </section>
+
+    <div class="content inner-pg cart-pg clearfix">
+        <!-- <div class="container"> -->
+        <form action="" class="woocommerce-cart-form">
+            <div class="table-responsive">
+                <table class="table cart-table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="product-thumbnail"></th>
+                            <th class="product-thumbnail"></th>
+                            <th class="product-name">Product</th>
+                            <th class="product-price">Price</th>
+                            <th class="product-quantity">Quantity</th>
+                            <th class="product-subtotal">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Items)
+                        {
+                            <tr>
+                                <td class="remove-cart removeToBasketButton product-remove">
+                                    <a href="@Url.Action("RemoveToCart", "Cart", new { id = item.ProductId })"
+                                       data-product-id="@item.ProductId"
+                                       class="remove remove-item">X</a>
+                                </td>
+
+                                <td class="product-thumbnail">
+                                    <a class="imageCol">
+                                        <img class="img-responsive" src="@item.Product.MainFile" alt="Product" />
+                                    </a>
+                                </td>
+                                <td class="product-name" data-title="Product">
+                                    <a asp-action="Detail" asp-controller="Shop" asp-route-id="@item.Product.Id">@item.Product.Name</a>
+                                </td>
+                                <td class="product-price" data-title="Price">
+                                    <span>₼@item.Product.Price</span>
+                                </td>
+                                <td class="product-quantity" data-title="Quantity">
+                                    <div class="quantity">
+                                        <!-- Azaltmaq üçün düymə -->
+                                        <a class="plus-btn decrement-btn"
+                                           asp-action="DecreaseToCart"
+                                           asp-controller="Cart"
+                                           asp-route-id="@item.ProductId">
+                                            <i class="fa-solid fa-minus"></i>
+                                        </a>
+
+                                        <!-- Məhsul sayı -->
+                                        <span class="count" id="value-@item.ProductId">@item.Count</span>
+
+                                        <!-- Artırmaq üçün düymə -->
+                                        <a class="plus-btn increment-btn"
+                                           asp-action="AddToCart"
+                                           asp-controller="Cart"
+                                           asp-route-id="@item.ProductId">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </a>
+                                    </div>
+                                </td>
+
+                                <td class="product-subtotal" data-title="Total">
+                                    <span class="subtotal" id="subtotal-@item.ProductId">₼@((item.Product.Price * item.Count).ToString("F2"))</span>
+                                </td>
+
+                            </tr>
+
+                        }
+
+
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6" class="act">
+                                <div class="coupon">
+                                    <input type="text"
+                                           name="coupon_code"
+                                           class="input-text"
+                                           id="coupon_code"
+                                           value=""
+                                           placeholder="Coupon Code"/>
+                                    <input type="submit"
+                                           class="btn"
+                                           name="apply_coupon"
+                                           value="Apply Coupon" />
+                                </div>
+
+                                <div class="update-cart">
+                                    <a asp-action="GetCartSection" asp-controller="Cart" class="btn btn-default">Update Cart</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </form>
+
+        <div class="row">
+            <div class="col-sm-push-4 col-sm-8 col-md-push-6 col-md-6 col-lg-4 col-lg-push-8">
+                <div class="cart-totals calculated-shipping">
+                    <h2>Cart totals</h2>
+                    <table class="shop-table shop-table-responsive">
+                        <tbody>
+                            <tr class="cart-subtotal">
+                                <th>Subtotal:</th>
+                                <td data-title="Subtotal">
+                                    <span class="woocommerce-Price-amount amount">₼@Model.Subtotal.ToString("F2")</span>
+                                </td>
+                            </tr>
+                            <tr class="order-total">
+                                <th>Total:</th>
+                                <td data-title="Total">
+                                    <strong>
+                                        <span class="woocommerce-Price-amount amount">
+                                            <span class="woocommerce-Price-currencySymbol">₼</span>@Model.Total.ToString("F2")
+                                        </span>
+                                    </strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="proceed-to-checkout">
+                        <a asp-action="Index" asp-controller="Order" class="btn btn-default">Proceed to checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+</main>
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Məhsul sayını artırmaq
+            document.querySelectorAll(".increment-btn").forEach(button => {
+                button.addEventListener("click", async function (event) {
+                    event.preventDefault();
+
+                    const url = this.href; // Düymənin URL-sini al
+                    const productId = this.getAttribute("data-id"); // Məhsulun ID-sini al
+                    const price = parseFloat(this.getAttribute("data-price")); // Məhsul qiymətini al
+
+                    // Sorğu göndər
+                    await fetch(url, { method: "GET" }); // Sorğu göndər, amma cavabla işləmirik
+
+                    // Lokal olaraq məhsul sayı və subtotal yenilə
+                    const countElement = document.getElementById(value-${productId});
+                    const subtotalElement = document.getElementById(subtotal-${productId});
+
+                    const currentCount = parseInt(countElement.textContent) + 1; // Sayı artır
+                    countElement.textContent = currentCount;
+
+                    const newSubtotal = price * currentCount; // Yeni alt cəm
+                    subtotalElement.textContent = ₼${newSubtotal.toFixed(2)};
+
+                    // Ümumi toplamı yenilə
+                    updateTotal();
+                });
+            });
+
+            document.addEventListener("DOMContentLoaded", () => {
+                document.querySelectorAll(".remove-item").forEach(button => {
+                    button.addEventListener("click", async function (event) {
+                        event.preventDefault();
+
+                        const url = this.getAttribute("href"); // Silmə sorğusunun URL-i
+                        const productId = this.getAttribute("data-product-id"); // Məhsul ID-si
+
+                        try {
+                            const response = await fetch(url, { method: "GET" });
+                            if (response.ok) {
+                                // Məhsulu UI-dan çıxar
+                                const productRow = this.closest("tr"); // Məhsulun satırını tap
+                                if (productRow) productRow.remove();
+
+                                // Ümumi toplamı yenilə
+                                updateTotal();
+                            } else {
+                                console.error("Silinmə zamanı səhv baş verdi.");
+                            }
+                        } catch (error) {
+                            console.error("Serverlə əlaqə zamanı səhv:", error);
+                        }
+                    });
+                });
+
+            // Məhsul sayını azaltmaq
+            document.querySelectorAll(".decrement-btn").forEach(button => {
+                button.addEventListener("click", async function (event) {
+                    event.preventDefault();
+
+                    const url = this.href; // Düymənin URL-sini al
+                    const productId = this.getAttribute("data-id"); // Məhsulun ID-sini al
+                    const price = parseFloat(this.getAttribute("data-price")); // Məhsul qiymətini al
+
+                    // Sorğu göndər
+                    await fetch(url, { method: "GET" }); // Sorğu göndər, amma cavabla işləmirik
+
+                    // Lokal olaraq məhsul sayı və subtotal yenilə
+                    const countElement = document.getElementById(value-${productId});
+                    const subtotalElement = document.getElementById(subtotal-${productId});
+
+                    const currentCount = parseInt(countElement.textContent);
+                    if (currentCount > 1) {
+                        const newCount = currentCount - 1;
+                        countElement.textContent = newCount;
+
+                        const newSubtotal = price * newCount; // Yeni alt cəm
+                        subtotalElement.textContent = ₼${newSubtotal.toFixed(2)};
+
+                        // Ümumi toplamı yenilə
+                        updateTotal();
+                    }
+                });
+            });
+
+            // Ümumi toplamı yeniləyən funksiya
+            function updateTotal() {
+                let total = 0;
+                document.querySelectorAll(".subtotal").forEach(subtotal => {
+                    total += parseFloat(subtotal.textContent.replace("₼", ""));
+                });
+                document.querySelector(".order-total strong .woocommerce-Price-amount").textContent = ₼${total.toFixed(2)};
+            }
+        });
+
+
+
+    </script>
+} 

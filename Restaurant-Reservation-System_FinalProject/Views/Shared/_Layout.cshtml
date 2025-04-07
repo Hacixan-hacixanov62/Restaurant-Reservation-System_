@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var mode = Context.Request.Cookies["mode"] ?? "light";
+}
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -33,7 +36,7 @@
 
 </head>
 
-<body>
+<body class="@mode">
     <header>
         <div class="container">
             <div class="header-home">
@@ -61,7 +64,7 @@
 
                         <div class="mode-div">
                             <button type="button" class="switch-button">
-                                <i class="fa-regular fa-moon"></i>
+                                <i class="fa-regular @(mode == "dark" ? "fa-sun" : "fa-moon")"></i>
                             </button>
                         </div>
 

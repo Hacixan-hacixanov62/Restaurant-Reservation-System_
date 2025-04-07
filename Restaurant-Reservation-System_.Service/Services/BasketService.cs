@@ -210,5 +210,19 @@ namespace Restaurant_Reservation_System_.Service.Services
             return _contextAccessor.HttpContext?.User.Identity?.IsAuthenticated ?? false;
         }
 
+        public Task RemoveToBasket(int id, string? returnUrl)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task EditBasketItem(int id, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task AddToBasket(int id, string? returnUrl, int count = 1, int page = 1)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

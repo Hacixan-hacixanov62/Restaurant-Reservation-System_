@@ -2,11 +2,11 @@
 
 namespace Restaurant_Reservation_System_.Core.Entittes
 {
-    public class Order
+    public class Order:BaseAuditableEntity
     {
-        public int Id { get; set; }
         public AppUser? AppUser { get; set; } = null!;
         public string? AppUserId { get; set; } = null!;
+
         [Required]
         [MaxLength(25)]
         public string Name { get; set; } = null!;
@@ -23,7 +23,9 @@ namespace Restaurant_Reservation_System_.Core.Entittes
         [Required]
         [MaxLength(30)]
         public string PhoneNumber { get; set; } = null!;
+        [Required]
+        [EmailAddress]
         public string Email { get; set; } = null!;
-        public List<OrderItem> OrderItems { get; set; }
+        public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
     }
 }
