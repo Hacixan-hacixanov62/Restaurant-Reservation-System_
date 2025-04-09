@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using Restaurant_Reservation_System_.Service.Dtos.CategoryDtos;
 using Restaurant_Reservation_System_.Service.Abstractions.Dtos;
+using Restaurant_Reservation_System_.Core.Entittes;
 
 namespace Restaurant_Reservation_System_.Service.Dtos.ProductDtos
 {
@@ -31,6 +32,7 @@ namespace Restaurant_Reservation_System_.Service.Dtos.ProductDtos
         public int CategoryId { get; set; }
         public List<CategoryGetDto> Categories { get; set; } = null!;
         public int SalesCount { get; set; }
+        public string Image { get; set; } = null!;
         [NotMapped]
         [MaxSizeAttribute(2 * 1024 * 1024)]
         [AllowedTypes("image/jpeg", "image/png")]
@@ -41,6 +43,11 @@ namespace Restaurant_Reservation_System_.Service.Dtos.ProductDtos
         public List<IFormFile> AdditionalFiles { get; set; } = new();
 
         public List<ProductGetDto> Products { get; set; } = [];
+
+
+        //Bunu baskete gore yazmisam sile bilerem
+        public List<ProductImage> ProductImages { get; set; }
+
 
     }
 }

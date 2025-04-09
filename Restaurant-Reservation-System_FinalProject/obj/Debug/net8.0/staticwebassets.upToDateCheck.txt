@@ -1027,6 +1027,7 @@ wwwroot\assets\styles\_register.scss
 wwwroot\assets\styles\_reservation.scss
 wwwroot\assets\styles\_shop.scss
 wwwroot\assets\styles\_shop-detail.scss
+wwwroot\assets\styles\heart.css
 wwwroot\assets\styles\language.css
 wwwroot\assets\styles\main.css
 wwwroot\assets\styles\main.css.map
@@ -1091,5 +1092,10 @@ wwwroot\lib\jquery-validation\LICENSE.md
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
 wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+wwwroot\pustok\css\main.css
+wwwroot\pustok\css\plugins.css
+wwwroot\pustok\js\ajax-mail.js
+wwwroot\pustok\js\custom.js
+wwwroot\pustok\js\plugins.js
 wwwroot\templete\emailConfirm.html
 wwwroot\templete\resetpassword.html

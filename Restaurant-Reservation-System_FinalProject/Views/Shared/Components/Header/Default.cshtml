@@ -1,0 +1,22 @@
+﻿@using Restaurant_Reservation_System_.Service.Dtos.BasketDtos
+@using Restaurant_Reservation_System_.Service.UI.Services.IService
+@using Restaurant_Reservation_System_FinalProject.Services
+
+@inject ILayoutService layoutService;
+@{
+
+    var item = layoutService.GetUserBasketItem();
+}
+
+<div class="cart-wrapper">
+    @foreach(var basketItems in item.Items)
+    {
+        <div class="cart-icon" style="cursor: pointer;">
+            <i class="fa fa-shopping-cart" id="basket-icon"></i>
+            @* <span class="cart-count">@basketItems.Items.Sum(m => m.Count)</span> *@
+        </div>
+        <div class="cart-dropdown">
+            @await Html.PartialAsync("_BasketPartial", item.Items);
+        </div>
+    }   
+</div>

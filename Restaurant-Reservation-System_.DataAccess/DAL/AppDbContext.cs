@@ -23,7 +23,7 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL
 
 
         public DbSet<Slider> Sliders { get; set; } = null!;
-        public DbSet<About> Abouts { get; set; } = null!;
+        public DbSet<About> Abouts { get; set; } = null!;   
         public DbSet<Category> Categories { get; set; } = null!;
         public DbSet<CategoryDetail> CategoryDetails { get; set; } = null!;
         public DbSet<Product> Products { get; set; } = null!;

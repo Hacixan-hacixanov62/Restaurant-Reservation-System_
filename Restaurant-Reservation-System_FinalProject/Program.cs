@@ -9,6 +9,8 @@ using System.Reflection;
 using Restaurant_Reservation_System_.DataAccess;
 using Restaurant_Reservation_System_.Service;
 using Dannys.Interceptors;
+using Restaurant_Reservation_System_.Service.UI.Services.IService;
+using Restaurant_Reservation_System_FinalProject.Services;
 
 namespace Restaurant_Reservation_System_FinalProject
 {
@@ -39,8 +41,8 @@ namespace Restaurant_Reservation_System_FinalProject
                 option.UseSqlServer(config.GetConnectionString("DefaultConnection"));
             });
 
-           // builder.Services.AddScoped<IEmailService, EmailService>();
-
+            // builder.Services.AddScoped<IEmailService, EmailService>();
+            builder.Services.AddScoped<ILayoutService, LayoutService>();
 
             builder.Services.AddHttpContextAccessor();
 

@@ -1,1 +1,56 @@
-﻿
+﻿@using Restaurant_Reservation_System_.Service.Dtos.BasketDtos
+@model CartGetDto
+
+@if (Model.Count > 0)
+{
+    @foreach (var cartItem in Model.Items)
+    {
+         @*    var product = cartItem.Product;
+ *@
+        <div class="cart-item">
+            <img src="~/assets/images/home/@cartItem.Product.ProductImages.FirstOrDefault(x=>x.IsMain==true)?.Url" e" alt="Product">
+            <div class="cart-details">
+                <a asp-area="Admin" asp-controller="Product" asp-action="detail" asp-route-id="@cartItem.">
+                    @cartItem.Product.Name
+                </a>
+                @* <span>1 × £87.34</span> *@
+                <p class="price"><span class="qty">@cartItem.Count ×</span> £@(cartItem.Product.Discount * cartItem.Price)</p>
+                <a class="cross-btn"><i class="fas fa-times"></i></a>
+            </div>
+        </div>
+
+        @* <div class=" single-cart-block "> *@
+        @*     <div class="cart-product"> *@
+        @*         <a href="product-details.html" class="image"> *@
+        @*             <img src="~/pustok/image/products/@product.MainImage" alt=""> *@
+        @*         </a> *@
+        @*         <div class="content"> *@
+        @*             <h3 class="title"> *@
+        @*                 <a asp-controller="book" asp-action="detail" asp-route-id="@product.Id"> *@
+        @*                     @product.Name *@
+        @*                 </a> *@
+        @*             </h3> *@
+        @*             <p class="price"><span class="qty">@product.Count ×</span> £@(product.Count * product.Price)</p> *@
+        @*             <button class="cross-btn"><i class="fas fa-times"></i></button> *@
+        @*         </div> *@
+        @*     </div> *@
+        @* </div> *@
+
+    }
+
+    <div class="cart-actions">
+        <a href="/cart.html" class="btn btn-secondary btn-sm">View Cart</a>
+        <a href="/checkout.html" class="btn btn-success btn-sm">Check Out</a>
+    </div>
+    @* <div class=" single-cart-block "> *@
+    @*     <div class="btn-block"> *@
+    @*         <a href="cart.html" class="btn"> *@
+    @*             View Cart <i class="fas fa-chevron-right"></i> *@
+    @*         </a> *@
+    @*         <a href="checkout.html" class="btn btn--primary"> *@
+    @*             Check Out <i class="fas fa-chevron-right"></i> *@
+    @*         </a> *@
+    @*     </div> *@
+    @* </div> *@
+
+}

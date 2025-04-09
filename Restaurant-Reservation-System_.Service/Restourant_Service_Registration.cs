@@ -44,7 +44,7 @@ namespace Restaurant_Reservation_System_.Service
         {
             services.AddScoped<IEmailService, EmailService>();
 
-           // services.AddScoped<ILayoutService, LayoutService>();
+            services.AddScoped<ILayoutService, LayoutService>();
 
 
             services.AddScoped<ICloudinaryService, CloudinaryService>();
@@ -91,6 +91,10 @@ namespace Restaurant_Reservation_System_.Service
 
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IOrderRepository, OrderRepository>();
+
+            services.AddScoped<ICommentRepository, CommentRepository>();
+            services.AddScoped<ICommentService, CommentService>();
+
 
         }
 

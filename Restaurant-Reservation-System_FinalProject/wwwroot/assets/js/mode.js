@@ -1,4 +1,4 @@
-const switchButton = document.querySelector('.switch-button');
+﻿const switchButton = document.querySelector('.switch-button');
 const fa_moon = document.querySelector('.fa-moon');
 const light = document.querySelector('.light');
 
@@ -52,3 +52,9 @@ sendModeToBackend("dark");
 localStorage.setItem("mode", "light");
 sendModeToBackend("light");
 
+
+
+ 
+
+
+ 

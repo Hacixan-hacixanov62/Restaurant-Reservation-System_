@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dcqqCFIsapyyA7Fi4ya7dRGbrJI3H7sPmyAYefVElsI=",
+  "Hash": "e9arlq3l+sFeXCOgR34iQjftQvj+T3umJhhMYIGTfBw=",
   "Source": "Restaurant-Reservation-System_FinalProject",
   "BasePath": "_content/Restaurant-Reservation-System_FinalProject",
   "Mode": "Default",
@@ -21346,8 +21346,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "thr84xv6qa",
-      "Integrity": "MVWWEaI4ONQrdZFabVQ77swkhOvfeUemJKpztjpW+VM=",
+      "Fingerprint": "45zo3l7t2w",
+      "Integrity": "6M7W9QRmCbgUX8S5wH0FxatYvg3O4+NrS5qMG0VD9zk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\js\\mode.js"
@@ -21666,6 +21666,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\styles\\_shop-detail.scss"
+    },
+    {
+      "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\styles\\heart.css",
+      "SourceId": "Restaurant-Reservation-System_FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\",
+      "BasePath": "_content/Restaurant-Reservation-System_FinalProject",
+      "RelativePath": "assets/styles/heart#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "oelbxmmf5k",
+      "Integrity": "IDp24wOIsNdety/9Qs+LdbRC2jcwXdyJ2ir6vWwzUW8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\styles\\heart.css"
     },
     {
       "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\styles\\language.css",
@@ -23010,6 +23031,111 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\pustok\\css\\main.css",
+      "SourceId": "Restaurant-Reservation-System_FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\",
+      "BasePath": "_content/Restaurant-Reservation-System_FinalProject",
+      "RelativePath": "pustok/css/main#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "lo0j5wkrnz",
+      "Integrity": "NS8j9oZ2t2APGrXGYM9SSLB4oVocJGzBbN1LWzJPjZ8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\pustok\\css\\main.css"
+    },
+    {
+      "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\pustok\\css\\plugins.css",
+      "SourceId": "Restaurant-Reservation-System_FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\",
+      "BasePath": "_content/Restaurant-Reservation-System_FinalProject",
+      "RelativePath": "pustok/css/plugins#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "gug4keo6uv",
+      "Integrity": "uEVe5OYgpsf05KiOZB7WnKce9lfQQ62r4XZhI/SgLNo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\pustok\\css\\plugins.css"
+    },
+    {
+      "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\pustok\\js\\ajax-mail.js",
+      "SourceId": "Restaurant-Reservation-System_FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\",
+      "BasePath": "_content/Restaurant-Reservation-System_FinalProject",
+      "RelativePath": "pustok/js/ajax-mail#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5mbat0xhyf",
+      "Integrity": "TeafPXsFXmsBpAhZy7SkU10Im/1TUAoGLxRTOkGB0e4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\pustok\\js\\ajax-mail.js"
+    },
+    {
+      "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\pustok\\js\\custom.js",
+      "SourceId": "Restaurant-Reservation-System_FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\",
+      "BasePath": "_content/Restaurant-Reservation-System_FinalProject",
+      "RelativePath": "pustok/js/custom#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "bpi4rfq2xq",
+      "Integrity": "URFMx7AV9C2OEyhRwWw+iQrHygN/jMmKtBYQotgG448=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\pustok\\js\\custom.js"
+    },
+    {
+      "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\pustok\\js\\plugins.js",
+      "SourceId": "Restaurant-Reservation-System_FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\",
+      "BasePath": "_content/Restaurant-Reservation-System_FinalProject",
+      "RelativePath": "pustok/js/plugins#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "go75a13fod",
+      "Integrity": "IJSt/ay/6JcgbDjyTQszRSpoiOPIsyCkvUNWMnK3jwk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\pustok\\js\\plugins.js"
     },
     {
       "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\templete\\emailConfirm.html",
@@ -106238,6 +106364,51 @@
       ]
     },
     {
+      "Route": "assets/js/mode.45zo3l7t2w.js",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\js\\mode.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1496"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6M7W9QRmCbgUX8S5wH0FxatYvg3O4+NrS5qMG0VD9zk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 09 Apr 2025 12:27:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "45zo3l7t2w"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/js/mode.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-6M7W9QRmCbgUX8S5wH0FxatYvg3O4+NrS5qMG0VD9zk="
+        }
+      ]
+    },
+    {
       "Route": "assets/js/mode.js",
       "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\js\\mode.js",
       "Selectors": [],
@@ -106248,7 +106419,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1481"
+          "Value": "1496"
         },
         {
           "Name": "Content-Type",
@@ -106256,11 +106427,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"MVWWEaI4ONQrdZFabVQ77swkhOvfeUemJKpztjpW+VM=\""
+          "Value": "\"6M7W9QRmCbgUX8S5wH0FxatYvg3O4+NrS5qMG0VD9zk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 06 Apr 2025 21:47:29 GMT"
+          "Value": "Wed, 09 Apr 2025 12:27:53 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -106270,52 +106441,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-MVWWEaI4ONQrdZFabVQ77swkhOvfeUemJKpztjpW+VM="
-        }
-      ]
-    },
-    {
-      "Route": "assets/js/mode.thr84xv6qa.js",
-      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\js\\mode.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1481"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"MVWWEaI4ONQrdZFabVQ77swkhOvfeUemJKpztjpW+VM=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 06 Apr 2025 21:47:29 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "thr84xv6qa"
-        },
-        {
-          "Name": "label",
-          "Value": "assets/js/mode.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-MVWWEaI4ONQrdZFabVQ77swkhOvfeUemJKpztjpW+VM="
+          "Value": "sha256-6M7W9QRmCbgUX8S5wH0FxatYvg3O4+NrS5qMG0VD9zk="
         }
       ]
     },
@@ -107546,6 +107672,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-lmTpYcpophx1o6Mwte0gOds3oITmpGu7z93NyKB3P/M="
+        }
+      ]
+    },
+    {
+      "Route": "assets/styles/heart.css",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\styles\\heart.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "227059"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IDp24wOIsNdety/9Qs+LdbRC2jcwXdyJ2ir6vWwzUW8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 09 Apr 2025 13:49:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-IDp24wOIsNdety/9Qs+LdbRC2jcwXdyJ2ir6vWwzUW8="
+        }
+      ]
+    },
+    {
+      "Route": "assets/styles/heart.oelbxmmf5k.css",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\styles\\heart.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "227059"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IDp24wOIsNdety/9Qs+LdbRC2jcwXdyJ2ir6vWwzUW8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 09 Apr 2025 13:49:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "oelbxmmf5k"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/styles/heart.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-IDp24wOIsNdety/9Qs+LdbRC2jcwXdyJ2ir6vWwzUW8="
         }
       ]
     },
@@ -112794,6 +113002,416 @@
         {
           "Name": "integrity",
           "Value": "sha256-16aFlqtpsG9RyieKZUUUjkJpqTgcJtWXwT312I4Iz1s="
+        }
+      ]
+    },
+    {
+      "Route": "pustok/css/main.css",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\pustok\\css\\main.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "556826"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NS8j9oZ2t2APGrXGYM9SSLB4oVocJGzBbN1LWzJPjZ8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 09 Apr 2025 13:44:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-NS8j9oZ2t2APGrXGYM9SSLB4oVocJGzBbN1LWzJPjZ8="
+        }
+      ]
+    },
+    {
+      "Route": "pustok/css/main.lo0j5wkrnz.css",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\pustok\\css\\main.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "556826"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NS8j9oZ2t2APGrXGYM9SSLB4oVocJGzBbN1LWzJPjZ8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 09 Apr 2025 13:44:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "lo0j5wkrnz"
+        },
+        {
+          "Name": "label",
+          "Value": "pustok/css/main.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-NS8j9oZ2t2APGrXGYM9SSLB4oVocJGzBbN1LWzJPjZ8="
+        }
+      ]
+    },
+    {
+      "Route": "pustok/css/plugins.css",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\pustok\\css\\plugins.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "651445"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uEVe5OYgpsf05KiOZB7WnKce9lfQQ62r4XZhI/SgLNo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 09 Apr 2025 13:44:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uEVe5OYgpsf05KiOZB7WnKce9lfQQ62r4XZhI/SgLNo="
+        }
+      ]
+    },
+    {
+      "Route": "pustok/css/plugins.gug4keo6uv.css",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\pustok\\css\\plugins.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "651445"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uEVe5OYgpsf05KiOZB7WnKce9lfQQ62r4XZhI/SgLNo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 09 Apr 2025 13:44:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "gug4keo6uv"
+        },
+        {
+          "Name": "label",
+          "Value": "pustok/css/plugins.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uEVe5OYgpsf05KiOZB7WnKce9lfQQ62r4XZhI/SgLNo="
+        }
+      ]
+    },
+    {
+      "Route": "pustok/js/ajax-mail.5mbat0xhyf.js",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\pustok\\js\\ajax-mail.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6084"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"TeafPXsFXmsBpAhZy7SkU10Im/1TUAoGLxRTOkGB0e4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 09 Apr 2025 11:18:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5mbat0xhyf"
+        },
+        {
+          "Name": "label",
+          "Value": "pustok/js/ajax-mail.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-TeafPXsFXmsBpAhZy7SkU10Im/1TUAoGLxRTOkGB0e4="
+        }
+      ]
+    },
+    {
+      "Route": "pustok/js/ajax-mail.js",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\pustok\\js\\ajax-mail.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6084"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"TeafPXsFXmsBpAhZy7SkU10Im/1TUAoGLxRTOkGB0e4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 09 Apr 2025 11:18:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-TeafPXsFXmsBpAhZy7SkU10Im/1TUAoGLxRTOkGB0e4="
+        }
+      ]
+    },
+    {
+      "Route": "pustok/js/custom.bpi4rfq2xq.js",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\pustok\\js\\custom.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20545"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"URFMx7AV9C2OEyhRwWw+iQrHygN/jMmKtBYQotgG448=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 09 Apr 2025 11:19:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bpi4rfq2xq"
+        },
+        {
+          "Name": "label",
+          "Value": "pustok/js/custom.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-URFMx7AV9C2OEyhRwWw+iQrHygN/jMmKtBYQotgG448="
+        }
+      ]
+    },
+    {
+      "Route": "pustok/js/custom.js",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\pustok\\js\\custom.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20545"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"URFMx7AV9C2OEyhRwWw+iQrHygN/jMmKtBYQotgG448=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 09 Apr 2025 11:19:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-URFMx7AV9C2OEyhRwWw+iQrHygN/jMmKtBYQotgG448="
+        }
+      ]
+    },
+    {
+      "Route": "pustok/js/plugins.go75a13fod.js",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\pustok\\js\\plugins.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "377213"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IJSt/ay/6JcgbDjyTQszRSpoiOPIsyCkvUNWMnK3jwk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 09 Apr 2025 11:20:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "go75a13fod"
+        },
+        {
+          "Name": "label",
+          "Value": "pustok/js/plugins.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-IJSt/ay/6JcgbDjyTQszRSpoiOPIsyCkvUNWMnK3jwk="
+        }
+      ]
+    },
+    {
+      "Route": "pustok/js/plugins.js",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\pustok\\js\\plugins.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "377213"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IJSt/ay/6JcgbDjyTQszRSpoiOPIsyCkvUNWMnK3jwk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 09 Apr 2025 11:20:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-IJSt/ay/6JcgbDjyTQszRSpoiOPIsyCkvUNWMnK3jwk="
         }
       ]
     },

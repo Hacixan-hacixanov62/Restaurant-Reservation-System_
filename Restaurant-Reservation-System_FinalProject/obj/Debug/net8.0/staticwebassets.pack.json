@@ -4121,6 +4121,10 @@
       "PackagePath": "staticwebassets\\assets\\styles\\_shop.scss"
     },
     {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\styles\\heart.css",
+      "PackagePath": "staticwebassets\\assets\\styles\\heart.css"
+    },
+    {
       "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\styles\\language.css",
       "PackagePath": "staticwebassets\\assets\\styles\\language.css"
     },
@@ -4375,6 +4379,26 @@
     {
       "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\pustok\\css\\main.css",
+      "PackagePath": "staticwebassets\\pustok\\css\\main.css"
+    },
+    {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\pustok\\css\\plugins.css",
+      "PackagePath": "staticwebassets\\pustok\\css\\plugins.css"
+    },
+    {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\pustok\\js\\ajax-mail.js",
+      "PackagePath": "staticwebassets\\pustok\\js\\ajax-mail.js"
+    },
+    {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\pustok\\js\\custom.js",
+      "PackagePath": "staticwebassets\\pustok\\js\\custom.js"
+    },
+    {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\pustok\\js\\plugins.js",
+      "PackagePath": "staticwebassets\\pustok\\js\\plugins.js"
     },
     {
       "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\templete\\emailConfirm.html",
