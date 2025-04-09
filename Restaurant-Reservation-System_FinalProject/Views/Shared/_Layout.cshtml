@@ -82,7 +82,7 @@
                             </div>
                         </div>
 
-                        <a class="headercartbtn" href="">
+                        <a class="headercartbtn" asp-controller="Cart" asp-action="RedirectForCart">
                             <span class="cart-btn-block cart-btn-icon">
                                 <i class="fa-solid fa-bag-shopping"></i>
                             </span>
@@ -90,15 +90,33 @@
                                 <span class="cart-btn-item-title" data-language="header.items"></span>
                                 <span class="cart-btn-item-count"> 1 </span>
                             </span>
-                            <span class="cart-btn-block cart-btn-total">
+                            <div class="cart-container" style="position: relative; display: inline-block; margin: 20px;">
+                                <button class="btn btn-dark" style="position: relative;">
+                                    🛒 <span class="ms-1">0</span> ITEM(S) - <span style="color: gold;">$0.00</span>
+                                </button>
+
+                                <div class="cart-dropdown" style="position: absolute; top: 100%; right: 0; background-color: #1e1e1e; color: white; padding: 15px; border-radius: 8px; display: none; min-width: 250px; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+                                    <p class="mb-0">No products in the cart.</p>
+                                </div>
+                            </div>
+                            @* <span class="cart-btn-block cart-btn-total">
                                 <div class="cart-left">
                                     <span class="cart-btn-total-title" data-language="header.total"></span>
-                                    <span class="cart-btn-total-count"> $111.00 </span>
+                                    <div class="cart-container position-relative d-inline-block">
+                                        <button class="btn btn-dark position-relative">
+                                            <i class="bi bi-basket"></i>
+                                            <span class="ms-1">0</span> ITEM(S) - <span class="text-warning">$0.00</span>
+                                        </button>
+
+                                        <div class="cart-dropdown position-absolute bg-dark text-light p-3 rounded" style="min-width: 250px; top: 100%; right: 0; display: none;">
+                                            <p class="mb-0">No products in the cart.</p>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="cart-right">
                                     <i class="fa-solid fa-caret-down"></i>
                                 </div>
-                            </span>
+                            </span> *@
                         </a>
 
                         <!-- Dropdown -->

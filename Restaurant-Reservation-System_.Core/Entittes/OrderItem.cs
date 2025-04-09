@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Restaurant_Reservation_System_.Core.Entittes
 {
@@ -11,7 +12,8 @@ namespace Restaurant_Reservation_System_.Core.Entittes
         public Product Product { get; set; } = null!;
 
         public int Count { get; set; }
-        [Range(0.01, 10000.00, ErrorMessage = "Qiymət 0.01 ilə 10000.00 arasında olmalıdır.")]
+
+        [Column(TypeName = "decimal(18,2)")]
         public decimal TotalPrice { get; set; }
     }
 }

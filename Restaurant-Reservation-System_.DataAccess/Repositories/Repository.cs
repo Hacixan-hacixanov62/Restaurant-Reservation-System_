@@ -32,7 +32,9 @@ namespace Restaurant_Reservation_System_.DataAccess.Repositories
 
         public IQueryable<TEntity> GetAll(Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null)
         {
-            return Table;
+            IQueryable<TEntity> query = _getQueryWithIncludes(include);
+
+            return query;
         }
 
         public void Update(TEntity entity)

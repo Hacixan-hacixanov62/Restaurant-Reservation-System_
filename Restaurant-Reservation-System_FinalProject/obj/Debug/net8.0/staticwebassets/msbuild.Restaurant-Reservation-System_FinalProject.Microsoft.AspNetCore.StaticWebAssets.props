@@ -18498,8 +18498,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>eybon54ebj</Fingerprint>
-      <Integrity>ekLRsN5j5T3bbXyAeG9w/V1gaRwCdOGvucE3C2a/l2c=</Integrity>
+      <Fingerprint>wxdbbk26q9</Fingerprint>
+      <Integrity>rImnN2wQbiiUQsceGDzchgUHu12GZi3fG6V34lYZEwk=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\styles\_home.scss'))</OriginalItemSpec>

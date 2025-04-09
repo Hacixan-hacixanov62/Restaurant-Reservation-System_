@@ -1,0 +1,105 @@
+﻿@using Restaurant_Reservation_System_.Service.Dtos.OrderDtos
+@model OrderCreateDto
+
+<main>
+    <section id="News-banner">
+        <div class="banner-part">
+            <div class="banner-content">
+                <h3>Restaurant</h3>
+                <h1>Shop</h1>
+                <p class="yellow">Danny's</p>
+            </div>
+            <div class="overlay"></div>
+        </div>
+    </section>
+    <section id="Checkout">
+        <form asp-action="Index" asp-controller="Order" method="post">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-12 content-primary">
+                    <div class="col2-set" id="customer_details">
+                        <div class="col-1">
+                            <div class="woocommerce-billing-fields">
+                                <h3>BillingDetails</h3>
+                                <div class="field">
+                                    <p style="flex: 0 0 50%; max-width: 50%"
+                                       class="form-row form-row-first validate-required">
+                                        <label asp-for="Name" for="Name">First name&nbsp;</label>
+                                        <span class="woocommerce-input-wrapper">
+                                            <input type="text" asp-for="Name" class="input-text" required />
+                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                        </span>
+                                    </p>
+                                    <p style="flex: 0 0 50%; max-width: 50%"
+                                       class="form-row form-row-last validate-required">
+                                        <label asp-for="Surname" for="Surname">SurName &nbsp;</label>
+                                        <span class="woocommerce-input-wrapper">
+                                            <input type="text" asp-for="Surname" class="input-text" required />
+                                            <span asp-validation-for="Surname" class="text-danger"></span>
+                                        </span>
+                                    </p>
+                                    <p class="form-row form-row-wide">
+                                        <label asp-for="CompanyName" for="CompanyName">Company Name&nbsp;</label>
+                                        <span class="woocommerce-input-wrapper">
+                                            <input type="text" asp-for="CompanyName" class="input-text" />
+                                        </span>
+                                    </p>
+                                    <p class="form-row address-field validate-required form-row-wide">
+                                        <label asp-for="Street" for="Street">Street&nbsp;</label>
+                                        <span class="woocommerce-input-wrapper">
+                                            <input type="text" asp-for="Street" class="input-text" required />
+                                            <span asp-validation-for="Street" class="text-danger"></span>
+                                        </span>
+                                    </p>
+                                    <p class="form-row address-field form-row-wide">
+                                        <label asp-for="Apartment" for="Apartment">Apartment&nbsp;</label>
+                                        <span class="woocommerce-input-wrapper">
+                                            <input type="text" asp-for="Apartment" class="input-text" />
+                                        </span>
+                                    </p>
+                                    <p class="form-row address-field validate-required form-row-wide">
+                                        <label asp-for="City" for="City">City&nbsp;</label>
+                                        <span class="woocommerce-input-wrapper">
+                                            <input type="text" asp-for="City" class="input-text" required />
+                                            <span asp-validation-for="City" class="text-danger"></span>
+                                        </span>
+                                    </p>
+                                    <p style="flex: 0 0 50%; max-width: 50%"
+                                       class="form-row form-row-wide validate-required validate-phone">
+                                        <label asp-for="PhoneNumber" for="PhoneNumber">PhoneNumber&nbsp;</label>
+                                        <span class="woocommerce-input-wrapper">
+                                            <input type="tel" asp-for="PhoneNumber" class="input-text" required />
+                                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                        </span>
+                                    </p>
+                                    <p style="flex: 0 0 50%; max-width: 50%"
+                                       class="form-row form-row-wide validate-required validate-email">
+                                        <label asp-for="Email" for="Email">Email&&nbsp;</label>
+                                        <span class="woocommerce-input-wrapper">
+                                            <input type="email" asp-for="Email" class="input-text" required />
+                                            <span asp-validation-for="Email" class="text-danger"></span>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-review-wrapper">
+                        <h3>OrderReview</h3>
+                        <div>
+                            @foreach (var item in Model.OrderItems)
+                            {
+                                <p>@item.Product.Name × @item.Count - @* ₼@item.TotalPrice *@</p>
+                            }
+                        </div>
+                        <div>
+                            <p>Total - ₼@(Model.OrderItems.Sum(x => x.Count * x.Product.Price))</p>
+                        </div>
+                        <div id="payment" class="woocommerce-checkout-payment">
+                            <button type="submit" class="button alt">PlaceOrder</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+</main>

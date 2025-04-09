@@ -89,9 +89,8 @@ namespace Restaurant_Reservation_System_.Service
             services.AddScoped<IBasketRepository, BasketRepository>();
             services.AddScoped<IBasketService, BasketService>();
 
-
-
-
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
 
         }
 

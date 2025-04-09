@@ -1,0 +1,121 @@
+﻿@using Restaurant_Reservation_System_.DataAccess.Helpers
+@using Restaurant_Reservation_System_.Service.Dtos.OrderDtos
+@model PaginatedList<Order>
+@{
+    ViewData["Title"] = "Index";
+    // int count = (Model.CurrentPage - 1) * 2;
+}
+@{
+    int count = 1;
+}
+
+
+
+<br />
+<br />
+<h1 class="text-center">Orders</h1>
+<div class="container">
+    <div class="row">
+        <div class="create-operation mt-3">
+            <a class="btn btn-success btn-sm" asp-action="Create">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-plus"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card mt-4">
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Count</th>
+                            <th> Id </th>
+                            <th> Date </th>
+                            <th> UserName </th>
+                            <th> Description </th>
+                            <th> Ordered Time </th>
+                            <th>Operations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var order in Model)
+                        {
+
+                            <tr>
+                                <td> @(count++) </td>
+                                <td> @order.Id</td>
+                                <td>
+                                    @order.CreatedAt.ToString("yyyy, MM MMMM")
+                                </td>
+                                <td> @order.AppUser.UserName </td>
+                                <td>
+                                    @{
+                                        if (order.IsCanceled == false)
+                                        {
+                                            if (order.Status == true)
+                                            {
+                                                <p class="btn btn-success statusOutput">Delivered</p>
+                                            }
+                                            else if (order.Status == false)
+                                            {
+                                                <p class="btn btn-secondary statusOutput">Is ordered</p>
+                                            }
+                                            else
+                                            {
+                                                <p class="btn btn-warning statusOutput">On the way</p>
+
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <p class="btn btn-danger statusOutput cancelOutput`">Is canceled</p>
+                                        }
+
+
+                                    }
+                                </td>
+                                <td> @order.CreatedAt.ToShortDateString()</td>
+                                <td><a class="btn btn-secondary prevBtn" data-status="@order.Status" data-iscancel="@order.IsCanceled" asp-action="Prev" asp-route-id="@order.Id">Prev status</a></td>
+                                <td><a class="btn btn-primary nextBtn" data-status="@order.Status" data-iscancel="@order.IsCanceled" asp-action="Next" asp-route-id="@order.Id">Next status</a></td>
+                                @if (!order.IsCanceled)
+                                {
+                                    <td><a class="btn btn-danger cancelRepairBtn" data-isCancel="@order.IsCanceled" asp-action="CancelOrRepair" asp-route-id="@order.Id">Cancel Order</a></td>
+                                }
+                                else
+                                {
+                                    <td><a class="btn btn-primary cancelRepairBtn" data-isCancel="@order.IsCanceled" asp-action="CancelOrRepair" asp-route-id="@order.Id">Repair Order</a></td>
+                                }
+                                <td><a class="btn btn-success" asp-action="Detail" asp-route-id="@order.Id">Detail</a></td>
+
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item @(Model.HasPrevious?"":"disabled")">
+                    <a class="page-link" asp-action="index" asp-route-page="@(Model.CurrentPage-1)">Previous</a>
+                </li>
+                @for (int i = 1; i < Model.PageCount; i++)
+                {
+                    <li class="page-item @(Model.CurrentPage==i?"disabled":"")"><a class="page-link" asp-action="index" asp-route-page="@i">@i</a></li>
+                }
+
+                <li class="page-item @(Model.HasNext?"":"disabled")">
+                    <a class="page-link" asp-action="index" asp-route-page="@(Model.CurrentPage+1)">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+

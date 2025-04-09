@@ -156,8 +156,8 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <form asp-action="Buy" onsubmit="this.form.submit()" class="proceed-to-checkout">
-                                <a asp-action="Checkout" class="btn btn-default">Proceed to checkout</a>
+                            <form onsubmit="this.form.submit()" class="proceed-to-checkout">
+                                <a asp-action="Index" asp-controller="Order" class="btn btn-default">Proceed to checkout</a>
 
                             </form>
                         </div>

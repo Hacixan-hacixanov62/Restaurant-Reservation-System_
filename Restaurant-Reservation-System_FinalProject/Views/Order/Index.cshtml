@@ -1,0 +1,127 @@
+﻿@using Restaurant_Reservation_System_.Service.Dtos.OrderDtos
+@model List<OrderGetDto>
+<main class="order">
+    <section id="News-banner">
+
+        <div class="banner-part">
+            <div class="banner-content">
+                <h3>Danny's</h3>
+                <h1 class="bannerTitle">Orders</h1>
+                <h3>Restaurant</h3>
+            </div>
+            <div class="overlay"></div>
+        </div>
+    </section>
+
+    <div class="content">
+        <div class="container">
+            @if (!Model.Any())
+            {
+                <p class="text-center">No Orders Found</p>
+            }
+            else
+            {
+                <div class="accordion" id="accordionExample">
+                    @foreach (var order in Model)
+                    {
+                        <div class="accordion-item">
+                            <div class="accordion-header" id="heading@order.Id">
+                                <div class="accordion-button collapsed"
+                                     type="button"
+                                     data-bs-toggle="collapse"
+                                     data-bs-target="#collapse@order.Id"
+                                     aria-expanded="false"
+                                     aria-controls="collapse@order.Id">
+                                    <a>
+                                        <p>OrderNo: @order.Id</p>
+                                        <p>OrderedTime: @order.CreatedAt.ToString("dd/MM/yyyy")</p>
+                                        <p>TotalPrice: ₼@order.TotalPrice.ToString("0.00")</p>
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="collapse@order.Id"
+                                 class="accordion-collapse collapse"
+                                 aria-labelledby="heading@order.Id"
+                                 data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Image</th>
+                                                    <th>Name</th>
+                                                    <th>Count</th>
+                                                    <th>Price</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in order.OrderItems)
+                                                {
+                                                    <tr class="orderRow">
+                                                        <td>@item.Id</td>
+                                                        <td>
+                                                            <a href="@Url.Action("Detail", "Shop", new { id = item.Product.Id })">
+                                                                <img class="orderImg" src="@item.Product.MainFile" alt="@item.Product.Name" />
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="@Url.Action("Detail", "Shop", new { id = item.Product.Id })">
+                                                                @item.Product.Name
+                                                            </a>
+                                                        </td>
+                                                        <td>@item.Count</td>
+                                                        <td>₼@item.TotalPrice.ToString("0.00")</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</main>
+
+
+<!-- JS for Accordion -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const accordionHeaders = document.querySelectorAll('.accordion-button');
+
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', function () {
+                const target = document.querySelector(this.dataset.bsTarget);
+                const isOpen = target.classList.contains('show');
+
+                // Bütün accordion məzmunlarını bağlayın
+                document.querySelectorAll('.accordion-collapse').forEach(collapse => {
+                    collapse.classList.remove('show');
+                });
+
+                // Yalnız kliklənəni açın
+                if (!isOpen) {
+                    target.classList.add('show');
+                }
+            });
+        });
+    });
+</script>
+
+<!-- CSS -->
+<style>
+    .bannerTitle {
+        font-size: 36px;
+        font-weight: bold;
+    }
+
+    .orderImg {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+    }
+</style>

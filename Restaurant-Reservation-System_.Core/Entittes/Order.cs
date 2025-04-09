@@ -27,5 +27,9 @@ namespace Restaurant_Reservation_System_.Core.Entittes
         [EmailAddress]
         public string Email { get; set; } = null!;
         public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+
+        public bool? Status { get; set; }
+        public bool IsCanceled { get; set; }
+
     }
 }

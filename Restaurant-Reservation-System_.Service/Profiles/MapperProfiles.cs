@@ -7,6 +7,7 @@ using Restaurant_Reservation_System_.Service.Dtos.CategoryDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ChefDtos;
 using Restaurant_Reservation_System_.Service.Dtos.CommentDtos;
 using Restaurant_Reservation_System_.Service.Dtos.OrderDtos;
+using Restaurant_Reservation_System_.Service.Dtos.OrderItemDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ProductDetailDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ProductDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ReservationDtos;
@@ -112,6 +113,13 @@ namespace Restaurant_Reservation_System_.Service.Profiles
             CreateMap<Order, OrderCreateDto>().ReverseMap();
             CreateMap<Order, OrderUpdateDto>().ReverseMap();
             CreateMap<Order, OrderGetDto>().ReverseMap();
+
+            ///OrderItem Profiles
+            CreateMap<OrderItem, OrderItemCreateDto>().ReverseMap().ForMember(x => x.Product, x => x.Ignore()).ForMember(x => x.TotalPrice, x => x.MapFrom(x => x.Product.Price));
+            CreateMap<OrderItem, OrderItemUpdateDto>().ReverseMap();
+            CreateMap<OrderItem, OrderItemGetDto>().ReverseMap();
+            CreateMap<OrderItemCreateDto, CartItemDto>().ReverseMap();
+            CreateMap<OrderItemGetDto, CartItemDto>().ReverseMap().ForMember(x => x.TotalPrice, x => x.MapFrom(x => x.Product.Price));
 
 
         }

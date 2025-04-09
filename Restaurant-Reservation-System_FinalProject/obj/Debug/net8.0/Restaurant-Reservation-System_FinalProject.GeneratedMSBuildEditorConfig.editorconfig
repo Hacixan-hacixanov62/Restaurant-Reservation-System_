@@ -112,6 +112,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW5nZWRpZW50XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/API (Pb-202) _ Task/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject/Areas/Admin/Views/Order/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3JkZXJcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/API (Pb-202) _ Task/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject/Areas/Admin/Views/Order/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3JkZXJcRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/API (Pb-202) _ Task/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject/Areas/Admin/Views/Order/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3JkZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/API (Pb-202) _ Task/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject/Areas/Admin/Views/Product/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -250,6 +262,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/API (Pb-202) _ Task/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject/Views/Menu/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/API (Pb-202) _ Task/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject/Views/Order/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/API (Pb-202) _ Task/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject/Views/Order/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/API (Pb-202) _ Task/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject/Views/Reservation/Index.cshtml]

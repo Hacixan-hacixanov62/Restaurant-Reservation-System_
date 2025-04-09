@@ -68,3 +68,4 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL
 
 //dotnet ef migrations add InitialMigration --startup-project ..\Restaurant-Reservation-System_FinalProject -o .\DAL\Migrations
 //dotnet ef database update --startup-project ..\Restaurant-Reservation-System_FinalProject
+//dotnet ef migrations remove --startup-project ..\Restaurant-Reservation-System_FinalProject
