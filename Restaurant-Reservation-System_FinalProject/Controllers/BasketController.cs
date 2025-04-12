@@ -64,9 +64,9 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
         private List<CartItem> _getBasket()
         {
             List<CartItem> basketItems = new();
-            if (Request.Cookies["basket"] != null)
+            if (Request.Cookies["RestaurantCart"] != null)
             {
-                basketItems = JsonConvert.DeserializeObject<List<CartItem>>(Request.Cookies["basket"]) ?? new();
+                basketItems = JsonConvert.DeserializeObject<List<CartItem>>(Request.Cookies["RestaurantCart"]) ?? new();
             }
 
             return basketItems;

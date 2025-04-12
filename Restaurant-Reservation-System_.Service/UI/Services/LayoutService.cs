@@ -90,7 +90,7 @@ namespace Restaurant_Reservation_System_FinalProject.Services
                                 Id = product.Id,
                                 Name = product.Name,
                                 Price = product.Price,
-                                Image = product.ProductImages.FirstOrDefault(x => x.IsMain == true)?.Url,
+                                MainImage = product.ProductImages.FirstOrDefault(x => x.IsMain == true)?.Url,
                             }
                         };
 

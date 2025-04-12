@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "e9arlq3l+sFeXCOgR34iQjftQvj+T3umJhhMYIGTfBw=",
+  "Hash": "B6UJiUz3TcL11cA6nE1yuLBWBesVsUN9cIMUh7mXaek=",
   "Source": "Restaurant-Reservation-System_FinalProject",
   "BasePath": "_content/Restaurant-Reservation-System_FinalProject",
   "Mode": "Default",
@@ -20639,6 +20639,27 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\home\\5aab8150-cbbf-4b3d-91fc-01a56c59536b.png"
     },
     {
+      "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\8de4fb12-863c-407d-86df-55feb1011dea.jpg",
+      "SourceId": "Restaurant-Reservation-System_FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\",
+      "BasePath": "_content/Restaurant-Reservation-System_FinalProject",
+      "RelativePath": "assets/images/home/8de4fb12-863c-407d-86df-55feb1011dea#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "o4uyr2o78x",
+      "Integrity": "CFC7nH+7KIhyLMkSk9QcLPp5yQkml0avOqq5zPwSqag=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\home\\8de4fb12-863c-407d-86df-55feb1011dea.jpg"
+    },
+    {
       "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\c21ffc5b-6235-4683-9ec7-b4f13bb81439.png",
       "SourceId": "Restaurant-Reservation-System_FinalProject",
       "SourceType": "Discovered",
@@ -20658,27 +20679,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\home\\c21ffc5b-6235-4683-9ec7-b4f13bb81439.png"
-    },
-    {
-      "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\c6ec0298-9b88-4ff6-88db-f43738da5e2f.png",
-      "SourceId": "Restaurant-Reservation-System_FinalProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\",
-      "BasePath": "_content/Restaurant-Reservation-System_FinalProject",
-      "RelativePath": "assets/images/home/c6ec0298-9b88-4ff6-88db-f43738da5e2f#[.{fingerprint}]?.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "ggdk5znjzl",
-      "Integrity": "4L1MvEWoi5z2g5d26Jh8x2g1x3DCK5EOj82TTRo1kjM=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\home\\c6ec0298-9b88-4ff6-88db-f43738da5e2f.png"
     },
     {
       "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\fa19555f-ef19-4a96-b333-65d2ba62b2a3.png",
@@ -20994,6 +20994,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\home\\restaurant-img-2.jpg"
+    },
+    {
+      "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\slide_01.jpg",
+      "SourceId": "Restaurant-Reservation-System_FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\",
+      "BasePath": "_content/Restaurant-Reservation-System_FinalProject",
+      "RelativePath": "assets/images/home/slide_01#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "r2rjfu5z1l",
+      "Integrity": "08ZA0Z6SmHpOOUD6eElrDuTiiQLaUd3S6TemOQXGckY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\home\\slide_01.jpg"
+    },
+    {
+      "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\slide_02.jpg",
+      "SourceId": "Restaurant-Reservation-System_FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\",
+      "BasePath": "_content/Restaurant-Reservation-System_FinalProject",
+      "RelativePath": "assets/images/home/slide_02#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "tv1kgc5xy5",
+      "Integrity": "iZYP+4bf7SJ45RjTFfsNt4vC8sAbtoIjz5duK0DoKb0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\home\\slide_02.jpg"
     },
     {
       "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\slide_logo.png",
@@ -103658,6 +103700,88 @@
       ]
     },
     {
+      "Route": "assets/images/home/8de4fb12-863c-407d-86df-55feb1011dea.jpg",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\8de4fb12-863c-407d-86df-55feb1011dea.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "70903"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CFC7nH+7KIhyLMkSk9QcLPp5yQkml0avOqq5zPwSqag=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 10 Apr 2025 21:20:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-CFC7nH+7KIhyLMkSk9QcLPp5yQkml0avOqq5zPwSqag="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/home/8de4fb12-863c-407d-86df-55feb1011dea.o4uyr2o78x.jpg",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\8de4fb12-863c-407d-86df-55feb1011dea.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "70903"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CFC7nH+7KIhyLMkSk9QcLPp5yQkml0avOqq5zPwSqag=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 10 Apr 2025 21:20:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "o4uyr2o78x"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/images/home/8de4fb12-863c-407d-86df-55feb1011dea.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-CFC7nH+7KIhyLMkSk9QcLPp5yQkml0avOqq5zPwSqag="
+        }
+      ]
+    },
+    {
       "Route": "assets/images/home/c21ffc5b-6235-4683-9ec7-b4f13bb81439.png",
       "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\c21ffc5b-6235-4683-9ec7-b4f13bb81439.png",
       "Selectors": [],
@@ -103736,88 +103860,6 @@
         {
           "Name": "integrity",
           "Value": "sha256-5vhcnyBmk72F9Iu4h0ghR71BE8JGDxAP74R+9xQNGrA="
-        }
-      ]
-    },
-    {
-      "Route": "assets/images/home/c6ec0298-9b88-4ff6-88db-f43738da5e2f.ggdk5znjzl.png",
-      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\c6ec0298-9b88-4ff6-88db-f43738da5e2f.png",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "86091"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/png"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"4L1MvEWoi5z2g5d26Jh8x2g1x3DCK5EOj82TTRo1kjM=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 26 Mar 2025 14:55:50 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ggdk5znjzl"
-        },
-        {
-          "Name": "label",
-          "Value": "assets/images/home/c6ec0298-9b88-4ff6-88db-f43738da5e2f.png"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-4L1MvEWoi5z2g5d26Jh8x2g1x3DCK5EOj82TTRo1kjM="
-        }
-      ]
-    },
-    {
-      "Route": "assets/images/home/c6ec0298-9b88-4ff6-88db-f43738da5e2f.png",
-      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\c6ec0298-9b88-4ff6-88db-f43738da5e2f.png",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "86091"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/png"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"4L1MvEWoi5z2g5d26Jh8x2g1x3DCK5EOj82TTRo1kjM=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 26 Mar 2025 14:55:50 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=3600, must-revalidate"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-4L1MvEWoi5z2g5d26Jh8x2g1x3DCK5EOj82TTRo1kjM="
         }
       ]
     },
@@ -105048,6 +105090,170 @@
         {
           "Name": "integrity",
           "Value": "sha256-1KKPSbdUo550JxGZ42dnlnUOxbinoKxDls5Rw/6DU8E="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/home/slide_01.jpg",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\slide_01.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "356319"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"08ZA0Z6SmHpOOUD6eElrDuTiiQLaUd3S6TemOQXGckY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 31 Mar 2025 19:19:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-08ZA0Z6SmHpOOUD6eElrDuTiiQLaUd3S6TemOQXGckY="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/home/slide_01.r2rjfu5z1l.jpg",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\slide_01.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "356319"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"08ZA0Z6SmHpOOUD6eElrDuTiiQLaUd3S6TemOQXGckY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 31 Mar 2025 19:19:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "r2rjfu5z1l"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/images/home/slide_01.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-08ZA0Z6SmHpOOUD6eElrDuTiiQLaUd3S6TemOQXGckY="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/home/slide_02.jpg",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\slide_02.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "436573"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"iZYP+4bf7SJ45RjTFfsNt4vC8sAbtoIjz5duK0DoKb0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 31 Mar 2025 19:19:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-iZYP+4bf7SJ45RjTFfsNt4vC8sAbtoIjz5duK0DoKb0="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/home/slide_02.tv1kgc5xy5.jpg",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\slide_02.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "436573"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"iZYP+4bf7SJ45RjTFfsNt4vC8sAbtoIjz5duK0DoKb0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 31 Mar 2025 19:19:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "tv1kgc5xy5"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/images/home/slide_02.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-iZYP+4bf7SJ45RjTFfsNt4vC8sAbtoIjz5duK0DoKb0="
         }
       ]
     },

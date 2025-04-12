@@ -94,12 +94,19 @@
 
 }
 
-@*  @foreach (var image in Model.ProductImages)
-                    {
-                        <img height="100" width="300" src="~/assets/images/home/@image.Name" alt="" />
-                        @if (image.Status != true)
-                        {
-                            <a class="btn btn-primary" asp-action="DeleteProductImage" asp-route-id="@image.Id"><i class="fa-solid fa-trash"></i></a>
-                            <a class="btn btn-primary" asp-action="SetMainImage" asp-route-id="@image.Id"><i class="fa-solid fa-house"></i></a>
-                        }
-                    } *@
+
+
+<script>
+    const removeButtons = document.querySelectorAll('.buttonRemove')
+
+
+        removeButtons.forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.target.parentElement.remove();
+            })
+        })</script>
+
+
+
+            

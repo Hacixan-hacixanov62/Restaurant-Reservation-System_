@@ -241,6 +241,7 @@ namespace Restaurant_Reservation_System_.Service.Services
                 Discount = s.Discount,
                 Weight = s.Weight,
                 Delicious = s.Delicious,
+               ProductImages =s.ProductImages
 
                 // CreatedDate = s.CreatedDate.ToString("yyyy-MM-dd")
             }).ToList();
@@ -249,6 +250,16 @@ namespace Restaurant_Reservation_System_.Service.Services
         public async Task<bool> IsExistAsync(int id)
         {
             return await _productRepository.IsExistAsync(x => x.Id == id);
+        }
+
+        public async Task<ProductGetDto> GetByIdAsync(int productId)
+        {
+            var product = await _productRepository.GetAsync(x => x.Id == productId,
+                                                      x => x.Include(p => p.ProductImages));
+            if (product == null) return null;
+
+            var dto = _mapper.Map<ProductGetDto>(product);
+            return dto;
         }
     }
 }

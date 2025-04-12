@@ -32,7 +32,9 @@ namespace Restaurant_Reservation_System_.Service.Dtos.ProductDtos
         public int CategoryId { get; set; }
         public List<CategoryGetDto> Categories { get; set; } = null!;
         public int SalesCount { get; set; }
-        public string Image { get; set; } = null!;
+        public string MainImage { get; set; } = null!;
+        public List<string> ImagePaths { get; set; } = [];
+
         [NotMapped]
         [MaxSizeAttribute(2 * 1024 * 1024)]
         [AllowedTypes("image/jpeg", "image/png")]
@@ -46,8 +48,8 @@ namespace Restaurant_Reservation_System_.Service.Dtos.ProductDtos
 
 
         //Bunu baskete gore yazmisam sile bilerem
-        public List<ProductImage> ProductImages { get; set; }
-
+        public List<ProductImage> ProductImages { get; set; } = null!;
+  
 
     }
 }

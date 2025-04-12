@@ -212,8 +212,9 @@ namespace Restaurant_Reservation_System_.Service.Services
 
         private bool _checkAuthorized()
         {
-            return _contextAccessor.HttpContext?.User.Identity?.IsAuthenticated ?? false;
+            return _contextAccessor.HttpContext?.User?.Identity?.IsAuthenticated ?? false;
         }
+
 
         public Task RemoveToBasket(int id, string? returnUrl)
         {
@@ -296,7 +297,7 @@ namespace Restaurant_Reservation_System_.Service.Services
                                 Id = product.Id,
                                 Name = product.Name,
                                 Price = product.Price,
-                                Image = product.ProductImages.FirstOrDefault(x => x.IsMain == true)?.Url,
+                                MainImage = product.ProductImages.FirstOrDefault(x => x.IsMain == true)?.Url,
                             }
                         };
 

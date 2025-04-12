@@ -1,22 +1,107 @@
 ﻿@using Restaurant_Reservation_System_.Service.Dtos.BasketDtos
-@using Restaurant_Reservation_System_.Service.UI.Services.IService
-@using Restaurant_Reservation_System_FinalProject.Services
 
-@inject ILayoutService layoutService;
 @{
-
-    var item = layoutService.GetUserBasketItem();
+    var mode = Context.Request.Cookies["mode"] ?? "light";
 }
+@model CartGetDto
 
-<div class="cart-wrapper">
-    @foreach(var basketItems in item.Items)
-    {
-        <div class="cart-icon" style="cursor: pointer;">
-            <i class="fa fa-shopping-cart" id="basket-icon"></i>
-            @* <span class="cart-count">@basketItems.Items.Sum(m => m.Count)</span> *@
-        </div>
-        <div class="cart-dropdown">
-            @await Html.PartialAsync("_BasketPartial", item.Items);
-        </div>
-    }   
-</div>
+
+<header>
+    <div class="container">
+        <div class="header-home">
+            <div class="header-left">
+                <div class="header-logo">
+                    <a href="/home.html">
+                        <img src="~/assets/images/home/logo.png" alt="" />
+                    </a>
+                </div>
+            </div>
+            <div class="header-center">
+                <nav>
+                    <ul>
+                        <li><a data-language="nav.home" asp-controller="Home" asp-action="Index"></a></li>
+                        <li><a data-language="nav.menu" asp-controller="Menu" asp-action="Index"></a></li>
+                        <li><a data-language="nav.reservation" asp-controller="Reservation" asp-action="Index"></a></li>
+                        <li><a data-language="nav.blog" asp-controller="Blog" asp-action="Index"></a></li>
+                        <li><a data-language="nav.shop" asp-controller="Shop" asp-action="Index"></a></li>
+                        <li><a data-language="nav.contact" asp-controller="Contact" asp-action="Index"></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header-right">
+                <div class="header-cart">
+
+                    <div class="mode-div">
+                        <button type="button" class="switch-button">
+                            <i class="fa-regular @(mode == "dark" ? "fa-sun" : "fa-moon")"></i>
+                        </button>
+                    </div>
+
+                    <div class="language-button-div">
+                        <div class="language-dropdown">
+                            <button class="language-button" type="button">
+                                <i class="fas fa-globe"></i>
+                                <span>EN</span>
+                            </button>
+                            <div class="dropdown-content" id="languageDropdown">
+                                <a href="#" data-lang="en">English</a>
+                                <a href="#" data-lang="az">Azərbaycan</a>
+                                <a href="#" data-lang="ru">Русский</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <a class="headercartbtn" href="">
+                        <span class="cart-btn-block cart-btn-icon">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </span>
+                        <span class="cart-btn-block cart-btn-item">
+                            <span class="cart-btn-item-title" data-language="header.items"></span>
+                            <span class="cart-btn-item-count"> 1 </span>
+                        </span>
+                        <span class="cart-btn-block cart-btn-total">
+                            <div class="cart-left">
+                                <span class="cart-btn-total-title" data-language="header.total"></span>
+                                <span class="cart-btn-total-count"> $111.00 </span>
+                            </div>
+                            <div class="cart-right">
+                                <i class="fa-solid fa-caret-down"></i>
+                            </div>
+                        </span>
+                    </a>
+                    <div class="cart-wrapper">
+                       
+                        <div class="cart-icon" style="cursor: pointer;">
+                            <i class="fa fa-shopping-cart" id="basket-icon"></i>
+                            <span class="cart-count">@Model.Count</span>
+                        </div>
+                        <div class="cart-dropdown">
+                            @await Html.PartialAsync("_BasketPartial", Model.Items);
+                        </div>
+                    </div>
+                        
+                </div>
+
+                <!-- Dropdown -->
+                <div class="log-reg">
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Member"))
+                    {
+                        <a asp-action="logout" asp-controller="account" class="btn-login">LogOut</a>
+
+                        <a asp-action="profile" asp-controller="account" class="font-weight-bold">@User.Identity.Name</a>
+
+                    }
+                    else
+                    {
+                        <a asp-controller="account" asp-action="login" class="btn-login" data-language="header.login"></a>
+                        <a asp-controller="account" asp-action="register" class="btn-register" data-language="header.register"></a>
+                    }
+
+                </div>
+
+
+            </div>
+            </div>
+    </div>
+</header>

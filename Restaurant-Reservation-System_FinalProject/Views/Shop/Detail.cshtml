@@ -1,5 +1,208 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using Restaurant_Reservation_System_.Service.UI.Dtos
+@using System.Security.Claims
+@model ShopDetailDto
+
+<style>
+    .star {
+        font-size: 20px;
+        color: gray;
+        margin-right: 5px;
+    }
+
+        .star.filled {
+            color: gold;
+        }
+</style>
+<main class="shop-detail">
+    <section id="News-banner">
+        <div class="banner-part">
+            <div class="banner-content">
+                <h3>Restaurant</h3>
+                <h1>Product</h1>
+                <p class="white">We Cook & Sell to your liking</p>
+                <p class="yellow">Danny's</p>
+            </div>
+            <div class="overlay"></div>
+        </div>
+    </section>
+
+    <div class="content inner-pg single-shop-content clearfix">
+        <div class="container">
+            <div class="product">
+                <div class="col-sm-6 col-md-6">
+                    <div class="product-left-box">
+                        <div class="row g-2">
+                            <div class="col-lg-2 orderone">
+                                <div class="cake-img-slider">
+                                    @foreach (var img in Model.Product.ProductImages)
+                                    {
+                                        <img class="single-slide sliderImg" src="@img.Url" alt="">
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-lg-9 ordertwo">
+                                <div class="product-main">
+                                    <div class="slider-img">
+                                        <img src="@Model.Product.ProductImages.FirstOrDefault(m=>m.IsMain==true)?.Url"
+                                             alt=""
+                                             class="mainImg" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 mini-cont">
+                    <div class="info">
+                        <h3>
+                            @Model.Product.Name
+                        </h3>
+                        <span class="price"> $@((Model.Product.Price - (Model.Product.Price*Model.Product.Discount/100)).ToString("0.00"))</span>
+
+                        <div class="single-shop-item-detail">
+                            <h6>Ingredients</h6>
+                            <p>
+                                @Model.Product.Ingredients
+                            </p>
+                        </div>
+                        <div class="single-cart">
+                            <input type="number" value="1" min="1" id="itemCount" />
+                            <a id="addToCartLink" asp-controller="Basket" asp-action="AddToCart" asp-route-id="@Model.Product.Id" asp-route-returnUrl="@Context.Request.Path.Value" class="btn btn-default" onclick="updateRouteCount()">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="feedback">
+                <div class="cont">
+                    <ul class="nav nav-tabs" role="tablist">
+                     
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Reviews</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active descriptionSection" id="description">
+                            <h5>Product Description</h5>
+                            <p>@Model.Product.Desc</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane reviewsSection" id="reviews">
+
+                            <h5>Leave a Reply</h5>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <form id="commentForm" asp-action="CreateComment" asp-route-ProductId="@Model.Product.Id" method="post">
+                                    <div class="form-group">
+                                        <label>Comment</label>
+                                        <textarea class="form-control" name="Text" rows="3" placeholder="Write your comment here..." required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Rating</label>
+                                        <input type="number" name="Rating" class="form-control" min="1" max="5" placeholder="Rate the product (1-5)" required />
+                                    </div>
+                                    <button type="submit" class="btn btn-default">Post Comment</button>
+                                </form>
+                            }
+                            else
+                            {
+                                <p>Please <a asp-controller="Account" asp-action="Login">log in</a> to leave a comment.</p>
+                            }
+
+                            <h5 class="mt-4">Comments</h5>
+                            @if (Model.Comments.Any())
+                            {
+                                <ul class="list-unstyled">
+                                    @foreach (var comment in Model.Comments)
+                                    {
+                                        <li class="mb-3">
+                                            <strong>@comment.AppUser.Username</strong>
+                                            <small class="text-muted">(@comment.CreatedAt.ToString("g"))</small>
+                                            <p>@comment.Text</p>
+
+                                            <div class="rating">
+                                                @for (var i = 1; i <= 5; i++)
+                                                {
+                                                    if (i <= comment.Rating)
+                                                    {
+                                                        <span class="star filled">&#9733;</span> <!-- Dolu ulduz -->
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="star">&#9734;</span> <!-- Boş ulduz -->
+                                                    }
+                                                }
+                                                <span class="rating-text">(@comment.Rating)</span>
+                                            </div>
+
+                                            @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin") || User.FindFirstValue(ClaimTypes.NameIdentifier) == comment.AppUser.Id))
+                                            {
+                                                <form method="post" action="/Shop/DeleteComment">
+                                                    <input type="hidden" name="id" value="@comment.Id" />
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            }
+
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                                <button class="btn btn-link text-muted reply-button" data-comment-id="@comment.Id">Reply</button>
+
+                                                <form class="reply-form d-none" asp-action="ReplyComment" method="post">
+                                                    <input type="hidden" name="ParentId" value="@comment.Id" />
+                                                    <input type="hidden" name="ProductId" value="@Model.Product.Id" />
+                                                    <div class="form-group">
+                                                        <textarea class="form-control" name="Text" rows="2" placeholder="Write your reply..." required></textarea>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary btn-sm">Post Reply</button>
+                                                </form>
+                                            }
+
+                                            @if (comment.Children.Any())
+                                            {
+                                                <ul class="list-unstyled ml-4">
+                                                    @foreach (var reply in comment.Children)
+                                                    {
+                                                        <li class="mb-2">
+                                                            <strong>@reply.AppUser.Username</strong>
+                                                            <small class="text-muted">(@reply.CreatedAt.ToString("g"))</small>
+                                                            <p>@reply.Text</p>
+                                                        </li>
+                                                    }
+                                                </ul>
+                                            }
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <p>No comments yet. Be the first to leave a reply!</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+
+<script>
+      var addToCartLink = document.getElementById('addToCartLink');
+    function updateRouteCount() {
+        var itemCount = document.getElementById('itemCount').value;
+        let href = `${addToCartLink.href}&count=${itemCount}`
+        // Replace the placeholder with the actual item count
+        //var updatedUrl = baseUrl.replace('__count__', itemCount);
+        addToCartLink.href = href;
+    }
+
+    document.querySelectorAll('.reply-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const form = this.nextElementSibling;
+            form.classList.toggle('d-none');    
+        });
+    });
+</script>

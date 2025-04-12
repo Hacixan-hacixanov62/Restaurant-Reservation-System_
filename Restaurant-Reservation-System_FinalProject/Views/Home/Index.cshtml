@@ -20,7 +20,7 @@
         </div>
     </section>
     @* Slider End Part *@
-
+    
 
 
     @* About Start Part *@
@@ -64,7 +64,7 @@
             </div>
         </div>
     </section>
-    @* Slider End Part *@
+    @* About End Part *@
     <section id="Menu">
         <div class="container">
             <div class="row">
@@ -90,7 +90,7 @@
                                 </p>
                             </div>
                         </div>
-                        <a href="menu–stretched.html" class="btn btn-secondary">what’s on the menu</a>
+                        <a asp-controller="Menu" asp-action="Index" class="btn btn-secondary">what’s on the menu</a>
                     </div>
                 </div>
 
@@ -139,7 +139,7 @@
                                 </p>
                             </div>
                         </div>
-                        <a href="" class="btn btn-primary">view all</a>
+                        <a asp-controller="Menu" asp-action="index" class="btn btn-primary">view all</a>
                     </div>
                 </div>
             </div>
@@ -222,24 +222,24 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-8 col-centered">
-                    @* <div class="testimonial-slider">
-                        @foreach (var comment in Model)
-                        {
-                            <div class="slider-item">
-                                <div class="section-title">
-                                    <h2>Clients</h2>
-                                    <h3>testimonials</h3>
-                                </div>
-                                <p>
-                                    @comment.Text
-                                </p>
-                                <div class="text-center testi-icon">“</div>
-                                <h4>@comment.AppUser.Fullname</h4>
-                            </div>
+                    <div class="testimonial-slider">
+                        @* @foreach (var comment in Model) *@
+                        @* { *@
+                        @*     <div class="slider-item"> *@
+                        @*         <div class="section-title"> *@
+                        @*             <h2>Clients</h2> *@
+                        @*             <h3>testimonials</h3> *@
+                        @*         </div> *@                                   @*Burani HomeDto da Commenti yazanda Yazrasan*@ 
+                        @*         <p> *@
+                        @*             @comment.Text *@
+                        @*         </p> *@
+                        @*         <div class="text-center testi-icon">“</div> *@
+                        @*         <h4>@comment.AppUser.Fullname</h4> *@
+                        @*     </div> *@
 
-                        }
+                        @* } *@
 
-                    </div> *@
+                    </div>
                 </div>
             </div>
         </div>
@@ -258,7 +258,7 @@
                     <p class="white">
                         49 Featherstone Street LONDON EC1Y 8SY UNITED KINGDOM <br>+4 1800 555 1234 <br><a class="white" href="#">bookatable@restaurant.com</a>
                     </p>
-                    <a asp-controller="reservation " asp-action="index" class="btn btn-secondary">ONLINE</a>
+                    <a asp-controller="Reservation " asp-action="Index" class="btn btn-secondary">ONLINE</a> @*Buarda Nese Online Click eleyende Reservation Page getmir on aGoz Gezdir !!!!!*@
                 </div>
             </div>
             <!-- </div> -->
