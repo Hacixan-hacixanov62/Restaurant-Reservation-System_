@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Restaurant_Reservation_System_.Core.Entittes;
+using Restaurant_Reservation_System_.Service.Dtos.AppUserDtos;
 using Restaurant_Reservation_System_.Service.Dtos.BasketDtos;
+using Restaurant_Reservation_System_.Service.Dtos.BlogCommentDtos;
 using Restaurant_Reservation_System_.Service.Dtos.BlogDtos;
 using Restaurant_Reservation_System_.Service.Dtos.CategoryDetailDtos;
 using Restaurant_Reservation_System_.Service.Dtos.CategoryDtos;
@@ -71,7 +73,10 @@ namespace Restaurant_Reservation_System_.Service.Profiles
             ////Product Profiles 
             CreateMap<Product, ProductCreateDto>().ReverseMap();
             CreateMap<Product, ProductUpdateDto>().ReverseMap();
-            CreateMap<Product, ProductGetDto>().ReverseMap();
+            CreateMap<Product, ProductGetDto>()
+    .ForMember(dest => dest.MainImage, opt => opt.MapFrom(src =>
+        src.ProductImages.FirstOrDefault(img => img.IsMain).Url))
+    .ReverseMap();
 
 
             ////Chef Profiles 
@@ -114,6 +119,8 @@ namespace Restaurant_Reservation_System_.Service.Profiles
             CreateMap<Order, OrderUpdateDto>().ReverseMap();
             CreateMap<Order, OrderGetDto>().ReverseMap();
 
+            CreateMap<AppUser, UserGetDto>().ReverseMap();
+
             ///OrderItem Profiles
             CreateMap<OrderItem, OrderItemCreateDto>().ReverseMap().ForMember(x => x.Product, x => x.Ignore()).ForMember(x => x.TotalPrice, x => x.MapFrom(x => x.Product.Price));
             CreateMap<OrderItem, OrderItemUpdateDto>().ReverseMap();
@@ -121,6 +128,11 @@ namespace Restaurant_Reservation_System_.Service.Profiles
             CreateMap<OrderItemCreateDto, CartItemDto>().ReverseMap();
             CreateMap<OrderItemGetDto, CartItemDto>().ReverseMap().ForMember(x => x.TotalPrice, x => x.MapFrom(x => x.Product.Price));
 
+            ///BlogCommet Profiles
+            CreateMap<BlogComment, BlogCommentCreateDto>().ReverseMap();
+            CreateMap<BlogComment, BlogCommentUpdateDto>().ReverseMap();
+            CreateMap<BlogComment, BlogCommentGetDto>().ReverseMap();
+            CreateMap<BlogComment, BlogCommentReplyDto>().ReverseMap();
 
         }
 

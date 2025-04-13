@@ -53,7 +53,16 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<BlogTopic>().HasKey(x => new { x.BlogId, x.TopicId });
-            modelBuilder.Entity<ProductIngredient>().HasKey(x => new { x.ProductId, x.IngredientId }); 
+            modelBuilder.Entity<ProductIngredient>().HasKey(x => new { x.ProductId, x.IngredientId });
+            modelBuilder.Entity<Comment>().HasQueryFilter(x => !x.IsDeleted);
+
+
+            modelBuilder.Entity<Comment>()
+                .HasOne(c => c.Parent)
+                .WithMany(c => c.Children)
+                .HasForeignKey(c => c.ParentId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             base.OnModelCreating(modelBuilder);
 
 

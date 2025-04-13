@@ -15,5 +15,7 @@ namespace Restaurant_Reservation_System_.Service.Dtos.OrderDtos
         public string PhoneNumber { get; set; } = null!;
         public string Email { get; set; } = null!;
         public List<OrderItemCreateDto> OrderItems { get; set; } = [];
+        public string stripeToken { get; set; } = null!;
+        public string stripeEmail { get; set; } = null!;
     }
 }

@@ -8,6 +8,7 @@ namespace Restaurant_Reservation_System_.Service.UI.VM
         public List<About> Abouts { get; set; }
         public List<Category> Categories { get; set; }
         public List<Product> Products { get; set; }
+        public List<Comment> Comments { get; set; } = new List<Comment>();
 
 
     }

@@ -42,15 +42,7 @@ namespace Restaurant_Reservation_System_.Service.Services
             return true;
         }
 
-        public Task<ReservationDto?> GetLatestReservationAsync(string name, string phoneNumber)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ReservationDto> GetReservationAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public async Task<Reservation> RepairOrEnd(int id)
         {
@@ -68,5 +60,35 @@ namespace Restaurant_Reservation_System_.Service.Services
 
             return reservation;
         }
+
+        //public async Task<ReservationDto?> GetLatestReservationAsync(string name, string phoneNumber)
+        //{
+        //    var reservation = await _reservationRepository.GetAll()
+        //         .Where(r => r.Name == name && r.Email == phoneNumber)
+        //         .OrderByDescending(r => r.Date)
+        //         .ThenByDescending(r => r.Id)
+        //         .FirstOrDefaultAsync();
+
+        //    if (reservation == null)
+        //        return null;
+
+        //    var reservationDto = _mapper.Map<ReservationDto>(reservation);
+        //    return reservationDto;
+        //}
+
+        //public async Task<ReservationDto> GetReservationAsync(int id)
+        //{
+        //    var reservation = await _reservationRepository.GetAll()
+        //        .Include(r => r.Products)
+        //        .FirstOrDefaultAsync(r => r.Id == id);
+
+        //    if (reservation == null)
+        //        throw new KeyNotFoundException("Reservation not found");
+
+        //    var reservationDto = _mapper.Map<ReservationDto>(reservation);
+
+
+        //    return reservationDto;
+        //}
     }
 }

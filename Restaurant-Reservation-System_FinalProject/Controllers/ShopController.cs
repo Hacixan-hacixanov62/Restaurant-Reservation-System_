@@ -32,6 +32,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
 
             var products = await _productService.GetAllAsync();
             var categories = await _categoryService.GetAllAsync();
+            
 
             sortOrder ??= "Default";
 
@@ -108,5 +109,14 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
 
             return Redirect(returnUrl);
         }
+
+
+        [HttpGet]
+        public async Task<IActionResult> LoadMore(int page)
+        {
+            var products = await _productService.LoadMoreAsync(page);
+            return View(products);
+        }
+
     }
 }

@@ -217,33 +217,33 @@
                 </div>
             </div>
         </div>
-    </section>
-    <section id="Testimonial">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-8 col-centered">
-                    <div class="testimonial-slider">
-                        @* @foreach (var comment in Model) *@
-                        @* { *@
-                        @*     <div class="slider-item"> *@
-                        @*         <div class="section-title"> *@
-                        @*             <h2>Clients</h2> *@
-                        @*             <h3>testimonials</h3> *@
-                        @*         </div> *@                                   @*Burani HomeDto da Commenti yazanda Yazrasan*@ 
-                        @*         <p> *@
-                        @*             @comment.Text *@
-                        @*         </p> *@
-                        @*         <div class="text-center testi-icon">“</div> *@
-                        @*         <h4>@comment.AppUser.Fullname</h4> *@
-                        @*     </div> *@
-
-                        @* } *@
-
+        <section id="Testimonial" style="background-color: white; padding: 50px;">
+            <div class="container">
+                <div class="section-title text-center mb-5">
+                    <h2>Clients</h2>
+                    <h3>Testimonials</h3>         @* Slider Islemir *@
+                </div>
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        @foreach (var comment in Model.Comments)
+                        {
+                            <div class="swiper-slide">
+                                <div class="testimonial-item text-center">
+                                    <p>@comment.Text</p>
+                                    <div class="testi-icon" style="font-size: 2rem;">“</div>
+                                    <h4>@comment.AppUser.FullName</h4>
+                                </div>
+                            </div>
+                        }
                     </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+
     <section id="Reservation">
         <div class="row">
             <!-- <div class="col-sm-12 col-md-12 col-lg-12"> -->
@@ -269,4 +269,22 @@
 </main>
 
 
-
+<script>
+    const swiper = new Swiper(".mySwiper", {
+        loop: true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+            delay: 3500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>

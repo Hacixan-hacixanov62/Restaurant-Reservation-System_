@@ -18336,8 +18336,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>oelbxmmf5k</Fingerprint>
-      <Integrity>IDp24wOIsNdety/9Qs+LdbRC2jcwXdyJ2ir6vWwzUW8=</Integrity>
+      <Fingerprint>v2wtin96uh</Fingerprint>
+      <Integrity>WZoJ1xZKXY6oX1knfGna4JoaqMxjBolqYPYRTBREhAg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\styles\heart.css'))</OriginalItemSpec>

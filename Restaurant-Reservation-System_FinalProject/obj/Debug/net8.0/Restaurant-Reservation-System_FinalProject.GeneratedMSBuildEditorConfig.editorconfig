@@ -236,6 +236,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/API (Pb-202) _ Task/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject/Views/Basket/Checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFza2V0XENoZWNrb3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/API (Pb-202) _ Task/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject/Views/Basket/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFza2V0XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -272,8 +276,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/API (Pb-202) _ Task/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject/Views/Reservation/ConfirmReservation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25cQ29uZmlybVJlc2VydmF0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/API (Pb-202) _ Task/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject/Views/Reservation/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/API (Pb-202) _ Task/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject/Views/Reservation/ReserveTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25cUmVzZXJ2ZVRhYmxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/API (Pb-202) _ Task/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject/Views/Shared/Components/Header/Default.cshtml]

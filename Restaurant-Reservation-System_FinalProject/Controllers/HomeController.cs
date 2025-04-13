@@ -22,15 +22,18 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             var products = await _context.Products.Include(x => x.ProductImages).Include(x => x.Category).Take(12).ToListAsync();
             var categories = await _context.Categories.Where(x => x.Products.Count > 0).Take(10).ToListAsync();
             var sliders = await _context.Sliders.ToListAsync();
-            //var topComments = await _context.Comments.OrderByDescending(x => x.Rating).Include(x => x.AppUser).Take(3).ToListAsync();
+            var topComments = await _context.Comments.OrderByDescending(x => x.Rating).Include(x => x.AppUser).Take(3).ToListAsync();
+            var about = await _context.Abouts.ToListAsync();
 
-
-            HomeVm homeVm = new();
-            homeVm.Sliders = _context.Sliders.ToList();
-            homeVm.Abouts = _context.Abouts.ToList();
-            homeVm.Categories = _context.Categories.ToList();
-            homeVm.Products = _context.Products.ToList();   
-            
+            HomeVm homeVm = new HomeVm()
+            {
+                Abouts = about,
+                Products = products,
+                Categories = categories,
+                Sliders = sliders,
+                Comments = topComments
+            };
+       
 
             return View(homeVm);
         }

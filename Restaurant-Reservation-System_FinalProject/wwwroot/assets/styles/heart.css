@@ -6323,3 +6323,25 @@ footer #Footer-main {
 .cart-details .cross-btn:hover {
     background: #62ab00;
 }
+
+
+/* Asagdaki Kodler Home Pagedeki Client Slider Koddlaridir */
+.testimonial-item {
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+}
+
+.swiper {
+    padding-bottom: 60px; /* yer buraxmaq üçün */
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: black;
+}
+
+.swiper-pagination-bullet {
+    background: black;
+}

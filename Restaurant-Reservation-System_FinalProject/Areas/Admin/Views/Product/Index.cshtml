@@ -39,7 +39,7 @@
                         {
                           
                             <tr>
-                                <td><img src="~/assets/images/home/@product.ProductImages.FirstOrDefault(x=>x.IsMain)?.Url" style="width:100px;height:100px" /></td>
+                                <td><img src="@product.ProductImages.FirstOrDefault(x=>x.IsMain)?.Url" style="width:100px;height:100px" /></td>
                                 <td> @product.Name</td>
                                 <td> @product.Price </td>
                                 <td> @product.Discount </td>

@@ -34,7 +34,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
                 return BadRequest();
 
             var orders = await _context.Orders.Where(x => x.AppUserId == userId).OrderByDescending(x => x.Id).Include(x => x.OrderItems).ThenInclude(x => x.Product).ThenInclude(x => x.ProductImages).ToListAsync();
-           var  ordersDto = _mapper.Map<List<OrderGetDto>>(orders);
+           var  ordersDto = _mapper.Map<List<Order>>(orders);
             return View(ordersDto);            
         }   
 

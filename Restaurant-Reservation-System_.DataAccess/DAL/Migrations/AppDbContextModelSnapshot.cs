@@ -780,6 +780,9 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int?>("ReservationId")
+                        .HasColumnType("int");
+
                     b.Property<int>("SalesCount")
                         .HasColumnType("int");
 
@@ -789,6 +792,8 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("ReservationId");
 
                     b.ToTable("Products");
                 });
@@ -896,6 +901,10 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -1173,7 +1182,8 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
 
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Comment", "Parent")
                         .WithMany("Children")
-                        .HasForeignKey("ParentId");
+                        .HasForeignKey("ParentId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Product", "Product")
                         .WithMany("Comments")
@@ -1221,6 +1231,10 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Reservation", null)
+                        .WithMany("Products")
+                        .HasForeignKey("ReservationId");
 
                     b.Navigation("Category");
                 });
@@ -1339,6 +1353,11 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                     b.Navigation("ProductImages");
 
                     b.Navigation("ProductIngredients");
+                });
+
+            modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Reservation", b =>
+                {
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Table", b =>

@@ -8,5 +8,8 @@
         public Table Table { get; set; } = null!;
         public DateTime Date { get; set; }
         public bool IsDone { get; set; } = false;
+        //public ICollection<Product> Products { get; set; } = [];
+        //public string PhoneNumber { get; set; } = null!;
+
     }
 }

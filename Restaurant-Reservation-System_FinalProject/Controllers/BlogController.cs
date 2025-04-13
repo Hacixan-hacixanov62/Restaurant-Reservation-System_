@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Restaurant_Reservation_System_.Core.Entittes;
+using Restaurant_Reservation_System_.Core.Enums;
 using Restaurant_Reservation_System_.DataAccess.DAL;
+using Restaurant_Reservation_System_.Service.Dtos.BlogCommentDtos;
+using Restaurant_Reservation_System_.Service.Extensions;
+using Restaurant_Reservation_System_.Service.Services.IService;
 using Restaurant_Reservation_System_.Service.UI.VM;
 
 namespace Restaurant_Reservation_System_FinalProject.Controllers
@@ -9,10 +13,14 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
     public class BlogController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly IBlogService _blogService;
+        private readonly IBlogCommentService _commentService;
 
-        public BlogController(AppDbContext context)
+        public BlogController(AppDbContext context, IBlogCommentService commentService, IBlogService blogService)
         {
             _context = context;
+            _commentService = commentService;
+            _blogService = blogService;
         }
         public async Task<IActionResult> Index(int? chefId)
         {
@@ -47,6 +55,15 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
         {
             var topics = await _context.Topics.ToListAsync();
             var blog = await _context.Blogs.Include(x => x.Chef).Include(x => x.BlogTopics).ThenInclude(x => x.Topic).FirstOrDefaultAsync(x => x.Id == id);
+            var comments = await _commentService.GetBlogCommentsAsync(id);
+            var isAllowBlogComment = await _commentService.CheckIsAllowBlogCommentAsync(id);
+
+            var allBlogs = await _blogService.GetAllAsync();
+            var currentIndex = allBlogs.FindIndex(b => b.Id == id);
+
+            // Növbəti və əvvəlki blogları tapın
+            var nextBlogId = currentIndex < allBlogs.Count - 1 ? allBlogs[currentIndex + 1].Id : (int?)null;
+            var prevBlogId = currentIndex > 0 ? allBlogs[currentIndex - 1].Id : (int?)null;
 
 
             if (blog is null)
@@ -55,8 +72,11 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             BlogDetailVM blogVm = new()
             {
                 Blog = blog,
-                Topics = topics
-
+                Topics = topics,
+                BlogComments = comments,
+                IsAllowBlogComment = isAllowBlogComment,
+                NextBlogId = nextBlogId,
+                PrevBlogId = prevBlogId
             };
 
             blogVm.NextBlog = await _context.Blogs.FirstOrDefaultAsync(x => x.Id > id);
@@ -70,5 +90,39 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
 
             return View(blogVm);
         }
+
+
+        [HttpPost]
+        public async Task<IActionResult> CreateBlogComment(BlogCommentCreateDto dto)
+        {
+            var result = await _commentService.CreateAsync(dto, ModelState);
+
+            string returnUrl = Request.GetReturnUrl();
+
+            return Redirect(returnUrl);
+        }
+
+        [HttpPost]
+        //[Authorize]
+        public async Task<IActionResult> ReplyComment(BlogCommentReplyDto dto)
+        {
+
+            var result = await _commentService.CreateReplyAsync(dto, ModelState);
+
+            string returnUrl = Request.GetReturnUrl();
+
+            return Redirect(returnUrl);
+        }
+
+        public async Task<IActionResult> DeleteBlogComment(int id)
+        {
+            await _commentService.DeleteAsync(id);
+
+            string returnUrl = Request.GetReturnUrl();
+
+            return Redirect(returnUrl);
+        }
+
+
     }
 }

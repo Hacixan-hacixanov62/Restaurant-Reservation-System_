@@ -1,0 +1,126 @@
+﻿@using Restaurant_Reservation_System_.Service.Dtos.ReservationDtos
+@model ReservationCreateDto
+@{
+    Layout = "_Layout";
+}
+<style>
+    .displayNone {
+        display: none;
+    }
+
+    input::placeholder {
+        color: white;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: invert(100%) !important;
+    }
+
+    ul {
+        color: red;
+    }
+</style>
+<main class="reservation">
+    <section id="News-banner">
+
+        <div class="banner-part">
+            <div class="banner-content">
+                <h3>make an online</h3>
+                <h1 class="bannerTitle">Reservation</h1>
+                <p class="connection">
+                    Or call us at
+                    <span>00 40 555 1234</span>
+                    any day from
+                </p>
+                <p class="yellow">10:00 AM - 10:00 PM</p>
+            </div>
+            <div class="overlay"></div>
+        </div>
+    </section>
+    <div class="content">
+        <div class="main">
+
+            <div class="container">
+                <div class="booking-content">
+                    <div class="booking-image">
+                        <img class="booking-img" src="/assets/images/reservation/form-img.jpg" alt="Booking Image">
+                    </div>
+                    <div class="booking-form">
+                        <form method="post" id="booking-form">
+                            <h2>Booking place for your dinner!</h2>
+                            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+                            <div class="form-group form-input">
+                                <input asp-for="Name" required />
+                                <label asp-for="Name" class="form-label">Your name</label>
+                                <span class="text-danger" asp-validation-for="Name"></span>
+                            </div>
+                            <div class="form-group form-input">
+                                <input asp-for="Email" required />
+                                <label asp-for="Email" class="form-label">Your email</label>
+                                <span class="text-danger" asp-validation-for="Email"></span>
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Time" style=" color: #bebebe;"></label>
+                                <div class="select-list" style="margin:0;">
+                                    <input type="datetime-local"
+                                           id="meeting-time"
+                                           asp-for="Time" class="dateTimeInput" style=" color-scheme: dark;" />
+                                    <br />
+                                    <span class="text-danger errorMessage" asp-validation-for="Time"></span>
+
+                                </div>
+                            </div>
+                            <div class="form-radio">
+                                <label class="label-radio" style="color: #bebebe;"> Select Your Dining Space</label>
+                                <div class="radio-item-list">
+                                    <span class="radio-item">
+                                        <input type="radio" name="number_people" class="personCountInput" data-count="2" value="2" id="number_people_2" />
+                                        <label for="number_people_2">2</label>
+                                    </span>
+                                    <span class="radio-item">
+                                        <input type="radio" name="number_people" class="personCountInput" data-count="4" value="4" id="number_people_4" />
+                                        <label for="number_people_4">4</label>
+                                    </span>
+                                    <span class="radio-item">
+                                        <input type="radio" name="number_people" class="personCountInput" data-count="6" value="6" id="number_people_6" />
+                                        <label for="number_people_6">6</label>
+                                    </span>
+                                    <span class="radio-item">
+                                        <input type="radio" name="number_people" class="personCountInput" data-count="8" value="8" id="number_people_8" />
+                                        <label for="number_people_8">8</label>
+                                    </span>
+                                    <span class="radio-item">
+                                        <input type="radio" name="number_people" class="personCountInput" data-count="10" value="10" id="number_people_10" />
+                                        <label for="number_people_10">10</label>
+                                    </span>
+                                </div>
+                            </div>
+
+                            @* 
+                            <div class="form-group displayNone">
+                                <div class="select-list">
+                                    <select asp-for="TableId" class="tableForm" required>
+                                        <option disabled selected value="">Table</option>
+                                        <span class="text-danger" asp-validation-for="TableId"></span>
+
+
+                                    </select>
+                                </div>
+                            </div>
+ *@
+                            <div class="form-submit">
+                                <input type="submit" value="Book now" class="submit" id="submit" name="submit" />
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</main>

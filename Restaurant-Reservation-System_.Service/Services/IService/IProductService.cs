@@ -20,5 +20,7 @@ namespace Restaurant_Reservation_System_.Service.Services.IService
         //Task<ProductUpdateDto> GetUpdatedDtoAsync(ProductUpdateDto dto);
         Task<bool> IsExistAsync(int id);
         Task<ProductGetDto> GetByIdAsync(int productId);
+
+        Task<List<Product>> LoadMoreAsync(int page);
     }
 }

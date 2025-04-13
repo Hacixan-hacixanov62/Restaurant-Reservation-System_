@@ -101,9 +101,9 @@
 
                             <div class="form-group displayNone">
                                 <div class="select-list">
-                                    <select asp-for="TableId" class="tableForm" required>
+                                    <select class="tableForm" required>
                                         <option disabled selected value="">Table</option>
-                                        <span class="text-danger" asp-validation-for="TableId"></span>
+                                        <span class="text-danger"></span>
 
 
                                     </select>
@@ -145,7 +145,7 @@
     }
 
     setMinDateTime();
-
+    
 
 
     function validateDateTime() {
@@ -178,11 +178,11 @@
         x.addEventListener('click', async () => {
             tableArea.parentElement.parentElement.classList.remove('displayNone')
 
-            const response = await fetch(`https://localhost:7029/reservation/GetTablesByPersonCount?count=${x.dataset.count}&time=${dateTimeInput.value}`);
+            const response = await fetch(`https://localhost:7006/reservation/GetTablesByPersonCount?count=${x.dataset.count}&time=${dateTimeInput.value}`);
 
             const tables = await response.json();
 
-
+            console.log(tables);
 
             tableArea.innerHTML = `<option disabled selected value="">Table</option>`;
 
@@ -207,7 +207,7 @@
 
             if (activeElement != undefined) {
 
-                const response = await fetch(`https://localhost:7029/reservation/GetTablesByPersonCount?count=${activeElement.children[0].dataset.count}&time=${dateTimeInput.value}`);
+                const response = await fetch(`https://localhost:7006/reservation/GetTablesByPersonCount?count=${activeElement.children[0].dataset.count}&time=${dateTimeInput.value}`);
 
                 const tables = await response.json();
 

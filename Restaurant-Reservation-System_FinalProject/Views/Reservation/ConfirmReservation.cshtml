@@ -1,0 +1,111 @@
+﻿@using Restaurant_Reservation_System_.Service.Dtos.ReservationDtos
+@model ReservationDto
+@{
+    Layout = null;
+}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    .email-container {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    .email-header {
+        background-color: #4CAF50;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .email-body {
+        padding: 20px;
+    }
+
+        .email-body h2 {
+            color: #333333;
+        }
+
+        .email-body p {
+            line-height: 1.6;
+            color: #666666;
+        }
+
+        .email-body .reservation-details {
+            margin: 20px 0;
+        }
+
+            .email-body .reservation-details table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+                .email-body .reservation-details table th,
+                .email-body .reservation-details table td {
+                    border: 1px solid #dddddd;
+                    padding: 8px;
+                    text-align: left;
+                }
+
+                .email-body .reservation-details table th {
+                    background-color: #f2f2f2;
+                }
+
+    .email-footer {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px;
+        text-align: center;
+    }
+</style>
+
+
+<div class="email-container">
+    <div class="email-header">
+        <h1>Reservation Confirmation</h1>
+    </div>
+    <div class="email-body">
+        <h2>Dear @Model.Name,</h2>
+        <p>Thank you for your reservation. Below are the details of your booking:</p>
+        <div class="reservation-details">
+            <table>
+                <tr>
+                    <th>Reservation Number</th>
+                    <td>@Model.ReservationNumber</td>
+                </tr>
+                <tr>
+                    <th>Date</th>
+                    <td>@Model.Date.ToShortDateString()</td>
+                </tr>
+                <tr>
+                    <th>Time</th>
+                    <td>@Model.Time</td>
+                </tr>
+                <tr>
+                    <th>Guests</th>
+                    <td>@Model.NumberOfPeople</td>
+                </tr>
+                <tr>
+                    <th>Products</th>
+                    <td>
+                        <ul>
+                            @foreach (var product in Model.Products)
+                            {
+                                <li>@product.Name</li>
+                            }
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

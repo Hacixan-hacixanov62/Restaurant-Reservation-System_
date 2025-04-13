@@ -1,5 +1,3 @@
-using FluentValidation.AspNetCore;
-using FluentValidation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Restaurant_Reservation_System_.Core.Entittes;
@@ -11,6 +9,7 @@ using Restaurant_Reservation_System_.Service;
 using Dannys.Interceptors;
 using Restaurant_Reservation_System_.Service.UI.Services.IService;
 using Restaurant_Reservation_System_FinalProject.Services;
+using Stripe;
 
 namespace Restaurant_Reservation_System_FinalProject
 {
@@ -32,7 +31,6 @@ namespace Restaurant_Reservation_System_FinalProject
             builder.Services.AddBusinessServices();
 
 
-                 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
@@ -64,8 +62,10 @@ namespace Restaurant_Reservation_System_FinalProject
 
             }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
+            builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("StripeSettings"));
 
-        
+            StripeConfiguration.ApiKey = builder.Configuration["StripeSettings:SecretKey"];
+
             builder.Services.AddSession(opt =>
             {
                 //opt.IdleTimeout = TimeSpan.FromSeconds(20);
@@ -92,6 +92,8 @@ namespace Restaurant_Reservation_System_FinalProject
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            // Asagdaki kodd setirleri "PipeLine" Adlanir
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

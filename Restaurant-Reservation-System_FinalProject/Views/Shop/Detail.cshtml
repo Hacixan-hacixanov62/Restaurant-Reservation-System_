@@ -119,7 +119,6 @@
                                         <li class="mb-3">
                                             <strong>@comment.AppUser.Username</strong>
                                             <small class="text-muted">(@comment.CreatedAt.ToString("g"))</small>
-                                            <p>@comment.Text</p>
 
                                             <div class="rating">
                                                 @for (var i = 1; i <= 5; i++)
@@ -135,6 +134,7 @@
                                                 }
                                                 <span class="rating-text">(@comment.Rating)</span>
                                             </div>
+                                            <p>@comment.Text</p>
 
                                             @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin") || User.FindFirstValue(ClaimTypes.NameIdentifier) == comment.AppUser.Id))
                                             {

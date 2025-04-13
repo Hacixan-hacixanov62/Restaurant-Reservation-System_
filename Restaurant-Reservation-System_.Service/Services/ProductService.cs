@@ -228,24 +228,26 @@ namespace Restaurant_Reservation_System_.Service.Services
            await _productRepository.SaveChangesAsync();
         }
 
-        public async Task<List<Product>> GetAllAsync()
-        {
-            var products = await _productRepository.GetAll().ToListAsync();
-            return products.Select(s => new Product
+            public async Task<List<Product>> GetAllAsync()
             {
-                Id = s.Id,
-                Name = s.Name,
-                Price = s.Price,
-                Desc = s.Desc,
-                Porsion = s.Porsion,
-                Discount = s.Discount,
-                Weight = s.Weight,
-                Delicious = s.Delicious,
-               ProductImages =s.ProductImages
+                var products = await _productRepository.GetAll(include : x=>x.Include(c=>c.ProductImages)).ToListAsync();
 
-                // CreatedDate = s.CreatedDate.ToString("yyyy-MM-dd")
-            }).ToList();
-        }
+                return products;
+                //return products.Select(s => new Product
+                //{
+                //    Id = s.Id,
+                //    Name = s.Name,
+                //    Price = s.Price,
+                //    Desc = s.Desc,
+                //    Porsion = s.Porsion,
+                //    Discount = s.Discount,
+                //    Weight = s.Weight,
+                //    Delicious = s.Delicious,
+                //   ProductImages =s.ProductImages
+
+                //    // CreatedDate = s.CreatedDate.ToString("yyyy-MM-dd")
+                //}).ToList();
+            }
 
         public async Task<bool> IsExistAsync(int id)
         {
@@ -260,6 +262,30 @@ namespace Restaurant_Reservation_System_.Service.Services
 
             var dto = _mapper.Map<ProductGetDto>(product);
             return dto;
+        }
+
+        public async Task<List<Product>> LoadMoreAsync(int page)
+        {
+            int totalProducts = await _context.Products.CountAsync();
+            int pageCount = (int)Math.Ceiling((decimal)totalProducts / 4);
+
+            page = Math.Clamp(page, 1, pageCount == 0 ? 1 : pageCount);
+
+            var products = await _context.Products
+                .Include(x => x.ProductImages)
+                .Skip((page - 1) * 4)
+                .Take(4)
+                .ToListAsync();
+
+            foreach (var product in products)
+            {
+                foreach (var img in product.ProductImages)
+                {
+                    img.Product = null; // prevent circular reference
+                }
+            }
+
+            return products;
         }
     }
 }

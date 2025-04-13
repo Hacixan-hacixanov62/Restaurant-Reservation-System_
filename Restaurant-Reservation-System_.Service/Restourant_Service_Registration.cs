@@ -79,7 +79,7 @@ namespace Restaurant_Reservation_System_.Service
 
             services.AddScoped<IReservationRepository, ReservationRepository>();
             services.AddScoped<IReservationService, ReservationService>();
-
+            
             services.AddScoped<ISubscribeRepository, SubscribeRepository>();
             services.AddScoped<ISubscribeService, SubscribeService>();
 
@@ -94,6 +94,10 @@ namespace Restaurant_Reservation_System_.Service
 
             services.AddScoped<ICommentRepository, CommentRepository>();
             services.AddScoped<ICommentService, CommentService>();
+
+            services.AddScoped<IBlogCommentRepository, BlogCommentRepository>();
+            services.AddScoped<IBlogCommentService, BlogCommentService>();
+
 
 
         }

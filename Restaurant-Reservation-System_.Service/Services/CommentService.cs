@@ -108,7 +108,7 @@ namespace Restaurant_Reservation_System_.Service.Services
         public async Task DeleteAsync(int id)
         {
 
-            var comment = await _commentRepository.GetAsync(id);
+            var comment = await _commentRepository.GetAsync(c => c.Id == id, include: q => q.Include(c => c.Children));
 
             if (comment is null)
                 throw new NotFoundException("NotFound Comment");
@@ -126,7 +126,34 @@ namespace Restaurant_Reservation_System_.Service.Services
             await _commentRepository.SaveChangesAsync();
         }
 
-    
+
+        private async Task DeleteChildCommentsAsync(Comment parentComment)
+        {
+            if (parentComment.Children != null && parentComment.Children.Any())
+            {
+                foreach (var child in parentComment.Children.ToList()) // Şərhləri təkrarlayın
+                {
+                    await DeleteChildCommentsAsync(child); // Rekursiv olaraq bağlı şərhləri silin
+                    _commentRepository.Delete(child); // Şərhi silin
+                }
+            }
+        }
+
+        private string _getUserId()
+        {
+            return _contextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+        }
+
+        private bool _checkAuthorized()
+        {
+            return _contextAccessor.HttpContext?.User.Identity?.IsAuthenticated ?? false;
+        }
+
+        private bool _isAdmin()
+        {
+            return _contextAccessor.HttpContext?.User.IsInRole(IdentityRoles.Admin.ToString()) ?? false;
+        }
+
         public async Task<List<CommentGetDto>> GetProductCommentsAsync(int productId)
         {
             var comments = await _commentRepository.GetFilter(
@@ -164,34 +191,6 @@ namespace Restaurant_Reservation_System_.Service.Services
 
 
 
-
-
-        private async Task DeleteChildCommentsAsync(Comment parentComment)
-        {
-            if (parentComment.Children != null && parentComment.Children.Any())
-            {
-                foreach (var child in parentComment.Children.ToList()) // Şərhləri təkrarlayın
-                {
-                    await DeleteChildCommentsAsync(child); // Rekursiv olaraq bağlı şərhləri silin
-                    _commentRepository.Delete(child); // Şərhi silin
-                }
-            }
-        }
-
-        private string _getUserId()
-        {
-            return _contextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
-        }
-
-        private bool _checkAuthorized()
-        {
-            return _contextAccessor.HttpContext?.User.Identity?.IsAuthenticated ?? false;
-        }
-
-        private bool _isAdmin()
-        {
-            return _contextAccessor.HttpContext?.User.IsInRole(IdentityRoles.Admin.ToString()) ?? false;
-        }
 
     }
 }

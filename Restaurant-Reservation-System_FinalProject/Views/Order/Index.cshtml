@@ -1,7 +1,13 @@
-﻿@using Restaurant_Reservation_System_.Service.Dtos.OrderDtos
-@model List<OrderGetDto>
-<main class="order">
-    <section id="News-banner">
+﻿ @using Restaurant_Reservation_System_.Service.Dtos.OrderDtos
+@model List<Order>
+@{
+    int count = 1;      
+
+
+}
+
+ <main class="order">
+        <section id="News-banner">
 
         <div class="banner-part">
             <div class="banner-content">
@@ -12,79 +18,111 @@
             <div class="overlay"></div>
         </div>
     </section>
-
-    <div class="content">
-        <div class="container">
-            @if (!Model.Any())
-            {
-                <p class="text-center">No Orders Found</p>
-            }
-            else
-            {
+        <div class="content">
+            <div class="container">
                 <div class="accordion" id="accordionExample">
-                    @foreach (var order in Model)
-                    {
-                        <div class="accordion-item">
-                            <div class="accordion-header" id="heading@order.Id">
-                                <div class="accordion-button collapsed"
-                                     type="button"
-                                     data-bs-toggle="collapse"
-                                     data-bs-target="#collapse@order.Id"
-                                     aria-expanded="false"
-                                     aria-controls="collapse@order.Id">
-                                    <a>
-                                        <p>OrderNo: @order.Id</p>
-                                        <p>OrderedTime: @order.CreatedAt.ToString("dd/MM/yyyy")</p>
-                                        <p>TotalPrice: ₼@order.TotalPrice.ToString("0.00")</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div id="collapse@order.Id"
-                                 class="accordion-collapse collapse"
-                                 aria-labelledby="heading@order.Id"
-                                 data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th>#</th>
-                                                    <th>Image</th>
-                                                    <th>Name</th>
-                                                    <th>Count</th>
-                                                    <th>Price</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach (var item in order.OrderItems)
-                                                {
-                                                    <tr class="orderRow">
-                                                        <td>@item.Id</td>
-                                                        <td>
-                                                            <a href="@Url.Action("Detail", "Shop", new { id = item.Product.Id })">
-                                                                <img class="orderImg" src="@item.Product.MainFile" alt="@item.Product.Name" />
-                                                            </a>
-                                                        </td>
-                                                        <td>
-                                                            <a href="@Url.Action("Detail", "Shop", new { id = item.Product.Id })">
-                                                                @item.Product.Name
-                                                            </a>
-                                                        </td>
-                                                        <td>@item.Count</td>
-                                                        <td>₼@item.TotalPrice.ToString("0.00")</td>
-                                                    </tr>
+                    @for (int i = 0; i < Model.Count; i++)
+                                {
+                                    var orderItem = Model[i];
+
+                            <div class="accordion-item">
+                                <div class="accordion-header" id="@String.Concat("heading",i)">
+                                    <div class="accordion-button collapsed"
+                                         type="button"
+                                         data-bs-toggle="collapse"
+                                         data-bs-target="@String.Concat("#collapse",i)"
+                                         aria-expanded="true"
+                                         aria-controls="@String.Concat("collapse",i)">
+                                        <a>
+                                            <p>Order Id @orderItem.Id</p>
+                                            <p>Ordered Date - @orderItem.CreatedAt.ToShortDateString()</p>
+                                            <p>
+                                                Status :
+                                                @{
+                                                    if (orderItem.IsCanceled == false)
+                                                    {
+                                                        if (orderItem.Status == true)
+                                                        {
+                                                        <span class="btn statusOutput"  style="padding:10px; border:1px solid #ccc ; border-radius:5px;">Delivered</span>
+                                                    }
+                                                    else if (orderItem.Status == false)
+                                                    {
+                                                        <span class="btn  statusOutput" style="padding:10px; border:1px solid #ccc ; border-radius:5px;">Is Ordered</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="btn  statusOutput"  style="padding:10px; border:1px solid #ccc ; border-radius:5px;">On The Way</span>
+
+                                                    }
                                                 }
-                                            </tbody>
-                                        </table>
+                                                else
+                                                {
+                                                    <span class="btn  cancelOutput`" style="padding:10px; border:1px solid #ccc ; border-radius:5px;">Is Canceled</span>
+                                                }
+
+
+                                                }
+                                            </p>
+                                            </a>
+                                    </div>
+                                </div>
+                                <div id="@String.Concat("collapse",i)"
+                                     class="accordion-collapse collapse "
+                                     aria-labelledby="@String.Concat("heading",i)"
+                                     data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Image</th>
+                                                        <th>Name</th>
+                                                        <th>Count</th>
+                                                        <th>Price</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var item in orderItem.OrderItems)
+                                                    {
+                                                        <tr class="orderRow">
+                                                            <td>@(count++)</td>
+                                                            <td>
+                                                                <a asp-controller="Shop" asp-action="Detail" asp-route-id="@item.Product.Id" >
+
+                                                                    <img class="orderImg"
+                                                                         src="@item.Product.ProductImages.FirstOrDefault(x=>x.IsMain)?.Url"
+                                                                         alt="" />
+                                                                </a>
+                                                            </td>
+                                                            <td><a asp-action="detail" asp-controller="shop" asp-route-id="@item.Product.Id">@item.Product.Name</a></td>
+                                                            <td>@item.Count</td>
+                                                            <td>$ @item.TotalPrice</td>
+                                                        </tr>
+
+
+                                                    }
+
+                                                </tbody>
+                                            </table>
+
+                                            <div style="text-align:center; display:flex; align-items:center; justify-content:space-evenly">
+                                                <p>  City:@orderItem.City </p> 
+                                                <p> Address:@orderItem.Street</p> 
+                                                <p> Appartment:@orderItem.Apartment </p>
+                                                <p> Phone:@orderItem.PhoneNumber</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        
+
                     }
                 </div>
-            }
+            </div>
         </div>
-    </div>
+    </main>
 </main>
 
 
