@@ -77,9 +77,21 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
 
             return basketItems;
         }
+
+
         public async Task<IActionResult> Checkout()
         {
             var basketItems = await GetBasketAsync();
+            decimal total = 0;
+
+            basketItems.ForEach(x =>
+            {
+                total += x.Product.Price * x.Count;
+            });
+
+
+            ViewBag.Total = total;
+
             return View(basketItems);
         }
 
@@ -90,8 +102,8 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
         {
 
 
-            if (!ModelState.IsValid)
-                return RedirectToAction("Checkout");
+            //if (!ModelState.IsValid)
+            //    return RedirectToAction("Checkout");
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             if (userId is null)
@@ -112,9 +124,13 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
                 total += bi.Count * bi.Product.Price;
             });
 
+            ViewBag.Total = total;
+
+
 
             // Stripe-in kodd hissesi
             //========================================================================================
+          
             var optionCust = new CustomerCreateOptions
             {
                 Email = dto.stripeEmail,
@@ -146,6 +162,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             //    return View();
             //}
 
+            //===========================================================================
             Order order = new()
             {
                 AppUser = user,
@@ -154,9 +171,12 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
                 PhoneNumber = dto.PhoneNumber,
                 City = dto.City,
                 Apartment = dto.Apartment,
-                Street = dto.Street
+                Street = dto.Street,
+                Email = user.Email,
+                Name = user.FullName,
+                CompanyName = dto.CompanyName,
+                Surname = dto.Surname
             };
-            //===========================================================================
 
             foreach (var bItem in basketItems)
             {
@@ -165,8 +185,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
                     Order = order,
                     Product = bItem.Product,
                     Count = bItem.Count,
-                    TotalPrice = bItem.Product.Price,
-
+                    TotalPrice = bItem.Product.Price,    
 
                 };
                 order.OrderItems.Add(orderItem);
@@ -177,9 +196,36 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             await _context.SaveChangesAsync();
 
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", new { orderId = order.Id });
 
         }
+
+        //public class SuccessViewModel
+        //{
+        //    public string OrderId { get; set; }
+        //    public decimal TotalAmount { get; set; }
+        //    public string ShippingAddress { get; set; }
+        //}
+
+        //public IActionResult PaymentSuccess(int orderId)
+        //{
+        //    // Retrieve the order details using orderId
+        //    var order = _context.Orders.Include(o => o.OrderItems)
+        //                               .FirstOrDefault(o => o.Id ==orderId );
+
+        //    if (order == null)
+        //        return NotFound();
+
+        //    var viewModel = new SuccessViewModel
+        //    {
+        //        OrderId = order.Id.ToString(),
+        //        TotalAmount = order.OrderItems.Sum(oi => oi.TotalPrice),
+        //        ShippingAddress = $"{order.Street}, {order.City}, {order.Apartment}"
+        //    };
+
+        //    return View(viewModel);
+        //}
+
 
 
         private async Task<List<CartItem>> GetBasketAsync()
@@ -202,6 +248,12 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             }
 
             return basktItms;
+        }
+
+        public IActionResult GetBasket()
+        {
+            var basket = _basketService.GetUserBasketItem();
+            return PartialView("_BasketPartial", basket.Items);
         }
     }
 }

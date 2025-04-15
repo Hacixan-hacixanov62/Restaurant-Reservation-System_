@@ -1,7 +1,12 @@
 ﻿@using Restaurant_Reservation_System_.Service.Dtos.BasketDtos
+@using Restaurant_Reservation_System_.Service.UI.Services.IService
+@using Restaurant_Reservation_System_FinalProject.Services
+@inject ILayoutService _layoutService;
 
 @{
     var mode = Context.Request.Cookies["mode"] ?? "light";
+
+    var cartGetDto = _layoutService.GetUserBasketItem();
 }
 @model CartGetDto
 
@@ -72,12 +77,12 @@
                     </a>
                     <div class="cart-wrapper">
                        
-                        <div class="cart-icon" style="cursor: pointer;">
+                        <div class="cart-icon basket-add-btn" style="cursor: pointer;">
                             <i class="fa fa-shopping-cart" id="basket-icon"></i>
                             <span class="cart-count">@Model.Count</span>
                         </div>
                         <div class="cart-dropdown">
-                            @await Html.PartialAsync("_BasketPartial", Model.Items);
+                            @await Html.PartialAsync("_BasketPartial",cartGetDto.Items );
                         </div>
                     </div>
                         
@@ -105,3 +110,44 @@
             </div>
     </div>
 </header>
+
+@section Scripts {
+    @* <script> *@
+    @*             function updateCartDropdown() { *@
+    @*         fetch("/Basket/GetBasketDropdown") *@
+    @*             .then(res => res.text()) *@
+    @*             .then(html => { *@
+    @*                 document.querySelector(".cart-dropdown").innerHTML = html; *@
+
+    @*                 // Count yenilə *@
+    @*                 const itemCount = document.querySelectorAll(".cart-item").length; *@
+    @*                 document.querySelector(".cart-count").textContent = itemCount; *@
+    @*             }); *@
+    @*     } *@
+
+    @* </script> *@
+
+    <script>
+                $(document).on("click", ".basket-add-btn", function (e) {
+            e.preventDefault();
+            let url = $(this).attr("href");
+
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) throw new Error("Xəta baş verdi");
+                    return response.text();
+                })
+                .then(() => {
+                    return fetch("/Basket/GetBasket"); // yeni partial view al
+                })
+                .then(response => response.text())
+                .then(data => {
+                    $(".cart-dropdown").html(data); // yeni basket UI
+                    let itemCount = $(".cart-item").length;
+                    $(".cart-count").text(itemCount); // yeni say
+                })
+                .catch(err => console.error("Basket error:", err));
+        });
+
+    </script>
+}

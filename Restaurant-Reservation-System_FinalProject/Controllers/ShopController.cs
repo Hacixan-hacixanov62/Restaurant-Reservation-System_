@@ -32,12 +32,13 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
 
             var products = await _productService.GetAllAsync();
             var categories = await _categoryService.GetAllAsync();
-            
 
             sortOrder ??= "Default";
 
             products = sortOrder switch
             {
+                "A_to_Z" =>products.OrderBy(p=>p.Name).ToList(),
+                "Z_to_A" =>products.OrderByDescending(p=>p.Name).ToList(),
                 "PriceLowToHigh" => products.OrderBy(p => p.Price).ToList(),
                 "PriceHighToLow" => products.OrderByDescending(p => p.Price).ToList(),
                 _ => products.OrderBy(p => p.Name).ToList(),

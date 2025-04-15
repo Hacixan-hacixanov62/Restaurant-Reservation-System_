@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FcTgD81cB/oUkOzhtZ5OtmUl3tMmy3s71ybnkiaMgM0=",
+  "Hash": "wBCkpDvyIt1QRO0zYZ2rEChtVB3eqqxInIOpYkGxC9Y=",
   "Source": "Restaurant-Reservation-System_FinalProject",
   "BasePath": "_content/Restaurant-Reservation-System_FinalProject",
   "Mode": "Default",
@@ -21437,6 +21437,27 @@
       "OriginalItemSpec": "wwwroot\\assets\\js\\reservation.js"
     },
     {
+      "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\js\\server.js",
+      "SourceId": "Restaurant-Reservation-System_FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\",
+      "BasePath": "_content/Restaurant-Reservation-System_FinalProject",
+      "RelativePath": "assets/js/server#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "g64qikb66q",
+      "Integrity": "qOn9/jGsQVwyUDnCLtLbyjqGXa+7eBm4FFD3tlaT8uc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\server.js"
+    },
+    {
       "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\styles\\_blog.scss",
       "SourceId": "Restaurant-Reservation-System_FinalProject",
       "SourceType": "Discovered",
@@ -21724,8 +21745,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "v2wtin96uh",
-      "Integrity": "WZoJ1xZKXY6oX1knfGna4JoaqMxjBolqYPYRTBREhAg=",
+      "Fingerprint": "9rd3dmns5v",
+      "Integrity": "ZR1kLj/fA1FQYuesm4mMkxu/r6SlBkB9bFkUW8VKaB8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\styles\\heart.css"
@@ -106816,6 +106837,88 @@
       ]
     },
     {
+      "Route": "assets/js/server.g64qikb66q.js",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\js\\server.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1000"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qOn9/jGsQVwyUDnCLtLbyjqGXa+7eBm4FFD3tlaT8uc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 15 Apr 2025 00:17:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "g64qikb66q"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/js/server.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-qOn9/jGsQVwyUDnCLtLbyjqGXa+7eBm4FFD3tlaT8uc="
+        }
+      ]
+    },
+    {
+      "Route": "assets/js/server.js",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\js\\server.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1000"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qOn9/jGsQVwyUDnCLtLbyjqGXa+7eBm4FFD3tlaT8uc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 15 Apr 2025 00:17:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-qOn9/jGsQVwyUDnCLtLbyjqGXa+7eBm4FFD3tlaT8uc="
+        }
+      ]
+    },
+    {
       "Route": "assets/styles/_blog.33raos9cgz.scss",
       "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\styles\\_blog.scss",
       "Selectors": [],
@@ -107882,6 +107985,51 @@
       ]
     },
     {
+      "Route": "assets/styles/heart.9rd3dmns5v.css",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\styles\\heart.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "227643"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZR1kLj/fA1FQYuesm4mMkxu/r6SlBkB9bFkUW8VKaB8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 15 Apr 2025 10:34:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "9rd3dmns5v"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/styles/heart.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZR1kLj/fA1FQYuesm4mMkxu/r6SlBkB9bFkUW8VKaB8="
+        }
+      ]
+    },
+    {
       "Route": "assets/styles/heart.css",
       "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\styles\\heart.css",
       "Selectors": [],
@@ -107892,7 +108040,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "227471"
+          "Value": "227643"
         },
         {
           "Name": "Content-Type",
@@ -107900,11 +108048,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"WZoJ1xZKXY6oX1knfGna4JoaqMxjBolqYPYRTBREhAg=\""
+          "Value": "\"ZR1kLj/fA1FQYuesm4mMkxu/r6SlBkB9bFkUW8VKaB8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 12 Apr 2025 22:36:31 GMT"
+          "Value": "Tue, 15 Apr 2025 10:34:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -107914,52 +108062,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-WZoJ1xZKXY6oX1knfGna4JoaqMxjBolqYPYRTBREhAg="
-        }
-      ]
-    },
-    {
-      "Route": "assets/styles/heart.v2wtin96uh.css",
-      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\styles\\heart.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "227471"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"WZoJ1xZKXY6oX1knfGna4JoaqMxjBolqYPYRTBREhAg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 12 Apr 2025 22:36:31 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "v2wtin96uh"
-        },
-        {
-          "Name": "label",
-          "Value": "assets/styles/heart.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-WZoJ1xZKXY6oX1knfGna4JoaqMxjBolqYPYRTBREhAg="
+          "Value": "sha256-ZR1kLj/fA1FQYuesm4mMkxu/r6SlBkB9bFkUW8VKaB8="
         }
       ]
     },
@@ -113648,7 +113751,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 12 Apr 2025 23:18:09 GMT"
+          "Value": "Tue, 15 Apr 2025 00:56:52 GMT"
         },
         {
           "Name": "Link",
@@ -113693,7 +113796,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 12 Apr 2025 23:18:09 GMT"
+          "Value": "Tue, 15 Apr 2025 00:56:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -113738,7 +113841,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 12 Apr 2025 23:18:09 GMT"
+          "Value": "Tue, 15 Apr 2025 00:56:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -113779,7 +113882,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 12 Apr 2025 23:18:09 GMT"
+          "Value": "Tue, 15 Apr 2025 00:56:52 GMT"
         },
         {
           "Name": "Link",

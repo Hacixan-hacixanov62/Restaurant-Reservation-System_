@@ -80,7 +80,7 @@ namespace Restaurant_Reservation_System_.Service.Services
 
                 using var smtp = new SmtpClient();
                 smtp.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-                smtp.Authenticate("hajikhanih@code.edu.az", "nraz rots ydzo xgae"); // <== App paswords yazmaq
+                smtp.Authenticate("hajikhanih@code.edu.az", "zffc lodf hfih igmd"); // <== App paswords yazmaq
                 smtp.Send(email);
                 smtp.Disconnect(true);
             }

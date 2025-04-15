@@ -217,7 +217,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
         ";
 
             // Send the email
-            _emailService.SendEmail(dto.Email, "Reservation detail", body);
+            await _emailService.SendEmailAsync(new() { Body = body, Subject = "Reservation Detail", ToEmail = reservation.Email });
 
             TempData["message"] = "Reservation is successfully done.";
 
@@ -225,38 +225,6 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
         }
 
 
-        //public IActionResult ReserveTable()
-        //{
-        //    return View();
-        //}
 
-        //[HttpPost]
-        //public async Task<IActionResult> ReserveTable(ReservationCreateDto dto)
-        //{
-        //    if (!ModelState.IsValid)
-        //        return View(dto);
-
-        //    var result = await _reservationService.CreateAsync(dto, ModelState);
-
-        //    if (!result)
-        //        return View(dto);
-
-        //    // Ən son rezervasiyanı əldə et
-        //    var latestReservation = await _reservationService.GetLatestReservationAsync(dto.Name, dto.Email);
-
-        //    if (latestReservation == null)
-        //        return RedirectToAction(nameof(ReserveTable)); // Əgər tapılmadısa, rezervasiya səhifəsinə geri qayıt
-
-        //    return RedirectToAction(nameof(ConfirmReservation), new { id = latestReservation.ReservationNumber });
-        //}
-
-
-        //public async Task<IActionResult> ConfirmReservation(int id)
-        //{
-        //    var reservation = await _reservationService.GetReservationAsync(id);
-
-        //    // Təsdiq səhifəsinə göndərilir
-        //    return View(reservation);
-        //}
     }
 }

@@ -2,6 +2,9 @@
 @using System.Security.Claims
 @model ShopDetailDto
 
+@{
+    var productId = Model.Product.Id;
+}
 <style>
     .star {
         font-size: 20px;
@@ -34,17 +37,19 @@
                         <div class="row g-2">
                             <div class="col-lg-2 orderone">
                                 <div class="cake-img-slider">
-                                    @foreach (var img in Model.Product.ProductImages)
-                                    {
-                                        <img class="single-slide sliderImg" src="@img.Url" alt="">
-                                    }
+                                    <div class="thumbnails">
+                                        @foreach (var img in Model.Product.ProductImages)
+                                        {
+                                            <img class="single-slide thumbnail-img" src="@img.Url" alt="thumb">
+                                        }
+                                    </div>                                  
                                 </div>
                             </div>
                             <div class="col-lg-9 ordertwo">
                                 <div class="product-main">
                                     <div class="slider-img">
-                                        <img src="@Model.Product.ProductImages.FirstOrDefault(m=>m.IsMain==true)?.Url"
-                                             alt=""
+                                        <img id="mainDisplayImage" src="@Model.Product.ProductImages.FirstOrDefault(m=>m.IsMain==true)?.Url"
+                                             alt="Main Image"
                                              class="mainImg" />
                                     </div>
                                 </div>
@@ -188,21 +193,69 @@
 
 </main>
 
+@section Scripts {
+    <script>
+        var addToCartLink = document.getElementById('addToCartLink');
+            function updateRouteCount() {
+                var itemCount = document.getElementById('itemCount').value;
+                let href = `${addToCartLink.href}&count=${itemCount}`
+                // Replace the placeholder with the actual item count
+                //var updatedUrl = baseUrl.replace('__count__', itemCount);
+                addToCartLink.href = href;
+            }
 
-<script>
-      var addToCartLink = document.getElementById('addToCartLink');
-    function updateRouteCount() {
-        var itemCount = document.getElementById('itemCount').value;
-        let href = `${addToCartLink.href}&count=${itemCount}`
-        // Replace the placeholder with the actual item count
-        //var updatedUrl = baseUrl.replace('__count__', itemCount);
-        addToCartLink.href = href;
-    }
 
-    document.querySelectorAll('.reply-button').forEach(button => {
-        button.addEventListener('click', function() {
-            const form = this.nextElementSibling;
-            form.classList.toggle('d-none');    
+        document.querySelectorAll('.reply-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const form = this.nextElementSibling;
+                form.classList.toggle('d-none');
+            });
         });
-    });
-</script>
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            const productId = @productId; // Məhsul ID'sini əldə edin
+            const mainImage = $('#mainDisplayImage');
+            const storageKey = 'selectedProductImage_' + productId;
+
+            // Əgər əvvəllər saxlanmış şəkil varsa, onu göstər
+            const savedImage = localStorage.getItem(storageKey);
+            if (savedImage) {
+                mainImage.attr('src', savedImage);
+            }
+
+            // Kiçik şəkil seçildikdə, şəkil dəyişsin və localStorage-a yazılsın
+            $('.thumbnail-img').on('click', function () {
+                const newSrc = $(this).attr('src');
+                mainImage.attr('src', newSrc);
+                localStorage.setItem(storageKey, newSrc); // Yeni şəkil saxlanır
+
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            const productId = @productId; // Məhsul ID'sini əldə edin
+            const mainImage = $('#mainDisplayImage');
+            const storageKey = 'selectedProductImage_' + productId;
+
+            const savedImage = localStorage.getItem(storageKey);
+            if (savedImage) {
+                // Şəkil URL-sinə unikallıq əlavə edin
+                mainImage.attr('src', savedImage + '?v=' + new Date().getTime());
+            }
+
+            $('.thumbnail-img').on('click', function () {
+                const newSrc = $(this).attr('src');
+                mainImage.attr('src', newSrc + '?v=' + new Date().getTime()); // Unikal query parametresi əlavə edin
+                localStorage.setItem(storageKey, newSrc);
+            });
+        });
+    </script>
+
+
+
+}
+

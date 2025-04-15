@@ -1016,6 +1016,7 @@ wwwroot\assets\js\main.js
 wwwroot\assets\js\mode.js
 wwwroot\assets\js\product-detail.js
 wwwroot\assets\js\reservation.js
+wwwroot\assets\js\server.js
 wwwroot\assets\styles\_blog.scss
 wwwroot\assets\styles\_cart.scss
 wwwroot\assets\styles\_checkout.scss

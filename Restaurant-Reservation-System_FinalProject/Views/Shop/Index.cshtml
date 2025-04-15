@@ -1,7 +1,6 @@
 ﻿@using Restaurant_Reservation_System_.Service.UI.Dtos
 @model ShopDto
 
-
 <main class="shop">
     <!-- Banner Start -->
     <section id="News-banner">
@@ -28,6 +27,8 @@
                         <form method="get" action="@Url.Action("Index", "Shop")">
                             <select name="sortOrder" class="form-control" onchange="this.form.submit()">
                                 <option value="Default">Default Sorting</option>
+                                <option value="A_to_Z">Sort by Name: A to Z</option>
+                                <option value="Z_to_A">Sort by Name: Z to A</option>
                                 <option value="PriceLowToHigh">Sort by Price: Low to High</option>
                                 <option value="PriceHighToLow">Sort by Price: High to Low</option>
                             </select>
@@ -88,55 +89,69 @@
 
 
 
+@section Scripts {
+    <script>
+        const nextBtn = document.querySelector('.nextBtn');
+                    const productArea = document.querySelector('.products');
+                    const ProductCount = document.querySelector('.ProductCount')
+                    const paginationSection = document.querySelector('.paginationBtnSection')
+
+                    nextBtn.addEventListener('click', async (e) => {
+                        e.preventDefault();
+
+                        nextBtn.dataset.page++;
+                        const response = await fetch(nextBtn.href + `?page=${nextBtn.dataset.page}`);
 
 
-<script>
-    const nextBtn = document.querySelector('.nextBtn');
-                const productArea = document.querySelector('.products');
-                const ProductCount = document.querySelector('.ProductCount')
-                const paginationSection = document.querySelector('.paginationBtnSection')
-
-                nextBtn.addEventListener('click', async (e) => {
-                    e.preventDefault();
-
-                    nextBtn.dataset.page++;
-                    const response = await fetch(nextBtn.href + `?page=${nextBtn.dataset.page}`);
+                        const products = await response.json();
 
 
-                    const products = await response.json();
+                        products.forEach(product => {
+                            const mainImg = product.productImgs.find(x => x.isMain == true);
+
+                            const price = product.discount > 0
+                                ? product.price - (product.price * product.discount / 100)
+                                : product.price;
 
 
-                    products.forEach(product => {
-                        const mainImg = product.productImgs.find(x => x.isMain == true);
-
-                        const price = product.discount > 0
-                            ? product.price - (product.price * product.discount / 100)
-                            : product.price;
+                            const fixedPrice = price.toFixed(2);
 
 
-                        const fixedPrice = price.toFixed(2);
-
-
-                        productArea.innerHTML += `
-                                                                <li class="products-block">
-                                                                    <a href="Shop/Detail/${product.id}" class="product-link">
-                                                                        <img class="img-responsive" src="${mainImg.url}" alt="">
-                                                                        <div class="info-wrapper">
-                                                                            <div class="btn-add-to-cart">
-                                                                                <a href="/Shop/AddToCart/${product.id}?page=${nextBtn.dataset.page}" class="btn cart-btn">Add to cart</a>
+                            productArea.innerHTML += `
+                                                                    <li class="products-block">
+                                                                        <a href="Shop/Detail/${product.id}" class="product-link">
+                                                                            <img class="img-responsive" src="${mainImg.url}" alt="">
+                                                                            <div class="info-wrapper">
+                                                                                <div class="btn-add-to-cart">
+                                                                                    <a href="/Shop/AddToCart/${product.id}?page=${nextBtn.dataset.page}" class="btn cart-btn">Add to cart</a>
+                                                                                </div>
+                                                                                <h2 class="product-title">${product.name}</h2>
+                                                                                <span class="price">${fixedPrice}</span>
                                                                             </div>
-                                                                            <h2 class="product-title">${product.name}</h2>
-                                                                            <span class="price">${fixedPrice}</span>
-                                                                        </div>
-                                                                    </a>
-                                                                </li>
-                                                            `;
-                    });
-                    let count = parseInt(ProductCount.innerHTML)
-                    ProductCount.innerHTML = count + products.length
+                                                                        </a>
+                                                                    </li>
+                                                                `;
+                        });
+                        let count = parseInt(ProductCount.innerHTML)
+                        ProductCount.innerHTML = count + products.length
 
-                    if (@ViewBag.PageCount== nextBtn.dataset.page) {
-                        paginationSection.innerHTML=''
-                    }
+                        if (@ViewBag.PageCount== nextBtn.dataset.page) {
+                            paginationSection.innerHTML=''
+                        }
 
-                });</script>
+                    });</script>
+                    
+    <script>
+        // Shop səhifəsinə daxil olanda əvvəlki şəkil seçimlərini sil
+        $(document).ready(function() {
+            Object.keys(localStorage).forEach(function(key) {
+                if (key.startsWith('selectedProductImage_')) {
+                    localStorage.removeItem(key);
+                }
+            });
+        });
+    </script>
+
+
+}
+

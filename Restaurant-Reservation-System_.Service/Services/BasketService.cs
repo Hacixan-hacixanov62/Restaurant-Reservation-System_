@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Restaurant_Reservation_System_.Core.Entittes;
+using Restaurant_Reservation_System_.Core.Enums;
 using Restaurant_Reservation_System_.DataAccess.DAL;
 using Restaurant_Reservation_System_.DataAccess.Localizers;
 using Restaurant_Reservation_System_.DataAccess.Repositories;
@@ -10,6 +11,7 @@ using Restaurant_Reservation_System_.DataAccess.Repositories.IRepositories;
 using Restaurant_Reservation_System_.Service.Dtos.BasketDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ProductDtos;
 using Restaurant_Reservation_System_.Service.Exceptions;
+using Restaurant_Reservation_System_.Service.Extensions;
 using Restaurant_Reservation_System_.Service.Services.IService;
 using System.Security.Claims;
 
@@ -299,7 +301,7 @@ namespace Restaurant_Reservation_System_.Service.Services
                                 Price = product.Price,
                                 MainImage = product.ProductImages.FirstOrDefault(x => x.IsMain == true)?.Url,
                             }
-                        };
+                        }; 
 
 
                         cartGetDto.Items.Add(basketItemVM);
@@ -319,5 +321,7 @@ namespace Restaurant_Reservation_System_.Service.Services
 
             return cartGetDto;
         }
+
+   
     }
 }

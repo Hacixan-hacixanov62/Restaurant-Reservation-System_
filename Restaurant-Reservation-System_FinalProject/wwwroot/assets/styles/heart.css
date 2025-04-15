@@ -6324,24 +6324,36 @@ footer #Footer-main {
     background: #62ab00;
 }
 
-
-/* Asagdaki Kodler Home Pagedeki Client Slider Koddlaridir */
-.testimonial-item {
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+/*Asagdaki koddlar Shopun Detail hissesine mexsusdur*/
+.cake-img-slider {
+    display: flex;
+    gap: 20px;
 }
 
-.swiper {
-    padding-bottom: 60px; /* yer buraxmaq üçün */
+.thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 400px;
+    overflow-y: auto;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-    color: black;
+.thumbnail-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border 0.3s;
 }
 
-.swiper-pagination-bullet {
-    background: black;
+    .thumbnail-img:hover {
+        border: 2px solid #d4af37;
+    }
+
+.slider-img img {
+    width: 500px;
+    height: auto;
+    object-fit: cover;
 }
+
