@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wBCkpDvyIt1QRO0zYZ2rEChtVB3eqqxInIOpYkGxC9Y=",
+  "Hash": "8DASzUUwlEIXOfvUKkueVFx8+6+VKXznQt3IXj0HUrY=",
   "Source": "Restaurant-Reservation-System_FinalProject",
   "BasePath": "_content/Restaurant-Reservation-System_FinalProject",
   "Mode": "Default",
@@ -20553,6 +20553,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\blog\\postimg_07.jpg"
+    },
+    {
+      "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\error\\restouran_background_image.png",
+      "SourceId": "Restaurant-Reservation-System_FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\",
+      "BasePath": "_content/Restaurant-Reservation-System_FinalProject",
+      "RelativePath": "assets/images/error/restouran_background_image#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "2uyjmbp3im",
+      "Integrity": "5parQBbMxMyEB+FX6H8y0egTQsyKcrLJx/GV/lw34GA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\error\\restouran_background_image.png"
     },
     {
       "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\05c37c07-0510-4694-b380-11cff50f298b.jpg",
@@ -103389,6 +103410,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-Zb6bvhVeiTv78f6Vj8+Fdw7104Yv0rtmSHGt1b7Q+E4="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/error/restouran_background_image.2uyjmbp3im.png",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\error\\restouran_background_image.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2092186"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5parQBbMxMyEB+FX6H8y0egTQsyKcrLJx/GV/lw34GA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 16 Apr 2025 13:19:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2uyjmbp3im"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/images/error/restouran_background_image.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5parQBbMxMyEB+FX6H8y0egTQsyKcrLJx/GV/lw34GA="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/error/restouran_background_image.png",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\error\\restouran_background_image.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2092186"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5parQBbMxMyEB+FX6H8y0egTQsyKcrLJx/GV/lw34GA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 16 Apr 2025 13:19:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5parQBbMxMyEB+FX6H8y0egTQsyKcrLJx/GV/lw34GA="
         }
       ]
     },

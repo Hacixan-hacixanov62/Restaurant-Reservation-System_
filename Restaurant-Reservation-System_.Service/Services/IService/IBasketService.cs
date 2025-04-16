@@ -1,4 +1,5 @@
-﻿using Restaurant_Reservation_System_.Core.Enums;
+﻿using Microsoft.AspNetCore.Mvc;
+using Restaurant_Reservation_System_.Core.Enums;
 using Restaurant_Reservation_System_.Service.Dtos.BasketDtos;
 
 namespace Restaurant_Reservation_System_.Service.Services.IService
@@ -14,7 +15,7 @@ namespace Restaurant_Reservation_System_.Service.Services.IService
         Task EditBasketItem(int id, int count);
         Task AddToBasket(int id, string? returnUrl, int count = 1, int page = 1);
         CartGetDto GetUserBasketItem();
-
-       // Task<CartGetDto> GetCartAsync();
+        Task DeleteBasket(int id);
+        Task<CartGetDto> GetCartAsync();
     }
 }

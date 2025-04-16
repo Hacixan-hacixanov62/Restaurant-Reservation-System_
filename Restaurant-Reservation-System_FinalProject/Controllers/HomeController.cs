@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using Restaurant_Reservation_System_.DataAccess.DAL;
+using Restaurant_Reservation_System_.Service.Dtos.CommanDtos;
 using Restaurant_Reservation_System_.Service.Dtos.SubscribeDtos;
 using Restaurant_Reservation_System_.Service.Extensions;
 using Restaurant_Reservation_System_.Service.Services.IService;
@@ -47,5 +49,22 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             return Redirect(returnUrl);
         }
 
+        public IActionResult Error(string? json)
+        {
+            if (!string.IsNullOrEmpty(json))
+            {
+
+                string decodedJson = Uri.UnescapeDataString(json);
+
+                var dto = JsonConvert.DeserializeObject<ErrorDto>(decodedJson);
+                return View(dto);
+            }
+
+            return View(new ErrorDto
+            {
+                StatusCode = 500,
+                Message = "Gözlənilməyən xəta baş verdi."
+            });
+        }
     }
 }

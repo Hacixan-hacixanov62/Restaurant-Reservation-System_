@@ -34,7 +34,8 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
 
         public async Task<IActionResult> GetCartSection()
         {  
-            return PartialView("_cartSectionPartial");
+            var cart = _basketService.GetCartAsync();
+            return PartialView("_cartSectionPartial",cart);
         }
 
         public async Task<IActionResult> RemoveToCart(int id)
@@ -65,6 +66,11 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public async Task<IActionResult> DeleteBasket(int id)
+        {
+            await _basketService.DeleteBasket(id);
+            return RedirectToAction(nameof(Index));
+        }
 
 
         private List<CartItem> _getBasket()

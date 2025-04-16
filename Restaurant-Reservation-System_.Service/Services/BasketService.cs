@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Azure;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -13,6 +14,7 @@ using Restaurant_Reservation_System_.Service.Dtos.ProductDtos;
 using Restaurant_Reservation_System_.Service.Exceptions;
 using Restaurant_Reservation_System_.Service.Extensions;
 using Restaurant_Reservation_System_.Service.Services.IService;
+using Restaurant_Reservation_System_.Service.ViewModels.BasketVM;
 using System.Security.Claims;
 
 namespace Restaurant_Reservation_System_.Service.Services
@@ -322,6 +324,154 @@ namespace Restaurant_Reservation_System_.Service.Services
             return cartGetDto;
         }
 
-   
+        public async Task<CartGetDto> GetCartAsync()
+        {
+
+            if (_checkAuthorized())
+            {
+                var userId = _getUserId();
+
+              
+
+                var cartItems = await _basketRepository.GetFilter(x => x.AppUserId == userId,
+                               x => x.Include(x => x.Product)
+                                          .Include(x => x.Product.Category)
+                                          .Include(x => x.Product.ProductImages)).ToListAsync() ?? new List<CartItem>();
+
+                var dtos = _mapper.Map<List<CartItemDto>>(cartItems);
+
+                decimal subtotal = dtos.Sum(x => x.Count * x.Product.Price);
+                decimal discount = subtotal * 0.20m;
+                decimal total = subtotal - discount;
+
+                var cartDto = new CartGetDto()
+                {
+                    Items = dtos,
+                    Count = dtos.Count,
+                    Subtotal = subtotal,
+                    Total = total,
+                    Discount = discount,
+                };
+
+                return cartDto;
+            }
+            else
+            {
+                var cartItems = _readCartFromCookie();
+
+                var dtos = _mapper.Map<List<CartItemDto>>(cartItems);
+
+                foreach (var dto in dtos)
+                {
+                    var product = await _productService.GetByIdAsync(dto.ProductId);
+
+                    if (product is null)
+                    {
+                        dtos.Remove(dto);
+                        continue;
+                    }
+
+                    dto.Product = product;
+                }
+
+                decimal totalPrice = dtos.Sum(x => (x.Count * x.Product.Price));
+                var cartDto = new CartGetDto()
+                {
+                    Items = dtos,
+                    Count = dtos.Count,
+                    Subtotal = totalPrice,
+                    Total = totalPrice,
+                    Discount = 0,
+                };
+
+                return cartDto;
+            }
+        }
+
+        public Task DeleteBasket(int id)
+        {
+            CartGetDto vm = new CartGetDto();
+            var userId = _getUserId();
+
+            if (userId != null)
+            {
+
+                var basketItem = _context.CartItems.FirstOrDefault(x => x.AppUserId == userId && x.ProductId == id);
+
+                if (basketItem == null)
+                    throw new NotFoundException("Basket NotFound");
+                else
+                {
+                    _context.CartItems.Remove(basketItem);
+                    _context.SaveChanges();
+                }
+
+                var basketItems = _context.CartItems.Include(x => x.Product).ThenInclude(p => p.ProductImages).Where(x => x.AppUserId == userId).ToList();
+                foreach (var item in basketItems)
+                {
+
+                    CartItemDto basketItemVM = new CartItemDto
+                    {
+                        Count = item.Count,
+                        Product = _mapper.Map<ProductGetDto>(item.Product)
+                    };
+
+                    vm.Items.Add(basketItemVM);
+
+                    vm.Total += (basketItemVM.Product.Discount > 0 ? basketItemVM.Product.Discount : basketItemVM.Product.Discount) * basketItemVM.Count;
+
+                }
+
+
+            }
+            else
+            {
+                //var cartItems = _readCartFromCookie();
+
+                //List<BasketCookieVM> cookieItems = null;
+
+                //if (cartItems == null)
+                //    cookieItems = new List<CartItemCreateDto>();
+                //else
+                //    cookieItems = JsonConvert.DeserializeObject<List<CartItemCreateDto>>(cartItems);
+
+                //var existItem = cookieItems.FirstOrDefault(x => x.ProductId == id);
+
+                //if (existItem == null)
+                //    throw new NotFoundException();
+                //else
+                //    cookieItems.Remove(existItem);
+
+                //Response.Append("basket", JsonConvert.SerializeObject(cookieItems));
+
+                // Guest user (non-authorized)
+                var cartItems = _readCartFromCookie(); // Read from cookie
+
+                var existItem = cartItems.FirstOrDefault(x => x.ProductId == id);
+                if (existItem == null)
+                    throw new NotFoundException();
+
+                cartItems.Remove(existItem);
+                _writeCartInCookie(cartItems); // Update cookie
+
+                foreach (var cItem in cartItems)
+                {
+                    CartItemDto basketItemVM = new CartItemDto
+                    {
+                        Count = cItem.Count,
+                        Product = _mapper.Map<ProductGetDto>(cItem.ProductId)
+                    };
+
+                    vm.Items.Add(basketItemVM);
+
+                    vm.Total += (basketItemVM.Product.Discount > 0 ? basketItemVM.Product.Discount : basketItemVM.Product.Discount) * basketItemVM.Count;
+
+                }
+
+
+            }
+            return Task.CompletedTask;
+
+        }
     }
 }

@@ -11712,6 +11712,18 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Zb6bvhVeiTv78f6Vj8\u002BFdw7104Yv0rtmSHGt1b7Q\u002BE4="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"342917"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022Zb6bvhVeiTv78f6Vj8\u002BFdw7104Yv0rtmSHGt1b7Q\u002BE4=\u0022"},{"Name":"Last-Modified","Value":"Mon, 17 Mar 2025 19:11:48 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Restaurant-Reservation-System_FinalProject/assets/images/error/restouran_background_image.2uyjmbp3im.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\error\restouran_background_image.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"2uyjmbp3im"},{"Name":"integrity","Value":"sha256-5parQBbMxMyEB\u002BFX6H8y0egTQsyKcrLJx/GV/lw34GA="},{"Name":"label","Value":"_content/Restaurant-Reservation-System_FinalProject/assets/images/error/restouran_background_image.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2092186"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u00225parQBbMxMyEB\u002BFX6H8y0egTQsyKcrLJx/GV/lw34GA=\u0022"},{"Name":"Last-Modified","Value":"Wed, 16 Apr 2025 13:19:08 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Restaurant-Reservation-System_FinalProject/assets/images/error/restouran_background_image.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\error\restouran_background_image.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-5parQBbMxMyEB\u002BFX6H8y0egTQsyKcrLJx/GV/lw34GA="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"2092186"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u00225parQBbMxMyEB\u002BFX6H8y0egTQsyKcrLJx/GV/lw34GA=\u0022"},{"Name":"Last-Modified","Value":"Wed, 16 Apr 2025 13:19:08 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Restaurant-Reservation-System_FinalProject/assets/images/home/05c37c07-0510-4694-b380-11cff50f298b.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\home\05c37c07-0510-4694-b380-11cff50f298b.jpg'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>

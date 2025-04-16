@@ -8,14 +8,17 @@
         var product = cartItem.Product;
 
         <div class="cart-item">
-            <img src="@cartItem.Product.MainImage" alt="Product" width="50"> @**@
+            <img src="@cartItem.MainImage" alt="Product" width="50"> 
             <div class="cart-details">
-                <a asp-area="Admin" asp-controller="Product" asp-action="detail" asp-route-id="@cartItem.">
+                <a asp-action="Index" asp-controller="Menu" asp-route-id="@cartItem.">
                     @cartItem.Product.Name
                 </a>
                 @* <span>1 × £87.34</span> *@
                 <p class="price"><span class="qty">@cartItem.Count ×</span> £@(cartItem.Product.Discount * cartItem.Product.Price)</p>
-                <a class="cross-btn"><i class="fas fa-times"></i></a>
+                <a asp-action="DeleteBasket" asp-controller="Basket" asp-route-id="@cartItem.Product.Id" class="cross-btn">
+                    <i class="fas fa-times"></i>
+                </a>
+
             </div>
         </div>
 

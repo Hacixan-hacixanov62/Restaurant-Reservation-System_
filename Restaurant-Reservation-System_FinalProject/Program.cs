@@ -10,6 +10,7 @@ using Dannys.Interceptors;
 using Restaurant_Reservation_System_.Service.UI.Services.IService;
 using Restaurant_Reservation_System_FinalProject.Services;
 using Stripe;
+using Restaurant_Reservation_System_FinalProject.Extensions;
 
 namespace Restaurant_Reservation_System_FinalProject
 {
@@ -66,6 +67,7 @@ namespace Restaurant_Reservation_System_FinalProject
 
             StripeConfiguration.ApiKey = builder.Configuration["StripeSettings:SecretKey"];
 
+
             builder.Services.AddSession(opt =>
             {
                 //opt.IdleTimeout = TimeSpan.FromSeconds(20);
@@ -82,6 +84,10 @@ namespace Restaurant_Reservation_System_FinalProject
 
 
             var app = builder.Build();
+
+            if (!app.Environment.IsDevelopment())
+                app.UseMiddleware<GlobalExceptionHandler>();
+
 
             app.UseRequestLocalization();
 

@@ -3909,6 +3909,10 @@
       "PackagePath": "staticwebassets\\assets\\images\\blog\\postimg_07.jpg"
     },
     {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\error\\restouran_background_image.png",
+      "PackagePath": "staticwebassets\\assets\\images\\error\\restouran_background_image.png"
+    },
+    {
       "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\05c37c07-0510-4694-b380-11cff50f298b.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\home\\05c37c07-0510-4694-b380-11cff50f298b.jpg"
     },

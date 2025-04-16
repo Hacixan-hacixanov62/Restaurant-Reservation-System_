@@ -974,6 +974,7 @@ wwwroot\assets\images\blog\postimg_04.jpg
 wwwroot\assets\images\blog\postimg_05-683x1024.jpg
 wwwroot\assets\images\blog\postimg_06.jpg
 wwwroot\assets\images\blog\postimg_07.jpg
+wwwroot\assets\images\error\restouran_background_image.png
 wwwroot\assets\images\home\05c37c07-0510-4694-b380-11cff50f298b.jpg
 wwwroot\assets\images\home\0a4f14e5-71fd-4188-9d04-8d9e07f358bd.png
 wwwroot\assets\images\home\1a77fb30-4c25-44cf-acdd-91d7bc79ee89.png
