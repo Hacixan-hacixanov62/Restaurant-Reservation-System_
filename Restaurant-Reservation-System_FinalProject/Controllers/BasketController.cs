@@ -26,6 +26,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             _context = context;
             _userManager = userManager;
         }
+        //[Authorize("Member")]
         public async Task<IActionResult> Index()
         {
             var cartItems = await GetBasketAsync();

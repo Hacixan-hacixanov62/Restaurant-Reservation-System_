@@ -10,7 +10,7 @@
         <div class="cart-item">
             <img src="@cartItem.MainImage" alt="Product" width="50"> 
             <div class="cart-details">
-                <a asp-action="Index" asp-controller="Menu" asp-route-id="@cartItem.">
+                <a asp-action="Index" asp-controller="Menu" asp-route-id="@cartItem.ProductId">
                     @cartItem.Product.Name
                 </a>
                 @* <span>1 × £87.34</span> *@

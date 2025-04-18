@@ -129,7 +129,7 @@ namespace Restaurant_Reservation_System_.Service.Services
             if (isExist)
             {
                 ModelState.AddModelError("Email", "Bu email artıq mövcuddur");
-                return false;
+                return false;       
             }
 
             existSubscribe = _mapper.Map(dto, existSubscribe);

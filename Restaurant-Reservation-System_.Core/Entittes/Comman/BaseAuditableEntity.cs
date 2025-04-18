@@ -10,7 +10,7 @@ namespace Restaurant_Reservation_System_.Core.Entittes
         [Required]
 		public string CreatedBy { get; set; } = null!;
         [Required]
-		public string? UpdatedBy { get; set; }
+		public string UpdatedBy { get; set; }=null!;
 		public bool IsDeleted { get; set; } = false;
     }
 }

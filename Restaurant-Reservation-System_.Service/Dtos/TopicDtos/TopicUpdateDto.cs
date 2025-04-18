@@ -7,6 +7,7 @@ namespace Restaurant_Reservation_System_.Service.Dtos.TopicDtos
 
         [Required]
         [StringLength(maximumLength: 200)]
+        [RegularExpression(@"^[^\d]*$", ErrorMessage = "Name Duzgun daxil edin.")]
         public string Name { get; set; } = null!;
     }
 }

@@ -39,7 +39,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
 
             return View(homeVm);
         }
-
+        [HttpPost]
         public async Task<IActionResult> AddSubscriber(SubscribeCreateDto dto)
         {
             var result = await _subscribeService.CreateAsync(dto, ModelState);

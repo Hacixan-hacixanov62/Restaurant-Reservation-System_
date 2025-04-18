@@ -620,6 +620,52 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                     b.ToTable("Languages");
                 });
 
+            modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ReceiverId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("SenderId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReceiverId");
+
+                    b.HasIndex("SenderId");
+
+                    b.ToTable("Messages");
+                });
+
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Order", b =>
                 {
                     b.Property<int>("Id")
@@ -672,6 +718,10 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
 
                     b.Property<bool?>("Status")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Street")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Surname")
                         .IsRequired()
@@ -1170,7 +1220,7 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Comment", "Parent")
                         .WithMany("Children")
                         .HasForeignKey("ParentId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Product", "Product")
                         .WithMany("Comments")
@@ -1181,6 +1231,25 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL.Migrations
                     b.Navigation("Parent");
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Message", b =>
+                {
+                    b.HasOne("Restaurant_Reservation_System_.Core.Entittes.AppUser", "Receiver")
+                        .WithMany()
+                        .HasForeignKey("ReceiverId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Restaurant_Reservation_System_.Core.Entittes.AppUser", "Sender")
+                        .WithMany()
+                        .HasForeignKey("SenderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Receiver");
+
+                    b.Navigation("Sender");
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Order", b =>

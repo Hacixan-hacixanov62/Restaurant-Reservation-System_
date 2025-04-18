@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
 using Restaurant_Reservation_System_.Core.Entittes;
 using Restaurant_Reservation_System_.DataAccess.DAL;
 using Restaurant_Reservation_System_.Service.Services.IService;
@@ -112,7 +111,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
                 return View(userLoginVm);
 
             }
-            HttpContext.Response.Cookies.Append("basket", "");
+            HttpContext.Response.Cookies.Append("RestaurantCart", "");
 
             return returnUrl != null ? Redirect(returnUrl) : RedirectToAction("Index", "Home");
 

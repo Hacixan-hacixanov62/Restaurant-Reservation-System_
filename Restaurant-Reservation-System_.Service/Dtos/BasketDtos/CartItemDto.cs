@@ -1,6 +1,8 @@
 ﻿
 
 using Restaurant_Reservation_System_.Service.Dtos.ProductDtos;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Restaurant_Reservation_System_.Service.Dtos.BasketDtos
 {
@@ -8,8 +10,15 @@ namespace Restaurant_Reservation_System_.Service.Dtos.BasketDtos
     {
         public int ProductId { get; set; }
         public ProductGetDto Product { get; set; } = null!;
-        public string Name { get; set; }
-        public string MainImage { get; set; }
+
+        [Required]
+        [StringLength(maximumLength: 150)]
+        [RegularExpression(@"^[^\d]*$", ErrorMessage = "Name Duzgun daxil edin.")]
+        public string Name { get; set; } = null!;
+        public string MainImage { get; set; } = null!;
+        [Required]
+        [Column(TypeName = "decimal(18,2)")]
+        [Range(0, 100, ErrorMessage = "Price Duzgun daxil edin.")]
         public decimal Price { get; set; }
         public int Count { get; set; }
     }

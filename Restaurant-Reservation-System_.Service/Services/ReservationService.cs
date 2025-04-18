@@ -61,20 +61,20 @@ namespace Restaurant_Reservation_System_.Service.Services
             return reservation;
         }
 
-        //public async Task<ReservationDto?> GetLatestReservationAsync(string name, string phoneNumber)
-        //{
-        //    var reservation = await _reservationRepository.GetAll()
-        //         .Where(r => r.Name == name && r.Email == phoneNumber)
-        //         .OrderByDescending(r => r.Date)
-        //         .ThenByDescending(r => r.Id)
-        //         .FirstOrDefaultAsync();
+        public async Task<ReservationDto?> GetLatestReservationAsync(string name, string email)
+        {
+            var reservation = await _reservationRepository.GetAll()
+                 .Where(r => r.Name == name && r.Email == email)
+                 .OrderByDescending(r => r.Date)
+                 .ThenByDescending(r => r.Id)
+                 .FirstOrDefaultAsync();
 
-        //    if (reservation == null)
-        //        return null;
+            if (reservation == null)
+                return null;
 
-        //    var reservationDto = _mapper.Map<ReservationDto>(reservation);
-        //    return reservationDto;
-        //}
+            var reservationDto = _mapper.Map<ReservationDto>(reservation);
+            return reservationDto;
+        }
 
         //public async Task<ReservationDto> GetReservationAsync(int id)
         //{

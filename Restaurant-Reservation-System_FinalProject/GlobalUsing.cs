@@ -1,0 +1,1 @@
+﻿global using Restaurant_Reservation_System_.Service.Abstractions;

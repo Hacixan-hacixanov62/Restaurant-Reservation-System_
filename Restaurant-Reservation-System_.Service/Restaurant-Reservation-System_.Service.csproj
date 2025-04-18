@@ -4,6 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>Restaurant_Reservation_System_.Service</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
+	  <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
@@ -16,6 +17,9 @@
     <PackageReference Include="FluentValidation" Version="11.11.0" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
     <PackageReference Include="MailKit" Version="4.10.0" />
+    <PackageReference Include="QRCoder" Version="1.4.3" />
+    <!--<PackageReference Include="System.Drawing.Common" Version="9.0.4" />-->
+	  <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
   </ItemGroup>
 
 </Project>

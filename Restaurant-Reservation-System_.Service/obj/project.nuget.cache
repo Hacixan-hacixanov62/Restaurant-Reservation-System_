@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "G3mOstGlaGg=",
+  "dgSpecHash": "8kh5Am+mYA8=",
   "success": true,
   "projectFilePath": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_.Service\\Restaurant-Reservation-System_.Service.csproj",
   "expectedPackageFiles": [
@@ -53,6 +53,7 @@
     "C:\\Users\\Hacixanov\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\Hacixanov\\.nuget\\packages\\mimekit\\4.10.0\\mimekit.4.10.0.nupkg.sha512",
     "C:\\Users\\Hacixanov\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\Hacixanov\\.nuget\\packages\\qrcoder\\1.4.3\\qrcoder.1.4.3.nupkg.sha512",
     "C:\\Users\\Hacixanov\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\Hacixanov\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\Hacixanov\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",

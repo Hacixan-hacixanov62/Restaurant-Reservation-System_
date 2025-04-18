@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using Restaurant_Reservation_System_.Core.Entittes;
 using Restaurant_Reservation_System_.DataAccess.DAL;
 using Restaurant_Reservation_System_.Service.Dtos.BasketDtos;
 using Restaurant_Reservation_System_.Service.Dtos.ProductDtos;
@@ -43,7 +44,7 @@ namespace Restaurant_Reservation_System_FinalProject.Services
                     CartItemDto basketItemVM = new CartItemDto()
                     {
                         Count = bi.Count,
-                       
+                        MainImage=bi.Product.ProductImages.FirstOrDefault(m=>m.IsMain==true).Url,
                         Product = new ProductGetDto
                         {
                             Id = bi.Product.Id,
@@ -62,7 +63,7 @@ namespace Restaurant_Reservation_System_FinalProject.Services
             }
             else
             {
-                var basketStr = _httpContextAccessor.HttpContext.Request.Cookies["basket"];
+                var basketStr = _httpContextAccessor.HttpContext.Request.Cookies["RestaurantCart"];
 
                 List<CartItemCreateDto> cookieItems = null;
 
@@ -83,8 +84,9 @@ namespace Restaurant_Reservation_System_FinalProject.Services
 
                         CartItemDto basketItemVM = new CartItemDto()
                         {
-
-                            Count = cItem.Quantity,
+                            
+                            Count = cItem.Count,
+                            MainImage = product.ProductImages.FirstOrDefault(x => x.IsMain == true)?.Url,
                             Product = new ProductGetDto
                             {
                                 Id = product.Id,

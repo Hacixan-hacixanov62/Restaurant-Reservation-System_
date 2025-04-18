@@ -79,7 +79,7 @@
                        
                         <div class="cart-icon basket-add-btn" style="cursor: pointer;">
                             <i class="fa fa-shopping-cart" id="basket-icon"></i>
-                            <span class="cart-count">@Model.Count</span>
+                            <span class="cart-count">@cartGetDto.Count</span>
                         </div>
                         <div class="cart-dropdown">
                             @await Html.PartialAsync("_BasketPartial",cartGetDto.Items );
@@ -112,20 +112,7 @@
 </header>
 
 @section Scripts {
-    @* <script> *@
-    @*             function updateCartDropdown() { *@
-    @*         fetch("/Basket/GetBasketDropdown") *@
-    @*             .then(res => res.text()) *@
-    @*             .then(html => { *@
-    @*                 document.querySelector(".cart-dropdown").innerHTML = html; *@
 
-    @*                 // Count yenilə *@
-    @*                 const itemCount = document.querySelectorAll(".cart-item").length; *@
-    @*                 document.querySelector(".cart-count").textContent = itemCount; *@
-    @*             }); *@
-    @*     } *@
-
-    @* </script> *@
 
     <script>
                 $(document).on("click", ".basket-add-btn", function (e) {

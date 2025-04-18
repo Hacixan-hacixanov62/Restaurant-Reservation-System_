@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using Azure.Core;
 using CloudinaryDotNet;
+using CloudinaryDotNet.Core;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 using Microsoft.Extensions.Configuration;
+using MimeKit.Encodings;
 using Restaurant_Reservation_System_.Core.Entittes;
 using Restaurant_Reservation_System_.Core.Enums;
 using Restaurant_Reservation_System_.DataAccess.DAL;
@@ -45,6 +47,7 @@ namespace Restaurant_Reservation_System_.Service.Services
 
         public async Task CreateAsync(ProductCreateDto productCreateDto)
         {
+         
             Product product = _mapper.Map<Product>(productCreateDto);
 
             product.ProductImages = [];
@@ -61,25 +64,8 @@ namespace Restaurant_Reservation_System_.Service.Services
                 product.ProductImages.Add(additionalProductImgs);
 
             }
-            //foreach (var file in files)
-            //{
-            //    ProductImage productImage = new();
-            //    productImage.Product = product;
-            //    productImage.ProductId = product.Id;
-            //    productImage.Status = false;
 
-            //    productImage.Name = file.SaveImage(_env.WebRootPath, "assets/images/home");
-            //    if (files[0] == file)
-            //    {
-            //        productImage.Status = true;
-            //    }
-            //    //productImage.Status = null;
-            //    product.ProductImages.Add(productImage);
-
-            //    _context.ProductImages.Add(productImage);
-
-
-            //}
+         
 
             await _productRepository.CreateAsync(product);
            await  _productRepository.SaveChangesAsync();
@@ -152,23 +138,6 @@ namespace Restaurant_Reservation_System_.Service.Services
                     throw new Exception("Category not found");
                 }
             }
-
-
-            ////var files = product.Photos;
-            ////if (files != null)
-            ////{
-            ////    foreach (var file in files)
-            ////    {
-            ////        ProductImage productImage = new();
-            ////        if (file != null && productImage != null && product.ProductImages != null)
-            ////        {
-            ////            productImage.Url = file.SaveImage(_env.WebRootPath, "assets/images/home");
-            ////            existProduct.ProductImages.Add(productImage);
-            ////        }
-
-            ////    }
-            ////}
-
 
 
             var ExistedImages = existProduct.ProductImages.Where(x => !x.IsMain).Select(x => x.Id).ToList();

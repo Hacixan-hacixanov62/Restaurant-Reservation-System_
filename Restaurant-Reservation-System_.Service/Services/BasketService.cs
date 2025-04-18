@@ -399,7 +399,7 @@ namespace Restaurant_Reservation_System_.Service.Services
                 var basketItem = _context.CartItems.FirstOrDefault(x => x.AppUserId == userId && x.ProductId == id);
 
                 if (basketItem == null)
-                    throw new NotFoundException("Basket NotFound");
+                    throw new NotFoundException("Data NotFound");
                 else
                 {
                     _context.CartItems.Remove(basketItem);
@@ -426,25 +426,7 @@ namespace Restaurant_Reservation_System_.Service.Services
             }
             else
             {
-                //var cartItems = _readCartFromCookie();
-
-                //List<BasketCookieVM> cookieItems = null;
-
-                //if (cartItems == null)
-                //    cookieItems = new List<CartItemCreateDto>();
-                //else
-                //    cookieItems = JsonConvert.DeserializeObject<List<CartItemCreateDto>>(cartItems);
-
-                //var existItem = cookieItems.FirstOrDefault(x => x.ProductId == id);
-
-                //if (existItem == null)
-                //    throw new NotFoundException();
-                //else
-                //    cookieItems.Remove(existItem);
-
-                //Response.Append("basket", JsonConvert.SerializeObject(cookieItems));
-
-                // Guest user (non-authorized)
+                
                 var cartItems = _readCartFromCookie(); // Read from cookie
 
                 var existItem = cartItems.FirstOrDefault(x => x.ProductId == id);

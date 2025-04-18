@@ -6,6 +6,7 @@ using Restaurant_Reservation_System_.DataAccess.DAL;
 using Restaurant_Reservation_System_.Service.Dtos.ReservationDtos;
 using Restaurant_Reservation_System_.Service.Dtos.TableDtos;
 using Restaurant_Reservation_System_.Service.Services.IService;
+using Stripe;
 
 
 namespace Restaurant_Reservation_System_FinalProject.Controllers
@@ -111,6 +112,12 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
                 }
             }
 
+
+            // Ən son rezervasiyanı əldə et
+            var latestReservation = await _reservationService.GetLatestReservationAsync(dto.Name, dto.Email);
+
+            if (latestReservation == null)
+                return RedirectToAction(nameof(Index)); // Əgər tapılmadısa, rezervasiya səhifəsinə geri qayıt
 
             Reservation reservation = new()
             {
@@ -221,7 +228,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
 
             TempData["message"] = "Reservation is successfully done.";
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index",new {id =latestReservation.ReservationNumber});
         }
 
 

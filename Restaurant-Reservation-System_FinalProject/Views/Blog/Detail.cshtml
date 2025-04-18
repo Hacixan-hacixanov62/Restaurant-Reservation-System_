@@ -1,5 +1,7 @@
 ﻿@using System.Security.Claims
-    @model BlogDetailVM
+@model BlogDetailVM
+
+
 <main class="blog-detail">
     <section id="News-banner">
         <div class="banner-part">
@@ -229,8 +231,7 @@
                             <div class="dn-widgetNewsletter-intro">
                                 Subscribe and get information about the newest products.
                             </div>
-                            <form method="post" class="js-mcForm dn-widgetNewsletter-form"
-                                  data-url="https://demos.hogash.com/dannys/" name="newsletter_form">
+                            <form method="post" asp-action="SubscribeNewsletter">
                                 <input type="email" name="mc_email"
                                        class="form-control dn-widgetNewsletter-email js-mcForm-email" value=""
                                        placeholder="your.address@email.com">
@@ -312,11 +313,14 @@
     }
 </main>
 
-<script>
-    document.querySelectorAll('.reply-button').forEach(button => {
-        button.addEventListener('click', function() {
-            const form = this.nextElementSibling;
-            form.classList.toggle('d-none');
+@section Scripts {
+    <script>
+        document.querySelectorAll('.reply-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const form = this.nextElementSibling;
+                form.classList.toggle('d-none');
+            });
         });
-    });
-</script>
+    </script>
+}
+

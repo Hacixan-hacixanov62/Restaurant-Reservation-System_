@@ -15,19 +15,27 @@ namespace Restaurant_Reservation_System_.Service.Dtos.ProductDtos
 
         [Required]
         [StringLength(maximumLength: 150)]
+        [RegularExpression(@"^[^\d]*$", ErrorMessage = "Name Duzgun daxil edin.")]
         public string Name { get; set; }
-
+        [Required]
         [Column(TypeName = "decimal(18,2)")]
+        [Range(0, double.MaxValue, ErrorMessage = "Price mənfi ola bilməz.")]
         public decimal Price { get; set; }
         [Required]
         [StringLength(maximumLength: 500)]
+        [RegularExpression(@"^[^\d]*$", ErrorMessage = "Desc Duzgun daxil edin.")]
         public string Desc { get; set; }
         [Required]
         [StringLength(maximumLength: 200)]
+        [RegularExpression(@"^[^\d]*$", ErrorMessage = "Ingredients Duzgun daxil edin.")]
         public string Ingredients { get; set; } = null!;
-        public int Porsion { get; set; }
-
+        [Required]
         [Column(TypeName = "decimal(18,2)")]
+        [Range(0, 100, ErrorMessage = "Prosion Duzgun daxil edin.")]
+        public int Porsion { get; set; }
+        [Required]
+        [Column(TypeName = "decimal(18,2)")]
+        [Range(0, 100, ErrorMessage = "Discount Duzgun daxil edin.")]
         public decimal Discount { get; set; }
         public int CategoryId { get; set; }
         public List<CategoryGetDto> Categories { get; set; } = null!;

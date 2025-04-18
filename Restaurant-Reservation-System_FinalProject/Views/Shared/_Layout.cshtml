@@ -67,12 +67,12 @@
                         Subscribe to our newsletter and receive 15% discount from your
                         order.
                     </h5>
-                    <form method="post" name="mc-embedded-subscribe-form" novalidate="" class="mail-box clearfix">
+                    <form asp-controller="Home" asp-action="AddSubscriber" method="post" name="mc-embedded-subscribe-form" novalidate="" class="mail-box clearfix">
                         <div class="input-group stylish-input-group">
-                            <input type="text" class="form-control" placeholder="Your@mail.com"
+                            <input type="text" name="Email" class="form-control" placeholder="Your@mail.com"
                                    data-language="home.subscribe.placeholder" />
                             <div class="btn-default">
-                                <button type="submit" asp-controller="Home" asp-action="AddSubscriber">subscribe</button>
+                                <button type="submit">subscribe</button>
                             </div>
                         </div>
                         <div class="dn__newsletter-message"></div>

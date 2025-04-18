@@ -98,6 +98,10 @@ namespace Restaurant_Reservation_System_.Service
             services.AddScoped<IBlogCommentRepository, BlogCommentRepository>();
             services.AddScoped<IBlogCommentService, BlogCommentService>();
 
+            services.AddScoped<IQrCoderRepository, QrCoderRepository>();
+            services.AddScoped<IQrCoderService, QrCoderService>();
+
+
 
 
         }

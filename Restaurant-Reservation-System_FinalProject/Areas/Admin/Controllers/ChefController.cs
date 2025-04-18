@@ -44,19 +44,6 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
 
             var authors = await _context.Chefs.OrderByDescending(x => x.Id).Skip((page - 1) * 10).Take(10).ToListAsync();
             return View(authors);
-            ////try
-            ////{
-            ////    var categories = _context.Chefs.Include(m => m.).ToListAsync();
-            ////    PaginatedList<Chef> paginatedList = PaginatedList<Chef>.Create(categories, take, page);
-            ////    return View(paginatedList);
-            ////    //var chefs = _chefService.GetAllAsync();
-            ////    //return View(chefs);
-            ////}
-
-            ////catch (Exception ex)
-            ////{
-            ////    return BadRequest(ex.Message);
-            ////}
 
         }
 

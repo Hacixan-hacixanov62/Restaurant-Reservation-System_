@@ -8,6 +8,7 @@ namespace Restaurant_Reservation_System_.Service.UI.Dtos
     {
         [Required(ErrorMessage = "Name sahəsi boş ola bilməz.")]
         [MaxLength(50)]
+        [RegularExpression(@"^[^\d]*$", ErrorMessage = "Name Duzgun daxil edin.")]
         public string Name { get; set; } = null!;
         [Required(ErrorMessage = "Göndəriləcək e-poçt sahəsi boş ola bilməz.")]
         [EmailAddress(ErrorMessage = "Düzgün e-poçt ünvanı daxil edin.")]

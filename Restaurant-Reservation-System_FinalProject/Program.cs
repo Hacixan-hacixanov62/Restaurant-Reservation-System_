@@ -85,8 +85,7 @@ namespace Restaurant_Reservation_System_FinalProject
 
             var app = builder.Build();
 
-            if (!app.Environment.IsDevelopment())
-                app.UseMiddleware<GlobalExceptionHandler>();
+            app.UseMiddleware<GlobalExceptionHandler>();
 
 
             app.UseRequestLocalization();

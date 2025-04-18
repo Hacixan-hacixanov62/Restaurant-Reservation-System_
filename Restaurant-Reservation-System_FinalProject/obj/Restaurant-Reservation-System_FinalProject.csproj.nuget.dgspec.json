@@ -254,6 +254,14 @@
             "MailKit": {
               "target": "Package",
               "version": "[4.10.0, )"
+            },
+            "QRCoder": {
+              "target": "Package",
+              "version": "[1.4.3, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             }
           },
           "imports": [
