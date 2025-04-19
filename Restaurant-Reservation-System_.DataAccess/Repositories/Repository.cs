@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
+using Restaurant_Reservation_System_.Core.Entittes;
 using Restaurant_Reservation_System_.Core.Entittes.Comman;
 using Restaurant_Reservation_System_.DataAccess.DAL;
 using Restaurant_Reservation_System_.DataAccess.Repositories.IRepositories;
@@ -105,5 +106,31 @@ namespace Restaurant_Reservation_System_.DataAccess.Repositories
 
             return query;
         }
+
+        // Asagdakilar Messageye aidir
+
+        public async Task<Chat?> GetChatWithUsersAndMessagesAsync(int chatId, string userId)
+        {
+            return await _context.Chats
+                .Include(m => m.AppUserChats).ThenInclude(m => m.AppUser)
+                .Include(m => m.Messages)
+                .FirstOrDefaultAsync(m => m.Id == chatId && m.AppUserChats.Any(u => u.AppUserId == userId));
+        }
+
+        public async Task<Message> AddMessageAsync(Message message)
+        {
+            await _context.Messages.AddAsync(message);
+            await _context.SaveChangesAsync();
+            return message;
+        }
+
+        public async Task<List<Chat>> GetUserChatsAsync(string userId)
+        {
+            return await _context.Chats
+                .Include(m => m.AppUserChats)
+                .Where(m => m.AppUserChats.Any(a => a.AppUserId == userId))
+                .ToListAsync();
+        }
+
     }
 }

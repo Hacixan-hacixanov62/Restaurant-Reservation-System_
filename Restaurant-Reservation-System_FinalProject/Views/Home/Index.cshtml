@@ -231,10 +231,10 @@
             <div class="testimonial-slider">
                 @foreach (var comment in Model.Comments)
                 {
-                    <div class="testimonial-item text-center" style="padding: 20px; border: 1px solid #ddd; margin: 10px; border-radius: 10px;">
+                    <div class="testimonial-slider text-center" style="padding: 20px; border: 1px solid #ddd; margin: 10px; border-radius: 10px;">
                         <p>@comment.Text</p>
                         <div class="testi-icon" style="font-size: 2rem; color: #ccc;">“</div>
-                        <h4>@comment.AppUser.FullName</h4>
+                        @* <h4>@comment.AppUser.FullName</h4> *@
                     </div>
                 }
             </div>
@@ -265,33 +265,28 @@
     </section>
 
 </main>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-@section Scripts{
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            $('.testimonial-slider').slick({
-                infinite: true,
-                slidesToShow: 2,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 2000,
-                arrows: true,
-                dots: true,
-                responsive: [
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 1
-                        }
+<script>
+    $(document).ready(function () {
+        $('.testimonial-slider').slick({
+            infinite: true,
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            arrows: true,
+            dots: true,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1
                     }
-                ]
-            });
+                }
+            ]
         });
-    </script>
+    });
+</script>
 
-
-
-}

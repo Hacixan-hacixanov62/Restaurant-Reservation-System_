@@ -6357,3 +6357,32 @@ footer #Footer-main {
     object-fit: cover;
 }
 
+/*Asagdaki kodlar Home Pagedeki Slidere aidir*/
+.slider-slider {
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.testi-icon {
+    font-size: 50px;
+    color: #ccc;
+    padding-top: 10px;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+}
+
+#Testimonial h2, #Testimonial h3 {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+#Testimonial p {
+    font-size: 18px;
+    font-family: 'Playfair Display', serif;
+    color: #333;
+}
+
+

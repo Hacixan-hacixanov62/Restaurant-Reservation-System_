@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Query;
+using Restaurant_Reservation_System_.Core.Entittes;
 using Restaurant_Reservation_System_.Core.Entittes.Comman;
 using System.Linq.Expressions;
 
@@ -17,5 +18,10 @@ namespace Restaurant_Reservation_System_.DataAccess.Repositories.IRepositories
         Task<int> SaveChangesAsync(); 
         IQueryable<TEntity> OrderBy(IQueryable<TEntity> query, Expression<Func<TEntity, object>> expression); // Artan Qaydada siraya salmaq
         IQueryable<TEntity> OrderByDescending(IQueryable<TEntity> query, Expression<Func<TEntity, object>> expression); // Azalan Qaydada siraya salmaq
+
+        // Asagdakilar Message ye aidir
+        Task<Chat?> GetChatWithUsersAndMessagesAsync(int chatId, string userId);
+        Task<Message> AddMessageAsync(Message message);
+        Task<List<Chat>> GetUserChatsAsync(string userId);
     }
 }

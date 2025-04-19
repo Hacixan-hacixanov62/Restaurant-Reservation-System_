@@ -30,7 +30,7 @@ namespace Restaurant_Reservation_System_.Service.Dtos.OrderDtos
         [Required]
         [StringLength(maximumLength: 150)]
         [RegularExpression(@"^[^\d]*$", ErrorMessage = "Street Duzgun daxil edin.")]
-        public string Street { get; set; } = "City";
+        public string Street { get; set; } =null!;
         [Required]
         public string PhoneNumber { get; set; } = null!;
         [Required]

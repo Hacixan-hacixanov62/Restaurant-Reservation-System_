@@ -974,6 +974,8 @@ wwwroot\assets\images\blog\postimg_04.jpg
 wwwroot\assets\images\blog\postimg_05-683x1024.jpg
 wwwroot\assets\images\blog\postimg_06.jpg
 wwwroot\assets\images\blog\postimg_07.jpg
+wwwroot\assets\images\chat\picture.jpg
+wwwroot\assets\images\chat\picture2.jpg
 wwwroot\assets\images\error\restouran_background_image.png
 wwwroot\assets\images\home\05c37c07-0510-4694-b380-11cff50f298b.jpg
 wwwroot\assets\images\home\0a4f14e5-71fd-4188-9d04-8d9e07f358bd.png
@@ -1031,13 +1033,13 @@ wwwroot\assets\styles\_register.scss
 wwwroot\assets\styles\_reservation.scss
 wwwroot\assets\styles\_shop.scss
 wwwroot\assets\styles\_shop-detail.scss
+wwwroot\assets\styles\chat.css
 wwwroot\assets\styles\heart.css
 wwwroot\assets\styles\language.css
 wwwroot\assets\styles\main.css
 wwwroot\assets\styles\main.css.map
 wwwroot\assets\styles\main.scss
 wwwroot\assets\styles\mode.css
-wwwroot\assets\styles\reservation.css
 wwwroot\favicon.ico
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map

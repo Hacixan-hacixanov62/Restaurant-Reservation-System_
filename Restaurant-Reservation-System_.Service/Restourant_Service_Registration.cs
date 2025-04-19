@@ -101,6 +101,8 @@ namespace Restaurant_Reservation_System_.Service
             services.AddScoped<IQrCoderRepository, QrCoderRepository>();
             services.AddScoped<IQrCoderService, QrCoderService>();
 
+            services.AddScoped<IMessageRepository, MessageRepository>();
+            services.AddScoped<IMessageService, MessageService>();
 
 
 

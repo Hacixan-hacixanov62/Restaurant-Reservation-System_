@@ -11,7 +11,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Configurations
         {
             builder.Property(x => x.Name).IsRequired().HasMaxLength(256);
             builder.Property(x => x.Date).IsRequired();
-            builder.ToTable(t => t.HasCheckConstraint("CK_Reservation_People_Range", "[NumberOfPeople] >= 1 AND [NumberOfPeople] <= 10"));
+           // builder.ToTable(t => t.HasCheckConstraint("CK_Reservation_People_Range", "[NumberOfPeople] >= 1 AND [NumberOfPeople] <= 10"));
 
 
             builder.Property(c => c.Email)

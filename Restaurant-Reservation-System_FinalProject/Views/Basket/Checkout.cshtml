@@ -30,10 +30,24 @@
                         <div class="woocommerce-billing-fields">
                             <h3>Billing details</h3>
                             <div class="field">
+                                <p style="flex: 0 0 50%; max-width: 50%"
+                                   class="form-row form-row-first validate-required">
+                                    <label for="Name">First Name&nbsp;<abbr class="required" title="required">*</abbr></label>
+                                    <span class="woocommerce-input-wrapper">
+                                        <input type="text" class="input-text" id="billing_address_1" placeholder="House number and street name" value="" data-placeholder="House number and street name" required name="Name" />
+                                    </span>
+                                </p>
+                                <p style="flex: 0 0 50%; max-width: 50%"
+                                   class="form-row form-row-last validate-required">
+                                    <label for="Surname">Last Name &nbsp;<abbr class="required" title="required">*</abbr></label>
+                                    <span class="woocommerce-input-wrapper">
+                                        <input type="text" class="input-text" id="billing_address_1" placeholder="House number and street name" value="" data-placeholder="House number and street name" required name="Surname" />
+                                    </span>
+                                </p>
                                 <p class="form-row address-field validate-required form-row-wide" id="billing_address_1_field" data-priority="50">
                                     <label for="billing_address_1" class="">Street address&nbsp;<abbr class="required" title="required">*</abbr></label>
                                     <span class="woocommerce-input-wrapper">
-                                        <input type="text" class="input-text" id="billing_address_1" placeholder="House number and street name" value="" data-placeholder="House number and street name" required name="StreetAdrees" />
+                                        <input type="text" class="input-text" id="billing_address_1" placeholder="House number and street name" value="" data-placeholder="House number and street name" required name="Street" />
                                     </span>
                                 </p>
                                 <p class="form-row address-field form-row-wide" id="billing_address_2_field" data-priority="60">

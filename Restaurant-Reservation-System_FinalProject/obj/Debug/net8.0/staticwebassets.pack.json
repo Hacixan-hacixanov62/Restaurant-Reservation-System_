@@ -3909,6 +3909,14 @@
       "PackagePath": "staticwebassets\\assets\\images\\blog\\postimg_07.jpg"
     },
     {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\chat\\picture.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\chat\\picture.jpg"
+    },
+    {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\chat\\picture2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\chat\\picture2.jpg"
+    },
+    {
       "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\error\\restouran_background_image.png",
       "PackagePath": "staticwebassets\\assets\\images\\error\\restouran_background_image.png"
     },
@@ -4137,6 +4145,10 @@
       "PackagePath": "staticwebassets\\assets\\styles\\_shop.scss"
     },
     {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\styles\\chat.css",
+      "PackagePath": "staticwebassets\\assets\\styles\\chat.css"
+    },
+    {
       "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\styles\\heart.css",
       "PackagePath": "staticwebassets\\assets\\styles\\heart.css"
     },
@@ -4159,10 +4171,6 @@
     {
       "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\styles\\mode.css",
       "PackagePath": "staticwebassets\\assets\\styles\\mode.css"
-    },
-    {
-      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\styles\\reservation.css",
-      "PackagePath": "staticwebassets\\assets\\styles\\reservation.css"
     },
     {
       "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\favicon.ico",

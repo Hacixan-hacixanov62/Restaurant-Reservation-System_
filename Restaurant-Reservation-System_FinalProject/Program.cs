@@ -11,6 +11,7 @@ using Restaurant_Reservation_System_.Service.UI.Services.IService;
 using Restaurant_Reservation_System_FinalProject.Services;
 using Stripe;
 using Restaurant_Reservation_System_FinalProject.Extensions;
+using Restaurant_Reservation_System_.Service.Hubs;
 
 namespace Restaurant_Reservation_System_FinalProject
 {
@@ -34,6 +35,7 @@ namespace Restaurant_Reservation_System_FinalProject
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddSignalR();
 
             builder.Services.AddDbContext<AppDbContext>(option =>
             {
@@ -85,7 +87,8 @@ namespace Restaurant_Reservation_System_FinalProject
 
             var app = builder.Build();
 
-            app.UseMiddleware<GlobalExceptionHandler>();
+           // app.UseMiddleware<GlobalExceptionHandler>();
+
 
 
             app.UseRequestLocalization();
@@ -102,6 +105,7 @@ namespace Restaurant_Reservation_System_FinalProject
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.MapHub<ChatHub>("/chatHub");
 
             app.UseRouting();
 

@@ -7,7 +7,7 @@ namespace Restaurant_Reservation_System_.Core.Entittes
     public class Comment : BaseAuditableEntity
     {
         public string Text { get; set; } = null!;
-        public string AppUserId { get; set; } = null!;
+        public string? AppUserId { get; set; }
         public AppUser AppUser { get; set; } = null!;
         public int? ProductId { get; set; }
         public Product? Product { get; set; } = null!;
@@ -16,7 +16,7 @@ namespace Restaurant_Reservation_System_.Core.Entittes
         //[NotMapped] 
         //public double AverageRating { get; set; }
         public Comment? Parent { get; set; } = null!;
-        public List<Comment> Children { get; set; } = [];
+        public ICollection<Comment> Children { get; set; } = [];
 
     }
 }

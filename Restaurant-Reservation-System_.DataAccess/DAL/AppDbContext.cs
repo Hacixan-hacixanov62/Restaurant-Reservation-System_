@@ -2,6 +2,7 @@
 using Restaurant_Reservation_System_.Core.Entittes;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Dannys.Interceptors;
+using Restaurant_Reservation_System_.DataAccess.Configurations;
 
 namespace Restaurant_Reservation_System_.DataAccess.DAL
 {
@@ -36,7 +37,7 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL
         public DbSet<Blog> Blogs { get; set; } = null!;
         public DbSet<Topic> Topics { get; set; } = null!;
         public DbSet<BlogTopic> BlogTopics { get; set; } = null!;
-
+        public DbSet<Contact> Contacts { get; set; } = null!;
         public DbSet<Table> Tables { get; set; } = null!;
         public DbSet<Reservation> Reservations { get; set; } = null!;
         public DbSet<Subscribe> Subscribes { get; set; } = null!;
@@ -45,26 +46,41 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL
         public DbSet<CartItem> CartItems { get; set; } = null!;
         public DbSet<Order> Orders { get; set; } = null!;
         public DbSet<OrderItem> OrderItems { get; set; } = null!;
-        public DbSet<Message> Messages { get; set; } = null!; // Message(SignalR) hele teze baslamisam Migration elemek olmur buna bax !!!!
-                                                              // Reservation Tablede de men CartServicede Methoda Products error verir neye gore Collectondan product istediyne gore oradada migrationa gore problem var  ona da Bax !!!
+
+        // SignalR Chat
+        public DbSet<Message> Messages  { get; set; } = null!;
+        public DbSet<Chat> Chats { get; set; } = null!;
+        public DbSet<AppUserChat> AppUserChats { get; set; } = null!;
+
+
+
+        // Message(SignalR) hele teze baslamisam Migration elemek olmur buna bax !!!!
+        // Reservation Tablede de men CartServicede Methoda Products error verir neye gore Collectondan product istediyne gore oradada migrationa gore problem var  ona da Bax !!!
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<BlogTopic>().HasKey(x => new { x.BlogId, x.TopicId });
             modelBuilder.Entity<ProductIngredient>().HasKey(x => new { x.ProductId, x.IngredientId });
             modelBuilder.Entity<Comment>().HasQueryFilter(x => !x.IsDeleted);
+             // HATAYI ÖNLER
 
-            modelBuilder.Entity<Comment>()
-                .HasOne(c => c.Parent)
-                .WithMany(c => c.Children)
-                .HasForeignKey(c => c.ParentId)
-                .OnDelete(DeleteBehavior.Restrict); // HATAYI ÖNLER
+           modelBuilder.ApplyConfigurationsFromAssembly(typeof(CommentConfiguration).Assembly);
 
-            base.OnModelCreating(modelBuilder);
+            foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            {
+                relationship.DeleteBehavior = DeleteBehavior.NoAction;
+            }
+
         }
+
+
 
     }
 }
+
+
 
 
 //dotnet ef migrations add InitialMigration --startup-project ..\Restaurant-Reservation-System_FinalProject -o .\DAL\Migrationsc

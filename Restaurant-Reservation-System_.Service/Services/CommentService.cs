@@ -164,7 +164,8 @@ namespace Restaurant_Reservation_System_.Service.Services
                ).ToListAsync();
             var dtos = _mapper.Map<List<CommentGetDto>>(comments);
 
-            return dtos;
+            return dtos;  // sonraa duzelt 
+
         }
 
         public Task<CommentUpdateDto> GetUpdatedDtoAsync(int id)
