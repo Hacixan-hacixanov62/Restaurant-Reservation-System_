@@ -17,14 +17,15 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
         private readonly IMapper _mapper;
         private readonly IEmailService _emailService;
         private readonly IReservationService _reservationService;
+        private readonly IQrCoderService _qrCoderService;
 
-
-        public ReservationController(AppDbContext context, IMapper mapper, IEmailService emailService, IReservationService reservationService)
+        public ReservationController(AppDbContext context, IMapper mapper, IEmailService emailService, IReservationService reservationService, IQrCoderService qrCoderService)
         {
             _context = context;
             _mapper = mapper;
             _emailService = emailService;
             _reservationService = reservationService;
+            _qrCoderService = qrCoderService;
         }
 
         public IActionResult Index()
@@ -113,11 +114,11 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             }
 
 
-            // Ən son rezervasiyanı əldə et
-            var latestReservation = await _reservationService.GetLatestReservationAsync(dto.Name, dto.Email);
+            //// Ən son rezervasiyanı əldə et
+            //var latestReservation = await _reservationService.GetLatestReservationAsync(dto.Name, dto.Email);
 
-            if (latestReservation == null)
-                return RedirectToAction(nameof(Index)); // Əgər tapılmadısa, rezervasiya səhifəsinə geri qayıt
+            //if (latestReservation == null)
+            //    return RedirectToAction(nameof(Index)); // Əgər tapılmadısa, rezervasiya səhifəsinə geri qayıt
 
             Reservation reservation = new()
             {
@@ -128,6 +129,10 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             };
             await _context.Reservations.AddAsync(reservation);
             await _context.SaveChangesAsync();
+
+            // string qrUrl = $"{Request.Scheme}://{Request.Host}/Menu/Index"; // Menyuya keçid 
+            string base64Qr = _qrCoderService.GenerateQrCode("https://localhost:7006/Menu/Index"); // base64 QR kodu
+
             string body = $@"
         <!DOCTYPE html>
         <html lang='en'>
@@ -212,9 +217,9 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
                             </tr>
                         </table>
                     </div>
-                    <p>We look forward to serving you!</p>
-                    <p>Best regards,<br>The Dannys Team</p>
+ 
                 </div>
+            <p>We look forward to serving you!</p>
                 <div class='email-footer'>
                     <p>&copy; 2003 Dannys Restaurant. All rights reserved.</p>
                 </div>
@@ -223,12 +228,18 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
         </html>
         ";
 
+            //<p>Below is your QR code for quick access to the menu:</p>
+            //           <div style='text-align:center; margin: 20px 0;'>                                                // BU hisse QrCode ucundur gonderende problem verdiyi ucun burada commente atmisam
+            //               <img src='{base64Qr}' alt='Menu QR Code' style='width:120px; height:120px;' />
+            //           </div>
+
+
             // Send the email
             await _emailService.SendEmailAsync(new() { Body = body, Subject = "Reservation Detail", ToEmail = reservation.Email });
 
             TempData["message"] = "Reservation is successfully done.";
 
-            return RedirectToAction("Index",new {id =latestReservation.ReservationNumber});
+            return RedirectToAction("Index");
         }
 
 

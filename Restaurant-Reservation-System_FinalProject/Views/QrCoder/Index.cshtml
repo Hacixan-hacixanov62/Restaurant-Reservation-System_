@@ -1,0 +1,17 @@
+﻿
+<div class="container">
+    <h3>QR Code Oluşturma</h3> 
+     <form method="post"> 
+        <input type="text" name="value" /> 
+        <input type="submit" value="QR Code Oluştur" class="btn btn-warning" />
+        
+     </form> 
+
+    <br />
+    @if (ViewBag.QRCodeImage != null)
+    {
+        <img src="@ViewBag.QRCodeImage" alt="" style="width:120px;height:120px" />
+    }
+</div>
+
+

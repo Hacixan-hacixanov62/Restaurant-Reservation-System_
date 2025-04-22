@@ -159,7 +159,7 @@
                                 15% discount
                                 coupon
                             </div>
-                            <form method="post" class="js-mcForm dn-widgetNewsletter-form"
+                            <form method="post" asp-controller="Blog" asp-action="SubscribeNewsletter" class="js-mcForm dn-widgetNewsletter-form"
                                   data-url="https://demos.hogash.com/dannys/" name="newsletter_form">
                                 <input type="email" name="mc_email"
                                        class="form-control dn-widgetNewsletter-email js-mcForm-email" value=""
@@ -167,9 +167,10 @@
                                 <input type="hidden" name="mailchimp_list" class="nl-lid" value="ec23162409">
                                 <input type="hidden" name="nonce" value="d84097bcc5" class="zn_hg_mailchimp">
                                 <input type="hidden" name="action" value="hg_mailchimp_register">
-                                <input type="submit" name="submit"
-                                       class="dn-widgetNewsletter-submit btn btn-default btn-default--whover"
-                                       value="SUBSCRIBE">
+                                <button type="submit" name="submit"
+                                        class="dn-widgetNewsletter-submit btn btn-default btn-default--whover">
+                                    SUBSCRIBE
+                                </button>
                             </form>
                         </div>
                         <div class="featured">

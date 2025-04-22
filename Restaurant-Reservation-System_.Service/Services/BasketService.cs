@@ -210,7 +210,7 @@ namespace Restaurant_Reservation_System_.Service.Services
 
         private string _getUserId()
         {
-            return _contextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+            return _contextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.NameIdentifier) ;
         }
 
 
@@ -395,65 +395,74 @@ namespace Restaurant_Reservation_System_.Service.Services
 
             if (userId != null)
             {
-
-                var basketItem = _context.CartItems.FirstOrDefault(x => x.AppUserId == userId && x.ProductId == id);
+                var basketItem = _context.CartItems
+                    .Include(x => x.Product)
+                    .ThenInclude(p => p.ProductImages)
+                    .FirstOrDefault(x => x.AppUserId == userId && x.ProductId == id);
 
                 if (basketItem == null)
                     throw new NotFoundException("Data NotFound");
-                else
-                {
-                    _context.CartItems.Remove(basketItem);
-                    _context.SaveChanges();
-                }
 
-                var basketItems = _context.CartItems.Include(x => x.Product).ThenInclude(p => p.ProductImages).Where(x => x.AppUserId == userId).ToList();
+                _context.CartItems.Remove(basketItem);
+                _context.SaveChanges();
+
+                var basketItems = _context.CartItems
+                    .Include(x => x.Product)
+                    .ThenInclude(p => p.ProductImages)
+                    .Where(x => x.AppUserId == userId)
+                    .ToList();
+
                 foreach (var item in basketItems)
                 {
+                    var productDto = _mapper.Map<ProductGetDto>(item.Product);
 
                     CartItemDto basketItemVM = new CartItemDto
                     {
                         Count = item.Count,
-                        Product = _mapper.Map<ProductGetDto>(item.Product)
+                        Product = productDto
                     };
 
                     vm.Items.Add(basketItemVM);
-
-                    vm.Total += (basketItemVM.Product.Discount > 0 ? basketItemVM.Product.Discount : basketItemVM.Product.Discount) * basketItemVM.Count;
-
+                    vm.Total += (productDto.Discount > 0 ? productDto.Discount : productDto.Price) * basketItemVM.Count;
                 }
-
-
             }
-            else
+            else 
             {
-                
-                var cartItems = _readCartFromCookie(); // Read from cookie
-
+                var cartItems = _readCartFromCookie(); 
                 var existItem = cartItems.FirstOrDefault(x => x.ProductId == id);
+
                 if (existItem == null)
-                    throw new NotFoundException();
+                    throw new NotFoundException("Data NotFound");
 
                 cartItems.Remove(existItem);
-                _writeCartInCookie(cartItems); // Update cookie
+                _writeCartInCookie(cartItems); 
 
                 foreach (var cItem in cartItems)
                 {
+                    var product = _context.Products
+                        .Include(x => x.ProductImages)
+                        .FirstOrDefault(p => p.Id == cItem.ProductId);
+
+                    if (product == null)
+                    {
+                        continue;
+                    }
+
+                    var productDto = _mapper.Map<ProductGetDto>(product);
+
                     CartItemDto basketItemVM = new CartItemDto
                     {
                         Count = cItem.Count,
-                        Product = _mapper.Map<ProductGetDto>(cItem.ProductId)
+                        Product = productDto
                     };
 
                     vm.Items.Add(basketItemVM);
-
-                    vm.Total += (basketItemVM.Product.Discount > 0 ? basketItemVM.Product.Discount : basketItemVM.Product.Discount) * basketItemVM.Count;
-
+                    vm.Total += (productDto.Discount > 0 ? productDto.Discount : productDto.Price) * basketItemVM.Count;
                 }
-
-
             }
-            return Task.CompletedTask;
 
+            return Task.CompletedTask;
         }
+
     }
 }

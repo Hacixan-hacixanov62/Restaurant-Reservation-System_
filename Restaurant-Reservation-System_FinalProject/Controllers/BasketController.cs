@@ -30,7 +30,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
         public async Task<IActionResult> Index()
         {
             var cartItems = await GetBasketAsync();
-            return View(cartItems);
+            return View(cartItems); 
         }
 
         public async Task<IActionResult> GetCartSection()
@@ -47,12 +47,6 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
 
             return Redirect(returnUrl);
         }
-
-        //public IActionResult RedirectForCart()  
-        //{
-           
-        //    return PartialView("_BasketModalPartial");
-        //}
         
         public async Task<IActionResult> AddToCart(int id, int count = 1)
         {
@@ -104,7 +98,6 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
 
         [HttpPost]
         [Authorize]
-
         public async Task<IActionResult> Checkout(OrderCreateDto dto)
         {
 
@@ -162,13 +155,6 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             var serviceCharge = new ChargeService();
             Charge charge = serviceCharge.Create(optionsCharge);
 
-            //if(charge.Status != "succedeeded")
-            //{
-            //    ViewBag.CartItems =basketItems;
-            //    ModelState.AddModelError("Address", "Odenside problem var");
-            //    return View();
-            //}
-
             //===========================================================================
             Order order = new()
             {
@@ -206,33 +192,6 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             return RedirectToAction("Index", new { orderId = order.Id });
 
         }
-
-        //public class SuccessViewModel
-        //{
-        //    public string OrderId { get; set; }
-        //    public decimal TotalAmount { get; set; }
-        //    public string ShippingAddress { get; set; }
-        //}
-
-        //public IActionResult PaymentSuccess(int orderId)
-        //{
-        //    // Retrieve the order details using orderId
-        //    var order = _context.Orders.Include(o => o.OrderItems)
-        //                               .FirstOrDefault(o => o.Id ==orderId );
-
-        //    if (order == null)
-        //        return NotFound();
-
-        //    var viewModel = new SuccessViewModel
-        //    {
-        //        OrderId = order.Id.ToString(),
-        //        TotalAmount = order.OrderItems.Sum(oi => oi.TotalPrice),
-        //        ShippingAddress = $"{order.Street}, {order.City}, {order.Apartment}"
-        //    };
-
-        //    return View(viewModel);
-        //}
-
 
 
         private async Task<List<CartItem>> GetBasketAsync()

@@ -7,7 +7,7 @@
 
     foreach (var item in Model)
     {
-        totalPrice += item.Count * (item.Product.Price - (item.Product.Price * item.Product.Discount / 100));
+        (totalPrice += item.Count * (item.Product.Price - (item.Product.Price * item.Product.Discount / 100))).ToString("0.00");
     }
 }
 

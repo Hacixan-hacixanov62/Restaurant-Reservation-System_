@@ -1944,11 +1944,11 @@
           }
         }
       },
-      "QRCoder/1.4.3": {
+      "QRCoder/1.6.0": {
         "runtime": {
           "lib/net6.0/QRCoder.dll": {
-            "assemblyVersion": "1.4.3.0",
-            "fileVersion": "1.4.3.0"
+            "assemblyVersion": "1.6.0.0",
+            "fileVersion": "1.6.0.0"
           }
         }
       },
@@ -2601,7 +2601,7 @@
           "FluentValidation": "11.11.0",
           "FluentValidation.AspNetCore": "11.3.0",
           "MailKit": "4.10.0",
-          "QRCoder": "1.4.3",
+          "QRCoder": "1.6.0",
           "Restaurant-Reservation-System_.DataAccess": "1.0.0",
           "System.Drawing.Common": "6.0.0"
         },
@@ -3649,12 +3649,12 @@
       "path": "nuget.versioning/6.11.0",
       "hashPath": "nuget.versioning.6.11.0.nupkg.sha512"
     },
-    "QRCoder/1.4.3": {
+    "QRCoder/1.6.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-fWuFqjm8GTlEb2GqBl3Hi8HZZeZQwBSHxvRPtPjyNbT82H0ff0JwavKRBmMaXCno1Av6McPC8aJzri0Mj2w9Jw==",
-      "path": "qrcoder/1.4.3",
-      "hashPath": "qrcoder.1.4.3.nupkg.sha512"
+      "sha512": "sha512-XmPA81eo+oRxBuyVdswsSkTGTE1d3thfF11Z1PdD7oB56A6HU4G4AAOdySmGRMb/cljwlFTMWUtosGEnwpS6GA==",
+      "path": "qrcoder/1.6.0",
+      "hashPath": "qrcoder.1.6.0.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
       "type": "package",

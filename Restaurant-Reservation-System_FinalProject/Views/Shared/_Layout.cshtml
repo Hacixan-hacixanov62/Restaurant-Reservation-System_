@@ -63,7 +63,7 @@
                         Subscribe to our newsletter and receive 15% discount from your
                         order.
                     </h5>
-                    <form asp-controller="Home" asp-action="AddSubscriber" method="post" name="mc-embedded-subscribe-form" novalidate="" class="mail-box clearfix">
+                    <form id="subscribeForm" asp-controller="Home" asp-action="AddSubscriber" method="post" name="mc-embedded-subscribe-form" novalidate="" class="mail-box clearfix">
                         <div class="input-group stylish-input-group">
                             <input type="text" name="Email" class="form-control" placeholder="Your@mail.com"
                                    data-language="home.subscribe.placeholder" />
@@ -171,7 +171,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></script>
-
+    @*Swwet Alert*@
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @*Asagdaki script kodlar Home Pagedeki Comment Slidere mexsusdeur*@
     @* <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> *@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -186,7 +187,8 @@
     <script src="~/assets/js/account.js"></script>
     <script src="~/assets/js/mode.js"></script>
     <script src="~/assets/js/server.js"></script>
-
+    <script src="~/assets/js/subscribe.js" ></script>
+    <script src="~/assets/js/basketRemoveBasket.js"></script>
 
     @*Asagdaki Linkler account Page aiddir!*@
     <!--=======================Javascript============================-->

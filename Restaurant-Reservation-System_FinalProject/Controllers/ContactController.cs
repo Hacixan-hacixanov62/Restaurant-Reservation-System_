@@ -29,14 +29,8 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
                 return View(dto);
             }
 
-            return RedirectToAction(nameof(ThankYou));
+            return RedirectToAction(nameof(Index));
 
-        }
-
-
-        public IActionResult ThankYou()
-        {
-            return View();
         }
 
     }

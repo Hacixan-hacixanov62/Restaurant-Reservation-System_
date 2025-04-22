@@ -256,10 +256,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/API (Pb-202) _ Task/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject/Views/Contact/ThankYou.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxUaGFua1lvdS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/API (Pb-202) _ Task/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject/Views/Home/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFcnJvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -286,6 +282,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/API (Pb-202) _ Task/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject/Views/Order/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/API (Pb-202) _ Task/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject/Views/QrCoder/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXJDb2RlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/API (Pb-202) _ Task/Restaurant-Reservation-System_FinalProject/Restaurant-Reservation-System_FinalProject/Views/Reservation/ConfirmReservation.cshtml]

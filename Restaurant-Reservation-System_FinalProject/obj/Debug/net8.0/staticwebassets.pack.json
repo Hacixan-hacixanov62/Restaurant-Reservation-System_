@@ -4057,6 +4057,10 @@
       "PackagePath": "staticwebassets\\assets\\js\\account.js"
     },
     {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\js\\basketRemoveBasket.js",
+      "PackagePath": "staticwebassets\\assets\\js\\basketRemoveBasket.js"
+    },
+    {
       "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\js\\common.js",
       "PackagePath": "staticwebassets\\assets\\js\\common.js"
     },
@@ -4089,8 +4093,16 @@
       "PackagePath": "staticwebassets\\assets\\js\\reservation.js"
     },
     {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\js\\reservationSubmit.js",
+      "PackagePath": "staticwebassets\\assets\\js\\reservationSubmit.js"
+    },
+    {
       "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\js\\server.js",
       "PackagePath": "staticwebassets\\assets\\js\\server.js"
+    },
+    {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\js\\subscribe.js",
+      "PackagePath": "staticwebassets\\assets\\js\\subscribe.js"
     },
     {
       "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\styles\\_blog.scss",

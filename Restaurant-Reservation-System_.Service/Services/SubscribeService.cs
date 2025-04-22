@@ -38,6 +38,7 @@ namespace Restaurant_Reservation_System_.Service.Services
             }
 
             var subscribe = _mapper.Map<Subscribe>(dto);
+              subscribe.IsSubscribed = true;
 
             await _subscribeRepository.CreateAsync(subscribe);
             await _subscribeRepository.SaveChangesAsync();

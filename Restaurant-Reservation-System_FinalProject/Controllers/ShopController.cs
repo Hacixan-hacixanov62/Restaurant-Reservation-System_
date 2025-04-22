@@ -54,6 +54,27 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
                 Categories = categoryDtos
             };
 
+
+            // Əgər AJAX requestdirsə, sadəcə məhsulları json qaytar , Shopdaki produclari refressiz isletmek uzundur
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                var result = productDtos.Select(p => new
+                {
+                    id = p.Id,
+                    name = p.Name,
+                    price = p.Price,
+                    discount = p.Discount,
+                    productImgs = p.ProductImages.Select(i => new { url = i.Url, isMain = i.IsMain })
+                });
+
+                return Json(new
+                {
+                    products = result,
+                    count = result.Count()
+                });
+            }
+
+
             return View(shopDto);
         }
 
@@ -77,6 +98,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
 
             return View(dto);
         }
+        
 
 
         [HttpPost]

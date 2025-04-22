@@ -11,11 +11,11 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
     public class AccountController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
-        private readonly  SignInManager<AppUser> _signInManager;
+        private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly AppDbContext _context;
         private readonly IEmailService _emailService;
-        public AccountController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager,AppDbContext context,RoleManager<IdentityRole> roleManager, IEmailService emailService)
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, AppDbContext context, RoleManager<IdentityRole> roleManager, IEmailService emailService)
         {
             _context = context;
             _userManager = userManager;
@@ -81,7 +81,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View();
+                return View(userLoginVm);
             }
 
             AppUser appUser = await _userManager.FindByNameAsync(userLoginVm.UserNameOrEmail);
@@ -101,11 +101,11 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             if (!result.Succeeded)
             {
 
-                if (result.IsLockedOut)
-                {
-                    ModelState.AddModelError("", "Account is lockOut ...");
-                    return View(userLoginVm);
-                }
+                //if (result.IsLockedOut)
+                //{
+                //    ModelState.AddModelError("", "Account is lockOut ...");
+                //    return View(userLoginVm);
+                //}
 
                 ModelState.AddModelError("", "Invalid username or email ...");
                 return View(userLoginVm);
@@ -229,7 +229,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             }
 
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-            var url = Url.Action("VerifyPassword", "Account", new { email = user.Email, token = token }, Request.Scheme);
+            var url = Url.Action("ResetPassword", "Account", new { email = user.Email, token = token }, Request.Scheme);
 
 
             //create email
@@ -237,8 +237,8 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             var body = reader.ReadToEnd();
             body = body.Replace("{{url}}", url);
             body = body.Replace("{{username}}", user.UserName);
-          //  _emailService.SendEmail(user.Email, "ResetPassword", body);
-           await _emailService.SendEmailAsync(new() { Body = body, Subject = "ResetPassword", ToEmail = user.Email });//yoxla
+            //  _emailService.SendEmail(user.Email, "ResetPassword", body);
+            await _emailService.SendEmailAsync(new() { Body = body, Subject = "ResetPassword", ToEmail = user.Email });//yoxla
             TempData["Success"] = "Email sended to" + user.Email;
             return View();
         }
@@ -273,9 +273,12 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             return RedirectToAction("ResetPassword");
         }
 
-        public IActionResult ResetPassword()
+        public IActionResult ResetPassword(string token, string email)
         {
-            return View();
+            if (token == null || email == null) return BadRequest();
+
+            var model = new ResetPasswordVM { Email = email, Token = token };
+            return View(model);
         }
 
         [HttpPost]

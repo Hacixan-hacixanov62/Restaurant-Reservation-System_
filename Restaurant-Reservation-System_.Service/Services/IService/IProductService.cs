@@ -15,9 +15,6 @@ namespace Restaurant_Reservation_System_.Service.Services.IService
         Task<List<Product>> GetAllAsync();
         Task EditAsync(int id, ProductUpdateDto productUpdateDto);
 
-        //Task<ProductCreateDto> GetCreatedDtoAsync();
-        //Task<ProductCreateDto> GetCreatedDtoAsync(ProductCreateDto dto);
-        //Task<ProductUpdateDto> GetUpdatedDtoAsync(ProductUpdateDto dto);
         Task<bool> IsExistAsync(int id);
         Task<ProductGetDto> GetByIdAsync(int productId);
 

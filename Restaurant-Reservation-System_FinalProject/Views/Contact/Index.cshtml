@@ -3,6 +3,13 @@
 @{
     Layout = "_Layout";
 }
+
+<style>
+    .error {
+        color: red;
+        font-size: 12px;
+    }
+</style>
 <main class="contact">
     <section id="News-banner">
         <div class="banner-part">
@@ -23,26 +30,29 @@
                 <div class="col-sm-10 col-md-8 col-centered">
                     <h5>contact details</h5>
 
-                    <form class="dn__contact-form" method="post">
+                    <form id="contactForm" class="dn__contact-form" method="post">
                         <div class="row">
                             <div class="col-sm-4 col-md-4">
                                 <div class="form-group">
                                     <label for="exampleInputtext1">Fullname</label>
-                                    <input type="text" class="form-control" asp-for="Name" id="exampleInputtext1">
+                                    <input id="fullname" type="text" class="form-control" asp-for="Name" id="exampleInputtext1">
+                                    <span class="error" id="nameError"></span>
                                 </div>
                             </div>
 
                             <div class="col-sm-4 col-md-4">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email</label>
-                                    <input type="email" class="form-control" asp-for="Email" id="exampleInputEmail1">
+                                    <input id="email" type="email" class="form-control" asp-for="Email" id="exampleInputEmail1">
+                                    <span class="error" id="emailError"></span>
                                 </div>
                             </div>
 
                             <div class="col-sm-4 col-md-4">
                                 <div class="form-group">
                                     <label for="exampleInputtext2">phone</label>
-                                    <input type="text" class="form-control" asp-for="Phone" id="exampleInputtext2">
+                                    <input id="phone" type="text" class="form-control" asp-for="Phone" id="exampleInputtext2">
+                                    <span class="error" id="phoneError"></span>
                                 </div>
                             </div>
                         </div>
@@ -52,7 +62,8 @@
                                 <div class="js-cf-message"></div>
                                 <div class="form-group">
                                     <label for="exampleInputtext3">message</label>
-                                    <textarea class="form-control" rows="7" asp-for="Message" id="exampleInputtext3"></textarea>
+                                    <textarea id="message" class="form-control" rows="7" asp-for="Message" id="exampleInputtext3"></textarea>
+                                    <span class="error" id="messageError"></span>
                                 </div>
                             </div>
                         </div>
@@ -103,3 +114,58 @@
 
     });
 </script>
+
+
+<script>
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      let isValid = true;
+
+      // Clear previous errors
+      document.querySelectorAll(".error").forEach(el => el.innerText = "");
+
+      const name = document.getElementById("fullname").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (name === "") {
+        document.getElementById("nameError").innerText = "Fullname is required.";
+        isValid = false;
+      }
+
+      if (email === "") {
+        document.getElementById("emailError").innerText = "Email is required.";
+        isValid = false;
+      }
+
+      if (phone === "") {
+        document.getElementById("phoneError").innerText = "Phone is required.";
+        isValid = false;
+      }
+
+      if (message === "") {
+        document.getElementById("messageError").innerText = "Message is required.";
+        isValid = false;
+      }
+
+      if (isValid) {
+        Swal.fire({
+          title: 'Təşəkkür edirik!',
+          text: 'Mesajınız uğurla göndərildi.',
+          icon: 'success',
+          confirmButtonText: 'Bağla'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Formu göndər (real olaraq controller-a POST getsin)
+            document.getElementById("contactForm").submit();
+          }
+        });
+      }
+    });
+</script>
+
+
+
+        

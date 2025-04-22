@@ -6,10 +6,9 @@
 
     foreach (var item in Model)
     {
-        totalPrice += item.Count * (item.Product.Price - (item.Product.Price * item.Product.Discount / 100));
+        (totalPrice += item.Count * (item.Product.Price - (item.Product.Price * item.Product.Discount / 100))).ToString("0.00");
     }
 }
-
 
 <main class="cart">
     <section id="News-banner">
@@ -45,7 +44,7 @@
                                 {
                                     <tr>
                                         <td class="product-remove">
-                                            <a asp-controller="basket" asp-action="RemoveToCart" asp-route-id="@item.Product.Id">X</a>
+                                            <a asp-controller="basket" asp-action="RemoveToCart" asp-route-id="@item.Product.Id" class="remove-from-cart" data-product-id="@item.Product.Id">X</a>
                                         </td>
                                         <td class="product-thumbnail">
                                             <a asp-controller="shop" asp-action="Detail" asp-route-id="@item.Product.Id" class="imageCol">
@@ -60,7 +59,7 @@
                                         <td class="product-price " data-title="Price">
                                             @if (item.Product.Discount > 0)
                                             {
-                                                <span class="price "> $@(item.Product.Price - (item.Product.Price * item.Product.Discount / 100))</span>
+                                                <span class="price "> $@((item.Product.Price - (item.Product.Price * item.Product.Discount / 100)).ToString("0.00"))</span>
                                             }
                                             else
                                             {
@@ -93,7 +92,7 @@
                                             </div>
                                         </td>
                                         <td class="product-subtotal" data-title="Total">
-                                            <span class="BasketItemTotalPrice">$@(item.Count * (item.Product.Price - (item.Product.Price * item.Product.Discount / 100)))</span>
+                                            <span class="BasketItemTotalPrice">$@((item.Count * (item.Product.Price - (item.Product.Price * item.Product.Discount / 100))).ToString("0.00"))</span>
                                         </td>
                                     </tr>
 
@@ -101,28 +100,6 @@
 
 
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td colspan="6" class="act">
-                                        <div class="coupon">
-                                            <input type="text"
-                                                   name="coupon_code"
-                                                   class="input-text"
-                                                   id="coupon_code"
-                                                   value=""
-                                                   placeholder="Coupon code" />
-                                            <input type="submit"
-                                                   class="btn"
-                                                   name="apply_coupon"
-                                                   value="Apply coupon" />
-                                        </div>
-
-                                        <div class="update-cart">
-                                            <a asp-action="GetCartSection" asp-controller="Basket" class="btn btn-default">Update Cart</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tfoot>
                         </table>
                     </div>
                 </form>
@@ -224,7 +201,8 @@
                         });
                     });
                 }
-            });</script>
+            });
+</script>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {

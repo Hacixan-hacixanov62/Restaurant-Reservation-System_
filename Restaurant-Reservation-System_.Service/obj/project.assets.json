@@ -842,7 +842,7 @@
           }
         }
       },
-      "QRCoder/1.4.3": {
+      "QRCoder/1.6.0": {
         "type": "package",
         "compile": {
           "lib/net6.0/QRCoder.dll": {}
@@ -3292,10 +3292,10 @@
         "packageIcon.png"
       ]
     },
-    "QRCoder/1.4.3": {
-      "sha512": "fWuFqjm8GTlEb2GqBl3Hi8HZZeZQwBSHxvRPtPjyNbT82H0ff0JwavKRBmMaXCno1Av6McPC8aJzri0Mj2w9Jw==",
+    "QRCoder/1.6.0": {
+      "sha512": "XmPA81eo+oRxBuyVdswsSkTGTE1d3thfF11Z1PdD7oB56A6HU4G4AAOdySmGRMb/cljwlFTMWUtosGEnwpS6GA==",
       "type": "package",
-      "path": "qrcoder/1.4.3",
+      "path": "qrcoder/1.6.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3309,7 +3309,7 @@
         "lib/netstandard2.0/QRCoder.dll",
         "nuget-icon.png",
         "nuget-readme.md",
-        "qrcoder.1.4.3.nupkg.sha512",
+        "qrcoder.1.6.0.nupkg.sha512",
         "qrcoder.nuspec"
       ]
     },
@@ -6117,7 +6117,7 @@
       "FluentValidation >= 11.11.0",
       "FluentValidation.AspNetCore >= 11.3.0",
       "MailKit >= 4.10.0",
-      "QRCoder >= 1.4.3",
+      "QRCoder >= 1.6.0",
       "Restaurant-Reservation-System_.DataAccess >= 1.0.0",
       "System.Drawing.Common >= 6.0.0"
     ]
@@ -6195,7 +6195,7 @@
           },
           "QRCoder": {
             "target": "Package",
-            "version": "[1.4.3, )"
+            "version": "[1.6.0, )"
           },
           "System.Drawing.Common": {
             "target": "Package",

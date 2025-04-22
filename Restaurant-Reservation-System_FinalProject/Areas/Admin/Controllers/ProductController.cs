@@ -197,30 +197,17 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            try
-            {
-                await _productService.DeleteAsync(id);
-                return RedirectToAction("Index");
-            }
-            catch (Exception ex)
-            {
-                return NotFound(ex.Message); // Slider tapılmadıqda
-            }
+            await _productService.DeleteAsync(id);
+            return RedirectToAction("Index");
+
         }
 
 
         [HttpGet("admin/Product/detail")]
         public async Task<IActionResult> Detail(int id)
         {
-            try
-            {
-                var produc = await _productService.DetailAsync(id);
-                return View(produc);
-            }
-            catch (Exception ex)
-            {
-                return NotFound(ex.Message); // Slider tapılmadıqda
-            }
+            var produc = await _productService.DetailAsync(id);
+            return View(produc);
         }
 
     }

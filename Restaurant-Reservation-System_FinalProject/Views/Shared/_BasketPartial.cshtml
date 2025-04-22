@@ -10,12 +10,12 @@
         <div class="cart-item">
             <img src="@cartItem.MainImage" alt="Product" width="50"> 
             <div class="cart-details">
-                <a asp-action="Index" asp-controller="Menu" asp-route-id="@cartItem.ProductId">
+                <a asp-controller="Shop" asp-action="Detail" asp-route-id="@product.Id">
                     @cartItem.Product.Name
                 </a>
                 @* <span>1 × £87.34</span> *@
                 <p class="price"><span class="qty">@cartItem.Count ×</span> £@(cartItem.Product.Discount * cartItem.Product.Price)</p>
-                <a asp-action="DeleteBasket" asp-controller="Basket" asp-route-id="@cartItem.Product.Id" class="cross-btn">
+                <a asp-action="DeleteBasket" asp-controller="Basket" asp-route-id="@cartItem.Product.Id" class="cross-btn" >
                     <i class="fas fa-times"></i>
                 </a>
 
@@ -37,3 +37,4 @@ else
         Cart is Empty
     </p>
 }
+

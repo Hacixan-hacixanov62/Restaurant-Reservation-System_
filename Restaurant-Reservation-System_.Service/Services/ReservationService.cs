@@ -76,19 +76,5 @@ namespace Restaurant_Reservation_System_.Service.Services
             return reservationDto;
         }
 
-        //public async Task<ReservationDto> GetReservationAsync(int id)
-        //{
-        //    var reservation = await _reservationRepository.GetAll()
-        //        .Include(r => r.Products)
-        //        .FirstOrDefaultAsync(r => r.Id == id);
-
-        //    if (reservation == null)
-        //        throw new KeyNotFoundException("Reservation not found");
-
-        //    var reservationDto = _mapper.Map<ReservationDto>(reservation);
-
-
-        //    return reservationDto;
-        //}
     }
 }

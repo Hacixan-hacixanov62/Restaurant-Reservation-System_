@@ -5,10 +5,10 @@ namespace Restaurant_Reservation_System_FinalProject.ViewModels
     public class UserLoginVM
     {
         [Required]
-        public string? UserNameOrEmail { get; set; }
+        public string UserNameOrEmail { get; set; } = null!;
         [DataType(DataType.Password)]
         [Required]
-        public string? Password { get; set; }
-        public bool RememberMe { get; set; }
+        public string Password { get; set; } =null!;
+        public bool RememberMe { get; set; } = false;
     }
 }

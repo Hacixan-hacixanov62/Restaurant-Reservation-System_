@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Restaurant_Reservation_System_.Service.Dtos.SubscribeDtos;
 using Restaurant_Reservation_System_.Service.Services.IService;
 
 namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin,Superadmin")]
     public class SubscribeController : Controller
     {
         private readonly ISubscribeService _subscribeService;

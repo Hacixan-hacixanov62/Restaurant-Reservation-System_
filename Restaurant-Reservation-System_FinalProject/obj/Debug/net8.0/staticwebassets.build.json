@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aMQCYscRbV6tBwJNDBeONVlbSc0L7yL1ZpFAwGubEnQ=",
+  "Hash": "Kv4ceLUCsYCtq5PKcBxmFZ8+2+kh6gvSjJv99wfoDTA=",
   "Source": "Restaurant-Reservation-System_FinalProject",
   "BasePath": "_content/Restaurant-Reservation-System_FinalProject",
   "Mode": "Default",
@@ -21332,6 +21332,27 @@
       "OriginalItemSpec": "wwwroot\\assets\\js\\account.js"
     },
     {
+      "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\js\\basketRemoveBasket.js",
+      "SourceId": "Restaurant-Reservation-System_FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\",
+      "BasePath": "_content/Restaurant-Reservation-System_FinalProject",
+      "RelativePath": "assets/js/basketRemoveBasket#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "mqc03ghjr3",
+      "Integrity": "gsyC/1p/r9rhsSZQUhBxzQdUMRwAyfvyapVJNxA16XY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\basketRemoveBasket.js"
+    },
+    {
       "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\js\\common.js",
       "SourceId": "Restaurant-Reservation-System_FinalProject",
       "SourceType": "Discovered",
@@ -21500,6 +21521,27 @@
       "OriginalItemSpec": "wwwroot\\assets\\js\\reservation.js"
     },
     {
+      "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\js\\reservationSubmit.js",
+      "SourceId": "Restaurant-Reservation-System_FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\",
+      "BasePath": "_content/Restaurant-Reservation-System_FinalProject",
+      "RelativePath": "assets/js/reservationSubmit#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "aldrhha1yp",
+      "Integrity": "cg2JR8JezK2PrsLl/9FSurCWk6Uf00SJikvtdWZV2Wo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\reservationSubmit.js"
+    },
+    {
       "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\js\\server.js",
       "SourceId": "Restaurant-Reservation-System_FinalProject",
       "SourceType": "Discovered",
@@ -21519,6 +21561,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\js\\server.js"
+    },
+    {
+      "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\js\\subscribe.js",
+      "SourceId": "Restaurant-Reservation-System_FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\",
+      "BasePath": "_content/Restaurant-Reservation-System_FinalProject",
+      "RelativePath": "assets/js/subscribe#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "qkdvz3len4",
+      "Integrity": "hupNu7nPq/uMoawjA5jbObWJ9uHSovacSnpLgeEsa/Q=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\subscribe.js"
     },
     {
       "Identity": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\styles\\_blog.scss",
@@ -106490,6 +106553,88 @@
       ]
     },
     {
+      "Route": "assets/js/basketRemoveBasket.js",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\js\\basketRemoveBasket.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2241"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gsyC/1p/r9rhsSZQUhBxzQdUMRwAyfvyapVJNxA16XY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Apr 2025 15:16:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gsyC/1p/r9rhsSZQUhBxzQdUMRwAyfvyapVJNxA16XY="
+        }
+      ]
+    },
+    {
+      "Route": "assets/js/basketRemoveBasket.mqc03ghjr3.js",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\js\\basketRemoveBasket.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2241"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gsyC/1p/r9rhsSZQUhBxzQdUMRwAyfvyapVJNxA16XY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Apr 2025 15:16:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mqc03ghjr3"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/js/basketRemoveBasket.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gsyC/1p/r9rhsSZQUhBxzQdUMRwAyfvyapVJNxA16XY="
+        }
+      ]
+    },
+    {
       "Route": "assets/js/common.js",
       "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\js\\common.js",
       "Selectors": [],
@@ -107146,6 +107291,88 @@
       ]
     },
     {
+      "Route": "assets/js/reservationSubmit.aldrhha1yp.js",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\js\\reservationSubmit.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "866"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cg2JR8JezK2PrsLl/9FSurCWk6Uf00SJikvtdWZV2Wo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Apr 2025 16:02:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "aldrhha1yp"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/js/reservationSubmit.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-cg2JR8JezK2PrsLl/9FSurCWk6Uf00SJikvtdWZV2Wo="
+        }
+      ]
+    },
+    {
+      "Route": "assets/js/reservationSubmit.js",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\js\\reservationSubmit.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "866"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cg2JR8JezK2PrsLl/9FSurCWk6Uf00SJikvtdWZV2Wo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Apr 2025 16:02:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-cg2JR8JezK2PrsLl/9FSurCWk6Uf00SJikvtdWZV2Wo="
+        }
+      ]
+    },
+    {
       "Route": "assets/js/server.g64qikb66q.js",
       "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\js\\server.js",
       "Selectors": [],
@@ -107224,6 +107451,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-qOn9/jGsQVwyUDnCLtLbyjqGXa+7eBm4FFD3tlaT8uc="
+        }
+      ]
+    },
+    {
+      "Route": "assets/js/subscribe.js",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\js\\subscribe.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1663"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hupNu7nPq/uMoawjA5jbObWJ9uHSovacSnpLgeEsa/Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Apr 2025 14:49:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-hupNu7nPq/uMoawjA5jbObWJ9uHSovacSnpLgeEsa/Q="
+        }
+      ]
+    },
+    {
+      "Route": "assets/js/subscribe.qkdvz3len4.js",
+      "AssetFile": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\js\\subscribe.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1663"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hupNu7nPq/uMoawjA5jbObWJ9uHSovacSnpLgeEsa/Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Apr 2025 14:49:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qkdvz3len4"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/js/subscribe.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hupNu7nPq/uMoawjA5jbObWJ9uHSovacSnpLgeEsa/Q="
         }
       ]
     },
@@ -108316,7 +108625,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 19 Apr 2025 20:21:35 GMT"
+          "Value": "Sun, 20 Apr 2025 15:15:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -108361,7 +108670,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 19 Apr 2025 20:21:35 GMT"
+          "Value": "Sun, 20 Apr 2025 15:15:48 GMT"
         },
         {
           "Name": "Cache-Control",

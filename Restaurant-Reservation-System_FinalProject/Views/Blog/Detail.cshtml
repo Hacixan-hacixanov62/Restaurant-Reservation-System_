@@ -231,7 +231,7 @@
                             <div class="dn-widgetNewsletter-intro">
                                 Subscribe and get information about the newest products.
                             </div>
-                            <form method="post" asp-action="SubscribeNewsletter">
+                            <form id="subscribeForm" method="post" asp-controller="Blog" asp-action="SubscribeNewsletter">
                                 <input type="email" name="mc_email"
                                        class="form-control dn-widgetNewsletter-email js-mcForm-email" value=""
                                        placeholder="your.address@email.com">

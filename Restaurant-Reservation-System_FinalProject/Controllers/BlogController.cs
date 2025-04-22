@@ -129,15 +129,12 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
         {
             if (string.IsNullOrEmpty(mc_email))
             {
-                // Əgər e-poçt boşdursa, istifadəçini səhifəyə yenidən qaytarın və xəbərdarlıq göstərin
                 TempData["Error"] = "Please enter a valid email address.";
-                return Redirect(Request.Headers["Referer"].ToString() + "#newsletter"); // Səhifəyə geri dön və `newsletter` hissəsinə fokuslan
+                return Redirect(Request.Headers["Referer"].ToString() + "#newsletter"); 
             }
 
-            // Newsletter üçün əlavə məntiq (məsələn, email saxlama və ya API çağırışı)
             TempData["Success"] = "Thank you for subscribing to our newsletter!";
 
-            // İstifadəçini yenidən səhifəyə yönləndir və `newsletter` hissəsinə fokuslan
             return Redirect(Request.Headers["Referer"].ToString() + "#newsletter");
         }
     
