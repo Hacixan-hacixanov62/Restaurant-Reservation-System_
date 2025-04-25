@@ -25,7 +25,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
         public async Task<IActionResult> Index(int? chefId)
         {
            
-            var topics = await _context.Topics.ToListAsync();
+            var categories = await _context.Categories.ToListAsync();
             var result = _context.Blogs.Include(x => x.Chef)
                                        .Include(x => x.BlogTopics).ThenInclude(x => x.Topic);
 
@@ -44,7 +44,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             BlogVM blogVM = new BlogVM()
             {
                 Blogs = blogs,
-                Topics = topics
+                Categories = categories
             };
 
 
@@ -53,7 +53,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
 
         public async Task<IActionResult> Detail(int id)
         {
-            var topics = await _context.Topics.ToListAsync();
+            var categories = await _context.Categories.ToListAsync();
             var blog = await _context.Blogs.Include(x => x.Chef).Include(x => x.BlogTopics).ThenInclude(x => x.Topic).FirstOrDefaultAsync(x => x.Id == id);
             var comments = await _commentService.GetBlogCommentsAsync(id);
             var isAllowBlogComment = await _commentService.CheckIsAllowBlogCommentAsync(id);
@@ -72,7 +72,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             BlogDetailVM blogVm = new()
             {
                 Blog = blog,
-                Topics = topics,
+               Categories = categories,
                 BlogComments = comments,
                 IsAllowBlogComment = isAllowBlogComment,
                 NextBlogId = nextBlogId,

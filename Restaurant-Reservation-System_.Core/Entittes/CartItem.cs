@@ -2,7 +2,7 @@
 
 namespace Restaurant_Reservation_System_.Core.Entittes
 {
-    public class CartItem:BaseEntity
+    public class CartItem:BaseAuditableEntity
     {
         public int ProductId { get; set; }
         public Product Product { get; set; }

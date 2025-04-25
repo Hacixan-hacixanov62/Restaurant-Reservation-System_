@@ -33,5 +33,16 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             var categories = await _context.Categories.Include(x => x.Products).ThenInclude(x => x.ProductImages).Where(x => x.Products.Count > 0).ToListAsync();
             return View(categories);
         }
+
+
+        //Asagdaki Actionu men Fake MenuLinki yeni menyulari gostermek ucun fakleink yaratmaq ucun yazdim 
+
+        [HttpGet("fakeMenuLink/{bookingId}")]
+        public IActionResult FakeMenuLink(string bookingId)
+        {
+            // Sahte linki işleyebiliriz, örneğin bookingId'yi loglayabiliriz
+            // Ardından kullanıcıyı gerçek menü sayfasına yönlendirebiliriz
+            return RedirectToAction("Index", "Menu");
+        }
     }
 }

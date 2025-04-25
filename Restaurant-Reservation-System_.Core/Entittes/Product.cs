@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Restaurant_Reservation_System_.Core.Entittes
 {
-    public class Product:BaseEntity
+    public class Product: BaseAuditableEntity
     {
         [Required]
         [StringLength(maximumLength: 150)]

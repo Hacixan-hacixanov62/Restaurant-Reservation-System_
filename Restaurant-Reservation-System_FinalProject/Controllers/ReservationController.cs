@@ -130,8 +130,9 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             await _context.Reservations.AddAsync(reservation);
             await _context.SaveChangesAsync();
 
-            // string qrUrl = $"{Request.Scheme}://{Request.Host}/Menu/Index"; // Menyuya keçid 
-            string base64Qr = _qrCoderService.GenerateQrCode("https://localhost:7006/Menu/Index"); // base64 QR kodu
+            //string qrFullUrl = $"{Request.Scheme}://{Request.Host}/assets/images/qr/QR_codee.svg"; Demeli bele yazanda sene sekil gosterir ancaq menyuya gede bilmirsen
+            var (qrImagePath, bookingId) = _qrCoderService.GenerateQRCode();
+            string qrFullUrl = $"{Request.Scheme}://{Request.Host}{qrImagePath}";
 
             string body = $@"
         <!DOCTYPE html>
@@ -217,6 +218,10 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
                             </tr>
                         </table>
                     </div>
+  <p>Below is your QR code for quick access to the menu:</p>
+<div style='text-align:center; margin: 20px 0;'>
+    <img src='{qrFullUrl}' alt='Menu QR Code' style='width:120px; height:120px;' />
+</div>
  
                 </div>
             <p>We look forward to serving you!</p>

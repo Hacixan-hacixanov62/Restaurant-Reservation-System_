@@ -37,13 +37,21 @@ public class BaseEntityInterceptor : SaveChangesInterceptor
                 entry.Entity.UpdatedAt = DateTime.UtcNow;
                 entry.Entity.CreatedBy = _contextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.Name) ?? "Null";
                 entry.Entity.UpdatedBy = _contextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.Name) ?? "Null"; ;
-                entry.Entity.IsDeleted = false;
+               // entry.Entity.IsDeleted = false;
             }
             if (entry.State is EntityState.Modified)
             {
                 entry.Entity.UpdatedBy = _contextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.Name) ?? "Null";
                 entry.Entity.UpdatedAt = DateTime.UtcNow;
             }
+            
+            if(entry.State is EntityState.Deleted)
+            {
+                entry.State = EntityState.Modified;
+                entry.Entity.IsDeleted = true;
+            }
+
         }
+
     }
 }

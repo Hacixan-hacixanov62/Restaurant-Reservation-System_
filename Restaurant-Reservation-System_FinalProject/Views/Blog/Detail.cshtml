@@ -189,10 +189,10 @@
                                 <li>
                                     <a asp-action="index" style="text-transform:uppercase"> All</a>
                                 </li>
-                                @foreach (var item in Model.Topics)
+                                @foreach (var item in Model.Categories)
                                 {
                                     <li>
-                                        <a asp-action="index" asp-route-topicId="@item.Id" style="text-transform:uppercase"> @item.Name</a>
+                                        <a asp-action="index" asp-controller="Menu" asp-route-topicId="@item.Id" style="text-transform:uppercase"> @item.Title</a>
                                     </li>
 
                                 }

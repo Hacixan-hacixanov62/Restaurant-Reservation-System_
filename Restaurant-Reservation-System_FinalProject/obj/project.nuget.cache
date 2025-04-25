@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DWpu1UOTcTU=",
+  "dgSpecHash": "ummC3zP+Dp4=",
   "success": true,
   "projectFilePath": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject.csproj",
   "expectedPackageFiles": [
@@ -63,6 +63,7 @@
     "C:\\Users\\Hacixanov\\.nuget\\packages\\humanizer.core.zh-hans\\2.14.1\\humanizer.core.zh-hans.2.14.1.nupkg.sha512",
     "C:\\Users\\Hacixanov\\.nuget\\packages\\humanizer.core.zh-hant\\2.14.1\\humanizer.core.zh-hant.2.14.1.nupkg.sha512",
     "C:\\Users\\Hacixanov\\.nuget\\packages\\mailkit\\4.10.0\\mailkit.4.10.0.nupkg.sha512",
+    "C:\\Users\\Hacixanov\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\8.0.12\\microsoft.aspnetcore.authentication.google.8.0.12.nupkg.sha512",
     "C:\\Users\\Hacixanov\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.11\\microsoft.aspnetcore.authorization.8.0.11.nupkg.sha512",
     "C:\\Users\\Hacixanov\\.nuget\\packages\\microsoft.aspnetcore.components\\8.0.11\\microsoft.aspnetcore.components.8.0.11.nupkg.sha512",
     "C:\\Users\\Hacixanov\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\8.0.11\\microsoft.aspnetcore.components.analyzers.8.0.11.nupkg.sha512",

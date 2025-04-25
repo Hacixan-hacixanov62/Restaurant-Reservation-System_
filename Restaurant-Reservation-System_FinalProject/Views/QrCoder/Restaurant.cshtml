@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Restaurant</h1>
+
+@if(ViewBag.QRCodeImage != null)
+{
+    <div class="alert alert-info">Your Restourant</div>
+    <h3>Restaoyran Menu @ViewBag.BookingId</h3>
+    <img src="@ViewBag.QRCodeImage" alt="Restourant Qr Code" style="height:200px;width:200px" />
+}
+else
+{
+    <div class="alert alert-danger"> Sorry</div>
+}
+

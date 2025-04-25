@@ -111,30 +111,58 @@
     </div>
 </header>
 
-@section Scripts {
 
+<script>
+            $(document).on("click", ".basket-add-btn", function (e) {
+        e.preventDefault();
+        let url = $(this).attr("href");
 
-    <script>
-                $(document).on("click", ".basket-add-btn", function (e) {
-            e.preventDefault();
-            let url = $(this).attr("href");
+        fetch(url)
+            .then(response => {
+                if (!response.ok) throw new Error("Xəta baş verdi");
+                return response.text();
+            })                                                                  // Bunu gozden kecir cunki countu islemir  !!!!!!!
+            .then(() => {
+                return fetch("/Basket/GetBasket"); // yeni partial view al
+            })
+            .then(response => response.text())
+            .then(data => {
+                $(".cart-dropdown").html(data); // yeni basket UI
+                let itemCount = $(".cart-item").length;
+                $(".cart-count").text(itemCount); // yeni say
+            })
+            .catch(err => console.error("Basket error:", err));
+    });
 
-            fetch(url)
-                .then(response => {
-                    if (!response.ok) throw new Error("Xəta baş verdi");
-                    return response.text();
-                })
-                .then(() => {
-                    return fetch("/Basket/GetBasket"); // yeni partial view al
-                })
-                .then(response => response.text())
-                .then(data => {
-                    $(".cart-dropdown").html(data); // yeni basket UI
-                    let itemCount = $(".cart-item").length;
-                    $(".cart-count").text(itemCount); // yeni say
-                })
-                .catch(err => console.error("Basket error:", err));
+</script>
+
+ <script>
+    const switchBtn = document.querySelector('.switch-button');
+    const body = document.body;
+    const icon = switchBtn.querySelector('i');
+
+    function applyMode(mode) {
+        body.classList.remove("light", "dark");
+        body.classList.add(mode);
+        localStorage.setItem("mode", mode);
+        sendModeToBackend(mode);
+        icon.classList = mode === "dark" ? "fa-regular fa-sun" : "fa-regular fa-moon";
+    }
+
+    function sendModeToBackend(mode) {
+        fetch('/Theme/SetTheme', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ theme: mode })
         });
+    }
 
-    </script>
-}
+    switchBtn.addEventListener('click', () => {
+        const newMode = body.classList.contains('dark') ? 'light' : 'dark';
+        applyMode(newMode);
+    });
+
+    // Sayfa yüklənəndə localStorage-dan oxu və tətbiq et
+    const savedMode = localStorage.getItem("mode") || "light";
+    applyMode(savedMode);
+</script>

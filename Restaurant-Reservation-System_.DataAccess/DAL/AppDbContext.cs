@@ -64,14 +64,28 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL
             modelBuilder.Entity<BlogTopic>().HasKey(x => new { x.BlogId, x.TopicId });
             modelBuilder.Entity<ProductIngredient>().HasKey(x => new { x.ProductId, x.IngredientId });
             modelBuilder.Entity<Comment>().HasQueryFilter(x => !x.IsDeleted);
-             // HATAYI ÖNLER
+            modelBuilder.Entity<Product>().HasQueryFilter(x => !x.IsDeleted);
+            modelBuilder.Entity<Blog>().HasQueryFilter(x => !x.IsDeleted);
+            modelBuilder.Entity<BlogComment>().HasQueryFilter(x => !x.IsDeleted);
+            modelBuilder.Entity<Category>().HasQueryFilter(x => !x.IsDeleted);
+            modelBuilder.Entity<Chat>().HasQueryFilter(x => !x.IsDeleted);
+            modelBuilder.Entity<Chef>().HasQueryFilter(x => !x.IsDeleted);
+            modelBuilder.Entity<Message>().HasQueryFilter(x => !x.IsDeleted);
+            modelBuilder.Entity<Reservation>().HasQueryFilter(x => !x.IsDeleted);
+            modelBuilder.Entity<Topic>().HasQueryFilter(x => !x.IsDeleted);
 
-           modelBuilder.ApplyConfigurationsFromAssembly(typeof(CommentConfiguration).Assembly);
+            // HATAYI ÖNLER
 
-            foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
-            {
-                relationship.DeleteBehavior = DeleteBehavior.NoAction;
-            }
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(CommentConfiguration).Assembly);
+
+            //foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            //{
+            //    relationship.DeleteBehavior = DeleteBehavior.NoAction;
+            //}
+            //modelBuilder.Entity<Product>()
+            //    .HasMany<Comment>(c => c.Comments)
+            //    .WithOptional(x => x.Product)
+            //    .WillCascadeOnDelete(true);
 
         }
 

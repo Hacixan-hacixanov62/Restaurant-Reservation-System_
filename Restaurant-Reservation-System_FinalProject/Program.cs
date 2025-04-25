@@ -84,17 +84,25 @@ namespace Restaurant_Reservation_System_FinalProject
                 opt.AddProfile(new MapperProfiles()); // bu usul bize eger bos constructor yoxdursa onda lazim olacaq
             });
 
+            builder.Services.AddAuthentication()
+                .AddGoogle(options =>
+                {
+                    options.ClientId = "46171638450-vneld076qhk13i2skt3lq891qhnlbi5n.apps.googleusercontent.com";
+                    options.ClientSecret = "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";
+                    options.SaveTokens = true;
+                });
+
 
             var app = builder.Build();
 
-           // app.UseMiddleware<GlobalExceptionHandler>();
+            //app.UseMiddleware<GlobalExceptionHandler>();
 
-
+            // Sondurmusemee
 
             app.UseRequestLocalization();
 
             // Configure the HTTP request pipeline.
-            if (!app.Environment.IsDevelopment())
+            if (app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.

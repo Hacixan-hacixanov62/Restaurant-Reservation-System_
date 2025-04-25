@@ -431,8 +431,25 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -917,6 +934,13 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Delicious")
                         .HasColumnType("int");
 
@@ -933,6 +957,9 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(150)
@@ -947,6 +974,13 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
 
                     b.Property<int>("SalesCount")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Weight")
                         .HasColumnType("int");
@@ -1208,7 +1242,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
@@ -1217,7 +1251,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
@@ -1226,7 +1260,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
@@ -1235,13 +1269,13 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
@@ -1250,7 +1284,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
@@ -1259,13 +1293,13 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.AppUser", "AppUser")
                         .WithMany()
                         .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Chat", "Chat")
                         .WithMany("AppUserChats")
                         .HasForeignKey("ChatId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("AppUser");
@@ -1278,7 +1312,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Chef", "Chef")
                         .WithMany("Blogs")
                         .HasForeignKey("ChefId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Chef");
@@ -1289,18 +1323,16 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.AppUser", "AppUser")
                         .WithMany()
                         .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Blog", "Blog")
                         .WithMany()
-                        .HasForeignKey("BlogId")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .HasForeignKey("BlogId");
 
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.BlogComment", "Parent")
                         .WithMany("Children")
-                        .HasForeignKey("ParentId")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .HasForeignKey("ParentId");
 
                     b.Navigation("AppUser");
 
@@ -1314,13 +1346,13 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Blog", "Blog")
                         .WithMany("BlogTopics")
                         .HasForeignKey("BlogId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Topic", "Topic")
                         .WithMany("BlogTopics")
                         .HasForeignKey("TopicId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Blog");
@@ -1333,13 +1365,13 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.AppUser", "AppUser")
                         .WithMany("CartItems")
                         .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("AppUser");
@@ -1352,13 +1384,13 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Language", "Language")
                         .WithMany("CategoryDetails")
                         .HasForeignKey("LanguageId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Category");
@@ -1370,18 +1402,15 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                 {
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.AppUser", "AppUser")
                         .WithMany()
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .HasForeignKey("AppUserId");
 
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Comment", "Parent")
                         .WithMany("Children")
-                        .HasForeignKey("ParentId")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .HasForeignKey("ParentId");
 
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Product", "Product")
                         .WithMany("Comments")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .HasForeignKey("ProductId");
 
                     b.Navigation("AppUser");
 
@@ -1395,13 +1424,12 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Chat", "Chats")
                         .WithMany("Messages")
                         .HasForeignKey("ChatId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.AppUser", "Sender")
                         .WithMany()
-                        .HasForeignKey("SenderId")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .HasForeignKey("SenderId");
 
                     b.Navigation("Chats");
 
@@ -1412,8 +1440,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                 {
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.AppUser", "AppUser")
                         .WithMany()
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .HasForeignKey("AppUserId");
 
                     b.Navigation("AppUser");
                 });
@@ -1423,13 +1450,13 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Order", "Order")
                         .WithMany("OrderItems")
                         .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Order");
@@ -1442,7 +1469,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Category");
@@ -1453,13 +1480,13 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Language", "Language")
                         .WithMany()
                         .HasForeignKey("LanguageId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Product", "Product")
                         .WithMany("ProductDetails")
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Language");
@@ -1472,7 +1499,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Product", "Product")
                         .WithMany("ProductImages")
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Product");
@@ -1483,13 +1510,13 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Ingredient", "Ingredient")
                         .WithMany("ProductIngredients")
                         .HasForeignKey("IngredientId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Product", "Product")
                         .WithMany("ProductIngredients")
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Ingredient");
@@ -1502,7 +1529,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                     b.HasOne("Restaurant_Reservation_System_.Core.Entittes.Table", "Table")
                         .WithMany("Reservations")
                         .HasForeignKey("TableId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Table");

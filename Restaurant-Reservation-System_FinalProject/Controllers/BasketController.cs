@@ -26,7 +26,8 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             _context = context;
             _userManager = userManager;
         }
-        //[Authorize("Member")]
+
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var cartItems = await GetBasketAsync();
@@ -47,7 +48,8 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
 
             return Redirect(returnUrl);
         }
-        
+
+      
         public async Task<IActionResult> AddToCart(int id, int count = 1)
         {
             await _basketService.AddToCartAsync(id, count);

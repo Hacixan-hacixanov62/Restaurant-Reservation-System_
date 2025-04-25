@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Restaurant_Reservation_System_.Core.Entittes;
 using Restaurant_Reservation_System_.DataAccess.DAL;
 using Restaurant_Reservation_System_.Service.Services.IService;
 using Restaurant_Reservation_System_FinalProject.ViewModels;
+using System.Security.Claims;
 
 namespace Restaurant_Reservation_System_FinalProject.Controllers
 {
@@ -315,6 +317,37 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
 
 
             return RedirectToAction("Login");
+        }
+
+        // Google Cloud a connection qururuq asagda 
+
+        public IActionResult GoogleLogin()
+        {
+            var redirectUrl = Url.Action("GoogleResponse", "Account");
+            var properties = _signInManager.ConfigureExternalAuthenticationProperties(GoogleDefaults.AuthenticationScheme, redirectUrl);
+            return new ChallengeResult(GoogleDefaults.AuthenticationScheme, properties);
+        }
+
+        public IActionResult GoogleResponse()
+        {
+            var result = _signInManager.GetExternalLoginInfoAsync().Result;
+
+            var email = result.Principal.FindFirstValue(ClaimTypes.Email);
+
+            var user = _userManager.FindByEmailAsync(email).Result;
+            if (user == null)
+            {
+                user = new AppUser
+                {
+                    Email = email,
+                    UserName = email,
+                    FullName = result.Principal.FindFirstValue(ClaimTypes.Name)
+                };
+                _userManager.CreateAsync(user).Wait();
+                _userManager.AddToRoleAsync(user, "Member").Wait();
+                _signInManager.SignInAsync(user, true).Wait();
+            }
+            return RedirectToAction("index", "home");
         }
 
     }
