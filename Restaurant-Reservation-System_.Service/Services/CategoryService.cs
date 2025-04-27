@@ -56,7 +56,7 @@ namespace Restaurant_Reservation_System_.Service.Services
                 throw new Exception("Category tapılmadı");
             }
 
-            _categoryRepository.Delete(category);
+           await _categoryRepository.Delete(category);
             await _categoryRepository.SaveChangesAsync();
         }
 

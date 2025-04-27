@@ -18,6 +18,6 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
 
     public class ThemeRequest
     {
-        public string Theme { get; set; } = null!; // "dark" və ya "light"
+        public string Theme { get; set; } = null!; // "dark" və ya "light" Mode
     }
 }

@@ -26,9 +26,6 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
         }
         public async Task<IActionResult> Index(string sortOrder)
         {
-            //var shops = _context.Products
-            //    .Include(x => x.ProductImages.Where(x => x.IsMain == true))
-            //    .Include(x => x.ProductDetails).AsQueryable();
 
             var products = await _productService.GetAllAsync();
             var categories = await _categoryService.GetAllAsync();

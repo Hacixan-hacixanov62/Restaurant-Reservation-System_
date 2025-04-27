@@ -103,9 +103,6 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
         public async Task<IActionResult> Checkout(OrderCreateDto dto)
         {
 
-
-            //if (!ModelState.IsValid)
-            //    return RedirectToAction("Checkout");
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             if (userId is null)

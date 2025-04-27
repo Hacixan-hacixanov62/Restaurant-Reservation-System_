@@ -58,12 +58,12 @@
                     <div class="row2" style="gap:30px;">
 
                         <div class="col-2">
-                            <img style="width:200px;" src="@Model.ProductImages.FirstOrDefault(x=>x.IsMain)?.Url" />
+                            <img style="width:200px; border: 2px solid red;" src="@Model.ProductImages.FirstOrDefault(x=>x.IsMain)?.Url" />
                         </div>
                         @foreach (var item in @Model.ProductImages)
                         {
                             <div class="col-2">
-                                <img style="width:200px;" src="@Model.ProductImages.FirstOrDefault(x=>!x.IsMain)?.Url" />
+                                <img style="width:200px;" src="@item.Url "/>
                             </div>
                         }
                     </div>

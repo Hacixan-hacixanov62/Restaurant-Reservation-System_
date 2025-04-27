@@ -53,7 +53,7 @@ namespace Restaurant_Reservation_System_.Service.Services
                 throw new Exception("Chef tapılmadı");
             }
 
-            _chefRepository.Delete(product);
+          await  _chefRepository.Delete(product);
             await _chefRepository.SaveChangesAsync();
         }
 

@@ -60,7 +60,7 @@ namespace Restaurant_Reservation_System_.Service.Services
                 throw new Exception("Blog tapılmadı");
             }
 
-            _blogRepository.Delete(product);
+          await  _blogRepository.Delete(product);
             await _blogRepository.SaveChangesAsync();
         }
 

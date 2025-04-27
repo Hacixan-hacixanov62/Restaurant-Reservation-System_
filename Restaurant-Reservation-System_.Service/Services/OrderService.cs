@@ -79,7 +79,7 @@ namespace Restaurant_Reservation_System_.Service.Services
             if (order is null)
                 throw new NotFoundException("NotFound Order");
 
-            _orderRepository.Delete(order);
+          await  _orderRepository.Delete(order);
             await _orderRepository.SaveChangesAsync();
         }
 

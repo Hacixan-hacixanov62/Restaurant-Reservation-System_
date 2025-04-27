@@ -5,6 +5,7 @@ using Restaurant_Reservation_System_.Core.Entittes.Comman;
 using Restaurant_Reservation_System_.DataAccess.DAL;
 using Restaurant_Reservation_System_.DataAccess.Repositories.IRepositories;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace Restaurant_Reservation_System_.DataAccess.Repositories
 {
@@ -25,10 +26,10 @@ namespace Restaurant_Reservation_System_.DataAccess.Repositories
             return entityEntry.Entity;
         }
 
-        public void Delete(TEntity entity)
+        public async Task Delete(TEntity entity)
         {
             Table.Remove(entity);
-            _context.SaveChanges();
+           await _context.SaveChangesAsync();
         }
 
         public IQueryable<TEntity> GetAll(Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null)
@@ -108,6 +109,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Repositories
         }
 
         // Asagdakilar Messageye aidir
+
 
         public async Task<Chat?> GetChatWithUsersAndMessagesAsync(int chatId, string userId)
         {

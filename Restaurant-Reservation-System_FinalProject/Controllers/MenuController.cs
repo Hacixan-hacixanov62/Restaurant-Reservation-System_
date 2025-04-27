@@ -17,9 +17,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
         }
         public async Task<IActionResult> Index(int? categoryId)
         {
-            //MenuVm menuVm = new();  
-            //menuVm.Products =_context.Products.ToList();
-            //return View(menuVm);
+
             if (categoryId is not null)
             {
                 var category = await _context.Categories.Include(x => x.Products).ThenInclude(x => x.ProductImages).FirstOrDefaultAsync(x => x.Id == categoryId);
@@ -35,13 +33,12 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
         }
 
 
-        //Asagdaki Actionu men Fake MenuLinki yeni menyulari gostermek ucun fakleink yaratmaq ucun yazdim 
+        //Asagdaki Actionu men Fake MenuLinki Yeni rezerv olunanda musteri QR Code skan edende ona menyunu gosterir
 
         [HttpGet("fakeMenuLink/{bookingId}")]
         public IActionResult FakeMenuLink(string bookingId)
         {
-            // Sahte linki işleyebiliriz, örneğin bookingId'yi loglayabiliriz
-            // Ardından kullanıcıyı gerçek menü sayfasına yönlendirebiliriz
+
             return RedirectToAction("Index", "Menu");
         }
     }

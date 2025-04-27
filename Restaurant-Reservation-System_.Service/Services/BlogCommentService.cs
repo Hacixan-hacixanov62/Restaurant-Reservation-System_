@@ -125,7 +125,7 @@ namespace Restaurant_Reservation_System_.Service.Services
             if (comment.AppUserId != userId && !_isAdmin())
                 throw new UnAuthorizedException("BlogComment NotFound");
 
-            _blogCommentRepository.Delete(comment);
+           await _blogCommentRepository.Delete(comment);
             await _blogCommentRepository.SaveChangesAsync();
         }
 

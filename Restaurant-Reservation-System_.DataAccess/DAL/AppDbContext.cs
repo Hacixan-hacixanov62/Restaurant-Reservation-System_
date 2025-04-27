@@ -68,11 +68,10 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL
             modelBuilder.Entity<Blog>().HasQueryFilter(x => !x.IsDeleted);
             modelBuilder.Entity<BlogComment>().HasQueryFilter(x => !x.IsDeleted);
             modelBuilder.Entity<Category>().HasQueryFilter(x => !x.IsDeleted);
-            modelBuilder.Entity<Chat>().HasQueryFilter(x => !x.IsDeleted);
             modelBuilder.Entity<Chef>().HasQueryFilter(x => !x.IsDeleted);
-            modelBuilder.Entity<Message>().HasQueryFilter(x => !x.IsDeleted);
             modelBuilder.Entity<Reservation>().HasQueryFilter(x => !x.IsDeleted);
             modelBuilder.Entity<Topic>().HasQueryFilter(x => !x.IsDeleted);
+            modelBuilder.Entity<CartItem>().HasQueryFilter(x => !x.IsDeleted);
 
             // HATAYI ÖNLER
 
@@ -90,7 +89,7 @@ namespace Restaurant_Reservation_System_.DataAccess.DAL
         }
 
 
-
+        
     }
 }
 

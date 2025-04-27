@@ -81,7 +81,7 @@ namespace Restaurant_Reservation_System_.Service.Services
             string imagePath = Path.Combine(_env.WebRootPath, "assets/images/home", slider.Image);
             FileManager.DeleteFile(imagePath);
 
-            _sliderRepository.Delete(slider);
+           await _sliderRepository.Delete(slider);
         }
 
 

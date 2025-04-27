@@ -50,7 +50,7 @@ namespace Restaurant_Reservation_System_.Service.Services
                 throw new Exception("Table tapılmadı");
             }
 
-            _tableRepository.Delete(table);
+          await  _tableRepository.Delete(table);
             await _tableRepository.SaveChangesAsync();
         }
 

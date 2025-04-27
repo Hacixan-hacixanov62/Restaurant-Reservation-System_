@@ -134,19 +134,20 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View();
+                return View(blogUpdateDto);
             }
 
+            ViewBag.Topics = new SelectList(await _context.Topics.ToListAsync(), nameof(Topic.Id), nameof(Topic.Name));
+            ViewBag.Chefs = new SelectList(await _context.Chefs.ToListAsync(), nameof(Chef.Id), nameof(Chef.Name));
 
-            ViewBag.Topics = await _context.Topics.ToListAsync();
-            ViewBag.Chef = await _context.Chefs.ToListAsync();
-
-            
             try
             {
                 var isExist = await _context.Blogs.AnyAsync(x => x.Title == blogUpdateDto.Title && x.Id != id);
                 if (isExist)
                 {
+                    ViewBag.Topics = new SelectList(await _context.Topics.ToListAsync(), nameof(Topic.Id), nameof(Topic.Name));
+                    ViewBag.Chefs = new SelectList(await _context.Chefs.ToListAsync(), nameof(Chef.Id), nameof(Chef.Name));
+
                     ModelState.AddModelError("", "Blog already exists");
                     return View(blogUpdateDto);
                 }
@@ -155,6 +156,9 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
                 var isExistAuth = await _context.Chefs.AnyAsync(x => x.Id == blogUpdateDto.ChefId);
                 if (!isExistAuth)
                 {
+                    ViewBag.Topics = new SelectList(await _context.Topics.ToListAsync(), nameof(Topic.Id), nameof(Topic.Name));
+                    ViewBag.Chefs = new SelectList(await _context.Chefs.ToListAsync(), nameof(Chef.Id), nameof(Chef.Name));
+
                     ModelState.AddModelError("AuthorId", "Author is not found");
                     return View(blogUpdateDto);
                 }
@@ -165,6 +169,9 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
                     var isExistTopic = await _context.Topics.AnyAsync(x => x.Id == topic);
                     if (!isExistTopic)
                     {
+                        ViewBag.Topics = new SelectList(await _context.Topics.ToListAsync(), nameof(Topic.Id), nameof(Topic.Name));
+                        ViewBag.Chefs = new SelectList(await _context.Chefs.ToListAsync(), nameof(Chef.Id), nameof(Chef.Name));
+
                         ModelState.AddModelError("TopicIds", "Topic is not found");
                         return View(blogUpdateDto);
                     }

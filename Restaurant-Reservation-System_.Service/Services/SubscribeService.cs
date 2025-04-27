@@ -53,7 +53,7 @@ namespace Restaurant_Reservation_System_.Service.Services
             if (subscribe is null)
                 throw new NotFoundException("Not Found");
 
-            _subscribeRepository.Delete(subscribe);
+          await  _subscribeRepository.Delete(subscribe);
             await _subscribeRepository.SaveChangesAsync();
         }
 

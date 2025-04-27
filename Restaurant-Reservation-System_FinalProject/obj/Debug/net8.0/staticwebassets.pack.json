@@ -3937,12 +3937,24 @@
       "PackagePath": "staticwebassets\\assets\\images\\home\\1a77fb30-4c25-44cf-acdd-91d7bc79ee89.png"
     },
     {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\1ac8a425-ce70-46c0-bd0d-61cfed770e5b.png",
+      "PackagePath": "staticwebassets\\assets\\images\\home\\1ac8a425-ce70-46c0-bd0d-61cfed770e5b.png"
+    },
+    {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\403b760f-3603-4d7d-8a5e-caffb3c52bf4.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\home\\403b760f-3603-4d7d-8a5e-caffb3c52bf4.jpg"
+    },
+    {
       "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\5aab8150-cbbf-4b3d-91fc-01a56c59536b.png",
       "PackagePath": "staticwebassets\\assets\\images\\home\\5aab8150-cbbf-4b3d-91fc-01a56c59536b.png"
     },
     {
-      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\8de4fb12-863c-407d-86df-55feb1011dea.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\home\\8de4fb12-863c-407d-86df-55feb1011dea.jpg"
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\8f594b08-bc46-4b38-975a-6a258067c32e.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\home\\8f594b08-bc46-4b38-975a-6a258067c32e.jpg"
+    },
+    {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\a5520be1-f53c-47c1-a5ec-a279e76ca948.png",
+      "PackagePath": "staticwebassets\\assets\\images\\home\\a5520be1-f53c-47c1-a5ec-a279e76ca948.png"
     },
     {
       "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\home\\c21ffc5b-6235-4683-9ec7-b4f13bb81439.png",
@@ -4061,12 +4073,40 @@
       "PackagePath": "staticwebassets\\assets\\images\\qr\\coder.png"
     },
     {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_0ca0732c-a5a3-4c16-9a26-ef9b1b765f0f.png",
+      "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_0ca0732c-a5a3-4c16-9a26-ef9b1b765f0f.png"
+    },
+    {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_0cb8c124-cb7a-46bc-921f-9025b90dbac2.png",
+      "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_0cb8c124-cb7a-46bc-921f-9025b90dbac2.png"
+    },
+    {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_0d4be713-b225-45b5-9da2-2f17cf414057.png",
+      "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_0d4be713-b225-45b5-9da2-2f17cf414057.png"
+    },
+    {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_1818d48c-d2a4-4678-a324-4bdf5b2c7a91.png",
+      "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_1818d48c-d2a4-4678-a324-4bdf5b2c7a91.png"
+    },
+    {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_1a942587-331e-456d-8b24-967e05af1de3.png",
+      "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_1a942587-331e-456d-8b24-967e05af1de3.png"
+    },
+    {
       "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_1ee82d4b-4a9c-46b5-9bc3-ee43a7dd99d6.png",
       "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_1ee82d4b-4a9c-46b5-9bc3-ee43a7dd99d6.png"
     },
     {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_38021ead-9fe4-4c7c-8d42-275f524326c8.png",
+      "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_38021ead-9fe4-4c7c-8d42-275f524326c8.png"
+    },
+    {
       "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_39bbb4ce-88c1-4153-908b-c6910f213fbd.png",
       "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_39bbb4ce-88c1-4153-908b-c6910f213fbd.png"
+    },
+    {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_3f1b99d3-ab55-468e-8c88-6157930e847d.png",
+      "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_3f1b99d3-ab55-468e-8c88-6157930e847d.png"
     },
     {
       "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_41b3ae8f-fbfb-467b-945e-d21df7411c67.png",
@@ -4077,20 +4117,64 @@
       "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_50d61641-512a-45bf-b819-9258423dba7f.png"
     },
     {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_5d490ae5-2aaa-48ac-9266-50c496630f3b.png",
+      "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_5d490ae5-2aaa-48ac-9266-50c496630f3b.png"
+    },
+    {
       "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_6a6658a9-88ff-4193-bd43-26f2faf694c4.png",
       "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_6a6658a9-88ff-4193-bd43-26f2faf694c4.png"
+    },
+    {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_7e0d6d7c-d7b0-4278-bb0a-0a35fb525051.png",
+      "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_7e0d6d7c-d7b0-4278-bb0a-0a35fb525051.png"
     },
     {
       "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_7fe477b1-b834-49e7-86f4-a5f55f3d405a.png",
       "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_7fe477b1-b834-49e7-86f4-a5f55f3d405a.png"
     },
     {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_8d8c6fc2-9ae4-4a79-bad4-396f0e036776.png",
+      "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_8d8c6fc2-9ae4-4a79-bad4-396f0e036776.png"
+    },
+    {
       "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_a341ede3-25ba-4e2d-9f47-9d9f85e4bb5c.png",
       "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_a341ede3-25ba-4e2d-9f47-9d9f85e4bb5c.png"
     },
     {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_a58c4203-352d-4e29-a4af-66e69b4415b0.png",
+      "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_a58c4203-352d-4e29-a4af-66e69b4415b0.png"
+    },
+    {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_ab4ade79-b5ca-4192-a367-e70db3cf17ea.png",
+      "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_ab4ade79-b5ca-4192-a367-e70db3cf17ea.png"
+    },
+    {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_adc5257d-399f-41a7-b026-8efa5f826cbb.png",
+      "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_adc5257d-399f-41a7-b026-8efa5f826cbb.png"
+    },
+    {
       "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_b5c3e12a-0a35-4b42-8076-72fdb58c59a7.png",
       "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_b5c3e12a-0a35-4b42-8076-72fdb58c59a7.png"
+    },
+    {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_ba5cd46d-3aab-482c-9d2e-aa162914fc63.png",
+      "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_ba5cd46d-3aab-482c-9d2e-aa162914fc63.png"
+    },
+    {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_ba60932b-34aa-46aa-8287-84e4632de2d2.png",
+      "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_ba60932b-34aa-46aa-8287-84e4632de2d2.png"
+    },
+    {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_d62054ac-1d94-4032-b824-0b6f6d7780d7.png",
+      "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_d62054ac-1d94-4032-b824-0b6f6d7780d7.png"
+    },
+    {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_dcc8c1dc-81b8-429c-8aa9-eadc31cdac17.png",
+      "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_dcc8c1dc-81b8-429c-8aa9-eadc31cdac17.png"
+    },
+    {
+      "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\qr\\qr_f97ad0f6-4cc4-4afb-a988-3bdb71b9feec.png",
+      "PackagePath": "staticwebassets\\assets\\images\\qr\\qr_f97ad0f6-4cc4-4afb-a988-3bdb71b9feec.png"
     },
     {
       "Id": "C:\\API (Pb-202) _ Task\\Restaurant-Reservation-System_FinalProject\\Restaurant-Reservation-System_FinalProject\\wwwroot\\assets\\images\\reservation\\form-img.jpg",

@@ -21,11 +21,11 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             _context = context;
             _userManager = userManager;
             _orderService = orderService;
-            _mapper = mapper;
+            _mapper = mapper;   
         }
   
         public async Task<IActionResult> Index()
-        {
+        { 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             var user = await _userManager.FindByIdAsync(userId);

@@ -1,5 +1,5 @@
 ﻿@using System.Security.Claims
-@model Chat
+ @model Chat
 @{
     Layout = null;
 }
@@ -21,7 +21,7 @@
             <div class="chat-header">
                 <img class="phtimg" src="~/assets/images/chat/picture.jpg" alt="Alternate Text" />
                 <span>@Model.Name</span> @*Axirda Qurtaranda bunun asagisinda bir div acarsan orada chatdaki adamlarin adlari yazilsin*@
-                                         @*Mesel : <div class="members"> @Model.AppUserChats.Select(m=>m.AppUser.UserName)</div>*@
+                @*Mesel : <div class="members"> @Model.AppUserChats.Select(m=>m.AppUser.UserName)</div>*@
             </div>
             <div class="chat-messages">
                 <ol class="messages-list">
@@ -121,7 +121,7 @@
 
             const hours = date.getUTCHours();
             const minutes = date.getUTCMinutes().toString().padStart(2, "0");
-
+                
             const ampm = hours >= 12 ? "PM" : "AM";
             const formattedHours = hours % 12 || 12;
             const formattedTime = `${formattedHours}:${minutes} ${ampm}`;

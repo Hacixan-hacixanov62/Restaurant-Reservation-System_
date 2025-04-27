@@ -319,6 +319,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
             return RedirectToAction("Login");
         }
 
+
         // Google Cloud a connection qururuq asagda 
 
         public IActionResult GoogleLogin()

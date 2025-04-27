@@ -174,7 +174,7 @@ namespace Restaurant_Reservation_System_.Service.Services
                 if (existCartItem is null)
                     throw new NotFoundException("Notfound Product");
 
-                _basketRepository.Delete(existCartItem);
+          await      _basketRepository.Delete(existCartItem);
                 await _basketRepository.SaveChangesAsync();
             }
             else

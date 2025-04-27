@@ -65,7 +65,7 @@
                     </h5>
                     <form id="subscribeForm" asp-controller="Home" asp-action="AddSubscriber" method="post" name="mc-embedded-subscribe-form" novalidate="" class="mail-box clearfix">
                         <div class="input-group stylish-input-group">
-                            <input type="text" name="Email" class="form-control" placeholder="Your@mail.com"
+                            <input type="text" name="Email" class="form-control" placeholder="Your@mail.com" value="@User.FindFirst(System.Security.Claims.ClaimTypes.Email)?.Value"
                                    data-language="home.subscribe.placeholder" />
                             <div class="btn-default">
                                 <button type="submit">subscribe</button>

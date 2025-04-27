@@ -49,7 +49,7 @@ namespace Restaurant_Reservation_System_.Service.Services
                 throw new Exception("Topic tapılmadı");
             }
 
-            _topicRepository.Delete(chef);
+         await   _topicRepository.Delete(chef);
             await _topicRepository.SaveChangesAsync();
         }
 

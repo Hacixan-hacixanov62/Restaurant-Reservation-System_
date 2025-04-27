@@ -132,7 +132,9 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
 
             //string qrFullUrl = $"{Request.Scheme}://{Request.Host}/assets/images/qr/QR_codee.svg"; Demeli bele yazanda sene sekil gosterir ancaq menyuya gede bilmirsen
             var (qrImagePath, bookingId) = _qrCoderService.GenerateQRCode();
-            string qrFullUrl = $"{Request.Scheme}://{Request.Host}{qrImagePath}";
+            //string qrFullUrl = $"{Request.Scheme}://{Request.Host}{qrImagePath}";
+            string base64Qr = _qrCoderService.GenerateQrCodeForUrl($"http://localhost:5253/fakeMenuLink/{bookingId}");
+
 
             string body = $@"
         <!DOCTYPE html>
@@ -220,7 +222,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
                     </div>
   <p>Below is your QR code for quick access to the menu:</p>
 <div style='text-align:center; margin: 20px 0;'>
-    <img src='{qrFullUrl}' alt='Menu QR Code' style='width:120px; height:120px;' />
+    <img src='{base64Qr}' alt='Menu QR Code' style='width:120px; height:120px;' />
 </div>
  
                 </div>
@@ -241,7 +243,7 @@ namespace Restaurant_Reservation_System_FinalProject.Controllers
 
             // Send the email
             await _emailService.SendEmailAsync(new() { Body = body, Subject = "Reservation Detail", ToEmail = reservation.Email });
-
+            
             TempData["message"] = "Reservation is successfully done.";
 
             return RedirectToAction("Index");

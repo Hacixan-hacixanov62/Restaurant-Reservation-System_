@@ -10,6 +10,7 @@ using Restaurant_Reservation_System_.Service.Services;
 using Restaurant_Reservation_System_.Service.Services.IService;
 using Restaurant_Reservation_System_.Service.ViewModels.ProductVM;
 using Restaurant_Reservation_System_.Service.ViewModels.SliderVM;
+using System.Linq;
 
 namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
 {
@@ -38,6 +39,7 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
                     .Include(c => c.ProductDetails)
                     .Include(c => c.ProductImages)
                     .Include(c => c.Category)
+                    .OrderByDescending(c => c.CreatedAt)
                     .AsQueryable();
                 PaginatedList<Product> paginatedList = PaginatedList<Product>.Create(categories, take, page);
                 return View(paginatedList);
@@ -114,7 +116,14 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View();
+                return View(productUpdateDto);
+            }
+
+            var category =  _context.Categories.FirstOrDefault(x => x.Id == productUpdateDto.CategoryId);
+
+            if (category == null)
+            {
+                return View(productUpdateDto);
             }
 
             ViewBag.Categories = await _context.Categories.ToListAsync();

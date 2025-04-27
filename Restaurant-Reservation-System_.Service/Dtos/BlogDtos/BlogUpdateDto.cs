@@ -9,15 +9,12 @@ namespace Restaurant_Reservation_System_.Service.Dtos.BlogDtos
     {
         [Required]
         [StringLength(maximumLength: 150)]
-        [RegularExpression(@"^[^\d]*$", ErrorMessage = "Title Duzgun daxil edin.")]
         public string Title { get; set; } = null!;
         [Required]
         [StringLength(maximumLength: 500)]
-        [RegularExpression(@"^[^\d]*$", ErrorMessage = "MinDescription Duzgun daxil edin.")]
         public string MinDescription { get; set; } = null!;
         [Required]
         [StringLength(maximumLength: 500)]
-        [RegularExpression(@"^[^\d]*$", ErrorMessage = "MaxDescription Duzgun daxil edin.")]
         public string MaxDescription { get; set; } = null!;
         public int ChefId { get; set; }
         [NotMapped]

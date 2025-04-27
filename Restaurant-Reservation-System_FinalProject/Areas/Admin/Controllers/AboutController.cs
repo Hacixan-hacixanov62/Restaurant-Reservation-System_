@@ -40,7 +40,7 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(aboutCreateVM);
             }
 
             try

@@ -122,7 +122,7 @@ namespace Restaurant_Reservation_System_.Service.Services
 
 
 
-            _commentRepository.Delete(comment);
+           await _commentRepository.Delete(comment);
             await _commentRepository.SaveChangesAsync();
         }
 
@@ -134,7 +134,7 @@ namespace Restaurant_Reservation_System_.Service.Services
                 foreach (var child in parentComment.Children.ToList()) // Şərhləri təkrarlayın
                 {
                     await DeleteChildCommentsAsync(child); // Rekursiv olaraq bağlı şərhləri silin
-                    _commentRepository.Delete(child); // Şərhi silin
+                  await  _commentRepository.Delete(child); // Şərhi silin
                 }
             }
         }

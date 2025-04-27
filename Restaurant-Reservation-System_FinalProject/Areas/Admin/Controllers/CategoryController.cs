@@ -70,14 +70,7 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
             return RedirectToAction("Index");
 
 
-            //try
-            //{
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    return BadRequest(ex.Message);
-            //}
         }
 
         public async Task<IActionResult> Edit(int? id)
@@ -145,15 +138,8 @@ namespace Restaurant_Reservation_System_FinalProject.Areas.Admin.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            try
-            {
-                await _categoryService.DeleteAsync(id);
-                return RedirectToAction("Index");
-            }
-            catch (Exception ex)
-            {
-                return NotFound(ex.Message);
-            }
+            await _categoryService.DeleteAsync(id);
+            return RedirectToAction("Index");
         }
 
 

@@ -180,7 +180,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Abouts");
+                    b.ToTable("Abouts", (string)null);
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.AppUser", b =>
@@ -290,7 +290,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
 
                     b.HasIndex("ChatId");
 
-                    b.ToTable("AppUserChats");
+                    b.ToTable("AppUserChats", (string)null);
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Blog", b =>
@@ -345,7 +345,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
 
                     b.HasIndex("ChefId");
 
-                    b.ToTable("Blogs");
+                    b.ToTable("Blogs", (string)null);
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.BlogComment", b =>
@@ -398,7 +398,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
 
                     b.HasIndex("ParentId");
 
-                    b.ToTable("BlogComments");
+                    b.ToTable("BlogComments", (string)null);
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.BlogTopic", b =>
@@ -413,7 +413,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
 
                     b.HasIndex("TopicId");
 
-                    b.ToTable("BlogTopics");
+                    b.ToTable("BlogTopics", (string)null);
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.CartItem", b =>
@@ -458,7 +458,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                     b.HasIndex("AppUserId", "ProductId")
                         .IsUnique();
 
-                    b.ToTable("CartItems");
+                    b.ToTable("CartItems", (string)null);
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Category", b =>
@@ -501,7 +501,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.CategoryDetail", b =>
@@ -528,7 +528,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
 
                     b.HasIndex("LanguageId");
 
-                    b.ToTable("CategoryDetails");
+                    b.ToTable("CategoryDetails", (string)null);
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Chat", b =>
@@ -561,7 +561,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Chats");
+                    b.ToTable("Chats", (string)null);
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Chef", b =>
@@ -615,7 +615,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Chefs");
+                    b.ToTable("Chefs", (string)null);
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Comment", b =>
@@ -668,7 +668,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Comments", t =>
+                    b.ToTable("Comments", null, t =>
                         {
                             t.HasCheckConstraint("CK_Comment_Rating_Range", "[Rating] >= 0 AND [Rating] <= 5");
                         });
@@ -704,7 +704,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Contacts", t =>
+                    b.ToTable("Contacts", null, t =>
                         {
                             t.HasCheckConstraint("CK_Contact_Email", "Email LIKE '%@%' AND Email LIKE '%.%'");
                         });
@@ -725,7 +725,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Ingredients");
+                    b.ToTable("Ingredients", (string)null);
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Language", b =>
@@ -750,7 +750,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Languages");
+                    b.ToTable("Languages", (string)null);
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Message", b =>
@@ -797,7 +797,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
 
                     b.HasIndex("SenderId");
 
-                    b.ToTable("Messages");
+                    b.ToTable("Messages", (string)null);
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Order", b =>
@@ -873,7 +873,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.OrderItem", b =>
@@ -920,7 +920,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                     b.HasIndex("ProductId", "OrderId")
                         .IsUnique();
 
-                    b.ToTable("OrderItems");
+                    b.ToTable("OrderItems", (string)null);
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Product", b =>
@@ -989,7 +989,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products", t =>
+                    b.ToTable("Products", null, t =>
                         {
                             t.HasCheckConstraint("CK_Product_Price", "[Price] >= 0");
                         });
@@ -1023,7 +1023,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductDetails");
+                    b.ToTable("ProductDetails", (string)null);
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.ProductImage", b =>
@@ -1053,7 +1053,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
                         .IsUnique()
                         .HasFilter("[IsMain] = 1");
 
-                    b.ToTable("ProductImages");
+                    b.ToTable("ProductImages", (string)null);
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.ProductIngredient", b =>
@@ -1071,7 +1071,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
 
                     b.HasIndex("IngredientId");
 
-                    b.ToTable("ProductIngredients");
+                    b.ToTable("ProductIngredients", (string)null);
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Reservation", b =>
@@ -1122,7 +1122,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
 
                     b.HasIndex("TableId");
 
-                    b.ToTable("Reservations");
+                    b.ToTable("Reservations", (string)null);
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Slider", b =>
@@ -1153,7 +1153,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Sliders");
+                    b.ToTable("Sliders", (string)null);
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Subscribe", b =>
@@ -1176,7 +1176,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Subscribes", t =>
+                    b.ToTable("Subscribes", null, t =>
                         {
                             t.HasCheckConstraint("CK_Contact_Email", "Email LIKE '%@%' AND Email LIKE '%.%'")
                                 .HasName("CK_Contact_Email1");
@@ -1199,7 +1199,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tables");
+                    b.ToTable("Tables", (string)null);
                 });
 
             modelBuilder.Entity("Restaurant_Reservation_System_.Core.Entittes.Topic", b =>
@@ -1234,7 +1234,7 @@ namespace Restaurant_Reservation_System_.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Topics");
+                    b.ToTable("Topics", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

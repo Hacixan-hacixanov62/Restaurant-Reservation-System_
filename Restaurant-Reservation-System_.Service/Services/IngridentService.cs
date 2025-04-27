@@ -37,7 +37,7 @@ namespace Restaurant_Reservation_System_.Service.Services
                 throw new Exception("Ingredient tapılmadı");
             }
 
-            _ıngridentRepository.Delete(ingredient);
+           await _ıngridentRepository.Delete(ingredient);
         }
 
         public async Task<Ingredient> DetailAsync(int id)

@@ -21,7 +21,7 @@ namespace Restaurant_Reservation_System_.Service.Services
         {
             string bookingId = Guid.NewGuid().ToString();
 
-            string qrContent = $"https://mytestingserver.net/fakeMenuLink/{bookingId}";
+            string qrContent = $"http://172.16.1.243:5159/fakeMenuLink/{bookingId}";
 
             QRCodeGenerator qrCodeGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrCodeGenerator.CreateQrCode(qrContent, QRCodeGenerator.ECCLevel.Q);
@@ -29,7 +29,7 @@ namespace Restaurant_Reservation_System_.Service.Services
             byte[] qrCodeBytes = qrCode.GetGraphic(20);
 
             string fileName = $"qr_{bookingId}.png";
-            string relativeFolder = "assets/images/qr";
+            string relativeFolder = "assets/images/qr"; 
             string folderPath = Path.Combine(_env.WebRootPath, relativeFolder);
             string filePath = Path.Combine(folderPath, fileName);
 

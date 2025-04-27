@@ -60,7 +60,7 @@ namespace Restaurant_Reservation_System_.Service.Services
             string imagePath = Path.Combine(_env.WebRootPath, "assets/images/home", about.Image);
             FileManager.DeleteFile(imagePath);
 
-            _aboutRepository.Delete(about);
+           await _aboutRepository.Delete(about);
         }
 
         public async Task<About> DetailAsync(int id)

@@ -90,7 +90,7 @@ namespace Restaurant_Reservation_System_.Service.Services
                 throw new Exception("Product tapılmadı");
             }
 
-            _productRepository.Delete(product);
+           await _productRepository.Delete(product);
            await  _productRepository.SaveChangesAsync();
         }
 

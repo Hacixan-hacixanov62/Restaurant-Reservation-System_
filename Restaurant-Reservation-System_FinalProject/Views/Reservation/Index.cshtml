@@ -179,7 +179,7 @@
         x.addEventListener('click', async () => {
             tableArea.parentElement.parentElement.classList.remove('displayNone')
 
-            const response = await fetch(`https://localhost:7006/reservation/GetTablesByPersonCount?count=${x.dataset.count}&time=${dateTimeInput.value}`);
+            const response = await fetch(`http://localhost:5253/reservation/GetTablesByPersonCount?count=${x.dataset.count}&time=${dateTimeInput.value}`); //http://172.16.1.243:5159 // bu kod IP addressdi bunu yazsam QR kodu oxutmaq olur
 
             const tables = await response.json();
 
@@ -208,7 +208,7 @@
 
             if (activeElement != undefined) {
 
-                const response = await fetch(`https://localhost:7006/reservation/GetTablesByPersonCount?count=${activeElement.children[0].dataset.count}&time=${dateTimeInput.value}`);
+                const response = await fetch(`http://localhost:5253/reservation/GetTablesByPersonCount?count=${activeElement.children[0].dataset.count}&time=${dateTimeInput.value}`); //http://172.16.1.243:5159 // bu kod IP addressdi bunu yazsam QR kodu oxutmaq olur
 
                 const tables = await response.json();
 
@@ -234,11 +234,11 @@
         var message = '@TempData["message"]'
 
         if (message) {
-
+            
         Toastify({
             text: message,
             duration: 3000,
-            destination: "https://github.com/apvarun/toastify-js",
+            destination: "http://github.com/apvarun/toastify-js",
             newWindow: true,
             close: true,
             gravity: "bottom",
